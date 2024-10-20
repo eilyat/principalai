@@ -1,0 +1,122 @@
+---
+
+export const partial = true;
+
+---
+
+<div x-data="{
+  sections: [
+    {
+      id: 'sustainable-energy',
+      title: 'Sustainable Energy Solutions',
+      description: 'We specialize in investment strategies and forecasts for the sustainable energy sector.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Sustainable Energy',
+    },
+    {
+      id: 'climate-strategy',
+      title: 'Climate & Environmental Strategy',
+      description: 'Expert guidance on navigating the complexities of climate change through innovative planning.',
+      img: '/blog-placeholder-2.jpg',
+      alt: 'Climate Strategy',
+    },
+    {
+      id: 'urban-development',
+      title: 'Urban Development & Housing',
+      description: 'Addressing challenges in housing affordability and urban spatial development.',
+      img: '/blog-placeholder-3.jpg',
+      alt: 'Urban Development',
+    },
+    {
+      id: 'infrastructure-planning',
+      title: 'Infrastructure Planning & Analysis',
+      description: 'We assist our clients in identifying the primary and secondary impacts of infrastructure investments.',
+      img: '/blog-placeholder-4.jpg',
+      alt: 'Infrastructure Planning',
+    },
+    {
+      id: 'tourism-assessment',
+      title: 'Tourism Impact Assessment',
+      description: 'Evaluating the economic effects of tourism initiatives on local communities.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Tourism Assessment',
+    },
+    {
+      id: 'regulatory-economics',
+      title: 'Regulatory Economics Insights',
+      description: 'Exploring the intricacies of regulatory frameworks and their implications.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Regulatory Economics',
+    },
+    {
+      id: 'transport-policy',
+      title: 'Transport Policy & Accessibility',
+      description: 'Addressing challenges in transport equity and sustainability.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Transport Policy',
+    },
+  ],
+  openSection: 'sustainable-energy',
+  toggle(sectionId) {
+        this.openSection = this.openSection === sectionId ? '' : sectionId;
+        if (this.openSection) {
+            this.$refs[sectionId].focus(); // Focus the opened section
+        }
+    },
+    close() {
+        this.openSection = '';
+    }
+}"  
+
+class="py-2 mega-menu mb-16 sm:mb-0 shadow-xl bg-white w-full ">
+  <div class="flex flex-col sm:flex-row py-4 mx-auto" @mouseleave="openSection = ''">
+
+    <!-- Intro Section -->
+    <div class="w-full pr-4 border-l-2 dark:border-outlineDark flex h-min-[17em] mx-auto">
+      <ul class="flex flex-col justify-items-start">
+        <h3 class="font-bold text-xl text-black my-2 p-6 flex">Our Areas of Expertise</h3>
+        <p class="text-black pb-6 pl-6 flex">With a deep understanding of local conditions, we tackle complex issues from multiple perspectives to deliver innovative solutions</p>
+        <p class="text-black pb-6 pl-6 flex">Learn more about our services</p>
+      </ul>
+    </div>
+
+    <!-- Section List -->
+    <ul class="flex flex-col w-full h-min-[17em] border-l-2 dark:border-outlineDark">
+      <template x-for="section in sections" :key="section.id">
+        <li class="border-outline text-onSurface text-md vertical-align font-medium capitalize transition duration-200 hover:border-l-4 hover:border-outlineStrong focus:outline-none hover:text-onSurfaceStrong focus:border-l-4 focus:border-outlineStrong focus:text-onSurfaceStrong focus-within:text-onSurfaceStrong h-15">
+          <button 
+            @mouseenter="openSection = section.id" 
+            @keydown.enter.prevent="focusSection(section.id)" 
+            @keydown.space.prevent="focusSection(section.id)" 
+            @focus="openSection = section.id" 
+            class="block w-full p-3 text-black text-left my-auto"
+          >
+            <span x-text="section.title"></span>
+          </button>
+        </li>
+      </template>
+    </ul>
+
+    <!-- Section Display -->
+    <div class="flex flex-col pb-6 pt-6 lg:pt-3 h-min-[17em] border-l-2 dark:border-outlineDark w-full">
+      <template x-for="section in sections" :key="section.id">
+        <div 
+          x-show="openSection === section.id" 
+          class="section-content transition duration-300"
+          x-cloak
+        >
+          <h4 class="text-xl font-semibold text-white" x-text="section.title"></h4>
+          <p class="mt-2 text-gray-300" x-text="section.description"></p>
+          <img 
+            :src="section.img" 
+            :alt="section.alt" 
+            class="mt-2 object-cover rounded" 
+            width="300" 
+            height="300"
+            render:"img"
+          />
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
