@@ -1,233 +1,23 @@
 ---
 export const partial = true;
-import Industries from "./industries.astro";
-
+// import Industries from "./industries.astro";
+import SearchWidget from "./SearchWidget.astro";
+import NavCluser from "./NavCluster.astro";
 ---
 
-<nav class="relative bg-white border-b-2 text-gray-900 w-full">
-  <div class="container flex flex-row justify-between max-w-full pr-5">
-    <div class="relative block p-4 lg:p-6 text-xl text-blue-600 font-bold">
+<nav class="relative text-gray-900 w-full">
+  <div class="container flex flex-row pr-5 max-w-screen-2xl mx-auto">
+    <div class="flex flex-shrink py-4 lg:p-6 text-xl text-blue-600 font-bold">
       Principal Economics
     </div>
-    <ul class="flex flex-row space-x-4 list-none">
-      <li
-        x-data="{ open: false }"
-        class="toggleable hover:bg-blue-800 hover:text-white"
-      >
-        <!-- Label -->
-        <button
-          @click="open = !open"
-          @keydown.enter.prevent="open = !open"
-          @keydown.space.prevent="open = !open"
-          :aria-expanded="open"
-          aria-controls="industries-menu"
-          tabindex="0"
-          class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-        >
-          Industries
-        </button>
-
-        <!-- Panel -->
-        <div
-          x-show="open"
-          x-transition
-          x-collapse.duration.300ms
-          @click.outside="open = false"
-          @keydown.escape="open = false"
-          id="industries-menu"
-          style="display: none;"
-          class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-          
-        >
-          <Industries />
-        </div>
-      </li>
-
-      <li
-        x-data="{ open: false }"
-        class="toggleable hover:bg-blue-800 hover:text-white"
-      >
-        <!-- Label -->
-        <button
-          @click="open = !open"
-          @keydown.enter.prevent="open = !open"
-          @keydown.space.prevent="open = !open"
-          :aria-expanded="open"
-          aria-controls="industries-menu"
-          tabindex="0"
-          class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-        >
-          Capabilities
-        </button>
-
-        <!-- Panel -->
-        <div
-          x-show="open"
-          x-collapse
-          x-transition
-          @click.outside="open = false"
-          @keydown.escape="open = false"
-          id="industries-menu"
-          style="display: none;"
-          class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-          
-        >
-          <Industries />
-        </div>
-      </li>
-
-      <li
-        x-data="{ open: false }"
-        class="toggleable hover:bg-blue-800 hover:text-white"
-      >
-        <!-- Label -->
-        <button
-          @click="open = !open"
-          @keydown.enter.prevent="open = !open"
-          @keydown.space.prevent="open = !open"
-          :aria-expanded="open"
-          aria-controls="industries-menu"
-          tabindex="0"
-          class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-        >
-          Insights
-        </button>
-
-        <!-- Panel -->
-        <div
-          x-show="open"
-          x-collapse
-          x-transition
-          @click.outside="open = false"
-          @keydown.escape="open = false"
-          id="industries-menu"
-          style="display: none;"
-          class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-          
-        >
-          <Industries />
-        </div>
-      </li>
-
-      <li
-        x-data="{ open: false }"
-        class="toggleable hover:bg-blue-800 hover:text-white"
-      >
-        <!-- Label -->
-        <button
-          @click="open = !open"
-          @keydown.enter.prevent="open = !open"
-          @keydown.space.prevent="open = !open"
-          :aria-expanded="open"
-          aria-controls="industries-menu"
-          tabindex="0"
-          class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-        >
-          About us
-        </button>
-
-        <!-- Panel -->
-        <div
-          x-show="open"
-          x-collapse
-          x-transition
-          @click.outside="open = false"
-          @keydown.escape="open = false"
-          id="industries-menu"
-          style="display: none;"
-          class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-          
-        >
-          <Industries />
-        </div>
-      </li>
-
-      <li
-        x-data="{ open: false }"
-        class="toggleable hover:bg-blue-800 hover:text-white"
-      >
-        <!-- Label -->
-        <button
-          @click="open = !open"
-          @keydown.enter.prevent="open = !open"
-          @keydown.space.prevent="open = !open"
-          :aria-expanded="open"
-          aria-controls="industries-menu"
-          tabindex="0"
-          class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-        >
-          Contact us
-        </button>
-
-        <!-- Panel -->
-        <div
-          x-show="open"
-          x-collapse
-          x-transition
-          @click.outside="open = false"
-          @keydown.escape="open = false"
-          id="industries-menu"
-          style="display: none;"
-          class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-          
-        >
-          <Industries />
-        </div>
-      </li>
-
-      <!--Hover Link-->
-      <!-- <li class="hoverable hover:bg-blue-800 hover:text-white">
-        <a
-          href="#"
-          class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base font-bold hover:bg-blue-800 hover:text-white"
-          >Hover</a
-        >
-        <div class="p-0 mega-menu mb-16 sm:mb-0 shadow-xl bg-blue-800">
-          <Industries />
-        </div>
-      </li> -->
-
-
-    </ul>
-  </div>
+      <NavCluser/>
+    </div>
+    <div class="inline-flex place-items-end ml-auto">
+      <SearchWidget />
+    </div>
 </nav>
 
 <style>
-  /* ––––––––––––––––––––––––––––––––––––––––––––––––––
-Based on: https://codepen.io/nickelse/pen/YGPJQG
-Influenced by: https://sproutsocial.com/
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-  /* #Mega Menu Styles –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .mega-menu {
-    display: none;
-    left: 0;
-    position: absolute;
-    text-align: left;
-    width: 100%;
-    z-index: 1000;
-  }
-
-  /* #hoverable Class Styles –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .hoverable {
-    position: static;
-  }
-
-  .hoverable > a:after {
-    content: "\25BC";
-    font-size: 10px;
-    padding-left: 6px;
-    position: relative;
-    top: -1px;
-  }
-
-  .hoverable:hover .mega-menu {
-    display: block;
-  }
-
-  /* #toggle Class Styles
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
   .toggleable > label:after {
     content: "\25BC";
     font-size: 10px;
@@ -239,41 +29,7 @@ Influenced by: https://sproutsocial.com/
   .toggle-input {
     display: none;
   }
-  .toggle-input:not(checked) ~ .mega-menu {
-    display: none;
-  }
 
-  .toggle-input:checked ~ .mega-menu {
-    display: block;
-  }
-
-  .toggle-input:checked + label {
-    color: white;
-    background: #2c5282; /*@apply bg-blue-800 */
-  }
-
-  .toggle-input:checked ~ label:after {
-    content: "\25B2";
-    font-size: 10px;
-    padding-left: 6px;
-    position: relative;
-    top: -1px;
-  }
 </style>
 
-<script>
-  document.querySelectorAll(".toggle-input").forEach((toggle) => {
-    toggle.addEventListener("change", function () {
-      // Close all toggles
-      document.querySelectorAll(".toggle-input").forEach((t) => {
-        if (t !== this) {
-          t.checked = false;
-        }
-      });
-    });
-  });
-
-</script>
-
-<!-- <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script> -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

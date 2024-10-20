@@ -5,8 +5,10 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import Banner from '../components/frontpage/banner.astro';
 import BannerStrip from '../components/frontpage/banner_strip.astro';
-
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
 <!doctype html>
@@ -26,7 +28,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		
 		<Banner />
 		<BannerStrip />
-		<main>
+		<main class ="px-6">
+			<Breadcrumbs separatorAriaHidden={false}>
+				<svg
+				slot="separator"
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round">
+				<polyline points="9 18 15 12 9 6"></polyline>
+				</svg>
+			</Breadcrumbs>
 			<br>
 			<h1>🧑‍🚀 Hello, Astronaut!</h1>
 			<p>

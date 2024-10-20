@@ -1,0 +1,167 @@
+---
+import Industries from "./industries.astro";
+---
+
+<div class="place-items-start">
+    <ul class="flex space-x-4 pl-4">
+        <li
+            x-data="{ open: false }"
+            class="toggleable hover:bg-blue-800 hover:text-white"
+        >
+            <!-- Label -->
+            <button
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                :aria-expanded="open"
+                aria-controls="industries-menu"
+                tabindex="0"
+                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
+            >
+                Industries
+            </button>
+
+            <!-- Panel -->
+            <div
+                x-show="open"
+                x-transition
+                x-collapse.duration.300ms
+                @click.outside="open = false"
+                @keydown.escape="open = false"
+                id="industries-menu"
+                style="display: none;"
+                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
+            >
+                <Industries />
+            </div>
+        </li>
+
+        <li
+            x-data="{ open: false }"
+            class="toggleable hover:bg-blue-800 hover:text-white"
+        >
+            <!-- Label -->
+            <button
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                :aria-expanded="open"
+                aria-controls="industries-menu"
+                tabindex="0"
+                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
+            >
+                Capabilities
+            </button>
+
+            <!-- Panel -->
+            <div
+                x-show="open"
+                x-collapse
+                x-transition
+                @click.outside="open = false"
+                @keydown.escape="open = false"
+                id="industries-menu"
+                style="display: none;"
+                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
+            >
+                <Industries />
+            </div>
+        </li>
+
+        <li
+            x-data="{ open: false }"
+            class="toggleable hover:bg-blue-800 hover:text-white"
+        >
+            <!-- Label -->
+            <button
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                :aria-expanded="open"
+                aria-controls="industries-menu"
+                tabindex="0"
+                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
+            >
+                Insights
+            </button>
+
+            <!-- Panel -->
+            <div
+                x-show="open"
+                x-collapse
+                x-transition
+                @click.outside="open = false"
+                @keydown.escape="open = false"
+                id="industries-menu"
+                style="display: none;"
+                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
+            >
+                <Industries />
+            </div>
+        </li>
+
+        <li
+            x-data="{ open: false }"
+            class="toggleable hover:bg-blue-800 hover:text-white"
+        >
+            <!-- Label -->
+            <button
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                :aria-expanded="open"
+                aria-controls="industries-menu"
+                tabindex="0"
+                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
+            >
+                About us
+            </button>
+
+            <!-- Panel -->
+            <div
+                x-show="open"
+                x-collapse
+                x-transition
+                @click.outside="open = false"
+                @keydown.escape="open = false"
+                id="industries-menu"
+                style="display: none;"
+                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
+            >
+                <Industries />
+            </div>
+        </li>
+
+        <li
+            x-data="{ open: false }"
+            class="toggleable hover:bg-blue-800 hover:text-white"
+        >
+            <!-- Label -->
+            <button
+                @click="open = !open"
+                @keydown.enter.prevent="open = !open"
+                @keydown.space.prevent="open = !open"
+                :aria-expanded="open"
+                aria-controls="industries-menu"
+                tabindex="0"
+                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
+            >
+                Contact us
+            </button>
+
+            <!-- Panel -->
+            <div
+                x-show="open"
+                x-collapse
+                x-transition
+                @click.outside="open = false"
+                @keydown.escape="open = false"
+                id="industries-menu"
+                style="display: none;"
+                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
+            >
+                <Industries />
+            </div>
+        </li>
+    </ul>
+</div>
