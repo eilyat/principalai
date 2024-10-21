@@ -1,0 +1,55 @@
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+<div class = "bg-white">
+<div x-data="{
+    tabs: [
+        { name: 'Home', content: ['Home Link 1', 'Home Link 2'] },
+        { name: 'Services', content: ['Service Link 1', 'Service Link 2'] },
+        { name: 'About', content: ['About Link 1', 'About Link 2'] },
+        { name: 'Contact', content: ['Contact Link 1', 'Contact Link 2'] }
+    ],
+    selectedTab: 0,
+    isContentVisible: true,
+
+    toggleTab(index) {
+        if (this.selectedTab === index) {
+            this.isContentVisible = !this.isContentVisible;
+        } else {
+            this.selectedTab = index;
+            this.isContentVisible = true;
+        }
+    }
+}" class="relative w-full bg-white text-white">
+
+    <!-- Tab Buttons -->
+    <div class="flex gap-2 overflow-x-auto border-b border-neutral-300" role="tablist" aria-label="navigation options">
+        <template x-for="(tab, index) in tabs" :key="tab.name">
+            <div @click="toggleTab(index)" 
+                 @keydown.enter.prevent="toggleTab(index)" 
+                 @keydown.space.prevent="toggleTab(index)"
+                 role="tab" 
+                 :aria-selected="selectedTab === index" 
+                 :tabindex="0" 
+                 :class="selectedTab === index ? 'font-bold text-white border-b-2 border-white' : 'text-neutral-400 font-medium hover:text-white'" 
+                 class="h-min px-4 py-2 text-sm" x-text="tab.name"></div>
+        </template>
+    </div>
+
+    <!-- Tab Contents -->
+    <div class="px-2 py-4 text-neutral-300">
+        <template x-for="(tab, index) in tabs" :key="tab.name">
+            <div x-show="selectedTab === index && isContentVisible" x-cloak role="tabpanel" tabindex="0">
+                <template x-for="link in tab.content" :key="link">
+                    <a :href="'#'" class="block text-white hover:underline" x-text="link"></a>
+                </template>
+            </div>
+        </template>
+    </div>
+</div>
+</div>
+
+
+<style>
+[x-cloak] {
+    display: none;
+}
+</style>
