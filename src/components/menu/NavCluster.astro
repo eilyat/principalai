@@ -2,64 +2,67 @@
 import Industries from "./industries.astro";
 ---
 
-<div class="place-items-start">
-    <ul class="flex flex-grow">
+
+<div class="place-items-start items-center h-full">
+    <ul class="flex flex-grow h-full">
         <li
-            x-data="{ open: false }"
-            class="toggleable hover:bg-blue-800 hover:text-white"
+        x-data="{ isOpened: false, openedWithKeyboard: false }" @keydown.esc.window="isOpened = false, openedWithKeyboard = false"            
+        class="toggleable hover:bg-gray-100 hover:text-black h-full"
         >
             <!-- Label -->
             <button
-                @click="open = !open"
-                @keydown.enter.prevent="open = !open"
-                @keydown.space.prevent="open = !open"
-                :aria-expanded="open"
+                @click.prevent="isOpened = !isOpened; console.log('Dropdown opened:', isOpened)"                 
+                @keydown.space.prevent="openedWithKeyboard = true" 
+                @keydown.enter.prevent="openedWithKeyboard = true" 
+                @keydown.down.prevent="openedWithKeyboard = true" 
                 aria-controls="industries-menu"
                 tabindex="0"
-                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
+                class="flex flex-row cursor-pointer px-5 text-lg items-center h-full"
             >
                 Industries
             </button>
 
             <!-- Panel -->
             <div
-                x-show="open"
-                x-transition
-                x-collapse.duration.300ms
-                @click.outside="open = false"
-                @keydown.escape="open = false"
+            x-cloak 
+            x-show="isOpened || openedWithKeyboard" 
+            x-collapse
+            x-trap="openedWithKeyboard" 
+            @click.outside="isOpened = false, openedWithKeyboard = false" 
+            @keydown.down.prevent="$focus.wrap().next()" 
+            @keydown.up.prevent="$focus.wrap().previous()" 
                 id="industries-menu"
                 style="display: none;"
-                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
+                class="absolute left-0 shadow-md z-50 max-w-full w-full sm:flex-col mt-2 "
             >
                 <Industries />
             </div>
         </li>
 
         <li
-            x-data="{ open: false }"
-            class="toggleable hover:bg-blue-800 hover:text-white"
+        x-data="{ isOpened: false, openedWithKeyboard: false }" @keydown.esc.window="isOpened = false, openedWithKeyboard = false"            
+        class="toggleable hover:bg-blue-800 hover:text-white"
         >
             <!-- Label -->
             <button
-                @click="open = !open"
-                @keydown.enter.prevent="open = !open"
-                @keydown.space.prevent="open = !open"
-                :aria-expanded="open"
+            @click.prevent="isOpened = !isOpened; console.log('Dropdown opened:', isOpened)"
+                @keydown.space.prevent="openedWithKeyboard = true" 
+                @keydown.enter.prevent="openedWithKeyboard = true" 
+                @keydown.down.prevent="openedWithKeyboard = true" 
                 aria-controls="industries-menu"
                 tabindex="0"
-                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
+                class="flex flex-row cursor-pointer px-5 text-lg items-center h-full"
             >
-                Capabilities
+                Industries
             </button>
 
             <!-- Panel -->
             <div
-                x-show="open"
-                x-collapse
-                x-transition
-                @click.outside="open = false"
-                @keydown.escape="open = false"
+            x-cloak 
+            x-show="isOpened || openedWithKeyboard" 
+            x-trap="openedWithKeyboard" 
+            @click.outside="isOpened = false, openedWithKeyboard = false" @keydown.down.prevent="$focus.wrap().next()" 
+            @keydown.up.prevent="$focus.wrap().previous()" 
                 id="industries-menu"
                 style="display: none;"
                 class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
@@ -68,100 +71,12 @@ import Industries from "./industries.astro";
             </div>
         </li>
 
-        <li
-            x-data="{ open: false }"
-            class="toggleable hover:bg-blue-800 hover:text-white"
-        >
-            <!-- Label -->
-            <button
-                @click="open = !open"
-                @keydown.enter.prevent="open = !open"
-                @keydown.space.prevent="open = !open"
-                :aria-expanded="open"
-                aria-controls="industries-menu"
-                tabindex="0"
-                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-            >
-                Insights
-            </button>
 
-            <!-- Panel -->
-            <div
-                x-show="open"
-                x-collapse
-                x-transition
-                @click.outside="open = false"
-                @keydown.escape="open = false"
-                id="industries-menu"
-                style="display: none;"
-                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-            >
-                <Industries />
-            </div>
-        </li>
-
-        <li
-            x-data="{ open: false }"
-            class="toggleable hover:bg-blue-800 hover:text-white"
-        >
-            <!-- Label -->
-            <button
-                @click="open = !open"
-                @keydown.enter.prevent="open = !open"
-                @keydown.space.prevent="open = !open"
-                :aria-expanded="open"
-                aria-controls="industries-menu"
-                tabindex="0"
-                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-            >
-                About us
-            </button>
-
-            <!-- Panel -->
-            <div
-                x-show="open"
-                x-collapse
-                x-transition
-                @click.outside="open = false"
-                @keydown.escape="open = false"
-                id="industries-menu"
-                style="display: none;"
-                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-            >
-                <Industries />
-            </div>
-        </li>
-
-        <li
-            x-data="{ open: false }"
-            class="toggleable hover:bg-blue-800 hover:text-white"
-        >
-            <!-- Label -->
-            <button
-                @click="open = !open"
-                @keydown.enter.prevent="open = !open"
-                @keydown.space.prevent="open = !open"
-                :aria-expanded="open"
-                aria-controls="industries-menu"
-                tabindex="0"
-                class="block cursor-pointer py-6 px-4 lg:p-6 text-sm lg:text-base font-bold"
-            >
-                Contact us
-            </button>
-
-            <!-- Panel -->
-            <div
-                x-show="open"
-                x-collapse
-                x-transition
-                @click.outside="open = false"
-                @keydown.escape="open = false"
-                id="industries-menu"
-                style="display: none;"
-                class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
-            >
-                <Industries />
-            </div>
-        </li>
     </ul>
 </div>
+
+
+<style>
+    [x-cloak] { display: none; }
+
+</style>

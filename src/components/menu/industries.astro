@@ -68,39 +68,42 @@ export const partial = true;
     }
 }"  
 
-class="py-2 mega-menu mb-16 sm:mb-0 shadow-xl bg-white sm:flex-row px-5">
-  <div class="sm:flex-row items-between flex justify-between flex-col w-full" @mouseleave="openSection = 'sustainable-energy'">
-
+class="py-2 mb-0 shadow-xl bg-white w-full">
+  <div class="flex flex-row max-w-screen-2xl mx-auto pt-0" 
+        @mouseleave="openSection = 'sustainable-energy'">
     <!-- Intro Section -->
-    <div class="md:w-1/4 flex h-min-[17em] mx-auto">
-      <ul class="flex flex-col h-fullp-6">
-        <h3 class="font-bold text-xl text-black my-2">Our Areas of Expertise</h3>
-        <p class="text-black">With a deep understanding of local conditions, we tackle complex issues from multiple perspectives to deliver innovative solutions <br></br>
-        Learn more about our services
-      </ul>
-    </div>
+
 
     <!-- Section List -->
-    <ul class="md:w-1/4 h-min-[17em]">
+    <ul class="w-1/3 border-r-2 m-4 ">
       <template x-for="section in sections" :key="section.id">
-        <!-- <li class="border-outline text-onSurface text-md vertical-align font-medium capitalize transition duration-200 hover:border-l-4 hover:border-outlineStrong focus:outline-none hover:text-onSurfaceStrong focus:border-l-4 focus:border-outlineStrong focus:text-onSurfaceStrong focus-within:text-onSurfaceStrong h-15"> -->
         <li class=" text-gray-800">
           <button 
             @mouseenter="openSection = section.id" 
             @keydown.enter.prevent="focusSection(section.id)" 
             @keydown.space.prevent="focusSection(section.id)" 
             @focus="openSection = section.id" 
-            class="h-full p-3 text-gray-600 text-left my-auto border-l-2 border-gray-300 block pl-4 text-md font-semibold hover:border-l-4 hover:border-blue-500 hover:text-blue-700 hover:font-bold focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:font-bold
-            min-w-full"
-          >
+            class="h-full p-2 text-gray-600 text-left my-2 border-l-2 border-gray-300 block  text-md w-full
+            hover:border-blue-500 hover:text-blue-700  hover:border-l-4 hover:bg-gray-100 hover:shadow-sm
+            focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:font-bold focus:bg-gray-100
+            "
+          > 
             <span x-text="section.title"></span>
           </button>
         </li>
       </template>
     </ul>
 
+    <div class="h-min-[17em] w-1/3">
+      <ul class="flex flex-col h-full p-6">
+        <h3 class="font-bold text-xl text-black my-2">Our Areas of Expertise</h3>
+        <p class="text-black">With a deep understanding of local conditions, we tackle complex issues from multiple perspectives to deliver innovative solutions <br></br>
+        Learn more about our services
+      </ul>
+    </div>
+
     <!-- Section Display -->
-    <div class="flex pb-6 pt-6 lg:pt-3 h-min-[17em] border-l-2 md:w-1/2 dark:border-outlineDark w-full px-5">
+    <div class=" pb-6 pt-6 lg:pt-3 h-min-[17em] border-l-2 dark:border-outlineDark w-1/3">
       <template x-for="section in sections" :key="section.id">
         <div 
           x-show="openSection === section.id" 
@@ -123,4 +126,3 @@ class="py-2 mega-menu mb-16 sm:mb-0 shadow-xl bg-white sm:flex-row px-5">
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>

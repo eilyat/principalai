@@ -11,6 +11,10 @@ import alpinejs from '@astrojs/alpinejs';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://example.com',
-    integrations: [mdx(), sitemap(), tailwind(), 
-        alpinejs({ entrypoint: '/src/entrypoint' })],
+    integrations: [
+      mdx(),
+      sitemap(),
+      tailwind(),
+      alpinejs({ entrypoint: '/src/entrypoint' }),
+    ],
 });
