@@ -1,0 +1,39 @@
+---
+const {title, aria} = Astro.props;
+---
+
+<div
+x-data="{ isOpened: false, openedWithKeyboard: false }" @keydown.esc.window="isOpened = false, openedWithKeyboard = false"            
+class="toggleable hover:bg-gray-100 hover:text-black h-full"
+>
+    <!-- Label -->
+    <button
+    x-ref="button"
+        @click.prevent="isOpened = !isOpened; console.log('Dropdown opened:', isOpened)"                 
+        @keydown.space.prevent="openedWithKeyboard = true" 
+        @keydown.enter.prevent="openedWithKeyboard = true" 
+        @keydown.down.prevent="openedWithKeyboard = true" 
+    aria-controls={aria}
+    class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
+    >
+      {title}
+    </button>
+
+    <!-- Panel -->
+    <div
+    x-cloak 
+    x-show="isOpened || openedWithKeyboard" 
+    x-collapse
+    x-trap="openedWithKeyboard" 
+    x-anchor.no-style="document.getElementById('nav')"
+    x-bind:style="{ position: 'absolute', top: $anchor.y+'px' }"
+    @click.outside="isOpened = false, openedWithKeyboard = false" 
+    @keydown.down.prevent="$focus.wrap().next()" 
+    @keydown.up.prevent="$focus.wrap().previous()" 
+        id={aria}
+        style="display: none;"
+        class="absolute left-0 rounded-md shadow-md z-50 max-w-full w-full sm:flex-col"
+    >
+    <slot />
+    </div>
+</div>
