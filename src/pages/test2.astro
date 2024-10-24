@@ -1,0 +1,53 @@
+<!-- <script src="//unpkg.com/alpinejs" defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script> -->
+
+<nav x-data="{ open: false, navigationMenu: '', 
+      toggleMenu(menu) { this.navigationMenu = this.navigationMenu === menu ? '' : menu; this.open = this.navigationMenu ? true : false; }, 
+      navigationMenuClose() { this.navigationMenu = ''; this.open = false; } }"
+      @keydown.esc.window="open = false"
+      class="relative">
+    <div class="flex space-x-4 p-4 bg-gray-100">
+        <ul class="flex space-x-4">
+            <li>
+                <button 
+                @click="toggleMenu('getting-started')" 
+                @keydown.space.prevent="toggleMenu('getting-started')"
+                @keydown.enter.prevent="toggleMenu('getting-started')" 
+                @keydown.down.prevent="toggleMenu('getting-started')" 
+                class="px-4 py-2 bg-white border rounded">Getting Started</button>
+            </li>
+            <li>
+                <button @click="toggleMenu('learn-more')"
+                @keydown.space.prevent="toggleMenu('learn-more')"
+                @keydown.enter.prevent="toggleMenu('learn-more')" 
+                @keydown.down.prevent="toggleMenu('learn-more')" 
+                class="px-4 py-2 bg-white border rounded">Learn More</button>
+            </li>
+        </ul>
+    </div>
+
+    <div x-show="open" x-collapse class="absolute mt-2 w-full z-10"
+         x-trap="open"
+         x-bind:style="{ position: 'absolute', top: $anchor.y+'px' }"
+            @click.outside="isOpened = false, openedWithKeyboard = false" 
+            @keydown.down.prevent="$focus.wrap().next()" 
+            @keydown.up.prevent="$focus.wrap().previous()">
+        <div class="bg-white border rounded shadow">
+            <template x-if="navigationMenu === 'getting-started'">
+                <div class="p-4">
+                    <a href="#" class="block">Introduction</a>
+                    <a href="#" class="block">Usage</a>
+                    <a href="#" class="block">Contributing</a>
+                </div>
+            </template>
+            <template x-if="navigationMenu === 'learn-more'">
+                <div class="p-4">
+                    <a href="#" class="block">Tailwind CSS</a>
+                    <a href="#" class="block">Laravel</a>
+                    <a href="#" class="block">Pines UI</a>
+                </div>
+            </template>
+        </div>
+    </div>
+</nav>

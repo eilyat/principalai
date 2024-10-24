@@ -1,0 +1,83 @@
+---
+const { title, aria } = Astro.props;
+---
+
+<div class="place-items-start items-center h-full">
+
+  <ul class="flex flex-row h-full">
+    <li
+      x-data="{ open: false, navigationMenu: '', 
+      toggleMenu(menu) { this.navigationMenu = this.navigationMenu === menu ? '' : menu; this.open = this.navigationMenu ? true : false; }, 
+      navigationMenuClose() { this.navigationMenu = ''; this.open = false; } }"
+      @keydown.esc.window="open = false"
+      class="toggleable hover:bg-gray-100 hover:text-black h-full"
+    >
+
+      <li>
+        <button
+          @click="toggleMenu('industries')"
+          @keydown.space.prevent="toggleMenu('industries')"
+          @keydown.enter.prevent="toggleMenu('industries')"
+          @keydown.down.prevent="toggleMenu('industries')"
+          aria-label="industries-menu"
+          class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
+        >
+          Industries
+        </button>
+      </li>
+
+      <li>
+        <button
+          @click="toggleMenu('capabilities')"
+          @keydown.space.prevent="toggleMenu('capabilities')"
+          @keydown.enter.prevent="toggleMenu('capabilities')"
+          @keydown.down.prevent="toggleMenu('capabilities')"
+          aria-label="capabilities-menu"
+          class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
+        >
+          Capabilities
+        </button>
+      </li>
+
+      <li>
+        <button
+          @click="toggleMenu('insights')"
+          @keydown.space.prevent="toggleMenu('insights')"
+          @keydown.enter.prevent="toggleMenu('insights')"
+          @keydown.down.prevent="toggleMenu('insights')"
+          aria-label="insights-menu"
+          class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
+        >
+          Insights
+        </button>
+      </li>
+
+      <li>
+        <button
+          @click="toggleMenu('about-us')"
+          @keydown.space.prevent="toggleMenu('about-us')"
+          @keydown.enter.prevent="toggleMenu('about-us')"
+          @keydown.down.prevent="toggleMenu('about-us')"
+          aria-label="about-us-menu"
+          class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
+        >
+          About us
+        </button>
+      </li>
+
+      <li>
+        <button
+          @click="toggleMenu('contact-us')"
+          @keydown.space.prevent="toggleMenu('contact-us')"
+          @keydown.enter.prevent="toggleMenu('contact-us')"
+          @keydown.down.prevent="toggleMenu('contact-us')"
+          aria-label="contact-us-menu"
+          class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
+        >
+          Contact us
+        </button>
+      </li>
+
+    </li>
+  </ul>
+</div>

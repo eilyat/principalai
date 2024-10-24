@@ -1,0 +1,138 @@
+---
+
+export const partial = true;
+
+---
+
+<div x-data="{
+  sections: [
+    {
+      id: 'energy',
+      title: 'testtt',
+      description: 'Providing advice and forecasts in the area of energy sector investment.',
+      imgtext: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Energy',
+    },
+    {
+      id: 'environment',
+      title: 'Environmental',
+      description: 'Fundamental uncertainty in the future climate requires new ways of planning.',
+      summary: 'We offer a comprehensive range of services to support our clients in navigating the complex landscale of climate change and environmental issues.',
+      img: '/blog-placeholder-2.jpg',
+      alt: 'Climate Strategy',
+    },
+    {
+      id: 'urban-development',
+      title: 'Urban Development & Housing',
+      description: 'Addressing challenges in housing affordability and urban spatial development.',
+      summary: 'Our team at Principal Economics encompass a unique combination of knowledge, experience, and skills suited for solving spatial and urban development and housing issues.',    
+      img: '/blog-placeholder-3.jpg',
+      alt: 'Urban Development',
+    },
+    {
+      id: 'infrastructure-planning',
+      title: 'Infrastructure',
+      description: 'Robust economic frameworks and empirical methods, informed by evidence, shaped in collaboration with stakeholders.',
+      summary: 'We assist our clients in identifying the primary and secondary impacts of infrastructure investments',
+      img: '/blog-placeholder-4.jpg',
+      alt: 'Infrastructure Planning',
+    },
+    {
+      id: 'tourism-assessment',
+      title: 'Tourism Impact Assessment',
+      description: ' Valuing the direct and indirect benefits and costs of tourism.',
+      summary: 'We have used different data sets alongside with our tourism modelling capabilities for evaluating the impact of a range of investments and policy initiatives in the tourism sector.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Tourism Assessment',
+    },
+    {
+      id: 'regulatory-economics',
+      title: 'Regulatory Economics Insights',
+      description: 'Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors.',
+      summary: 'Our team have been assisting clients within regulated sectors to navigate the intricacies of economic regulation. Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors. We collaborate with regulators to craft innovative policies, scrutinise companies business plans, and create accurate forecasts and economic models.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Regulatory Economics',
+    },
+    {
+      id: 'transport-policy',
+      title: 'Transport Policy & Accessibility',
+      description: 'Accessibility is the potential for interaction with locations dispersed over space.',
+      summary: 'Our team currently lead some of the most important transport research and strategy topics. This includes providing expert advice on transport appraisal, transformative change, VKT and freight, emission reduction policies and decision making under deep uncertainty.',
+      img: '/blog-placeholder-1.jpg',
+      alt: 'Transport Policy',
+    },
+  ],
+  openSection: 'energy',
+  toggle(sectionId) {
+        this.openSection = this.openSection === sectionId ? '' : sectionId;
+        if (this.openSection) {
+            this.$refs[sectionId].focus(); // Focus the opened section
+        }
+    },
+    close() {
+        this.openSection = 'energy';
+    }
+}"  
+
+class="py-2 mb-0 shadow-xl bg-white w-full">
+  <div class="flex flex-row max-w-screen-2xl mx-auto pt-0 h-full" 
+        @mouseleave="openSection = 'energy'">
+
+
+    <!-- Section List -->
+    <ul class="w-2/3 grid grid-cols-2 gap-2 gap-y-2 h-full">
+      <template x-for="section in sections" :key="section.id">
+        <li class="text-gray-800">
+          <button 
+            @mouseenter="openSection = section.id" 
+            @keydown.enter.prevent="focusSection(section.id)" 
+            @keydown.space.prevent="focusSection(section.id)" 
+            @focus="openSection = section.id" 
+            class="h-[80px] pl-2 text-gray-600 text-left my-1 border-l-2 border-gray-300 block  text-md w-full
+            hover:border-blue-500 hover:text-blue-700  hover:border-l-4 hover:bg-gray-100 hover:shadow-sm
+            focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100
+            "
+          >
+          <div class="h-full flex flex-col items-justified justify-center pl-2 pr-5">
+            <span x-text="section.title" class="font-semibold"></span>
+            <p x-text="section.description" class="text-sm  text-gray-500"></p>
+          </div> 
+          </button>
+        </li>
+      </template>
+    </ul>
+
+    <!-- Intro Section -->
+    <!-- <div class="h-min-[17em] w-1/3">
+      <ul class="flex flex-col h-full p-6">
+        <h3 class="font-bold text-xl text-black my-2">Our Areas of Expertise</h3>
+        <p class="text-black">With a deep understanding of local conditions, we tackle complex issues from multiple perspectives to deliver innovative solutions <br></br>
+        Learn more about our services
+      </ul>
+    </div> -->
+
+    <!-- Section Display -->
+    <div class=" px-6 pl-4 w-1/3">
+      <template x-for="section in sections" :key="section.id">
+        <div 
+          x-show="openSection === section.id" 
+          class="section-content transition duration-300"
+          x-cloak
+        >
+          <h4 class="text-xl font-semibold text-black" x-text="section.title"></h4>
+          <p class="text-gray-300" x-text="section.summary"></p>
+          <img 
+            :src="section.img" 
+            :alt="section.alt" 
+            class="object-cover rounded" 
+            width="300" 
+            height="300"
+            render:"img"
+          />
+        </div>
+      </template>
+    </div>
+  </div>
+</div>
+
