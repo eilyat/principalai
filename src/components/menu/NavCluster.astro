@@ -9,14 +9,15 @@ import DropDown from "./DropDown.astro";
   open: false, 
   navigationMenu: '',
   menuItems: [
-      { name: 'industries', label: 'Industries'},
-      { name: 'capabilities', label: 'Capabilities'},
-      { name: 'insights', label: 'Insights' },
-      { name: 'about-us', label: 'About Us' },
-      { name: 'contact-us', label: 'Contact Us' }
+      { name: 'industries',   label: 'Industries',   link: '../../content/industries'  },
+      { name: 'capabilities', label: 'Capabilities', link: '../../content/capabilities'},
+      { name: 'insights',     label: 'Insights',     link: '../../content/insights'    },
+      { name: 'about-us',     label: 'About Us',     link: '../../content/about-us'    },
+      { name: 'contact-us',   label: 'Contact Us',   link: '../../content/contact-us'  }
   ],
   toggleMenu(menu) { this.navigationMenu = this.navigationMenu === menu ? '' : 
-    menu; this.open = this.navigationMenu ? true : false; }, 
+    menu; this.open = this.navigationMenu ? true : false; 
+    }, 
   navigationMenuClose() { 
         this.navigationMenu = ''; 
         this.open = false; 
@@ -38,9 +39,10 @@ import DropDown from "./DropDown.astro";
             @keydown.down.prevent="toggleMenu(item.name)"
             :aria-label="item.label + '-menu'"
             class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
+              
           >
             <span x-text="item.label"></span>
-          </button>
+        </button>
         </li>
       </template>
     </ul>
