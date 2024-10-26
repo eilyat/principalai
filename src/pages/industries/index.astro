@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 // import FormattedDate from "../../components/FormattedDate.astro";
 import NavBar from "../../components/menu/NavBar.astro";
 import BreadCrumbsDefault from "../../components/ui/BreadCrumbsDefault.astro";
+import RightArrow from "../../components/ui/RightArrow.astro";
 
 import "../../styles/global.css";
 
@@ -17,15 +18,24 @@ import "astro-breadcrumbs/breadcrumbs.css";
 <!doctype html>
 <html lang="en">
 	<head>
-		<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-		<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+		></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
+		></script>
 	</head>
 	<body>
 		<NavBar />
 
 		<div class="relative h-[500px]">
-			<div class="absolute inset-0 bg-gradient-to-r from-blue-800 to-cyan-800"> </div>
-			<div class="z-1 text-white flex flex-row max-w-screen-2xl items-center justify-start pl-4 mx-auto h-full">
+			<div class="absolute inset-0 bg-gradient-to-r from-blue-800 to-cyan-800">
+			</div>
+			<div
+				class="z-1 text-white flex flex-row max-w-screen-2xl items-center justify-start pl-4 mx-auto h-full"
+			>
 				<div class="relative">
 					<!-- Right column -->
 					<div class="text-white text-left max-w-screen-2xl">
@@ -43,27 +53,189 @@ import "astro-breadcrumbs/breadcrumbs.css";
 			<br />
 			<main>
 				<BreadCrumbsDefault />
-			<br />
+				<br />
 				<section class="pt-16">
-
 					<div class="pb-8">
 						<h1 class="text-6xl max-w-4xl leading-snug">
 							Collaborative expertise across diverse industries
 						</h1>
-						<br>
-						<p class="text-xl leading-relaxed">
-							At Principal Economics, we unite multidisciplinary teams of experts and academics to address complex challenges across a wide range of industries. Our collaborative approach allows us to deliver tailored insights and innovative solutions, ensuring that we meet the unique needs of each project.
-						</p> 
+						<br />
+						<p class="text-xl leading-relaxed overflow-hidden flex">
+							At Principal Economics, we unite multidisciplinary teams of
+							experts and academics to address complex challenges across a wide
+							range of industries. Our collaborative approach allows us to
+							deliver tailored insights and innovative solutions, ensuring that
+							we meet the unique needs of each project.
+						</p>
 					</div>
 
-					<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 overflow-hidden">
-						<div class="aspect-square bg-gray-100 p-8 w-90">1</div>
-						<div class="aspect-square bg-gray-100 p-8 w-90">2</div>
-						<div class="aspect-square bg-gray-100 p-8 w-90">3</div>
-						<div class="aspect-square bg-gray-100 p-8 w-90">4</div>
-						<div class="aspect-square bg-gray-100 p-8 w-90">5</div>
-						<div class="aspect-square bg-gray-100 p-8 w-90">6</div>
-						<div class="aspect-square bg-gray-100 p-8 w-90">7</div>
+					<div
+						class="grid grid-cols-[repeat(auto-fit,minmax(362px,1fr))] justify-items-center auto-fit gap-4 "
+					>
+						<!-- <div class="aspect-square bg-gray-100 p-8 w-90 border-t-[16px] border-blue-500"> -->
+						<div
+							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-r from-blue-700 to-cyan-500 border-box">
+							<div class="relative w-full h-full bg-slate-100 hover:bg-slate-200">
+								<div class="flex flex-col gap-6 px-10 pt-8 pb-10">
+									<h3
+										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+										aria-describedby="featureDescription"
+									>
+										Energy
+									</h3>
+									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+										Learning JavaScript doesn't need to be difficult. Our
+										penguin AI robot can learn how much you know and will go at
+										your speed. Although Penguai is small, he's got a mighty big
+										CPU.
+									</p>
+									<a href="industries/energy" class="font-semibold leading-relaxed">
+										<span class="">Read more about our works in the energy sector here. <RightArrow /></span>
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<div
+						class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+						<div class="relative w-full h-full bg-slate-100">
+							<div class="flex flex-col gap-6 p-12">
+								<h3
+									class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+									aria-describedby="featureDescription"
+								>
+									Energy
+								</h3>
+								<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+									Learning JavaScript doesn't need to be difficult. Our
+									penguin AI robot can learn how much you know and will go at
+									your speed. Although Penguai is small, he's got a mighty big
+									CPU.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div
+							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+							<div class="relative w-full h-full bg-slate-100">
+								<div class="flex flex-col gap-6 p-12">
+									<h3
+										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+										aria-describedby="featureDescription"
+									>
+										Energy
+									</h3>
+									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+										Learning JavaScript doesn't need to be difficult. Our
+										penguin AI robot can learn how much you know and will go at
+										your speed. Although Penguai is small, he's got a mighty big
+										CPU.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+							<div class="relative w-full h-full bg-slate-100">
+								<div class="flex flex-col gap-6 p-12">
+									<h3
+										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+										aria-describedby="featureDescription"
+									>
+										Energy
+									</h3>
+									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+										Learning JavaScript doesn't need to be difficult. Our
+										penguin AI robot can learn how much you know and will go at
+										your speed. Although Penguai is small, he's got a mighty big
+										CPU.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+							<div class="relative w-full h-full bg-slate-100">
+								<div class="flex flex-col gap-6 p-12">
+									<h3
+										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+										aria-describedby="featureDescription"
+									>
+										Energy
+									</h3>
+									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+										Learning JavaScript doesn't need to be difficult. Our
+										penguin AI robot can learn how much you know and will go at
+										your speed. Although Penguai is small, he's got a mighty big
+										CPU.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+							<div class="relative w-full h-full bg-slate-100">
+								<div class="flex flex-col gap-6 p-12">
+									<h3
+										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+										aria-describedby="featureDescription"
+									>
+										Energy
+									</h3>
+									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+										Learning JavaScript doesn't need to be difficult. Our
+										penguin AI robot can learn how much you know and will go at
+										your speed. Although Penguai is small, he's got a mighty big
+										CPU.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-r from-blue-500 to-cyan-100 border-box">
+							<div class="relative w-full h-full bg-slate-100">
+								<div class="flex flex-col gap-6 p-12">
+									<h3
+										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+										aria-describedby="featureDescription"
+									>
+										Energy
+									</h3>
+									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+										Learning JavaScript doesn't need to be difficult. Our
+										penguin AI robot can learn how much you know and will go at
+										your speed. Although Penguai is small, he's got a mighty big
+										CPU.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="aspect-square pt-6 max-w-[362px] bg-gradient from-blue-500 to-cyan-900 border-box">
+							<div class="relative w-full h-full bg-slate-100">
+								<div class="flex flex-col gap-6 p-12">
+									<h3
+										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+										aria-describedby="featureDescription"
+									>
+										Energy
+									</h3>
+									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+										Learning JavaScript doesn't need to be difficult. Our
+										penguin AI robot can learn how much you know and will go at
+										your speed. Although Penguai is small, he's got a mighty big
+										CPU.
+									</p>
+								</div>
+							</div>
+						</div>
+
 					</div>
 
 					<ul>
@@ -86,15 +258,6 @@ import "astro-breadcrumbs/breadcrumbs.css";
 							))
 						}
 					</ul>
-
-
-
-
-
-
-
-
-
 				</section>
 			</main>
 			<Footer />
