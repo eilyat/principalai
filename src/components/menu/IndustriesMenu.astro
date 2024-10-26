@@ -75,21 +75,22 @@ import RightArrow from "../../components/ui/RightArrow.astro";
         this.openSection = 'energy';
     }
 }"
-  class="py-2 shadow-xl bg-white w-full"
+  class="py-2 shadow-xl bg-white w-full border-y-2 border-gray-200 box-border"
 >
   <div
     class="flex flex-row max-w-screen-2xl mx-auto h-full px-6"
     @mouseleave="openSection = 'energy'"
   >
     <!-- Section List -->
-    <div class="w-2/3 h-full py-2">
+    <div class="w-2/3 h-full">
       <a
         href="./industries"
-        class="flex items-center justify-start pt-1 pb-8 text-3xl underline underline-offset-8 hover:underline focus:underline focus:outline-none font-light"
+        class="flex items-center justify-start underline underline-offset-8 hover:underline focus:underline focus:outline-none 
+        font-light py-2 pb-8 text-3xl"
       >
-        Industries we work with&nbsp <RightArrow />
+        <div class="flex flex-row items-center justify-start flex-grow">Industries we work with&nbsp <RightArrow /></div>
       </a>
-      <ul class="grid grid-cols-2 gap-12 gap-y-2">
+      <ul class="grid grid-cols-2 gap-12 gap-y-3">
         <template x-for="section in sections" :key="section.id">
           <li class="text-gray-800">
             <button
@@ -103,7 +104,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
               <div
                 class="h-full flex flex-col items-justified justify-center pl-2"
               >
-                <span x-text="section.title" class="font-semibold"></span>
+                <span x-text="section.title" class="font-semibold leading-8"></span>
                 <p x-text="section.description" class="text-sm text-gray-500">
                 </p>
               </div>
@@ -113,7 +114,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       </ul>
     </div>
     <!-- Section Display -->
-    <div class="w-1/3 py-4 pl-12">
+    <div class="w-1/3 py-4 flex flex-col items-center">
       <template x-for="section in sections" :key="section.id">
         <div
           x-show="openSection === section.id"
