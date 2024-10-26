@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import NavBar from "../../components/menu/NavBar.astro";
 import BreadCrumbsDefault from "../../components/ui/BreadCrumbsDefault.astro";
 import RightArrow from "../../components/ui/RightArrow.astro";
+import IndustryCards from "../../components/ui/IndustryCards.astro";
 
 import "../../styles/global.css";
 
@@ -70,12 +71,16 @@ import "astro-breadcrumbs/breadcrumbs.css";
 					</div>
 
 					<div
-						class="grid grid-cols-[repeat(auto-fit,minmax(362px,1fr))] justify-items-center auto-fit gap-4 "
+						class="grid grid-cols-[repeat(auto-fit,minmax(356px,1fr))] justify-items-center auto-fit gap-6"
 					>
 						<!-- <div class="aspect-square bg-gray-100 p-8 w-90 border-t-[16px] border-blue-500"> -->
+						<!-- Should probably just put the border into the box instead -->
 						<div
-							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-r from-blue-700 to-cyan-500 border-box">
-							<div class="relative w-full h-full bg-slate-100 hover:bg-slate-200">
+							class="aspect-square pt-6 min-w-[356px] bg-gradient-to-r from-blue-700 to-cyan-500 border-box shadow-md"
+						>
+							<div
+								class="relative w-full h-full bg-slate-100 hover:bg-slate-200"
+							>
 								<div class="flex flex-col gap-6 px-10 pt-8 pb-10">
 									<h3
 										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
@@ -83,41 +88,120 @@ import "astro-breadcrumbs/breadcrumbs.css";
 									>
 										Energy
 									</h3>
-									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+									<p
+										id="featureDescription"
+										class="flex text-pretty text-md overflow-hidden"
+									>
 										Learning JavaScript doesn't need to be difficult. Our
 										penguin AI robot can learn how much you know and will go at
 										your speed. Although Penguai is small, he's got a mighty big
 										CPU.
 									</p>
-									<a href="industries/energy" class="font-semibold leading-relaxed">
-										<span class="">Read more about our works in the energy sector here. <RightArrow /></span>
+									<a
+										href="industries/energy"
+										class="font-semibold leading-relaxed underline underline-offset-4"
+									>
+										<span class="text-sm leading-relaxed"
+											>Read more about our works in the energy sector here.
+											<div class="pt-2"><RightArrow size="18" /></div>
+										</span>
 									</a>
 								</div>
 							</div>
 						</div>
 
-						<div
-						class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
-						<div class="relative w-full h-full bg-slate-100">
-							<div class="flex flex-col gap-6 p-12">
-								<h3
-									class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
-									aria-describedby="featureDescription"
-								>
-									Energy
-								</h3>
-								<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
-									Learning JavaScript doesn't need to be difficult. Our
-									penguin AI robot can learn how much you know and will go at
-									your speed. Although Penguai is small, he's got a mighty big
-									CPU.
-								</p>
-							</div>
+						<div class="aspect-square min-w-[356px] border-box shadow-md flex flex-grow">
+							<a href="industries/energy">
+								<div class="relative w-full h-full bg-slate-100 hover:bg-slate-200">
+									<div class="absolute inset-x-0 top-0 h-6 bg-gradient-to-r from-blue-700 to-cyan-500"></div>
+									<div class="flex flex-col gap-6 px-10 pt-12 pb-10">
+										<h3 
+											class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+											aria-describedby="featureDescription">
+											Energy
+										</h3>
+										<p
+											id="featureDescription"
+											class="flex text-pretty text-md overflow-hidden">
+											Learning JavaScript doesn't need to be difficult. Our
+											penguin AI robot can learn how much you know and will go
+											at your speed. Although Penguai is small, he's got a
+											mighty big CPU.
+										</p>
+										<span class="text-sm font-semibold leading-relaxed underline underline-offset-4">
+											Read more about our works in the energy sector
+										</span>
+										<div class="flex flex-col relative bottom-4 items-end">
+											<RightArrow size="20" />
+										</div>
+									</div>
+								</div>
+							</a>
 						</div>
+
+						<div class="aspect-square min-w-[356px] border-box shadow-md flex flex-grow">
+							<a href="industries/energy" class="flex flex-col h-full">
+									<div class="relative w-full h-full bg-slate-100 hover:bg-slate-200 flex flex-col">
+											<div class="absolute inset-x-0 top-0 h-6 bg-gradient-to-r from-blue-700 to-cyan-500"></div>
+											<div class="flex-grow flex flex-col gap-6 px-10 pt-12 pb-10 h-full justify-between">
+													<h3 
+															class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+															aria-describedby="featureDescription">
+															Energy
+													</h3>
+													<p
+															id="featureDescription"
+															class="flex text-pretty text-md overflow-hidden">
+															Learning JavaScript doesn't need to be difficult. Our
+															penguin AI robot can learn how much you know and will go
+															at your speed. Although Penguai is small, he's got a
+															mighty big CPU.
+													</p>
+													<span class="text-sm font-semibold leading-relaxed underline underline-offset-4 relative bottom-4">
+															Read more about our works in the energy sector
+															<div class="flex flex-col items-end">
+																<RightArrow size="20" />
+														</div>
+													</span>
+											</div>
+									</div>
+							</a>
 					</div>
 
-					<div
-							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+					<div class="aspect-square min-w-[356px] border-box shadow-md flex flex-grow">
+						<a href="industries/energy" class="flex flex-col h-full">
+								<div class="relative w-full h-full bg-slate-100 hover:bg-slate-200 flex flex-col">
+										<div class="absolute inset-x-0 top-0 h-6 bg-gradient-to-r from-blue-700 to-cyan-500"></div>
+										<div class="flex-grow flex flex-col gap-6 px-10 pt-12 pb-10 h-full justify-between">
+												<h3 
+														class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+														aria-describedby="featureDescription">
+														Energy
+												</h3>
+												<p
+														id="featureDescription"
+														class="flex text-pretty text-md overflow-hidden">
+														Learning JavaScript doesn't need to be difficult. Our
+														penguin AI robot can learn how much you know and will go
+														at your speed. Although Penguai is small, he's got a
+														mighty big CPU.
+												</p>
+												<span class="text-sm font-semibold leading-relaxed underline underline-offset-4 relative bottom-4 grid grid-cols-8">
+													<span class="col-span-7">
+															Read more about our works in the energy sector
+													</span>
+													<div class="flex items-end justify-end col-span-1">
+															<RightArrow size="20" />
+													</div>
+											</span>
+										</div>
+								</div>
+						</a>
+				</div>
+
+						<div
+							class="aspect-square pt-6 min-w-[356px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box"
+						>
 							<div class="relative w-full h-full bg-slate-100">
 								<div class="flex flex-col gap-6 p-12">
 									<h3
@@ -126,7 +210,10 @@ import "astro-breadcrumbs/breadcrumbs.css";
 									>
 										Energy
 									</h3>
-									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+									<p
+										id="featureDescription"
+										class="flex text-pretty text-md overflow-hidden"
+									>
 										Learning JavaScript doesn't need to be difficult. Our
 										penguin AI robot can learn how much you know and will go at
 										your speed. Although Penguai is small, he's got a mighty big
@@ -137,7 +224,8 @@ import "astro-breadcrumbs/breadcrumbs.css";
 						</div>
 
 						<div
-							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+							class="aspect-square pt-6 min-w-[356px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box"
+						>
 							<div class="relative w-full h-full bg-slate-100">
 								<div class="flex flex-col gap-6 p-12">
 									<h3
@@ -146,7 +234,10 @@ import "astro-breadcrumbs/breadcrumbs.css";
 									>
 										Energy
 									</h3>
-									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
+									<p
+										id="featureDescription"
+										class="flex text-pretty text-md overflow-hidden"
+									>
 										Learning JavaScript doesn't need to be difficult. Our
 										penguin AI robot can learn how much you know and will go at
 										your speed. Although Penguai is small, he's got a mighty big
@@ -155,9 +246,20 @@ import "astro-breadcrumbs/breadcrumbs.css";
 								</div>
 							</div>
 						</div>
+
+						<IndustryCards 
+							title = "Energy" 
+							href  = "industries/energy"
+							cta   = "in the energy sector">
+							Learning JavaScript doesn't need to be difficult. Our
+							penguin AI robot can learn how much you know and will go at
+							your speed. Although Penguai is small, he's got a mighty big
+							CPU.
+						</IndustryCards>
 
 						<div
-							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
+							class="aspect-square pt-6 min-w-[356px] bg-gradient from-blue-500 to-cyan-900 border-box"
+						>
 							<div class="relative w-full h-full bg-slate-100">
 								<div class="flex flex-col gap-6 p-12">
 									<h3
@@ -166,27 +268,10 @@ import "astro-breadcrumbs/breadcrumbs.css";
 									>
 										Energy
 									</h3>
-									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
-										Learning JavaScript doesn't need to be difficult. Our
-										penguin AI robot can learn how much you know and will go at
-										your speed. Although Penguai is small, he's got a mighty big
-										CPU.
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div
-							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-b from-blue-500 to-cyan-100 border-box">
-							<div class="relative w-full h-full bg-slate-100">
-								<div class="flex flex-col gap-6 p-12">
-									<h3
-										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
-										aria-describedby="featureDescription"
+									<p
+										id="featureDescription"
+										class="flex text-pretty text-md overflow-hidden"
 									>
-										Energy
-									</h3>
-									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
 										Learning JavaScript doesn't need to be difficult. Our
 										penguin AI robot can learn how much you know and will go at
 										your speed. Although Penguai is small, he's got a mighty big
@@ -195,47 +280,6 @@ import "astro-breadcrumbs/breadcrumbs.css";
 								</div>
 							</div>
 						</div>
-
-						<div
-							class="aspect-square pt-6 max-w-[362px] bg-gradient-to-r from-blue-500 to-cyan-100 border-box">
-							<div class="relative w-full h-full bg-slate-100">
-								<div class="flex flex-col gap-6 p-12">
-									<h3
-										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
-										aria-describedby="featureDescription"
-									>
-										Energy
-									</h3>
-									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
-										Learning JavaScript doesn't need to be difficult. Our
-										penguin AI robot can learn how much you know and will go at
-										your speed. Although Penguai is small, he's got a mighty big
-										CPU.
-									</p>
-								</div>
-							</div>
-						</div>
-
-						<div
-							class="aspect-square pt-6 max-w-[362px] bg-gradient from-blue-500 to-cyan-900 border-box">
-							<div class="relative w-full h-full bg-slate-100">
-								<div class="flex flex-col gap-6 p-12">
-									<h3
-										class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
-										aria-describedby="featureDescription"
-									>
-										Energy
-									</h3>
-									<p id="featureDescription" class="flex text-pretty text-md overflow-hidden">
-										Learning JavaScript doesn't need to be difficult. Our
-										penguin AI robot can learn how much you know and will go at
-										your speed. Although Penguai is small, he's got a mighty big
-										CPU.
-									</p>
-								</div>
-							</div>
-						</div>
-
 					</div>
 
 					<ul>

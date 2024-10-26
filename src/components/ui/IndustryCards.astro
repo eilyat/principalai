@@ -1,0 +1,34 @@
+---
+import RightArrow from "./RightArrow.astro"
+
+const { title, href, cta } = Astro.props;
+
+---
+
+<div class="aspect-square min-w-[356px] border-box shadow-md flex flex-grow">
+  <a href={href} class="flex flex-col h-full">
+      <div class="relative w-full h-full bg-slate-100 hover:bg-slate-200 flex flex-col">
+          <div class="absolute inset-x-0 top-0 h-6 bg-gradient-to-r from-blue-700 to-cyan-500"></div>
+          <div class="flex-grow flex flex-col gap-6 px-10 pt-12 pb-10 h-full justify-between">
+              <h3 
+                  class="text-balance text-xl lg:text-2xl font-bold text-neutral-900 leading-loose overflow-auto"
+                  aria-describedby="featureDescription">
+                  {title}
+              </h3>
+              <p
+                  id="featureDescription"
+                  class="flex text-pretty text-md overflow-hidden">
+                  <slot />
+              </p>
+              <span class="text-sm font-semibold leading-relaxed underline underline-offset-4 relative bottom-4 grid grid-cols-8">
+                <span class="col-span-7">
+                    Read more about our works {cta}
+                </span>
+                <div class="flex items-end justify-end col-span-1">
+                    <RightArrow size="20" />
+                </div>
+            </span>
+          </div>
+      </div>
+  </a>
+</div>
