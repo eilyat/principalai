@@ -31,7 +31,7 @@ import DropDown from "./DropDown.astro";
     <ul class="flex flex-row h-full">
       <!-- Iterate over menu items to create buttons dynamically -->
       <template x-for="item in menuItems" :key="item.name">
-        <li class="toggleable hover:bg-gray-100 hover:text-black h-full">
+        <li class="toggleable hover:bg-gray-100 hover:text-black h-full py-4">
           <button
             @click="toggleMenu(item.name)"
             @keydown.space.prevent="toggleMenu(item.name)"
