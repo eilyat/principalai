@@ -1,48 +1,63 @@
 ---
-import NavBar from '@/components/nav/NavBar.astro';
-import Footer from '@/components/Footer.astro';
-import '@/styles/global.css';
-import { ViewTransitions } from 'astro:transitions';
-const {SEOTitle} = Astro.props;
+import NavBar from "@/components/nav/NavBar.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+const { SEOTitle } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Principal Economics is a leading consultancy providing expert advice on transport, infrastructure, climate, housing, and energy.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Principal Economics is a leading consultancy providing expert advice on transport, infrastructure, climate, housing, and energy."
+    />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://principaleconomics.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://principaleconomics.com/" />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:site_name" content="Principal Economics">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Principal Economics - World-class, Client-driven Research and Strategy">
-    <meta property="og:description" content="Expert consultancy on transport, housing, climate, and energy solutions.">
-    <meta property="og:url" content="https://principaleconomics.com/">
+    <meta property="og:site_name" content="Principal Economics" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Principal Economics - World-class, Client-driven Research and Strategy"
+    />
+    <meta
+      property="og:description"
+      content="Expert consultancy on transport, housing, climate, and energy solutions."
+    />
+    <meta property="og:url" content="https://principaleconomics.com/" />
     <!-- <meta property="og:image" content="https://principaleconomics.com/image.jpg">  -->
 
     <!-- Twitter Card Meta Tags -->
     <!-- <meta name="twitter:card" content="summary_large_image">  -->
-    <meta name="twitter:title" content="Principal Economics - World-class, Client-driven Research and Strategy">
-    <meta name="twitter:description" content="Expert consultancy on transport, housing, climate, and energy solutions.">
+    <meta
+      name="twitter:title"
+      content="Principal Economics - World-class, Client-driven Research and Strategy"
+    />
+    <meta
+      name="twitter:description"
+      content="Expert consultancy on transport, housing, climate, and energy solutions."
+    />
     <!-- <meta name="twitter:image" content="https://principaleconomics.com/image.jpg">  -->
 
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
     <!-- <link rel="stylesheet" href="styles.css">  -->
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
-    
-	  <title>{SEOTitle} | Principal Economics</title>
+
+    <title>{SEOTitle} | Principal Economics</title>
     <ViewTransitions />
-
-	</head>
-	<body>
-		<NavBar />
+  </head>
+  <body>
+    <NavBar />
     <main>
-
-    <slot />
+      <div id="site">
+      <slot />
+    </div>
     </main>
-		<Footer />
-	</body>
+    <Footer />
+  </body>
 </html>
