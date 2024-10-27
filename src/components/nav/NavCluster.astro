@@ -3,16 +3,16 @@ import Industries from "@/components/nav/IndustriesMenu.astro";
 import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
 ---
 
-<nav
+<div
   x-data="{
   open: false, 
   navigationMenu: '',
   menuItems: [
-      { name: 'industries',   label: 'Industries',   link: '../../content/industries'  },
-      { name: 'capabilities', label: 'Capabilities', link: '../../content/capabilities'},
-      { name: 'insights',     label: 'Insights',     link: '../../content/insights'    },
-      { name: 'about-us',     label: 'About us',     link: '../../content/about-us'    },
-      { name: 'contact-us',   label: 'Contact us',   link: '../../content/contact-us'  }
+      { name: 'industries',   label: 'Industries'},
+      { name: 'capabilities', label: 'Capabilities'},
+      { name: 'insights',     label: 'Insights'},
+      { name: 'about-us',     label: 'About us'},
+      { name: 'contact-us',   label: 'Contact us'}
   ],
   toggleMenu(menu) { this.navigationMenu = this.navigationMenu === menu ? '' : 
     menu; this.open = this.navigationMenu ? true : false; 
@@ -88,7 +88,7 @@ import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
   <!-- <DropDown title = "Test" ><Industries /> </DropDown> -->
 
   <!-- <DropDown title = "Test2" ><Industries /> </DropDown> -->
-</nav>
+</div>
 
 <style>
   [x-cloak] {

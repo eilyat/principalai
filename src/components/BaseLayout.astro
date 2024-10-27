@@ -2,7 +2,7 @@
 import NavBar from '@/components/nav/NavBar.astro';
 import Footer from '@/components/Footer.astro';
 import '@/styles/global.css';
-
+import { ViewTransitions } from 'astro:transitions';
 const {SEOTitle} = Astro.props;
 ---
 
@@ -33,11 +33,16 @@ const {SEOTitle} = Astro.props;
     <!-- <link rel="stylesheet" href="styles.css">  -->
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
     
-	<title>{SEOTitle} | Principal Economics</title>
+	  <title>{SEOTitle} | Principal Economics</title>
+    <ViewTransitions />
+
 	</head>
 	<body>
 		<NavBar />
+    <main>
+
     <slot />
+    </main>
 		<Footer />
 	</body>
 </html>

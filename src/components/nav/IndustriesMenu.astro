@@ -13,6 +13,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       summary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.',
       img: '/blog-placeholder-1.jpg',
       alt: 'Energy',
+      link: '/industries/energy',
     },
     {
       id: 'environment',
@@ -21,6 +22,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       summary: 'We offer a comprehensive range of services to support our clients in navigating the complex landscale of climate change and environmental issues.',
       img: '/blog-placeholder-2.jpg',
       alt: 'Climate Strategy',
+      link: '/industries/environment',
     },
     {
       id: 'urban-development',
@@ -29,6 +31,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       summary: 'Our team at Principal Economics encompass a unique combination of knowledge, experience, and skills suited for solving spatial and urban development and housing issues.',    
       img: '/blog-placeholder-3.jpg',
       alt: 'Urban Development',
+      link: '/industries/urban-development',
     },
     {
       id: 'infrastructure-planning',
@@ -37,6 +40,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       summary: 'We assist our clients in identifying the primary and secondary impacts of infrastructure investments',
       img: '/blog-placeholder-4.jpg',
       alt: 'Infrastructure Planning',
+      link: '/industries/infrastructure',
     },
     {
       id: 'tourism-assessment',
@@ -45,6 +49,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       summary: 'We have used different data sets alongside with our tourism modelling capabilities for evaluating the impact of a range of investments and policy initiatives in the tourism sector.',
       img: '/blog-placeholder-1.jpg',
       alt: 'Tourism Assessment',
+      link: '/industries/tourism',
     },
     {
       id: 'regulatory-economics',
@@ -53,6 +58,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       summary: 'Our team have been assisting clients within regulated sectors to navigate the intricacies of economic regulation, catering to the unique challenges and opportunities that arise in these sectors.',
       img: '/blog-placeholder-1.jpg',
       alt: 'Regulatory Economics',
+      link: '/industries/regulatory-economics',
     },
     {
       id: 'transport-policy',
@@ -61,6 +67,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       summary: 'Our team currently lead some of the most important transport research and strategy topics. This includes providing expert advice on transport appraisal, transformative change, VKT and freight, emission reduction policies and decision making under deep uncertainty.',
       img: '/blog-placeholder-1.jpg',
       alt: 'Transport Policy',
+      link: '/industries/transport',
     },
   ],
   openSection: 'energy',
@@ -93,13 +100,15 @@ import RightArrow from "../../components/ui/RightArrow.astro";
       <ul class="grid grid-cols-2 gap-12 gap-y-3">
         <template x-for="section in sections" :key="section.id">
           <li class="text-gray-800">
-            <button
+            <a
               @mouseenter="openSection = section.id"
-              @keydown.enter.prevent="focusSection(section.id)"
-              @keydown.space.prevent="focusSection(section.id)"
+              @keydown.enter="handleEnter(section.link)"
+              @keydown.space="focusSection(section.id)"
+              @focus="openSection = section.id"
               class="h-[80px] pl-2 text-gray-600 text-left py-1 border-l-2 border-gray-300 block text-md w-full
             hover:border-blue-500 hover:text-blue-700 hover:border-l-4 hover:bg-gray-100 hover:shadow-sm
             focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100"
+            x-bind:href="section.link"
             >
               <div
                 class="h-full flex flex-col items-justified justify-center pl-2"
@@ -108,7 +117,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
                 <p x-text="section.description" class="text-sm text-gray-500">
                 </p>
               </div>
-            </button>
+            </a>
           </li>
         </template>
       </ul>
