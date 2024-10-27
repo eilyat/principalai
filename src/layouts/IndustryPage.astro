@@ -1,0 +1,29 @@
+---
+import Footer from   "@/components/Footer.astro";
+import NavBar from   "@/components/menu/NavBar.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import "../styles/global.css";
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{entry.data.title}</title> <!-- Set the page title -->
+	</head>
+	<body>
+		<NavBar />
+		<BreadCrumbsDefault />
+
+		<main>
+			<h1>{entry.data.title}</h1>
+			<p>{entry.data.description}</p>
+			<!-- <time datetime={post.data.pubDate}>{post.data.pubDate}</time> -->
+			<Content />			
+		</main>
+	</body>
+	<Footer />
+</html>
+
+

@@ -1,0 +1,114 @@
+---
+// import BaseHead from '../../components/BaseHead.astro';
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from "astro:content";
+// import FormattedDate from "../../components/FormattedDate.astro";
+import NavBar from "../../components/menu/NavBar.astro";
+import BreadCrumbsDefault from "../../components/ui/BreadCrumbsDefault.astro";
+import RightArrow from "../../components/ui/RightArrow.astro";
+import IndustryCards from "../../components/ui/IndustryCards.astro";
+
+import "../../styles/global.css";
+
+const posts = await getCollection("industries");
+
+import "astro-breadcrumbs/breadcrumbs.css";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+		></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
+		></script>
+	</head>
+	<body>
+		<NavBar />
+
+		<div class="relative h-[500px]">
+			<div class="absolute inset-0 bg-gradient-to-r from-blue-800 to-cyan-800">
+			</div>
+			<div
+				class="z-1 text-white flex flex-row max-w-screen-2xl items-center justify-start pl-4 mx-auto h-full"
+			>
+				<div class="relative">
+					<!-- Right column -->
+					<div class="text-white text-left max-w-screen-2xl">
+						<h1 class="text-2xl md:text-6xl font-bold mb-4">
+							Industries we work with
+						</h1>
+						<p class="text-lg md:text-2xl max-w-xl">
+							Collaborative expertise across diverse industries
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+			<br />
+			<main>
+				<BreadCrumbsDefault />
+				<br />
+				<section class="pt-16">
+					<div class="pb-8">
+						<h1 class="text-6xl max-w-4xl leading-snug">
+							Collaborative expertise across diverse industries
+						</h1>
+						<br />
+						<p class="text-xl leading-relaxed overflow-hidden flex">
+							At Principal Economics, we unite multidisciplinary teams of
+							experts and academics to address complex challenges across a wide
+							range of industries. Our collaborative approach allows us to
+							deliver tailored insights and innovative solutions, ensuring that
+							we meet the unique needs of each project.
+						</p>
+					</div>
+
+					<div
+						class="grid grid-cols-[repeat(auto-fit,minmax(356px,1fr))] justify-items-center auto-fit gap-6"
+					>
+						<!-- <div class="aspect-square bg-gray-100 p-8 w-90 border-t-[16px] border-blue-500"> -->
+						<!-- Should probably just put the border into the box instead -->
+
+						<IndustryCards 
+							title = "Energy" 
+							href  = "industries/energy"
+							cta   = "in the energy sector">
+							Learning JavaScript doesn't need to be difficult. Our
+							penguin AI robot can learn how much you know and will go at
+							your speed. Although Penguai is small, he's got a mighty big
+							CPU.
+						</IndustryCards>
+
+					<ul>
+						{
+							posts.map((post) => (
+								<li>
+									<a href={`/industries/${post.slug}/`}>
+										<img
+											width={720}
+											height={360}
+											src={post.data.heroImage}
+											alt=""
+										/>
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											{/* <FormattedDate date={post.data.pubDate} /> */}
+										</p>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</section>
+			</main>
+			<Footer />
+		</main>
+	</body>
+</html>

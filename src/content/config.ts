@@ -13,4 +13,6 @@ const industries = defineCollection({
 	}),
 });
 
+const IndustriesCollection = defineCollection({ /* ... */ });
+
 export const collections = { 'industries' : industries };
