@@ -1,0 +1,22 @@
+---
+const { title, subtitle } = Astro.props; 
+---
+<div class="relative h-[500px]">
+  <slot>
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-800 to-cyan-800"></div>
+  </slot>
+  <div
+    class="z-1 text-white flex flex-row max-w-screen-2xl items-center justify-start pl-4 mx-auto h-full"
+  >
+    <div class="relative">
+      <div class="text-white text-left max-w-screen-2xl">
+        <h1 class="text-6xl font-bold mb-4">
+          {title}
+        </h1>
+        <p class="text-3xl max-w-xl leading-normal">
+          {subtitle}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

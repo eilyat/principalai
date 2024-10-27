@@ -1,0 +1,58 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '@/components/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const entry = await getCollection('industries');
+	return entry.map((entry) => ({
+		params: { slug: entry.slug },
+		props: entry,
+	}));
+}
+type Props = CollectionEntry<'industries'>;
+
+const entry = Astro.props;
+const { Content } = await entry.render();
+import "@/styles/global.css";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+
+
+---
+
+<BaseLayout SEOTitle = "Energy">
+	<div class="relative h-[500px]">
+		<div class="absolute inset-0 bg-gradient-to-r from-blue-800 to-cyan-800">
+		</div>
+		<div class="z-1 text-white flex flex-row max-w-screen-2xl items-center justify-start pl-4 mx-auto h-full">
+			<div class="relative">
+				<!-- Right column -->
+				<div class="text-white text-left max-w-screen-2xl">
+					<h1 class="text-6xl font-bold mb-4">
+						Energy
+					</h1>
+					<p class="text-3xl max-w-xl leading-normal">
+						Collaborative expertise across diverse industries
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+		<section class="pt-16">
+			<div class="pb-8">
+				<h1 class="text-4xl max-w-4xl leading-snug">
+					Collaborative expertise across diverse industries
+				</h1>
+				<br />
+				<p class="text-xl leading-relaxed overflow-hidden flex">
+					At Principal Economics, we unite multidisciplinary teams of
+					experts and academics to address complex challenges across a wide
+					range of industries. Our collaborative approach allows us to
+					deliver tailored insights and innovative solutions, ensuring that
+					we meet the unique needs of each project.
+				</p>
+			</div>
+
+	<Content />
+</main>
+</BaseLayout>

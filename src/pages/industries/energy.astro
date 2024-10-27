@@ -1,0 +1,32 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+---
+
+<BaseLayout SEOTitle="Energy">
+  <ShortHeader 
+    title = "Energy" 
+    subtitle = "Energy subtitle">
+  </ShortHeader>
+  <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+    <br>
+    <BreadCrumbsDefault />
+    <section class="pt-16">
+      <div class="pb-8">
+        <h1 class="text-4xl max-w-4xl leading-snug">
+          Collaborative expertise across diverse industries
+        </h1>
+        <br />
+        <p class="text-xl leading-relaxed overflow-hidden flex">
+          At Principal Economics, we unite multidisciplinary teams of experts
+          and academics to address complex challenges across a wide range of
+          industries. Our collaborative approach allows us to deliver tailored
+          insights and innovative solutions, ensuring that we meet the unique
+          needs of each project.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
