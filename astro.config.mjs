@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 import tailwind from '@astrojs/tailwind';
+import tailwindcssNesting from 'tailwindcss/nesting'
 
 import alpinejs from '@astrojs/alpinejs';
 
@@ -16,5 +17,12 @@ export default defineConfig({
       sitemap(),
       tailwind(),
       alpinejs({ entrypoint: '/src/entrypoint' }),
-    ],
+      tailwind({nesting: true})
+    ],vite: {
+      css: {
+        postcss: {
+          plugins: [tailwindcssNesting()]
+        }
+      }
+    },
 });

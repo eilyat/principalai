@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl max-w-4xl leading-snug;
+  }
+  p {
+    @apply text-xl leading-relaxed; 
+    ul {
+      @apply list-disc text-xl; /* Styles for ul inside p */
+      li {
+        @apply py-2; /* Styles for li inside ul inside p */
+      }
+    }
+  }
+  
+  /* ... */
+}

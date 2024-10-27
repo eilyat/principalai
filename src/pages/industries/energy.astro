@@ -6,27 +6,52 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 ---
 
 <BaseLayout SEOTitle="Energy">
-  <ShortHeader 
-    title = "Energy" 
-    subtitle = "Energy subtitle">
-  </ShortHeader>
-  <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
-    <br>
+  <ShortHeader title="Energy" subtitle="Economy-wide analysis, forecasting, mitigation and abatement" />
+  <div class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+    <br />
     <BreadCrumbsDefault />
-    <section class="pt-16">
-      <div class="pb-8">
-        <h1 class="text-4xl max-w-4xl leading-snug">
-          Collaborative expertise across diverse industries
-        </h1>
-        <br />
-        <p class="text-xl leading-relaxed overflow-hidden flex">
-          At Principal Economics, we unite multidisciplinary teams of experts
-          and academics to address complex challenges across a wide range of
-          industries. Our collaborative approach allows us to deliver tailored
-          insights and innovative solutions, ensuring that we meet the unique
-          needs of each project.
-        </p>
+    <br />
+    <div class="grid grid-cols-4 gap-8">
+      <aside class="col-span-1"></aside>
+      <div class="col-span-2">
+        <main>
+          <section class="pt-16">
+            <div class="pb-8">
+              <h1>
+                Economy-wide analysis, forecasting, mitigation and abatement
+              </h1>
+              <br />
+              <p class="py-4">
+                At Principal Economics, we specialise in providing robust, evidence-based solutions for energy challenges in New Zealand.
+              </p>
+
+              <p>
+              <ul>
+                <li>
+                  <b>Expertise:</b> Our team consists of leading specialists in energy economics with extensive experience in developing advanced economic models.
+                </li>
+                <li>
+                  <b>Proven framework:</b> We utilise our Computable General Equilibrium (CGE) model to offer a solid foundation for addressing energy-related issues effectively.
+                </li>
+                <li>
+                  <b>Accurate forecasting:</b> Our econometric and simulation models deliver reliable forecasts for energy demand and prices, enabling informed decision-making.
+                </li>
+              </ul>
+            </p>
+            <p class="text-xl leading-relaxed overflow-hidden flex py-4">
+              Recent Achievements:
+              Our recent project delivered precise forecasts for peak and off-peak electricity demand, showcasing our commitment to delivering insights that drive impactful decisions.
+              <br>
+              Experience the Difference
+              Partner with Principal Economics to access not just data, but strategic insights that elevate your energy strategies.
+            </p>
+
+            </div>
+
+          </section>
+        </main>
       </div>
-    </section>
-  </main>
+      <div class="col-span-1 bg-slate-200"></div>
+    </div>
+  </div>
 </BaseLayout>
