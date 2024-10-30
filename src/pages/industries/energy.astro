@@ -6,52 +6,108 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 ---
 
 <BaseLayout SEOTitle="Energy">
-  <ShortHeader title="Energy" subtitle="Economy-wide analysis, forecasting, mitigation and abatement" />
+  <ShortHeader
+    title="Energy"
+    subtitle="Economy-wide analysis, forecasting, mitigation and abatement"
+  />
   <div class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <br />
     <BreadCrumbsDefault />
     <br />
-    <div class="grid grid-cols-4 gap-8">
-      <aside class="col-span-1"></aside>
-      <div class="col-span-2">
+
+    <div class="grid grid-cols-12 gap-16">
+      <aside class="col-span-2 pt-16">
+        <ul class="list-none py-0 relative">
+          <li class="toc">
+            <a class="toc_a" href="#overview" >
+              Overview
+            </a>
+          </li>
+          <li class="toc text-gray-800 list-none py-0" id = "toc">
+            <a class="toc_a" href="#overview" >
+              Overview
+            </a>
+          </li>
+          <li class="toc text-gray-800 list-none">
+            <a class="toc_a" href="#overview" >
+              Overview
+            </a>
+          </li>
+          <li class="toc text-gray-800 list-none">
+            <a class="toc_a" href="#overview" >
+              Overview
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+
+      <div class="col-span-7">
         <main>
-          <section class="pt-16">
+          <section class="pt-16" id="overview">
             <div class="pb-8">
-              <h1>
+              <h1 id="heading-2">
                 Economy-wide analysis, forecasting, mitigation and abatement
               </h1>
               <br />
               <p class="py-4">
-                At Principal Economics, we specialise in providing robust, evidence-based solutions for energy challenges in New Zealand.
+                At Principal Economics, we specialise in providing robust,
+                evidence-based solutions for energy challenges in New Zealand.
               </p>
 
               <p>
-              <ul>
-                <li>
-                  <b>Expertise:</b> Our team consists of leading specialists in energy economics with extensive experience in developing advanced economic models.
-                </li>
-                <li>
-                  <b>Proven framework:</b> We utilise our Computable General Equilibrium (CGE) model to offer a solid foundation for addressing energy-related issues effectively.
-                </li>
-                <li>
-                  <b>Accurate forecasting:</b> Our econometric and simulation models deliver reliable forecasts for energy demand and prices, enabling informed decision-making.
-                </li>
-              </ul>
-            </p>
-            <p class="text-xl leading-relaxed overflow-hidden flex py-4">
-              Recent Achievements:
-              Our recent project delivered precise forecasts for peak and off-peak electricity demand, showcasing our commitment to delivering insights that drive impactful decisions.
-              <br>
-              Experience the Difference
-              Partner with Principal Economics to access not just data, but strategic insights that elevate your energy strategies.
-            </p>
-
+                <ul>
+                  <li>
+                    <b>Expertise:</b> Our team consists of leading specialists in
+                    energy economics with extensive experience in developing advanced
+                    economic models.
+                  </li>
+                  <li>
+                    <b>Proven framework:</b> We utilise our Computable General Equilibrium
+                    (CGE) model to offer a solid foundation for addressing energy-related
+                    issues effectively.
+                  </li>
+                  <li>
+                    <b>Accurate forecasting:</b> Our econometric and simulation models
+                    deliver reliable forecasts for energy demand and prices, enabling
+                    informed decision-making.
+                  </li>
+                </ul>
+              </p>
+              <p class="leading-relaxed overflow-hidden flex py-4">
+                Recent Achievements: Our recent project delivered precise
+                forecasts for peak and off-peak electricity demand, showcasing
+                our commitment to delivering insights that drive impactful
+                decisions.
+                <br />
+                Experience the Difference Partner with Principal Economics to access
+                not just data, but strategic insights that elevate your energy strategies.
+              </p>
             </div>
-
           </section>
         </main>
       </div>
-      <div class="col-span-1 bg-slate-200"></div>
+      <div class="col-span-3 "></div>
     </div>
   </div>
+</div>
 </BaseLayout>
+
+<style>
+  section
+  :global(ul) {
+    @apply list-disc text-lg;
+  }
+  :global(li) {
+    @apply py-2;
+  }
+  .toc{
+    @apply text-gray-800 list-none py-0
+  }
+  .toc_a{
+    @apply h-[50px] pl-2 text-gray-600 text-left border-l-2 border-gray-300 w-full flex items-center
+          hover:border-blue-500 hover:text-blue-700 hover:border-l-4 hover:bg-gray-100 hover:shadow-sm
+          focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100
+  }
+</style>
+

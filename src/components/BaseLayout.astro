@@ -1,7 +1,7 @@
 ---
 import NavBar from "@/components/nav/NavBar.astro";
 import Footer from "@/components/Footer.astro";
-import "@/styles/global.css";
+// import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 const { SEOTitle } = Astro.props;
 ---
@@ -47,6 +47,7 @@ const { SEOTitle } = Astro.props;
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
     <!-- <link rel="stylesheet" href="styles.css">  -->
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+    <slot name="SEO"/>
 
     <title>{SEOTitle} | Principal Economics</title>
     <ViewTransitions />

@@ -15,14 +15,7 @@ export default defineConfig({
     integrations: [
       mdx(),
       sitemap(),
-      tailwind(),
       alpinejs({ entrypoint: '/src/entrypoint' }),
-      tailwind({nesting: true})
-    ],vite: {
-      css: {
-        postcss: {
-          plugins: [tailwindcssNesting()]
-        }
-      }
-    },
+      tailwind({nesting: true, applyBaseStyles: false,})
+    ],
 });

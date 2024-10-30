@@ -4,5 +4,5 @@ export default {
 	theme: {
 		extend: {},
 	},
-	plugins: [require('@tailwindcss/nesting')],
+	plugins: [require('@tailwindcss/typography')],
 }

@@ -1,0 +1,57 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout SEOTitle="Industries we work with">
+	<meta slot="SEO" class="citation_title">{frontmatter.title}</meta>
+	<meta slot="SEO" class="citation_author">{frontmatter.authors}</meta>
+	<meta slot="SEO" class="citation_publication">{frontmatter.PubDate}</meta>
+	<meta slot="SEO" class="citation_pdf_url">{frontmatter.downloadPdf}</meta>
+	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description} />
+	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+		<br />
+		<BreadCrumbsDefault />
+		<br />
+		<div class="grid grid-cols-12 gap-16">
+			<aside class="col-span-2 pt-16"></aside>
+			<div class="col-span-7">
+				<main>
+					<section class="prose max-w-none">
+						<div class="pb-0 pt-2">
+							<h1 class="citation_title text-4xl max-w-4xl leading-none pb-0">
+								{frontmatter.title}
+							</h1>
+							<!-- <div class="not-prose"> -->
+							<h3 class="citation_author">{frontmatter.authors}</h3>
+							<p class="text-base py-0">Published on {frontmatter.pubDate}</p>
+						<!-- </div> -->
+						</div>
+						<slot />
+					</section>
+				</main>
+			</div>
+			<aside class="col-span-3">
+				<div class="prose bg-gray-100 shadow-md">
+					<div class="flex flex-col gap-4 p-6 prose">
+						<h3 class="text-balance font-bold text-neutral-900" 
+						aria-describedby="PublicationDetails">Publication details</h3>
+						<ul id="PublicationDetails">
+							<li>Author(s):<br>{frontmatter.authors}</li>
+							<li>Published:<br>{frontmatter.pubDate}</li>
+							<li>Contact:<br>eilya@principaleconomics.com</li>
+							<li>Download:<br>
+								<a href ="https://environment.govt.nz/assets/Economic-impact-of-Emission-Reduction-Plan-2-Principal-Economics-Limited-230524-Final-Preliminary-Report-1.pdf">
+									New Zealand's second emissions reduction plan
+								</a>
+							</li>
+						</ul>
+				</div>
+				</div>
+			</aside>
+		</div>
+	</main>
+</BaseLayout>
