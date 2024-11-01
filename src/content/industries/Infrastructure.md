@@ -1,7 +1,9 @@
 ---
 title: 'Infrastructure'
 description: 'Efficient decision-making led by robust planning'
-heroImage: '/blog-placeholder-4.jpg'
+cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
+cardImg: ''
+bannerImage: '/blog-placeholder-4.jpg'
 ---
 
 ## We assist our clients in identifying the primary and secondary impacts of infrastructure investments

@@ -1,7 +1,9 @@
 ---
 title: 'Energy'
 description: 'Economy-wide analysis, forecasting, mitigation and abatement'
-heroImage: '/blog-placeholder-3.jpg'
+cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
+cardImg: ''
+bannerImage: '/blog-placeholder-3.jpg'
 ---
 
 ## At Principal Economics, we specialise in providing robust, evidence-based solutions for energy challenges in New Zealand.

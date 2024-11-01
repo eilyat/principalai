@@ -19,7 +19,9 @@ export const collections = {
 			schema: z.object({
 				title: z.string(),
 				description: z.string(),
-				heroImage: z.string().optional(),
+				cardSummary: z.string(),
+				cardImg:  z.string().optional(),
+				bannerImage: z.string().optional(),
 			}),
 		}),
 };

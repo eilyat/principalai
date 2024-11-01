@@ -1,12 +1,19 @@
 ---
 title: 'Urban Development and Housing'
 description: 'New ways of planning in times of uncertainty'
-heroImage: '/blog-placeholder-4.jpg'
+cardSummary: ''
+cardImg: ''
+bannerImage: '/blog-placeholder-4.jpg'
 ---
 
+At Principal Economics, we recognize that urban development and housing are critical components of thriving communities. As cities evolve, the need for innovative solutions to address housing challenges becomes increasingly vital. Our team is dedicated to addressing these complexities through evidence-based analysis and strategic insights, ensuring that urban areas can adapt and grow sustainably.
 
-Our team at Principal Economics encompass a unique combination of knowledge, experience, and skills suited for solving spatial and urban development and housing issues.  
+We focus on:
 
-We have extensive experience in economic modelling with specialised skills in geographic information systems (GIS). Providing solutions to our clients across a range of urban economic issues related to the residential housing market, housing affordability, infrastructure, and public transport.  
+  - **Housing Market Dynamics:** Analyzing trends in supply and demand to inform effective housing policies that respond to community needs.
+  - **Housing Affordability:** Developing strategies to enhance access to affordable housing for diverse populations, ensuring everyone has a place to call home.
+  - **Infrastructure Enhancement:** Aligning infrastructure development with community requirements to support economic growth and improve quality of life.
+  - **Policy Development:** Providing evidence-based recommendations that guide urban planning and address the unique challenges faced by local governments.
+  - **Stakeholder Engagement:** Collaborating with local governments, community organizations, and industry partners to foster inclusive discussions that drive effective solutions.
 
-Principal Economics has been the government’s trusted advisor on a range of regional and national urban policies. Recently, our team has been chosen to review all Councils’ Housing and Business Assessment (HBA) to accommodate for the demand in the short-, medium- and long-term.
+Our review of Councils’ Housing and Business Assessments (HBA) underscores our commitment to understanding and addressing current housing demands. By equipping policymakers with robust analysis and actionable insights, we aim to foster informed decision-making that results in vibrant, sustainable communities. At Principal Economics, we believe that effective urban planning is essential for creating environments where individuals and families can thrive.

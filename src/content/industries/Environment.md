@@ -1,7 +1,9 @@
 ---
 title: 'Environment'
 description: 'New ways of planning in times of uncertainty'
-heroImage: '/blog-placeholder-4.jpg'
+cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
+cardImg: ''
+bannerImage: '/blog-placeholder-4.jpg'
 ---
 
 As organizations confront the pressing challenges of climate change and environmental issues, effective strategies are essential for sustainable progress. The Climate Change Response Act 2019, commonly known as the Zero Carbon Act establishes a framework for developing and implementing robust climate policies in alignment with New Zealand's commitments under the Paris Agreement.
