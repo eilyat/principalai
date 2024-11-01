@@ -5,6 +5,7 @@ description: ''
 pubDate: 2022-07-01
 authors: 'Eilya Torshizian'
 pubType: 'report'
+downloadPdf: "https://environment.govt.nz/assets/Economic-impact-of-Emission-Reduction-Plan-2-Principal-Economics-Limited-230524-Final-Preliminary-Report-1.pdf"
 ---
 
 The Emissions Reduction Plan 2 (ERP2) delineates Aotearoa New Zealand's strategy to attain its emissions reduction objectives for the 2026-2030 period, alongside setting a path towards achieving long-term emissions reduction objectives. ERP2 aims to reduce annual average emissions from 72.5 MtCO2e to 61 MtCO2e. The Ministry for the Environment (MfE) engaged Principal Economics Limited, the Centre of Policy Studies, and Infometrics Limited to evaluate the comprehensive impact of the proposed policies. This includes: 

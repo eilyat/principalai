@@ -1,0 +1,34 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout SEOTitle="Publications">
+	<!-- <meta slot="SEO" class="citation_title">{frontmatter.title}</meta> -->
+	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description} />
+	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+		<br />
+		<BreadCrumbsDefault />
+		<br />
+		<div class="grid grid-cols-12 gap-16">
+			<aside class="col-span-2 pt-16"></aside>
+			<div class="col-span-7">
+				<main>
+					<section class="prose max-w-none prose-lg">
+						<div class="pb-0 pt-2">
+							<h1 class="citation_title max-w-4xl leading-none pb-0 pt-4">
+								{frontmatter.description}
+							</h1>
+						</div>
+						<slot />
+					</section>
+				</main>
+			</div>
+			<aside class="col-span-3">
+			</aside>
+		</div>
+	</main>
+</BaseLayout>

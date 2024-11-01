@@ -51,7 +51,7 @@ import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
   <div
     x-show="open"
     x-collapse
-    x-trap="open"
+    x-trap.noautofocus="open"
     x-cloak
     x-anchor.no-style="$refs.nav"
     x-bind:style="{ position: 'absolute', top: $anchor.y, left: '0px' }"

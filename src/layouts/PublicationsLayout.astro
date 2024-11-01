@@ -6,11 +6,13 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout SEOTitle="Industries we work with">
-	<meta slot="SEO" class="citation_title">{frontmatter.title}</meta>
-	<meta slot="SEO" class="citation_author">{frontmatter.authors}</meta>
-	<meta slot="SEO" class="citation_publication">{frontmatter.PubDate}</meta>
-	<meta slot="SEO" class="citation_pdf_url">{frontmatter.downloadPdf}</meta>
+<BaseLayout SEOTitle="Publications">
+	<Fragment slot="SEO">
+		<meta name="citation_title" content={frontmatter.title}/>
+		<meta name="citation_author" content={frontmatter.authors}/>
+		<meta name="citation_publication" content={frontmatter.PubDate}/>
+		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} />
+	</Fragment>
 	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description} />
 	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
 		<br />
@@ -20,15 +22,10 @@ const { frontmatter } = Astro.props;
 			<aside class="col-span-2 pt-16"></aside>
 			<div class="col-span-7">
 				<main>
-					<section class="prose max-w-none">
-						<div class="pb-0 pt-2">
-							<h1 class="citation_title text-4xl max-w-4xl leading-none pb-0">
-								{frontmatter.title}
-							</h1>
-							<!-- <div class="not-prose"> -->
+					<section class="prose max-w-none prose-lg pb-0 pt-2">
+						<div class="">
 							<h3 class="citation_author">{frontmatter.authors}</h3>
 							<p class="text-base py-0">Published on {frontmatter.pubDate}</p>
-						<!-- </div> -->
 						</div>
 						<slot />
 					</section>
