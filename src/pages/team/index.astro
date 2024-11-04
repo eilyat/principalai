@@ -6,13 +6,13 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 
 // Fetch all publications in the collection
 import { getCollection } from "astro:content";
-const publications = await getCollection("publications");
+const team = await getCollection("team");
 
 import PCard from "@/components/ui/pCard.astro";
 ---
 
-<BaseLayout SEOTitle="Publications">
-  <ShortHeader title="Publications" subtitle="Read all of our publications" />
+<BaseLayout SEOTitle="Team">
+  <ShortHeader title="Our team" subtitle=""/>
   <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <br />
     <BreadCrumbsDefault />
@@ -23,20 +23,20 @@ import PCard from "@/components/ui/pCard.astro";
           <h1>Publications</h1>
 
           {
-            publications.map((entry) => (
+            team.map((entry) => (
               <article class="p-6">
-                <p class="text-2xl font-bold pb-2">{entry.data.title}</p>
+                <p class="text-2xl font-bold pb-2">{entry.data.name}</p>
                 <p class="text-md leading-snug">
-                  Authors: {entry.data.authors.join(", ")}
+                  Role: {entry.data.role}
                 </p>
-                <p class="text-md leading-snug pb-4">
+                {/* <p class="text-md leading-snug pb-4">
                   Published on:{" "}
                   {entry.data.pubDate.toLocaleDateString(undefined, {
                     dateStyle: "medium",
                     timeZone: "UTC",
                   })}
-                </p>
-                <p>{entry.data.description}</p>
+                </p> */}
+                {/* <p>{entry.data.description}</p> */}
               </article>
               // <hr>
             ))
@@ -46,18 +46,14 @@ import PCard from "@/components/ui/pCard.astro";
           <section class="p-4 md:col-span-4">
             <div class="grid grid-cols-[repeat(auto-fill,minmax(288px,1fr))] gap-2 place-items-center">
               {
-                publications.map((entry) => (
+                team.map((entry) => (
                   
                   <PCard
-                    title={entry.data.title}
-                    imgSrc="/blog-placeholder-3.jpg"
-                    imgAlt={entry.data.title}
+                    title={entry.data.name}
+                    imgSrc={entry.data.photo}
+                    imgAlt={entry.data.name}
                     category="Publication"
-                    link={`/publications/${entry.slug}`}
-                    date={entry.data.pubDate.toLocaleDateString(undefined, {
-                      dateStyle: "medium",
-                      timeZone: "UTC",
-                    })}
+                    link={`/team/${entry.slug}`}
                   />
                 ))
               }

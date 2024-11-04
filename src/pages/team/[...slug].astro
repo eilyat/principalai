@@ -1,0 +1,26 @@
+---
+import { getCollection, type CollectionEntry, getEntry } from "astro:content";
+import PublicationsLayout from "@/layouts/TeamLayout.astro";
+
+import "@/styles/global.css";
+
+export async function getStaticPaths() {
+  const publications = await getCollection("team");
+  return publications.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = {
+  entry: CollectionEntry<"team">;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+---
+
+<PublicationsLayout frontmatter={entry.data}>
+  <Content />
+</PublicationsLayout>

@@ -1,7 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Regional Land Transport Demand Model'
-tagline:: 'Technical notes for practitioners'
+tagline: 'Technical notes for practitioners'
 description: 'test'
 pubDate: 2024-06-01
 authors: ['Eilya Torshizian', 'Alina Fehling']

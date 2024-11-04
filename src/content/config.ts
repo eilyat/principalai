@@ -1,4 +1,5 @@
 import { defineCollection, z, reference } from 'astro:content';
+import { optional } from 'astro:schema';
 
 export const collections = {
 	publications: defineCollection({
@@ -6,7 +7,7 @@ export const collections = {
 		// Type-check frontmatter using a schema
 		schema: z.object({
 			title: z.string(),
-			tagline: z.string().optional(),
+			tagline: z.string(),
 			description: z.string().optional(),
 			pubDate: z.coerce.date(),
 			authors: z.array(z.string()),
@@ -23,6 +24,21 @@ export const collections = {
 				cardSummary: z.string(),
 				cardImg:  z.string().optional(),
 				bannerImage: z.string().optional(),
+			}),
+		}),
+		team: defineCollection({
+			type: 'content',
+			// Type-check frontmatter using a schema
+			schema: z.object({
+				name: z.string(),
+				photo: z.string(),
+				shortName: z.string(),
+				role: z.string(),
+				location: z.string(),
+				phone: z.string().optional(),
+				email: z.string(),
+				qualification: z.string().optional(),
+				linkedIn: z.string().optional(),
 			}),
 		}),
 };

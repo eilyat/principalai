@@ -1,7 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'The Economic Impact of Accreditation'
-tagline:: 'Report to the International Accreditation New Zealand (IANZ)'
+tagline: 'Report to the International Accreditation New Zealand (IANZ)'
 description: 'test'
 pubDate: 2023-09-01
 authors: ['Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']

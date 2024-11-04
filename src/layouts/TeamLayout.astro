@@ -8,12 +8,12 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout SEOTitle="Publications">
 	<Fragment slot="SEO">
-		<meta name="citation_title" content={frontmatter.title}/>
+		<!-- <meta name="citation_title" content={frontmatter.title}/>
 		<meta name="citation_author" content={frontmatter.authors}/>
 		<meta name="citation_publication" content={frontmatter.PubDate}/>
-		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} />
+		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} /> -->
 	</Fragment>
-	<ShortHeader title={frontmatter.title} subtitle={frontmatter.tagline} />
+	<ShortHeader title={frontmatter.name} subtitle={frontmatter.role}/>
 	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
 		<br />
 		<BreadCrumbsDefault />
@@ -24,10 +24,7 @@ const { frontmatter } = Astro.props;
 				<main>
 					<section class="prose max-w-none prose-lg pb-0 pt-2">
 						<div class="">
-							<h1 class="citation_author">{frontmatter.title}</h3>
-							<h2>{frontmatter.tagline}</h3>
-							<h3 class="citation_author">{frontmatter.authors.join(', ')}</h3>
-							<p class="text-base py-0">Published on {frontmatter.pubDate}</p>
+							<h1 class="citation_author">{frontmatter.name}</h3>
 						</div>
 						<slot />
 					</section>
@@ -37,16 +34,17 @@ const { frontmatter } = Astro.props;
 				<div class="prose bg-gray-100 shadow-md">
 					<div class="flex flex-col gap-4 p-6 prose">
 						<h3 class="text-balance font-bold text-neutral-900" 
-						aria-describedby="PublicationDetails">Publication details</h3>
-						<ul id="PublicationDetails">
-							<li>Author(s):<br>{frontmatter.authors}</li>
-							<li>Published:<br>{frontmatter.pubDate}</li>
-							<li>Contact:<br>eilya@principaleconomics.com</li>
-							<li>Download:<br>
-								<a href ="https://environment.govt.nz/assets/Economic-impact-of-Emission-Reduction-Plan-2-Principal-Economics-Limited-230524-Final-Preliminary-Report-1.pdf">
-									New Zealand's second emissions reduction plan
-								</a>
-							</li>
+						aria-describedby="TeamMember">Team members</h3>
+						<ul id="TeamMember">
+							<li>{frontmatter.name}</li>
+							<li>{frontmatter.photo}</li>
+							<li>{frontmatter.shortName}</li>
+							<li>{frontmatter.role}</li>
+							<li>{frontmatter.location}</li>
+							<li>{frontmatter.phone}</li>
+							<li>{frontmatter.email}</li>
+							<li>{frontmatter.qualification}</li>
+							<li>{frontmatter.linkedIn}</li>
 						</ul>
 				</div>
 				</div>
