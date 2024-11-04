@@ -1,9 +1,10 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: "Economic Impact of New Zealand's Second Emission Reduction Plan"
-description: ''
+tagline:: 'ERP2 assessment the economic effects of key initiatives'
+description: "The Emissions Reduction Plan 2 (ERP2) targets reducing New Zealand's emissions from 72.5 MtCO2e to 61 MtCO2e by 2026-2030. This assessment examines the economic effects of key initiatives including increasing use of renewable energy and improving public transport."
 pubDate: 2022-07-01
-authors: 'Eilya Torshizian'
+authors: ['Torshizian E', 'Adams P', 'Stroombergen A.']
 pubType: 'report'
 downloadPdf: "https://environment.govt.nz/assets/Economic-impact-of-Emission-Reduction-Plan-2-Principal-Economics-Limited-230524-Final-Preliminary-Report-1.pdf"
 ---

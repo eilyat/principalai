@@ -6,11 +6,12 @@ export const collections = {
 		// Type-check frontmatter using a schema
 		schema: z.object({
 			title: z.string(),
-			description: z.string(),
-			// Transform string to Date object
+			tagline: z.string().optional(),
+			description: z.string().optional(),
 			pubDate: z.coerce.date(),
-			authors: z.string().optional(),
+			authors: z.array(z.string()),
 			heroImage: z.string().optional(),
+			downloadPdf: z.string().optional(),
 		}),
 	}),
 		industries: defineCollection({

@@ -1,0 +1,38 @@
+---
+const { title, date, category, imgSrc, imgAlt, link } = Astro.props;
+---
+
+<a
+  href={link}
+  class="block border rounded-sm overflow-hidden max-w-xs text-start no-underline shadow-md w-[288px] hover:shadow-lg
+  hover:border-blue-800 transition-all duration-400 ease-in-out group
+  "
+>
+  <article class="flex flex-col h-[410px]">
+    <!-- Card details section with flexible height -->
+    <div class="flex flex-col flex-grow min-h-[150px] p-5">
+      <span
+        class="bg-slate-100 text-gray-600 text-xs font-bold rounded-full px-4 py-1 self-start"
+      >
+        {category}
+      </span>
+      <h2 class="text-xl font-bold mt-2 inline-flex leading-tight text-gray-900 transition-colors group-hover:text-blue-800 duration-500">
+        {title}
+      </h2>
+    </div>
+
+    <!-- Date and Image section with fixed height -->
+    <div
+      class="flex flex-col items-start justify-center min-h-[200px] text-left"
+    >
+      <span class="text-sm text-gray-500 font-bold p-4">{date}</span>
+      <div class="relative w-full h-[204px] transition-opacity group-hover:opacity-70 duration-500">
+        <img
+          src={imgSrc}
+          alt={imgAlt}
+          class="w-full h-full object-cover mt-2"
+        />
+      </div>
+    </div>
+  </article>
+</a>

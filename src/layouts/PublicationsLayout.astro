@@ -13,7 +13,7 @@ const { frontmatter } = Astro.props;
 		<meta name="citation_publication" content={frontmatter.PubDate}/>
 		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} />
 	</Fragment>
-	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description} />
+	<ShortHeader title={frontmatter.title} subtitle={frontmatter.tagline} />
 	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
 		<br />
 		<BreadCrumbsDefault />
@@ -24,6 +24,8 @@ const { frontmatter } = Astro.props;
 				<main>
 					<section class="prose max-w-none prose-lg pb-0 pt-2">
 						<div class="">
+							<h1 class="citation_author">{frontmatter.title}</h3>
+								<h2 class="citation_author">{frontmatter.tagline}</h3>
 							<h3 class="citation_author">{frontmatter.authors}</h3>
 							<p class="text-base py-0">Published on {frontmatter.pubDate}</p>
 						</div>
