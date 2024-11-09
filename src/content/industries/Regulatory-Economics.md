@@ -1,5 +1,6 @@
 ---
 title: 'Regulatory Economics'
+navDesc: 'Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors.'
 description: 'Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors.'
 cardSummary: ''
 cardImg: ''

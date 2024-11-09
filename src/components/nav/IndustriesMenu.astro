@@ -1,6 +1,7 @@
 ---
 export const partial = true;
-import RightArrow from "../../components/ui/RightArrow.astro";
+import { Icon } from 'astro-icon/components'
+
 ---
 
 <div
@@ -95,7 +96,7 @@ import RightArrow from "../../components/ui/RightArrow.astro";
         class="flex items-center justify-start hover:underline hover:underline-offset-8 focus:underline-offset-8 focus:underline focus:outline-none 
         font-light py-2 pb-8 text-3xl"
       >
-        <div class="flex flex-row items-center justify-start flex-grow">Industries we work with&nbsp <RightArrow /></div>
+        <div class="flex flex-row items-center justify-start flex-grow">Industries we work with&nbsp <Icon name="carbon:arrow-right" /></div>
       </a>
       <ul class="grid grid-cols-2 gap-12 gap-y-3">
         <template x-for="section in sections" :key="section.id">

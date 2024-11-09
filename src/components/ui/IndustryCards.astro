@@ -1,5 +1,5 @@
 ---
-import RightArrow from "./RightArrow.astro"
+import { Icon } from 'astro-icon/components'
 
 const { title, href, cta } = Astro.props;
 
@@ -53,7 +53,7 @@ const { title, href, cta } = Astro.props;
                     Read more about our works {cta}
                 </span>
                 <div class="flex items-end justify-end col-span-1">
-                    <RightArrow size="20" />
+                    <Icon name="carbon:arrow-right" class="size-6 to-blue-700" />
                 </div>
             </span>
           </div>

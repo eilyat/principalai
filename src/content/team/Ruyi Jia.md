@@ -1,5 +1,5 @@
 ---
-name: ' Alina Fehling'
+name: 'Ruyi Jia'
 photo: './RuyiJia.webp'
 shortName: 'Fehling A'
 role: 'Economist'

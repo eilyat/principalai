@@ -1,0 +1,41 @@
+---
+
+export const partial = true;
+
+---
+
+<div
+  class="w-full overflow-hidden"
+>
+  <div
+    x-data="{ isExpanded: false }"
+    class=""
+  >
+    <div
+      x-cloak
+      x-show="isExpanded"
+      id="accordionItemOne"
+      role="region"
+      aria-labelledby="controlsAccordionItemOne"
+      x-collapse.origin="top"
+    >
+        <slot /> 
+      </div>
+    <button
+      id="controlsAccordionItemOne"
+      type="button"
+      class="flex w-full items-center justify-start gap-4 text-left font-bold text-blue-700"
+      aria-controls="accordionItemOne"
+      @click="isExpanded = !isExpanded"
+      :aria-expanded="isExpanded ? 'true' : 'false'"
+    >
+      Read more
+      <svg x-bind:class="isExpanded ? 'hidden' : 'block'" class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+        <path d="M5 1v8M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+      </svg>
+      <svg x-bind:class="isExpanded ? 'block' : 'hidden'" class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 10">
+        <path d="M1 5h8" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+      </svg>
+    </button>
+  </div>
+</div>

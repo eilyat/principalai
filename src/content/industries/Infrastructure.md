@@ -1,6 +1,7 @@
 ---
 title: 'Infrastructure'
 description: 'Efficient decision-making led by robust planning'
+navDesc: 'Robust economic frameworks and empirical methods, informed by evidence, shaped in collaboration with stakeholders.'
 cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
 cardImg: ''
 bannerImage: '/blog-placeholder-4.jpg'

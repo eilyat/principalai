@@ -1,5 +1,6 @@
 ---
 title: 'Tourism'
+navDesc: 'Valuing the direct and indirect benefits and costs of tourism.'
 description: 'Sustainable strategies for vibrant destinations'
 cardSummary: ''
 cardImg: ''

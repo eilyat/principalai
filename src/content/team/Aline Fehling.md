@@ -1,6 +1,6 @@
 ---
 name: 'Alina Fehling'
-photo: './Aline Fehling.webp'
+photo: './AlineFehling.webp'
 shortName: 'Fehling A'
 role: 'Economist'
 location: 'Auckland, New Zealand'

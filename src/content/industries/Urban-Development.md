@@ -1,5 +1,6 @@
 ---
 title: 'Urban Development and Housing'
+navDesc: 'Addressing challenges in housing affordability and urban spatial development.'
 description: 'New ways of planning in times of uncertainty'
 cardSummary: ''
 cardImg: ''

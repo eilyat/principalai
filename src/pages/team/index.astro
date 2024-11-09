@@ -9,6 +9,8 @@ import { getCollection } from "astro:content";
 const team = await getCollection("team");
 
 import PCard from "@/components/ui/pCard.astro";
+
+import Image from "astro/components/Image.astro";
 ---
 
 <BaseLayout SEOTitle="Team">
@@ -55,6 +57,7 @@ import PCard from "@/components/ui/pCard.astro";
                     category="Publication"
                     link={`/team/${entry.slug}`}
                   />
+                  <Image src = {entry.data.photo}, alt = ""></Image>
                 ))
               }
             </div>

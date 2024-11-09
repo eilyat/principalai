@@ -8,6 +8,8 @@ import tailwind from '@astrojs/tailwind';
 
 import alpinejs from '@astrojs/alpinejs';
 
+import icon from 'astro-icon';
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://example.com',
@@ -15,6 +17,12 @@ export default defineConfig({
       mdx(),
       sitemap(),
       alpinejs({ entrypoint: '/src/entrypoint' }),
-      tailwind({nesting: true, applyBaseStyles: false,})
-    ],
+      tailwind({nesting: true, applyBaseStyles: false,}),
+      icon({
+        include: {
+          // Include only three `mdi` icons in the bundle
+          carbon: ['email', 'phone', 'location', 'information', 'arrow-right']
+        }
+      })
+  ],
 });

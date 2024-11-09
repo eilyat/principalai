@@ -20,6 +20,7 @@ export const collections = {
 			// Type-check frontmatter using a schema
 			schema: z.object({
 				title: z.string(),
+				navDesc: z.string(),
 				description: z.string(),
 				cardSummary: z.string(),
 				cardImg:  z.string().optional(),
@@ -29,9 +30,9 @@ export const collections = {
 		team: defineCollection({
 			type: 'content',
 			// Type-check frontmatter using a schema
-			schema: z.object({
+			schema: ({ image }) => z.object({
 				name: z.string(),
-				photo: z.string(),
+				photo: image(),  // No width check or refinement
 				shortName: z.string(),
 				role: z.string(),
 				location: z.string(),

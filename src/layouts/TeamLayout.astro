@@ -2,7 +2,8 @@
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
-import ShortHeader from "@/components/ui/ShortHeader.astro";
+import TeamCardDetails from "@/components/ui/TeamCardDetails.astro"
+
 const { frontmatter } = Astro.props;
 ---
 
@@ -13,24 +14,37 @@ const { frontmatter } = Astro.props;
 		<meta name="citation_publication" content={frontmatter.PubDate}/>
 		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} /> -->
 	</Fragment>
-	<ShortHeader title={frontmatter.name} subtitle={frontmatter.role}/>
+	<!-- <ShortHeader title={frontmatter.name} subtitle={frontmatter.role}/> -->
 	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
 		<br />
 		<BreadCrumbsDefault />
 		<br />
-		<div class="grid grid-cols-12 gap-16">
-			<aside class="col-span-2 pt-16"></aside>
-			<div class="col-span-7">
+		<div class="flex flex-row-2 gap-10">
+
+			<div class="pt-12 col-span-3">
+				<TeamCardDetails
+				photo         = {frontmatter.photo}
+				alt           = {frontmatter.alt}
+				location      = {frontmatter.location}
+				email         = {frontmatter.email}
+				qualification = {frontmatter.qualification}
+				/>
+			</div>
+
+			<div class="col-span-6">
 				<main>
-					<section class="prose max-w-none prose-lg pb-0 pt-2">
-						<div class="">
-							<h1 class="citation_author">{frontmatter.name}</h3>
+					<div class="pt-16"></div>
+					<section class="prose max-w-none prose-lg prose-headings:-mt-4">
+						<div>
+							<h1 class="">{frontmatter.name}</h1>
+							<h2>{frontmatter.role}</h2>
 						</div>
 						<slot />
 					</section>
 				</main>
 			</div>
-			<aside class="col-span-3">
+
+			<!-- <aside class="col-span-3">
 				<div class="prose bg-gray-100 shadow-md">
 					<div class="flex flex-col gap-4 p-6 prose">
 						<h3 class="text-balance font-bold text-neutral-900" 
@@ -48,7 +62,7 @@ const { frontmatter } = Astro.props;
 						</ul>
 				</div>
 				</div>
-			</aside>
+			</aside> -->
 		</div>
 	</main>
 </BaseLayout>

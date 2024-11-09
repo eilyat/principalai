@@ -58,7 +58,7 @@ import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
     @click.outside="isOpened = false, openedWithKeyboard = false"
     @keydown.down.prevent="$focus.wrap().next()"
     @keydown.up.prevent="$focus.wrap().previous()"
-    class="absolute shadow-md max-w-full w-full sm:flex-col z-50 left-0"
+    class="absolute shadow-md max-w-full w-full z-50 left-0"
   >
     <div>
       <!-- Menu panel components start -->

@@ -4,6 +4,7 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 const { frontmatter } = Astro.props;
+
 ---
 
 <BaseLayout SEOTitle="Publications">
@@ -17,9 +18,9 @@ const { frontmatter } = Astro.props;
 			<aside class="col-span-2 pt-16"></aside>
 			<div class="col-span-7">
 				<main>
-					<section class="prose max-w-none prose-lg">
+					<section class="prose max-w-none prose-h1:font-semibold prose-h2:font-semibold prose-h2:-mt-1 prose-h2:mb-8 pt-8">
 						<div class="pb-0 pt-2">
-							<h1 class="citation_title max-w-4xl leading-none pb-0 pt-4">
+							<h1 class="citation_title max-w-4xl">
 								{frontmatter.description}
 							</h1>
 						</div>

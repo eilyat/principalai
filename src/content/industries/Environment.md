@@ -1,6 +1,7 @@
 ---
 title: 'Environment'
 description: 'New ways of planning in times of uncertainty'
+navDesc: 'Fundamental uncertainty in the future climate requires new ways of planning.'
 cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
 cardImg: ''
 bannerImage: '/blog-placeholder-4.jpg'

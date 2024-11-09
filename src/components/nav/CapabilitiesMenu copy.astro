@@ -1,0 +1,59 @@
+---
+export const partial = true;
+import { getCollection } from "astro:content";
+const industries = await getCollection("industries");
+import { Icon } from 'astro-icon/components'
+
+---
+
+<div
+  class="py-2 shadow-xl bg-white w-full border-y-2 border-gray-200 box-border"
+>
+  <div
+    class=
+    
+    "grid grid-cols-12 gap-0 max-w-screen-2xl mx-auto h-full pl-6 py-6"
+  >
+    <!-- title section -->
+    <div class="max-w-xs pt-2 h-auto flex-shrink-0">
+        <div class="text-bold text-3xl">
+          Industries
+          <a href="/industries">
+            <div
+              class="group font-semibold text-base hover:underline hover:underline-offset-8 focus:underline-offset-8 focus:underline focus:outline-none flex items-center pt-1 gap-0
+                     text-blue-600"
+            >
+              See here for more details&nbsp; <Icon name="carbon:arrow-right" class="size-6 to-blue-600 group-hover:translate-x-2 transition-transform duration-200" />
+            </div>
+          </a>
+        </div>
+    </div>
+
+    <!-- Section List -->
+    <div class="w-full h-full">
+      <ul class="grid grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-10 gap-y-4">
+        {
+          industries.map((entry) => (
+            <li class="text-gray-800">
+              <a
+                class="h-[80px] pl-2 text-gray-600 text-left py-1 border-l-2 border-gray-300 block text-md w-full
+            hover:border-blue-500 hover:text-blue-700 hover:border-l-4 hover:bg-gray-100 hover:shadow-sm
+            focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100"
+                href={`/industries/${entry.slug}`}
+              >
+                <div class="h-full flex flex-col items-justified justify-center pl-2">
+                  <span class="font-semibold leading-8 text-lg">
+                    {entry.data.title}
+                  </span>
+                  <span class="text-sm text-gray-500">
+                    {entry.data.navDesc}
+                  </span>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>

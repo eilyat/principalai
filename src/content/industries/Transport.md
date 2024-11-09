@@ -1,5 +1,6 @@
 ---
 title: 'Transport'
+navDesc: 'Enabling interactions with locations dispersed over space'
 description: 'Enabling interactions with locations dispersed over space'
 cardSummary: ''
 cardImg: ''

@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> */
+
+
+/* Apply Libre Baskerville to all headings */
+@layer base {
+  h1, h2, h3, h4, h5 {
+    font-family: 'Libre Baskerville', serif; /* Apply Libre Baskerville to all headings */
+    font-weight: normal; /* Optional: Adjust weights if necessary */
+  }
+
+  /* Adjust letter spacing for each heading */
+  h1 {
+    letter-spacing: 0.02em; /* More spacing between characters for h1 */
+  }
+
+  h2 {
+    letter-spacing: 0.02em; /* Slightly less spacing for h2 */
+  }
+
+  h3 {
+    letter-spacing: 0.02em; /* Default spacing for h3 */
+  }
+
+  h4 {
+    letter-spacing: 0.02em; /* Slightly tighter spacing for h4 */
+  }
+
+  h5 {
+    letter-spacing: 0.02em; /* Tightest spacing for h5 */
+  }
+
+  /* Apply letter spacing to headings inside .prose */
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5 {
+    font-family: 'Libre Baskerville', serif; /* Apply Libre Baskerville to all headings inside .prose */
+    font-weight: normal;
+  }
+
+  /* Specific letter-spacing for headings inside .prose */
+  .prose h1 {
+    letter-spacing: 0.02em; /* Same as standard h1 */
+  }
+
+  .prose h2 {
+    letter-spacing: 0.02em; /* Same as standard h2 */
+    font-style: italic;
+    font-size: x-large;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+
+  .prose h3 {
+    letter-spacing: 0.02em; /* Same as standard h3 */
+  }
+
+  .prose h4 {
+    letter-spacing: 0.02em; /* Same as standard h4 */
+  }
+
+  .prose h5 {
+    letter-spacing: 0.02em; /* Same as standard h5 */
+  }
+}
+
+/* Apply Raleway to the body text and .prose content */
+@layer components {
+  /* Modify the font for the .prose container */
+  .prose {
+    --tw-prose-headings: 'Libre Baskerville', serif; /* Apply Libre Baskerville to all headings inside .prose */
+    --tw-prose-body: 'Raleway', sans-serif; /* Apply Raleway to body text inside .prose */
+    line-height: 1.5; /* Line height for better readability */
+  }
+  /* Apply Raleway to all body text elements in .prose */
+  .prose p, .prose ul, .prose ol, .prose blockquote {
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+}
