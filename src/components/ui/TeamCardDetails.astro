@@ -5,11 +5,11 @@ import { Image } from "astro:assets";
 
 ---
 
-<div class="shadow-md">
+<div class="shadow-md min-w-[340px] max-w-[360px]">
   <Image
     src={photo}  
     alt={name || 'No name provided'}
-    class="min-w-[100px] border-slate-100 border-[2px]"
+    class="min-w-[340px] border-slate-100 border-[2px]"
   />
   <div class="bg-slate-100 p-4 grid grid-cols-[auto,1fr] gap-4 items-center">
     {location && (

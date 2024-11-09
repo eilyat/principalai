@@ -6,63 +6,42 @@ import TeamCardDetails from "@/components/ui/TeamCardDetails.astro"
 
 const { frontmatter } = Astro.props;
 ---
-
 <BaseLayout SEOTitle="Publications">
-	<Fragment slot="SEO">
-		<!-- <meta name="citation_title" content={frontmatter.title}/>
-		<meta name="citation_author" content={frontmatter.authors}/>
-		<meta name="citation_publication" content={frontmatter.PubDate}/>
-		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} /> -->
-	</Fragment>
-	<!-- <ShortHeader title={frontmatter.name} subtitle={frontmatter.role}/> -->
-	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
-		<br />
-		<BreadCrumbsDefault />
-		<br />
-		<div class="flex flex-row-2 gap-10">
+  <Fragment slot="SEO">
+    <meta name="title" content={frontmatter.name} />
+  </Fragment>
 
-			<div class="pt-12 col-span-3">
-				<TeamCardDetails
-				photo         = {frontmatter.photo}
-				alt           = {frontmatter.alt}
-				location      = {frontmatter.location}
-				email         = {frontmatter.email}
-				qualification = {frontmatter.qualification}
-				/>
-			</div>
+  <main class="px-6 max-w-screen-2xl mx-auto">
+    <br />
+    <BreadCrumbsDefault />
+    <br />
 
-			<div class="col-span-6">
-				<main>
-					<div class="pt-16"></div>
-					<section class="prose max-w-none prose-lg prose-headings:-mt-4">
-						<div>
-							<h1 class="">{frontmatter.name}</h1>
-							<h2>{frontmatter.role}</h2>
-						</div>
-						<slot />
-					</section>
-				</main>
-			</div>
+    <!-- Content Section: Flex layout for the main content and aside -->
+    <div class="grid gap-8 grid-col-1 md:grid-cols-[1fr_3fr]">
 
-			<!-- <aside class="col-span-3">
-				<div class="prose bg-gray-100 shadow-md">
-					<div class="flex flex-col gap-4 p-6 prose">
-						<h3 class="text-balance font-bold text-neutral-900" 
-						aria-describedby="TeamMember">Team members</h3>
-						<ul id="TeamMember">
-							<li>{frontmatter.name}</li>
-							<li>{frontmatter.photo}</li>
-							<li>{frontmatter.shortName}</li>
-							<li>{frontmatter.role}</li>
-							<li>{frontmatter.location}</li>
-							<li>{frontmatter.phone}</li>
-							<li>{frontmatter.email}</li>
-							<li>{frontmatter.qualification}</li>
-							<li>{frontmatter.linkedIn}</li>
-						</ul>
-				</div>
-				</div>
-			</aside> -->
-		</div>
-	</main>
+      <!-- Aside with TeamCardDetails -->
+      <aside class="order-2 md:order-1 md:col-span-1">
+        <TeamCardDetails
+          photo={frontmatter.photo}
+          alt={frontmatter.alt}
+          location={frontmatter.location}
+          email={frontmatter.email}
+          qualification={frontmatter.qualification}
+        />
+      </aside>
+
+      <!-- Main content -->
+      <div class="order-1 md:order-2 w-full">
+        <main>
+          <div class="pt-16"></div>
+          <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
+          <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
+          <section class="prose max-w-none prose-lg prose-headings:-mt-4">
+            <slot />
+          </section>
+        </main>
+      </div>
+
+    </div>
+  </main>
 </BaseLayout>
