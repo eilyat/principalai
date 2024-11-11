@@ -8,7 +8,7 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 import { getCollection } from "astro:content";
 const team = await getCollection("team");
 
-import PCard from "@/components/ui/pCard.astro";
+import TeamCard from "@/components/ui/TeamCard.astro";
 
 import Image from "astro/components/Image.astro";
 ---
@@ -24,25 +24,6 @@ import Image from "astro/components/Image.astro";
         <div class="post-wrapper">
           <h1>Publications</h1>
 
-          {
-            team.map((entry) => (
-              <article class="p-6">
-                <p class="text-2xl font-bold pb-2">{entry.data.name}</p>
-                <p class="text-md leading-snug">
-                  Role: {entry.data.role}
-                </p>
-                {/* <p class="text-md leading-snug pb-4">
-                  Published on:{" "}
-                  {entry.data.pubDate.toLocaleDateString(undefined, {
-                    dateStyle: "medium",
-                    timeZone: "UTC",
-                  })}
-                </p> */}
-                {/* <p>{entry.data.description}</p> */}
-              </article>
-              // <hr>
-            ))
-          }
         <div class="grid gap-4 md:grid-cols-5 mx-auto">
           <aside class="bg-gray-100 p-4 md:col-span-1">Filters</aside>
           <section class="p-4 md:col-span-4">
@@ -50,14 +31,15 @@ import Image from "astro/components/Image.astro";
               {
                 team.map((entry) => (
                   
-                  <PCard
-                    title={entry.data.name}
-                    imgSrc={entry.data.photo}
-                    imgAlt={entry.data.name}
+                  <TeamCard
+                    name={entry.data.name}
+                    role={entry.data.role}
+                    phone={entry.data.phone}
+                    email={entry.data.email}
+                    photo={entry.data.photo}
                     category="Publication"
                     link={`/team/${entry.slug}`}
                   />
-                  <Image src = {entry.data.photo}, alt = ""></Image>
                 ))
               }
             </div>

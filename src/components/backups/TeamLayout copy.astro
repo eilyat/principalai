@@ -6,7 +6,6 @@ import TeamCardDetails from "@/components/ui/TeamCardDetails.astro"
 
 const { frontmatter } = Astro.props;
 ---
-
 <BaseLayout SEOTitle="Publications">
   <Fragment slot="SEO">
     <meta name="title" content={frontmatter.name} />
@@ -17,16 +16,11 @@ const { frontmatter } = Astro.props;
     <BreadCrumbsDefault />
     <br />
 
-    <!-- Content Section -->
-    <div class="pt-8">
-      <!-- Headings for small screens (visible on small screens only) -->
-      <div class="sm:hidden mb-6">
-        <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
-        <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
-      </div>
+    <!-- Content Section: Flex layout for the main content and aside -->
+    <div class="grid gap-8 grid-col-1 md:grid-cols-[1fr_3fr]">
 
-      <!-- Aside with TeamCardDetails (Image Container) -->
-      <div class="team-image-container float-left mb-8 mr-16 items-stretch w-full sm:w-auto sm:max-w-xs">
+      <!-- Aside with TeamCardDetails -->
+      <aside class="order-2 md:order-1 md:col-span-1">
         <TeamCardDetails
           photo={frontmatter.photo}
           alt={frontmatter.alt}
@@ -34,20 +28,20 @@ const { frontmatter } = Astro.props;
           email={frontmatter.email}
           qualification={frontmatter.qualification}
         />
-      </div>
+      </aside>
 
       <!-- Main content -->
-      <main class="pt-16">
-        <!-- Headings for larger screens (visible on medium and up screens only) -->
-        <div class="hidden sm:block">
+      <div class="order-1 md:order-2 w-full">
+        <main>
+          <div class="pt-16"></div>
           <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
           <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
-        </div>
+          <section class="prose max-w-none prose-lg prose-headings:-mt-4">
+            <slot />
+          </section>
+        </main>
+      </div>
 
-        <section class="prose max-w-none prose-lg prose-headings:-mt-4">
-          <slot />
-        </section>
-      </main>
     </div>
   </main>
 </BaseLayout>

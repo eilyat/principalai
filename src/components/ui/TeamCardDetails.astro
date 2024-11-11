@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
     alt={name || 'No name provided'}
     class="min-w-[340px] border-slate-100 border-[2px]"
   />
-  <div class="bg-slate-100 p-4 grid grid-cols-[auto,1fr] gap-4 items-center">
+  <div class="bg-slate-100 p-3 grid grid-cols-[auto,1fr] gap-4 items-center">
     {location && (
       <>
         <Icon name="carbon:location" class="size-6" />
@@ -27,7 +27,11 @@ import { Image } from "astro:assets";
     {email && (
       <>
         <Icon name="carbon:email" class="size-6" />
-        <p class="m-0 text-lg">{email}</p>
+        <p class="m-0 text-lg">
+          <a href={`mailto:${email}`} class="text-blue-500 hover:underline">
+          {email}
+          </a>
+        </p>
       </>
     )}
     {qualification && (
