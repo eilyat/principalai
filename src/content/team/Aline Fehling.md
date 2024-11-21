@@ -2,6 +2,7 @@
 name: 'Alina Fehling'
 photo: './AlineFehling.webp'
 shortName: 'Fehling A'
+joinDate: 2022-01-02
 role: 'Economist'
 location: 'Auckland, New Zealand'
 email: aline@principaleconomics.com

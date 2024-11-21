@@ -21,7 +21,7 @@ export default defineConfig({
       icon({
         include: {
           // Include only three `mdi` icons in the bundle
-          carbon: ['email', 'phone', 'location', 'information', 'arrow-right']
+          carbon: ['email', 'phone', 'location', 'information', 'arrow-right', 'logo-linkedin']
         }
       })
   ],

@@ -6,5 +6,8 @@
         "tailwindcss",
         "Torshizian",
         "Toshizian"
-    ]
+    ],
+    "files.associations": {
+        "*.yaml": "home-assistant"
+    }
 }

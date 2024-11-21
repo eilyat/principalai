@@ -27,6 +27,18 @@ export const collections = {
 				bannerImage: z.string().optional(),
 			}),
 		}),
+		capabilities: defineCollection({
+			type: 'content',
+			// Type-check frontmatter using a schema
+			schema: z.object({
+				title: z.string(),
+				navDesc: z.string(),
+				description: z.string(),
+				cardSummary: z.string(),
+				cardImg:  z.string().optional(),
+				bannerImage: z.string().optional(),
+			}),
+		}),
 		team: defineCollection({
 			type: 'content',
 			// Type-check frontmatter using a schema
@@ -34,6 +46,7 @@ export const collections = {
 				name: z.string(),
 				photo: image(),  // No width check or refinement
 				shortName: z.string(),
+				joinDate: z.coerce.date().optional(),
 				role: z.string(),
 				location: z.string(),
 				phone: z.string().optional(),

@@ -81,3 +81,19 @@
   }
 
 }
+
+@layer components {
+  /* Set default serif font */
+  body, .serif {
+    font-family: 'Libre Baskerville', serif;
+    
+  }
+
+  /* Set default sans-serif font */
+  .sans-serif, p, ul, ol, blockquote {
+    font-family: 'Raleway', sans-serif;
+  }
+  .serif.semibold, .sans-serif.semibold {
+    font-weight: 500;  /* Sometimes this will simulate a semibold effect */
+  }
+}

@@ -2,6 +2,7 @@
 name: 'Dr Eilya Toshizian'
 photo: './EliyaTorshzian.webp'
 shortName: 'Torshizian E'
+joinDate: 2022-01-01
 role: 'Chief Executive Officer'
 location: 'Auckland, New Zealand'
 phone: 0064 221 564529

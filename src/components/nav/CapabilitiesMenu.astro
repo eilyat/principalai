@@ -1,7 +1,7 @@
 ---
 export const partial = true;
 import { getCollection } from "astro:content";
-const industries = await getCollection("industries");
+const capabilities = await getCollection("capabilities");
 import { Icon } from "astro-icon/components";
 ---
 
@@ -10,8 +10,8 @@ import { Icon } from "astro-icon/components";
   <!-- Sidebar / Industries Section -->
   <div class="col-span-12 lg:col-span-2 bg-white p-6 max-w-screen-2xl">
     <div class="text-bold text-3xl">
-      Industries
-      <a href="/industries">
+      Capabilities
+      <a href="/capabilities">
         <div class="group font-semibold text-base hover:underline hover:underline-offset-8 focus:underline-offset-8 focus:underline focus:outline-none flex place-items-center pt-1 gap-2 text-blue-600">
           See more details
           <Icon name="carbon:arrow-right" class="size-6 to-blue-600 group-hover:translate-x-2 transition-transform duration-200 flex flex-shrink" />
@@ -20,15 +20,15 @@ import { Icon } from "astro-icon/components";
     </div>
   </div>
 
-  <!-- 3x3 Grid of Industries Items -->
+  <!-- 3x3 Grid of capabilities Items -->
   <div class="col-span-12 lg:col-span-10 bg-white p-4">
     <!-- UL is the 3x3 grid with 7 items -->
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Map through industries and display each item in the grid -->
+      <!-- Map through capabilities and display each item in the grid -->
       {
-        industries.map((entry) => (
+        capabilities.map((entry) => (
           <li class="text-gray-800">
-            <a class="h-[80px] pl-2 bg-white text-gray-600 text-left py-1 border-l-2 border-gray-300 block text-md w-full hover:border-blue-500 hover:text-blue-700 hover:border-l-4 hover:bg-gray-100 hover:shadow-sm focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100" href={`/industries/${entry.slug}`}>
+            <a class="h-[80px] pl-2 bg-white text-gray-600 text-left py-1 border-l-2 border-gray-300 block text-md w-full hover:border-blue-500 hover:text-blue-700 hover:border-l-4 hover:bg-gray-100 hover:shadow-sm focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100" href={`/capabilities/${entry.slug}`}>
               <div class="h-full flex flex-col justify-center pl-2">
                 <span class="font-semibold leading-8 text-lg">
                   {entry.data.title}

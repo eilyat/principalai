@@ -1,41 +1,38 @@
 ---
-const { photo, name, role, location, phone, email, qualification } =
+const { photo, name, role, link, linkedin} =
   Astro.props;
 import { Icon } from "astro-icon/components";
 import { Picture } from 'astro:assets';
 
 ---
 
-<div class="shadow-md min-w-[340px]">
-  <div class="w-[340px] h-[450px] relative overflow-hidden border-slate-100 border-[2px]">
-  <Picture
-    src={photo}
-    alt={name || "No name provided"} 
-    width={340}
-    height={450} 
-    class="object-cover w-full h-full"
-    />
-  </div>
-  <div class="bg-slate-100 p-4 grid grid-cols-[auto,1fr] gap-4">
-    test
-    {
-      phone && (
-        <>
-          <Icon name="carbon:phone" class="size-6" />
-          <p class="m-0 text-lg">{phone}</p>
-        </>
-      )
-    }
-    {
-      email && (
-        <>
-          <Icon name="carbon:email" class="size-6" />
-          <p class="m-0 text-lg">
-            <a href={`mailto:${email}`} class="text-blue-500 hover:underline">
-              {email}
-            </a>
-          </p>
-        </>
-      )
-    }
-  </div>
+  <div class="flex items-center max-sm:flex-col gap-4 overflow-hidden w-full border-white border-2 bg-slate-50 rounded-lg">
+  
+    <div class="w-full h-full md:w-[200px] md:h-[240px]">
+      <Picture
+        src={photo}
+        alt={name || "No name provided"}
+        width={280}
+        height={280}
+        class="w-full h-full object-cover object-top bg-[#2e3034] pt-2"
+      />
+    </div>
+
+    <div class="p-4 max-w-[500px] flex flex-col gap-2 w-full">
+      <a href={link} class="transition-all duration-400 ease-in-out group hover:underline hover:underline-offset-4">
+        <h4 class="font-serif text-gray-800 text-4xl transition-colors group-hover:text-blue-600 duration-500">{name}</h4>
+        <h5 class="font-sans text-gray-500 text-2xl mt-1 transition-colors group-hover:text-blue-600 duration-500">{role}</h5>
+      </a>
+    
+      <div class="mt-2 inline-flex justify-start items-center transition-colors group-hover:text-blue-600 duration-500">
+        <a href={linkedin} class="flex-shrink-0">
+          <Icon name="carbon:logo-linkedin" size={35} 
+          class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+        </a>
+        <a href={linkedin} class="flex-shrink-0">
+          <Icon name="carbon:logo-linkedin" size={35} class="block p-0" />
+        </a>
+      </div>
+    </div>
+
+</div>

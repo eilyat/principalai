@@ -2,6 +2,7 @@
 name: 'Prof. Robert MacCulloch'
 photo: './RobertMacCulloch.webp'
 shortName: 'MacCulloch R'
+joinDate: 2024-04-06
 role: 'Macroeconomics Advisor '
 location: 'Auckland, New Zealand'
 phone: 0064 21 903 153

@@ -2,6 +2,7 @@
 name: 'Phil Donovan'
 photo: './PhilDonovan.webp'
 shortName: 'Donovan P'
+joinDate: 2024-05-06
 role: 'Associate'
 location: 'Auckland, New Zealand'
 phone: 0064 21 903 153

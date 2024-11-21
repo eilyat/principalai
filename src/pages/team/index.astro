@@ -9,12 +9,12 @@ import { getCollection } from "astro:content";
 const team = await getCollection("team");
 
 import TeamCard from "@/components/ui/TeamCard.astro";
+import SectionBreakHR from "@/components/ui/SectionBreakHR.astro"
 
-import Image from "astro/components/Image.astro";
 ---
 
 <BaseLayout SEOTitle="Team">
-  <ShortHeader title="Our team" subtitle=""/>
+  <ShortHeader title="Meet our team" subtitle="" />
   <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <br />
     <BreadCrumbsDefault />
@@ -22,31 +22,35 @@ import Image from "astro/components/Image.astro";
     <section class="pt-16">
       <div class="pb-8">
         <div class="post-wrapper">
-          <h1>Publications</h1>
-
-        <div class="grid gap-4 md:grid-cols-5 mx-auto">
-          <aside class="bg-gray-100 p-4 md:col-span-1">Filters</aside>
-          <section class="p-4 md:col-span-4">
-            <div class="grid grid-cols-[repeat(auto-fill,minmax(288px,1fr))] gap-2 place-items-center">
-              {
-                team.map((entry) => (
-                  
-                  <TeamCard
-                    name={entry.data.name}
-                    role={entry.data.role}
-                    phone={entry.data.phone}
-                    email={entry.data.email}
-                    photo={entry.data.photo}
-                    category="Publication"
-                    link={`/team/${entry.slug}`}
-                  />
-                ))
-              }
-            </div>
-          </section>
-        </div>
-
-
+          <div class="">
+            <section class="">
+              <div
+                class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-12"
+              >
+                {
+                  team
+                    .sort((a, b) => {
+                      const dateA = a.data.joinDate
+                        ? new Date(a.data.joinDate).getTime()
+                        : 0;
+                      const dateB = b.data.joinDate
+                        ? new Date(b.data.joinDate).getTime()
+                        : 0;
+                      return dateA - dateB;
+                    })
+                    .map((entry) => (
+                      <TeamCard
+                        name={entry.data.name}
+                        role={entry.data.role}
+                        photo={entry.data.photo}
+                        linkedin={entry.data.linkedIn}
+                        link={`/team/${entry.slug}`}
+                      />
+                    ))
+                }
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </section>

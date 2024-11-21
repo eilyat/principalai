@@ -1,7 +1,8 @@
 ---
 name: 'Ruyi Jia'
 photo: './RuyiJia.webp'
-shortName: 'Fehling A'
+shortName: 'Jia R'
+joinDate: 2024-01-01
 role: 'Economist'
 location: 'Auckland, New Zealand'
 phone: 027 298 6737
