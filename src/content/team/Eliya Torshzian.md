@@ -10,6 +10,8 @@ email: eilya@principaleconomics.com
 qualification: 'PhD in Economics'
 linkedIn: https://www.linkedin.com/in/eilya-torshizian-10b4b143/
 twitter: https://twitter.com/Torshizian
+ssrn: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3519249
+orcid: https://orcid.org/0000-0003-0270-7184
 ---
 
 

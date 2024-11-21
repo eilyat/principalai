@@ -53,6 +53,8 @@ export const collections = {
 				email: z.string(),
 				qualification: z.string().optional(),
 				linkedIn: z.string().optional(),
+				orcid: z.string().optional(),
+				ssrn: z.string().optional(),
 			}),
 		}),
 };

@@ -1,5 +1,5 @@
 ---
-const { photo, name, role, link, linkedin} =
+const { photo, name, role, link, linkedin, ssrn, orcid, twitter} =
   Astro.props;
 import { Icon } from "astro-icon/components";
 import { Picture } from 'astro:assets';
@@ -25,13 +25,21 @@ import { Picture } from 'astro:assets';
       </a>
     
       <div class="mt-2 inline-flex justify-start items-center transition-colors group-hover:text-blue-600 duration-500">
-        <a href={linkedin} class="flex-shrink-0">
-          <Icon name="carbon:logo-linkedin" size={35} 
-          class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+        {linkedin && (
+        <a href={linkedin} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+          <Icon name="carbon:logo-linkedin" size={35} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
         </a>
-        <a href={linkedin} class="flex-shrink-0">
-          <Icon name="carbon:logo-linkedin" size={35} class="block p-0" />
-        </a>
+        )}
+        {orcid && (
+          <a href={orcid} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+            <Icon name="academicons:orcid" size={27} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+          </a>
+          )}
+        {ssrn && (
+          <a href={ssrn} target="_blank" rel="noopener noreferrer" class="flex-shrink-0">
+            <Icon name="academicons:ssrn" size={35} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+          </a>
+          )}
       </div>
     </div>
 
