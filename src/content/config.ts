@@ -2,6 +2,19 @@ import { defineCollection, z, reference } from 'astro:content';
 import { optional } from 'astro:schema';
 
 export const collections = {
+	articles: defineCollection({
+		type: 'content',
+		// Type-check frontmatter using a schema
+		schema: z.object({
+			title: z.string(),
+			tagline: z.string(),
+			description: z.string().optional(),
+			pubDate: z.coerce.date(),
+			authors: z.array(z.string()),
+			heroImage: z.string().optional(),
+			downloadPdf: z.string().optional(),
+		}),
+	}),
 	publications: defineCollection({
 		type: 'content',
 		// Type-check frontmatter using a schema

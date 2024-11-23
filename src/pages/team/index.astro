@@ -21,9 +21,12 @@ import SectionBreakHR from "@/components/ui/SectionBreakHR.astro"
     <br />
     <section class="pt-16">
       <div class="pb-8">
-        <div class="post-wrapper">
-          <div class="">
+
             <section class="">
+              <!-- <h1 class = "text-6xl">Meet our team</h2> -->
+                <p class = "prose text-2xl">
+                  Bringing together diverse expertise and sharp economic insight, our team thrives on solving complex challenges. We work collaboratively with academics, policymakers, and industry leaders to deliver rigorous, actionable solutions tailored to real-world needs.
+                </p>
               <div
                 class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-12"
               >
@@ -43,6 +46,8 @@ import SectionBreakHR from "@/components/ui/SectionBreakHR.astro"
                         name={entry.data.name}
                         role={entry.data.role}
                         photo={entry.data.photo}
+                        phone={entry.data.phone}
+                        email={entry.data.email}
                         linkedin={entry.data.linkedIn}
                         orcid={entry.data.orcid}
                         ssrn={entry.data.ssrn}
@@ -52,8 +57,7 @@ import SectionBreakHR from "@/components/ui/SectionBreakHR.astro"
                 }
               </div>
             </section>
-          </div>
-        </div>
+
       </div>
     </section>
   </main>
