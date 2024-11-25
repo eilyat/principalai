@@ -8,7 +8,7 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 import { getCollection } from "astro:content";
 const publications = await getCollection("publications");
 
-import PCard from "@/components/ui/pCard.astro";
+import PCardSmall from "@/components/ui/PCardSmall.astro";
 ---
 
 <BaseLayout SEOTitle="Publications">
@@ -48,7 +48,7 @@ import PCard from "@/components/ui/pCard.astro";
               {
                 publications.map((entry) => (
                   
-                  <PCard
+                  <PCardSmall
                     title={entry.data.title}
                     imgSrc="/blog-placeholder-3.jpg"
                     imgAlt={entry.data.title}

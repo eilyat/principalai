@@ -1,6 +1,8 @@
 ---
 import Industries from "@/components/nav/IndustriesMenu.astro";
 import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
+import Insights from "@/components/nav/InsightsMenu.astro";
+
 ---
 
 <div
@@ -72,7 +74,7 @@ import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
       </template>
       <!-- Insights menu -->
       <template x-if="navigationMenu === 'insights'">
-        <Capabilities />
+        <Insights />
       </template>
       <!-- About us menu -->
       <template x-if="navigationMenu === 'about-us'">

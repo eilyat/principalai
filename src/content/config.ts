@@ -2,6 +2,20 @@ import { defineCollection, z, reference } from 'astro:content';
 import { optional } from 'astro:schema';
 
 export const collections = {
+	resources: defineCollection({
+		type: 'content',
+		// Type-check frontmatter using a schema
+		schema: z.object({
+			title: z.string(),
+			tagline: z.string().optional(),
+			description: z.string().optional(),
+			pubDate: z.coerce.date().optional(),
+			authors: z.array(z.string()),
+			heroImage: z.string().optional(),
+			cardImage: z.string().optional(),
+			downloadPdf: z.string().optional(),
+		}),
+	}),
 	articles: defineCollection({
 		type: 'content',
 		// Type-check frontmatter using a schema
@@ -12,6 +26,7 @@ export const collections = {
 			pubDate: z.coerce.date(),
 			authors: z.array(z.string()),
 			heroImage: z.string().optional(),
+			cardImage: z.string().optional(),
 			downloadPdf: z.string().optional(),
 		}),
 	}),
@@ -25,6 +40,7 @@ export const collections = {
 			pubDate: z.coerce.date(),
 			authors: z.array(z.string()),
 			heroImage: z.string().optional(),
+			cardImage: z.string().optional(),
 			downloadPdf: z.string().optional(),
 		}),
 	}),

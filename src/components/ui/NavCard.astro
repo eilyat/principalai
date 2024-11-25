@@ -1,0 +1,31 @@
+---
+const { title, date, imgSrc, imgAlt, link } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<article class="flex bg-slate-50 overflow-hidden w-full h-[90px]">
+  <!-- Image Section (160x100) -->
+  <div class="w-[160px] h-[90px] ">
+    <Image
+      src={imgSrc}
+      alt={imgAlt || "No name provided"}
+      width={160}
+      height={90}
+      class="w-full h-full object-cover"
+    />
+  </div>
+  <!-- Story Body Section -->
+  <div class="flex flex-col justify-start h-full w-full p-2 pt-4">
+    <!-- Tagline -->
+    <div class="text-xs text-gray-500 mb-1">
+      <p>{date}</p>
+    </div>
+
+    <!-- Title/Link -->
+    <a href={link}>
+      <div class="text-sm font-semibold text-blue-600">
+        {title}
+      </div>
+    </a>
+  </div>
+</article>
