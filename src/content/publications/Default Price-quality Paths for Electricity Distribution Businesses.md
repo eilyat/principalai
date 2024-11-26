@@ -1,6 +1,6 @@
 ---
 # layout: '@/layouts/publications.astro'
-title: 'The Economic Impact of Accreditation'
+title: 'Default Price-quality paths for Electricity Distribution Businesses'
 tagline: 'Report to the International Accreditation New Zealand (IANZ)'
 description: 'test'
 pubDate: 2023-09-01
