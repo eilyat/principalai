@@ -4,6 +4,8 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import IndustryCards from "@/components/ui/IndustryCards.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
+import { getCollection } from "astro:content";
+const industries = await getCollection("industries");
 ---
 
 <BaseLayout SEOTitle="Industries we work with">
@@ -34,77 +36,23 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 				>
 					<!-- <div class="aspect-square bg-gray-100 p-8 w-90 border-t-[16px] border-blue-500"> -->
 					<!-- Should probably just put the border into the box instead -->
+				{
+					industries.map((entry) => (
 
 					<IndustryCards
-						title="Energy"
-						href="industries/energy"
-						cta="in the energy sector"
+						title={entry.data.title}
+						href={`/industries/${entry.slug}`}
+						cta={entry.data.title}
 					>
-						Learning JavaScript doesn't need to be difficult. Our penguin AI
-						robot can learn how much you know and will go at your speed.
-						Although Penguai is small, he's got a mighty big CPU.
+						{entry.data.description} sector
 					</IndustryCards>
-
-					<IndustryCards
-						title="Urban Development & Housing"
-						href="industries/energy"
-						cta="in the energy sector"
-					>
-						Learning JavaScript doesn't need to be difficult. Our penguin AI
-						robot can learn how much you know and will go at your speed.
-						Although Penguai is small, he's got a mighty big CPU.
-					</IndustryCards>
-
-					<IndustryCards
-						title="Tourism"
-						href="industries/energy"
-						cta="in the energy sector"
-					>
-						Learning JavaScript doesn't need to be difficult. Our penguin AI
-						robot can learn how much you know and will go at your speed.
-						Although Penguai is small, he's got a mighty big CPU.
-					</IndustryCards>
-
-					<IndustryCards
-						title="Transport Policy & Accessibility"
-						href="industries/energy"
-						cta="in the energy sector"
-					>
-						Learning JavaScript doesn't need to be difficult. Our penguin AI
-						robot can learn how much you know and will go at your speed.
-						Although Penguai is small, he's got a mighty big CPU.
-					</IndustryCards>
-
-					<IndustryCards
-						title="Environment"
-						href="industries/energy"
-						cta="in the energy sector"
-					>
-						Learning JavaScript doesn't need to be difficult. Our penguin AI
-						robot can learn how much you know and will go at your speed.
-						Although Penguai is small, he's got a mighty big CPU.
-					</IndustryCards>
-
-					<IndustryCards
-						title="Infrastructure"
-						href="industries/energy"
-						cta="in the energy sector"
-					>
-						Learning JavaScript doesn't need to be difficult. Our penguin AI
-						robot can learn how much you know and will go at your speed.
-						Although Penguai is small, he's got a mighty big CPU.
-					</IndustryCards>
-
-					<IndustryCards
-						title="Regulatory Economics"
-						href="industries/energy"
-						cta="in the energy sector"
-					>
-						Learning JavaScript doesn't need to be difficult. Our penguin AI
-						robot can learn how much you know and will go at your speed.
-						Although Penguai is small, he's got a mighty big CPU.
-					</IndustryCards>
+					))
+				}
+				
 				</div>
+
+
+
 			</section>
 		</main>
 </BaseLayout>
