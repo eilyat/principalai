@@ -8,7 +8,14 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 import { getCollection } from "astro:content";
 const publications = await getCollection("publications");
 
-import pCard from "@/components/ui/pCard.astro";
+// Sort each collection by the date field (without mutating the original arrays)
+const sortedPublications = [...publications].sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA; // Sort in descending order (most recent first)
+});
+
+import Pcard from "@/components/ui/Pcard.astro";
 ---
 
 <BaseLayout SEOTitle="Publications">
@@ -20,47 +27,85 @@ import pCard from "@/components/ui/pCard.astro";
     <section class="pt-16">
       <div class="pb-8">
         <div class="post-wrapper">
-          <h1>Publications</h1>
+          <h1 class="text-6xl pb-10">Publications</h1>
 
-          {
-            publications.map((entry) => (
-              <article class="p-6">
-                <p class="text-2xl font-bold pb-2">{entry.data.title}</p>
-                <p class="text-md leading-snug">
-                  Authors: {entry.data.authors.join(", ")}
-                </p>
-                <p class="text-md leading-snug pb-4">
-                  Published on:{" "}
-                  {entry.data.pubDate.toLocaleDateString(undefined, {
-                    dateStyle: "medium",
-                    timeZone: "UTC",
-                  })}
-                </p>
-                <p>{entry.data.description}</p>
-              </article>
-              // <hr>
-            ))
-          }
-        <div class="grid gap-4 md:grid-cols-5 mx-auto">
-          <aside class="bg-gray-100 p-4 md:col-span-1">Filters</aside>
-          <section class="p-4 md:col-span-4">
-            <div class="grid grid-cols-[repeat(auto-fill,minmax(288px,1fr))] gap-2 place-items-center">
-              {
-                publications.map((entry) => (
-                  <pCard
-                    title={entry.data.title}
-                    imgSrc="/blog-placeholder-3.jpg"
-                    imgAlt={entry.data.title}
-                    category="Publication"
-                    link={`/publications/${entry.slug}`}
-                    date={entry.data.pubDate.toLocaleDateString(undefined, {
-                      dateStyle: "medium",
-                      timeZone: "UTC",
-                    })}
-                  />
-                ))
-              }
+
+{
+  sortedPublications.map((entry, index) => (
+    <article 
+      class="group p-6 hover:bg-gray-50/50 transition-colors rounded-xl"
+      id={`publication-${index}`}
+    >
+      {/* Flex container for responsive layout */}
+      <div class="flex flex-col md:flex-row gap-4 md:gap-6">  {/* Reduced from gap-6 */}        {/* Image Card - 50% width on desktop */}
+        <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] pl-10 hidden md:block lg:block xl:block">
+          <Pcard
+            title={entry.data.title}
+            date={entry.data.pubDate.toLocaleDateString(undefined, {
+              dateStyle: "medium",
+              timeZone: "UTC",
+            })}
+            category="Publication"
+            imgSrc={entry.data.cardImage}
+            imgAlt={entry.data.title}
+            link={`/publications/${entry.slug}`}
+            class="h-full"
+          />
+        </div>
+
+        {/* Content - 50% width on desktop */}
+        <div class="w-full md:w-1/2 lg:w-[52%] xl:w-[55%] space-y-3">  {/* Reduced space-y-4 to space-y-3 */}
+          <div class="space-y-3">
+            <a 
+              href={`/publications/${entry.slug}`}
+              class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+            >
+              {entry.data.title}
+            </a>
+            
+            <div class="flex flex-wrap gap-2 text-sm font-medium">
+              <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+                Publication
+              </span>
+              <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                {entry.data.pubDate.toLocaleDateString(undefined, {
+                  dateStyle: "medium",
+                  timeZone: "UTC",
+                })}
+              </span>
             </div>
+
+            <p class="text-gray-600 font-medium">
+              Authors: <span class="text-gray-800">{entry.data.authors.join(", ")}</span>
+            </p>
+          </div>
+
+          <p class="text-gray-700 leading-relaxed line-clamp-3">
+            {entry.data.description}
+          </p>
+
+          <a 
+            href={`/publications/${entry.slug}`}
+            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          >
+            Read more
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      {/* Divider - only between items */}
+      {index < sortedPublications.length - 1 && (
+        <hr class="my-8 border-t border-gray-200" />
+      )}
+    </article>
+  ))
+}
+
+
+
           </section>
         </div>
 

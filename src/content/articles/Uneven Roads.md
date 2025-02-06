@@ -1,7 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
-title: 'Synthetic Unit Record Files'
-tagline: 'Synthetic data generation using Statistics New Zealand IDI microdata'
+title: 'Uneven Roads'
+tagline: 'Addressing the Inconsistencies in Local Road Valuation Across New Zealand'
 description: 'Methodologies for estimating the capital value of New Zealand’s local road network'
 pubDate: 2024-10-01
 authors: ['Ruyi Jia', 'Eilya Torshizian']
