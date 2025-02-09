@@ -1,0 +1,70 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+import LeftTitleBlock from "@/components/ui/LeftTitleBlock.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout SEOTitle="How we work">
+  <ShortHeader
+    title="How we work"
+    subtitle="Prioritising excellence, collaboration, and client success"
+  />
+  <main class="px-6 max-w-screen-2xl items-center justify-center mx-auto">
+    <br />
+    <BreadCrumbsDefault />
+    <br />
+    <section class="pt-16">
+      <div class="pb-8">
+        <div class="post-wrapper">
+
+          <LeftTitleBlock>
+            <div slot="title">Multidisciplinary Teams</div>
+            <div slot="content">
+              <p class="text-gray-700 mb-4">
+                <p>We bring together economists, researchers, analysts, and subject matter experts to form dynamic teams.</p>
+                <ul>
+                    <li>Our diverse expertise allows us to approach challenges from multiple perspectives and develop well-rounded solutions.</li>
+                    <li>A collaborative environment fosters knowledge-sharing and innovation, ensuring a comprehensive approach to problem-solving.</li>
+                </ul>
+              </p>              
+            </div>
+          </LeftTitleBlock>
+          <hr class="my-8 border-t border-gray-200" />
+
+
+          <LeftTitleBlock>
+            <div slot="title">Client-Centric Approach</div>
+            <div slot="content">
+              <p class="text-gray-700 mb-4">
+                <p>We put our clients at the heart of everything we do.</p>
+                <ul>
+                    <li>We engage closely with our clients, listening to their needs, goals, and aspirations.</li>
+                    <li>By understanding their unique challenges, we craft tailored solutions that exceed expectations.</li>
+                    <li>Our focus is on delivering meaningful results through personalized strategies and insights.</li>
+                </ul>
+                </p>
+            </div>
+          </LeftTitleBlock>
+          <hr class="my-8 border-t border-gray-200" />
+
+          <LeftTitleBlock>
+            <div slot="title">Robust Problem Analysis</div>
+            <div slot="content">
+              <p class="text-gray-700 mb-4">
+                <p>We use rigorous analysis to drive impactful decision-making.</p>
+                <ul>
+                    <li>We apply analytical methods and economic frameworks to uncover key insights.</li>
+                    <li>By identifying economic drivers and risks, we provide actionable, evidence-based recommendations.</li>
+                    <li>Our approach ensures optimized opportunities and strategic guidance for sustainable impact.</li>
+                </ul>
+              </p>  
+            </div>
+          </LeftTitleBlock>
+          <hr class="my-8 border-t border-gray-200" />
+    </section>
+  </main>
+</BaseLayout>
