@@ -1,0 +1,72 @@
+---
+export const partial = true;
+import { getCollection } from "astro:content";
+const industries = await getCollection("industries");
+import { Icon } from "astro-icon/components";
+
+const about = [
+  {
+    slug: "Purpose",
+    data: {
+      title: "Purpose",
+      navDesc: "Our mission to drive sustainable economic impact."
+    }
+  },
+  {
+    slug: "How we work",
+    data: {
+      title: "How We Work",
+      navDesc: "Our approach to problem-solving, collaboration, and innovation."
+    }
+  },
+  {
+    slug: "Corporate commitments",
+    data: {
+      title: "Corporate Commitments",
+      navDesc: "Our values in inclusive growth, ethics, sustainability, and more."
+    }
+  }
+];
+
+---
+
+<div class="w-full bg-white px-7">
+<div class="grid grid-cols-12 gap-0 max-w-screen-2xl mx-auto">
+  <!-- Sidebar / Industries Section -->
+  <div class="col-span-12 lg:col-span-2 bg-white p-6 max-w-screen-2xl">
+    <div class="text-bold text-3xl">
+      About us
+      <a href="/about">
+        <div class="group font-semibold text-base hover:underline hover:underline-offset-8 focus:underline-offset-8 focus:underline focus:outline-none flex place-items-center pt-1 gap-2 text-blue-600">
+          See more details
+          <Icon name="carbon:arrow-right" class="size-6 to-blue-600 group-hover:translate-x-2 transition-transform duration-200 flex flex-shrink" />
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 3x3 Grid of Industries Items -->
+  <div class="col-span-12 lg:col-span-10 bg-white p-4">
+    <!-- UL is the 3x3 grid with 7 items -->
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Map through industries and display each item in the grid -->
+      {
+        about.map((entry) => (
+          <li class="text-gray-800">
+            <a class="h-[80px] pl-2 bg-white text-gray-600 text-left py-1 border-l-2 border-gray-300 block text-md w-full hover:border-blue-500 hover:text-blue-700 hover:border-l-4 hover:bg-gray-100 hover:shadow-sm focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100" href={`/about/${entry.slug}`}>
+              <div class="h-full flex flex-col justify-center pl-2">
+                <span class="font-semibold leading-8 text-lg">
+                  {entry.data.title}
+                </span>
+                <span class="text-sm text-gray-500">
+                  {entry.data.navDesc}
+                </span>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+</div>

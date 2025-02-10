@@ -2,71 +2,57 @@
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import IndustryCards from "@/components/ui/IndustryCards.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
-
-// Fetch all publications in the collection
 import { getCollection } from "astro:content";
-const articles = await getCollection("articles");
-
-import pCard from "@/components/ui/pCard.astro";
+const industries = await getCollection("industries");
 ---
 
-<BaseLayout SEOTitle="Articles">
-  <ShortHeader title="Articles" subtitle="Read all of our Articles" />
-  <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
-    <br />
-    <BreadCrumbsDefault />
-    <br />
-    <section class="pt-16">
-      <div class="pb-8">
-        <div class="post-wrapper">
-          <h1>Articles</h1>
+<BaseLayout SEOTitle="Industries we work with">
+	<ShortHeader 
+		title="Industries we work with" 
+		subtitle=" Collaborative expertise across diverse industries " />
+	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+		<br />
+			<BreadCrumbsDefault />
+			<br />
+			<section class="pt-16">
+				<div class="pb-8">
+					<h1 class="text-4xl max-w-4xl leading-snug">
+						Collaborative expertise across diverse industries
+					</h1>
+					<br />
+					<p class="text-xl leading-relaxed overflow-hidden flex">
+						At Principal Economics, we unite multidisciplinary teams of experts
+						and academics to address complex challenges across a wide range of
+						industries. Our collaborative approach allows us to deliver tailored
+						insights and innovative solutions, ensuring that we meet the unique
+						needs of each project.
+					</p>
+				</div>
 
-          {
-            articles.map((entry) => (
-              <article class="p-6">
-                <p class="text-2xl font-bold pb-2">{entry.data.title}</p>
-                <p class="text-md leading-snug">
-                  Authors: {entry.data.authors.join(", ")}
-                </p>
-                <p class="text-md leading-snug pb-4">
-                  Published on:{" "}
-                  {entry.data.pubDate.toLocaleDateString(undefined, {
-                    dateStyle: "medium",
-                    timeZone: "UTC",
-                  })}
-                </p>
-                <p>{entry.data.description}</p>
-              </article>
-              // <hr>
-            ))
-          }
-        <div class="grid gap-4 md:grid-cols-5 mx-auto">
-          <aside class="bg-gray-100 p-4 md:col-span-1">Filters</aside>
-          <section class="p-4 md:col-span-4">
-            <div class="grid grid-cols-[repeat(auto-fill,minmax(288px,1fr))] gap-2 place-items-center">
-              {
-                articles.map((entry) => (
-                  <pCard
-                    title={entry.data.title}
-                    imgSrc="/blog-placeholder-3.jpg"
-                    imgAlt={entry.data.title}
-                    category="Articles"
-                    link={`/articles/${entry.slug}`}
-                    date={entry.data.pubDate.toLocaleDateString(undefined, {
-                      dateStyle: "medium",
-                      timeZone: "UTC",
-                    })}
-                  />
-                ))
-              }
-            </div>
-          </section>
-        </div>
+				<div
+					class="grid grid-cols-[repeat(auto-fit,minmax(356px,1fr))] justify-items-center auto-fit gap-6"
+				>
+					<!-- <div class="aspect-square bg-gray-100 p-8 w-90 border-t-[16px] border-blue-500"> -->
+					<!-- Should probably just put the border into the box instead -->
+				{
+					industries.map((entry) => (
+
+					<IndustryCards
+						title={entry.data.title}
+						href={`/industries/${entry.slug}`}
+						cta={entry.data.title}
+					>
+						{entry.data.description} sector
+					</IndustryCards>
+					))
+				}
+				
+				</div>
 
 
-        </div>
-      </div>
-    </section>
-  </main>
+
+			</section>
+		</main>
 </BaseLayout>
