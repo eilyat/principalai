@@ -4,55 +4,104 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import IndustryCards from "@/components/ui/IndustryCards.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
-import { getCollection } from "astro:content";
-const industries = await getCollection("industries");
+import { Icon } from "astro-icon/components";
+
+const about = [
+  {
+    slug: "Purpose",
+    data: {
+      title: "Purpose",
+      navDesc:
+        "We strive to drive meaningful, lasting change through expert economic consulting. By delivering innovative, data-driven solutions, we empower societies to thrive and economies to grow sustainably. Collaborating with clients and stakeholders, we tackle complex challenges with integrity, accountability, and a commitment to shaping a better future.",
+    },
+  },
+  {
+    slug: "How we work",
+    data: {
+      title: "How We Work",
+      navDesc:
+        "Prioritising excellence, collaboration, and client success. We bring together economists, researchers, analysts, and subject matter experts to form dynamic teams. Our diverse expertise allows us to approach challenges from multiple perspectives and develop well-rounded solutions.",
+    },
+  },
+  {
+    slug: "Corporate commitments",
+    data: {
+      title: "Corporate Commitments",
+      navDesc:
+        " Guiding principles for sustainable and inclusive growth. We are continuously learning, improving, and adapting our practices to meet the evolving needs of our clients and society. These commitments are not just words; they are the guiding principles that shape our decisions, actions, and the positive impact we aim to create.",
+    },
+  },
+];
 ---
 
 <BaseLayout SEOTitle="Industries we work with">
-	<ShortHeader 
-		title="Industries we work with" 
-		subtitle=" Collaborative expertise across diverse industries " />
-	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
-		<br />
-			<BreadCrumbsDefault />
-			<br />
-			<section class="pt-16">
-				<div class="pb-8">
-					<h1 class="text-4xl max-w-4xl leading-snug">
-						Collaborative expertise across diverse industries
-					</h1>
-					<br />
-					<p class="text-xl leading-relaxed overflow-hidden flex">
-						At Principal Economics, we unite multidisciplinary teams of experts
-						and academics to address complex challenges across a wide range of
-						industries. Our collaborative approach allows us to deliver tailored
-						insights and innovative solutions, ensuring that we meet the unique
-						needs of each project.
-					</p>
-				</div>
+  <ShortHeader
+    title="About us"
+    subtitle="Expert economic consulting for sustainable growth and lasting impact"
+  />
+  <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+    <br />
+    <BreadCrumbsDefault />
+    <br />
+    <section class="pt-16">
+      <div class="pb-8">
+        <h1 class="text-4xl max-w-4xl leading-snug">About us</h1>
+        <br />
+        <p class="text-xl leading-relaxed overflow-hidden flex">
+          Our state-of-the-art economic consultancy opened in August 2020. Our
+          consultancy services are driven by the questions of our clients,
+          informed by evidence, shaped in collaboration with stakeholders and
+          rooted in principles of Economics.
+      <br>
+          <p class="text-xl leading-relaxed overflow-hidden flex">
+            At Principal Economics, our approach to work is driven by a
+            commitment to excellence, collaboration, and client-centricity. We
+            leverage our expertise, draw inspiration from industry-leading
+            organisations, and continuously refine our practices to ensure we
+            deliver exceptional results. Here's an overview of how we work:
+          </p>
+        </p>
+      </div>
 
-				<div
-					class="grid grid-cols-[repeat(auto-fit,minmax(356px,1fr))] justify-items-center auto-fit gap-6"
-				>
-					<!-- <div class="aspect-square bg-gray-100 p-8 w-90 border-t-[16px] border-blue-500"> -->
-					<!-- Should probably just put the border into the box instead -->
-				{
-					industries.map((entry) => (
-
-					<IndustryCards
-						title={entry.data.title}
-						href={`/industries/${entry.slug}`}
-						cta={entry.data.title}
-					>
-						{entry.data.description} sector
-					</IndustryCards>
-					))
-				}
-				
-				</div>
-
-
-
-			</section>
-		</main>
+      <div
+        class="grid grid-cols-[repeat(auto-fit,minmax(min(356px,100%),1fr))] w-full gap-6"
+      >
+        {
+          about.map((entry) => (
+            <div class="w-full h-full">
+              {" "}
+              {/* Add wrapper div */}
+              <div class="aspect-square w-full border-box shadow-md flex flex-col">
+                <a href={`/about/${entry.slug}`} class="flex flex-col h-full">
+                  <div class="relative w-full h-full bg-slate-100 hover:bg-slate-200 flex flex-col">
+                    <div class="absolute inset-x-0 top-0 h-6 bg-gradient-to-r from-blue-700 to-cyan-500" />
+                    <div class="flex flex-col gap-4 md:gap-6 p-8 h-full justify-between">
+                      <div class="mt-2" />
+                      <h3 class="text-3xl font-bold text-neutral-900 line-clamp-2">
+                        {entry.data.title}
+                      </h3>
+                      <div class="flex-1">
+                        {" "}
+                        {/* Add flexible container */}
+                        <p class="text-pretty text-md lg:text-md text-neutral-600 line-clamp-6">
+                          {entry.data.navDesc} {/* Moved description here */}
+                        </p>
+                      </div>
+                      <span class="text-md font-semibold underline underline-offset-4 flex items-center justify-between pt-4">
+                        <span class="mr-2">Learn more</span>
+                        <Icon
+                          name="carbon:arrow-right"
+                          class="size-6 text-blue-700"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
 </BaseLayout>
