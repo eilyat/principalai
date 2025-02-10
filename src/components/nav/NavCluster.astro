@@ -3,6 +3,7 @@ import Industries from "@/components/nav/IndustriesMenu.astro";
 import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
 import Insights from "@/components/nav/InsightsMenu.astro";
 import About from "@/components/nav/AboutMenu.astro";
+import Contact from "@/components/nav/ContactMenu.astro";
 
 ---
 
@@ -83,14 +84,10 @@ import About from "@/components/nav/AboutMenu.astro";
       </template>
       <!-- Contact us menu -->
       <template x-if="navigationMenu === 'contact-us'">
-        <Capabilities />
+        <Contact />
       </template>
     </div>
   </div>
-
-  <!-- <DropDown title = "Test" ><Industries /> </DropDown> -->
-
-  <!-- <DropDown title = "Test2" ><Industries /> </DropDown> -->
 </div>
 
 <style>
