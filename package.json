@@ -30,7 +30,7 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@iconify-json/academicons": "^1.2.1",
+    "@iconify-json/academicons": "^1.2.2",
     "@igor.dvlpr/astro-post-excerpt": "^3.0.4",
     "@tailwindcss/typography": "^0.5.15",
     "@types/alpinejs": "^3.13.10",
