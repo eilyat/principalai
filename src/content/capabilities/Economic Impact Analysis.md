@@ -1,12 +1,11 @@
 ---
-title: 'Economic Impact Analysis'
-description: 'Do the benefits of your investment exceed the costs?'
-navDesc: 'Providing advice and forecasts in the area of energy sector investment.'
-cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
+title: 'Economic Impact Analysis'  
+description: 'Assessing the economic effects of policies, projects, and market changes'  
+navDesc: 'Data-driven insights on economic impact'  
+cardSummary: 'Expert analysis of economic outcomes'  
 cardImg: ''
 bannerImage: '/blog-placeholder-3.jpg'
 ---
-
 
 Estimate the impact of your activities using our extensive economic assessment frameworks
 

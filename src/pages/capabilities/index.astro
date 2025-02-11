@@ -2,8 +2,12 @@
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
-import IndustryCards from "@/components/ui/IndustryCards.astro";
+import CapabilityCards from "@/components/ui/CapabilityCards.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
+import { getCollection } from "astro:content";
+const capabilities = await getCollection("capabilities");
+
+
 ---
 
 <BaseLayout SEOTitle="Our Capabilities">
@@ -35,7 +39,7 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 					<!-- <div class="aspect-square bg-gray-100 p-8 w-90 border-t-[16px] border-blue-500"> -->
 					<!-- Should probably just put the border into the box instead -->
 
-					<IndustryCards
+					<!-- <IndustryCards
 						title="Energy"
 						href="industries/energy"
 						cta="in the energy sector"
@@ -103,7 +107,22 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 						Learning JavaScript doesn't need to be difficult. Our penguin AI
 						robot can learn how much you know and will go at your speed.
 						Although Penguai is small, he's got a mighty big CPU.
-					</IndustryCards>
+					</IndustryCards> -->
+
+					{
+						capabilities.map((entry) => (
+	
+						<CapabilityCards
+							title={entry.data.title}
+							href={`/capabilities/${entry.slug}`}
+							cta={entry.data.title}
+						>
+							{entry.data.description}
+						</CapabilityCards>
+						))
+					}
+
+
 				</div>
 			</section>
 		</main>
