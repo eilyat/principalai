@@ -1,0 +1,100 @@
+---
+import Accordion from "@/components/ui/Accordion.astro"
+---
+
+<!-- <div class="mb-8 p-6 bg-gray-50 rounded-lg font-sans">
+  <div class="py-3 text-2xl font-bold">Filters</div>
+  <hr>
+  <Accordion>
+    <div slot="title" class="text-lg">Publication type</div>
+    <div class="mt-2 pl-4">
+      <label class="block text-lg text-gray-700">
+        <input type="checkbox" class="mr-2 scale-150"> Articles
+      </label>
+      <label class="block text-lg text-gray-700">
+        <input type="checkbox" class="mr-2 scale-150"> Report
+      </label>
+      <label class="block text-lg text-gray-700">
+        <input type="checkbox" class="mr-2 scale-150"> Resources
+      </label>
+      <label class="block text-lg text-gray-700">
+        <input type="checkbox" class="mr-2 scale-150"> All publications
+      </label>
+    </div>
+  </Accordion> -->
+
+
+  
+<div class="mb-8 p-6 bg-gray-50 rounded-lg font-sans" x-data="{ filters: { type: [] } }">
+  <div class="py-3 text-2xl font-bold">Filters</div>
+  <hr>
+
+  <!-- Publication Type Filter -->
+  <!-- <Accordion>
+    <div slot="title" class="text-lg">Publication type</div>
+    <div class="mt-2 pl-4">
+      <label class="block text-lg text-gray-700">
+        <input 
+          type="checkbox" 
+          class="mr-2 scale-150" 
+          x-model="filters.type" 
+          value="articles"
+          @change="$dispatch('filter-change', filters)"
+        > Articles
+      </label>
+      <label class="block text-lg text-gray-700">
+        <input 
+          type="checkbox" 
+          class="mr-2 scale-150" 
+          x-model="filters.type" 
+          value="reports"
+          @change="$dispatch('filter-change', filters)"
+        > Reports
+      </label>
+      <label class="block text-lg text-gray-700">
+        <input 
+          type="checkbox" 
+          class="mr-2 scale-150" 
+          x-model="filters.type" 
+          value="resources"
+          @change="$dispatch('filter-change', filters)"
+        > Resources
+      </label>
+      <label class="block text-lg text-gray-700">
+        <input 
+          type="checkbox" 
+          class="mr-2 scale-150" 
+          x-model="filters.type" 
+          value="all"
+          @change="$dispatch('filter-change', filters)"
+        > All insights
+      </label>
+    </div>
+  </Accordion>
+</div> -->
+
+
+<!-- InsightFilter Component -->
+<div class="mb-8 p-6 bg-gray-50 rounded-lg font-sans" 
+      x-data="{ selectedTypes: [] }">
+  <div class="py-3 text-2xl font-bold">Filters</div>
+  <hr>
+
+  <Accordion>
+    <div slot="title" class="text-lg">Publication Type</div>
+    <div class="mt-2 pl-4">
+      <template x-for="type in ['publications', 'articles', 'resources']" :key="type">
+        <label class="block text-lg text-gray-700">
+          <input 
+            type="checkbox" 
+            class="mr-2 scale-150"
+            :value="type"
+            x-model="selectedTypes"
+            @change="$dispatch('filter-update', { types: selectedTypes })"
+          > 
+          <span x-text="type.charAt(0).toUpperCase() + type.slice(1)"></span>
+        </label>
+      </template>
+    </div>
+  </Accordion>
+</div>

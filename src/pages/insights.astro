@@ -3,13 +3,23 @@ import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
+import InsightFilter from "@/components/ui/InsightFilter.astro";
 
 // Fetch all publications in the collection
 import { getCollection } from "astro:content";
 const publications = await getCollection("publications");
+const articles = await getCollection("articles");
+const resources = await getCollection("resources");
 
-// Sort each collection by the date field (without mutating the original arrays)
-const sortedPublications = [...publications].sort((a, b) => {
+// Combine all collections into a single array
+const allInsights = [
+  ...publications.map(pub => ({ ...pub, type: "publications" })),
+  ...articles.map(art => ({ ...art, type: "articles" })),
+  ...resources.map(res => ({ ...res, type: "resources" }))
+];
+
+// Sort the combined array by date
+const sortedInsights = allInsights.sort((a, b) => {
   const dateA = new Date(a.data.pubDate).getTime();
   const dateB = new Date(b.data.pubDate).getTime();
   return dateB - dateA; // Sort in descending order (most recent first)
@@ -18,104 +28,170 @@ const sortedPublications = [...publications].sort((a, b) => {
 import Pcard from "@/components/ui/Pcard.astro";
 ---
 
-
-
 <BaseLayout SEOTitle="Insights">
   <ShortHeader title="Insights" subtitle="Read all of our public works" />
-  <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
-    <br />
+  <main class="px-6 max-w-screen-2xl mx-auto">
+    <br>
     <BreadCrumbsDefault />
-    <br />
     <section class="pt-16">
       <div class="pb-8">
-        <div class="post-wrapper">
-          <h1 class="text-6xl pb-10">Publications</h1>
+        <h1 class="text-6xl pb-10">Publications</h1>
+
+        {/* Two-column layout for aside and main content */}
+        <div class="flex flex-col md:flex-row gap-8">
+          {/* Aside (Filter) - Left Side */}
+          <aside class="w-full md:w-1/4 lg:w-1/5">
+            <InsightFilter />
+          </aside>
+
+{/* Main Content - Right Side */}
+<div class="w-full md:w-3/4 lg:w-4/5" 
+     x-data="insightsFilter()" 
+     @filter-update.window="updateFilters($event.detail)">
+  
+  <!-- Inject JSON Data into a Script Tag -->
+  <script type="application/json" id="insights-data">
+    {JSON.stringify(sortedInsights)}
+  </script>
+
+  <!-- Publications Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <template x-for="insight in filteredInsights" :key="insight.id">
+      <div>
+        <h3 x-text="insight.data.title"></h3>
+        <p x-text="insight.data.description"></p>
+      </div>
+    </template>
+  </div>
+
+  <!-- No Results -->
+  <div x-show="filteredInsights.length === 0" class="text-center text-gray-500 py-8">
+    No matching insights found.
+  </div>
+</div>
 
 
 
+          <!-- {/* Main Content (Publications List) - Right Side */}
+          <div class="w-full md:w-3/4 lg:w-4/5 space-y-8">
+            {sortedInsights.map((entry, index) => (
+              <article
+                class="group p-6 hover:bg-gray-50/50 transition-colors rounded-xl"
+                id={publication-${index}}
+              >
+                {/* Flex container for responsive layout */}
+                <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                  {/* Image Card - 50% width on desktop */}
+                  <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] hidden md:block">
+                    <Pcard
+                      title={entry.data.title}
+                      date={entry.data.pubDate.toLocaleDateString(undefined, {
+                        dateStyle: "medium",
+                        timeZone: "UTC",
+                      })}
+                      category="Publication"
+                      imgSrc={entry.data.cardImage}
+                      imgAlt={entry.data.title}
+                      link={/publications/${entry.slug}}
+                      class="h-full"
+                    />
+                  </div>
 
-{
-  sortedPublications.map((entry, index) => (
-    <article 
-      class="group p-6 hover:bg-gray-50/50 transition-colors rounded-xl"
-      id={`publication-${index}`}
-    >
-      {/* Flex container for responsive layout */}
-      <div class="flex flex-col md:flex-row gap-4 md:gap-6">  {/* Reduced from gap-6 */}        {/* Image Card - 50% width on desktop */}
-        <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] pl-10 hidden md:block lg:block xl:block">
-          <Pcard
-            title={entry.data.title}
-            date={entry.data.pubDate.toLocaleDateString(undefined, {
-              dateStyle: "medium",
-              timeZone: "UTC",
-            })}
-            category="Publication"
-            imgSrc={entry.data.cardImage}
-            imgAlt={entry.data.title}
-            link={`/publications/${entry.slug}`}
-            class="h-full"
-          />
-        </div>
+                  {/* Content - 50% width on desktop */}
+                  <div class="w-full md:w-1/2 lg:w-[70%] xl:w-[75%] space-y-3">
+                    <div class="space-y-3">
+                      <a
+                        href={/publications/${entry.slug}}
+                        class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+                      >
+                        {entry.data.title}
+                      </a>
 
-        {/* Content - 50% width on desktop */}
-        <div class="w-full md:w-1/2 lg:w-[52%] xl:w-[55%] space-y-3">  {/* Reduced space-y-4 to space-y-3 */}
-          <div class="space-y-3">
-            <a 
-              href={`/publications/${entry.slug}`}
-              class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
-            >
-              {entry.data.title}
-            </a>
-            
-            <div class="flex flex-wrap gap-2 text-sm font-medium">
-              <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-                Publication
-              </span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
-                {entry.data.pubDate.toLocaleDateString(undefined, {
-                  dateStyle: "medium",
-                  timeZone: "UTC",
-                })}
-              </span>
-            </div>
+                      <div class="flex flex-wrap gap-2 text-sm font-medium">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+                          Publication
+                        </span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                          {entry.data.pubDate.toLocaleDateString(undefined, {
+                            dateStyle: "medium",
+                            timeZone: "UTC",
+                          })}
+                        </span>
+                      </div>
 
-            <p class="text-gray-600 font-medium">
-              Authors: <span class="text-gray-800">{entry.data.authors.join(", ")}</span>
-            </p>
+                      <p class="text-gray-600 font-medium">
+                        Authors: <span class="text-gray-800">{entry.data.authors.join(", ")}</span>
+                      </p>
+                    </div>
+
+                    <p class="text-gray-700 leading-relaxed line-clamp-3">
+                      {entry.body}
+                    </p>
+
+                    <a
+                      href={/publications/${entry.slug}}
+                      class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                    >
+                      Read more
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5 ml-1"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Divider - only between items */}
+                {index < sortedInsights.length - 1 && (
+                  <hr class="my-8 border-t border-gray-200" />
+                )}
+              </article>
+            ))}
           </div>
-
-          <p class="text-gray-700 leading-relaxed line-clamp-3">
-            {entry.body}
-          </p>
-
-          <a 
-            href={`/publications/${entry.slug}`}
-            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
-          >
-            Read more
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-            </svg>
-          </a>
         </div>
-      </div>
-
-      {/* Divider - only between items */}
-      {index < sortedPublications.length - 1 && (
-        <hr class="my-8 border-t border-gray-200" />
-      )}
-    </article>
-  ))
-}
+      </div> -->
 
 
-
-          </section>
-        </div>
-
-
-        </div>
-      </div>
     </section>
   </main>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('insightsFilter', () => ({
+        insights: [], // Initialize empty array
+        filteredInsights: [], // Stores filtered results
+        filters: { types: [] },
+  
+        // Runs on component load
+        initializeInsights(el) {
+          // Fetch insights from the dataset and parse JSON
+          this.insights = JSON.parse(el.dataset.insights);
+          this.filteredInsights = [...this.insights]; // Start with all insights
+        },
+  
+        updateFilters({ types }) {
+          this.filters.types = types;
+          this.filterInsights();
+        },
+  
+        filterInsights() {
+          if (this.filters.types.length === 0) {
+            this.filteredInsights = [...this.insights]; // Reset to all
+            return;
+          }
+  
+          this.filteredInsights = this.insights.filter(insight =>
+            this.filters.types.includes(insight.type)
+          );
+        }
+      }));
+    });
+  </script>
 </BaseLayout>
