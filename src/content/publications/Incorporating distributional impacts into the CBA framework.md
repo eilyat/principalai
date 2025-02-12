@@ -4,7 +4,7 @@ title: 'Incorporating distributional impacts (equity) into the CBA framework'
 tagline: ''
 description: 'test'
 pubDate: 2023-09-01
-authors: ['Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']
+authors: ['Dr Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']
 pubType: 'report'
 downloadPdf: "https://principaleconomics.com/wp-content/uploads/2024/07/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf"
 ---

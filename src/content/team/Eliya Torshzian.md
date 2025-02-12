@@ -1,5 +1,5 @@
 ---
-name: 'Dr Eilya Toshizian'
+name: 'Dr Eilya Torshizian'
 photo: './EliyaTorshzian.webp'
 shortName: 'Torshizian E'
 joinDate: 2022-01-01

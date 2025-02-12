@@ -1,0 +1,93 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+const { frontmatter } = Astro.props;
+
+import { getCollection } from "astro:content";
+const team = await getCollection("team");
+
+const authors = Array.isArray(frontmatter.authors) ? frontmatter.authors : []; 
+const teamMemberMap = Object.fromEntries(team.map(member => [member.data.name.toLowerCase(), member.slug]));
+
+const pubDate = new Date(frontmatter.pubDate); // Convert to Date object
+const formattedDate = pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long" });
+
+---
+
+<BaseLayout SEOTitle="Publications">
+	<Fragment slot="SEO">
+		<meta name="citation_title" content={frontmatter.title}/>
+		<meta name="citation_author" content={frontmatter.authors}/>
+		<meta name="citation_publication" content={frontmatter.PubDate}/>
+		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} />
+	</Fragment>
+	<!-- <ShortHeader title={frontmatter.title} subtitle={frontmatter.tagline} /> -->
+	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
+		<br />
+		<BreadCrumbsDefault />
+		<br />
+		<div class="grid grid-cols-12 gap-16">
+			<div class="col-span-9">
+				<main>
+					<section class="prose max-w-none prose-lg pb-0 pt-2">
+						<div class="">
+							<h1 class="citation_author">{frontmatter.title}</h3>
+							<h2>{frontmatter.tagline}</h3>
+							<h3 class="citation_author">{authors.map((author, index) => {
+								const authorSlug = teamMemberMap[author.toLowerCase()];
+								return (
+									<>
+										{authorSlug ? (
+											<a class="no-underline" href={`/team/${authorSlug}`} key={authorSlug}>{author}</a>
+										) : (
+											<span key={author}>{author}</span>
+										)}
+										{index < authors.length - 1 ? ", " : ""}
+									</>
+								);
+							})}</h3>
+							<p class="text-base py-0">Published on {formattedDate}</p>
+						</div>
+						<slot />
+					</section>
+				</main>
+			</div>
+			<aside class="col-span-3">
+				<div class="prose bg-gray-100 shadow-md">
+					<div class="flex flex-col gap-4 p-6 prose">
+						<h3 class="text-balance font-bold text-neutral-900" 
+						aria-describedby="PublicationDetails">Publication details</h3>
+						<ul id="PublicationDetails">
+							<li class="font-bold">Author(s):<br>
+								<li>
+								{authors.map((author, index) => {
+									const authorSlug = teamMemberMap[author.toLowerCase()];
+									return (
+										<>
+											{authorSlug ? (
+												<a href={`/team/${authorSlug}`} key={authorSlug}>{author}</a>
+											) : (
+												<span key={author}>{author}</span>
+											)}
+											{index < authors.length - 1 ? ", " : ""}
+										</>
+									);
+								})}
+								</li>
+							</li>							
+							<li class="font-bold">Published:<br><li>{formattedDate}</li></li>
+							<li class="font-bold">Contact:<br><li>eilya@principaleconomics.com</li></li>
+							<li class="font-bold">Download:<br>
+								<a href ="https://environment.govt.nz/assets/Economic-impact-of-Emission-Reduction-Plan-2-Principal-Economics-Limited-230524-Final-Preliminary-Report-1.pdf">
+									New Zealand's second emissions reduction plan
+								</a>
+							</li>
+						</ul>
+				</div>
+				</div>
+			</aside>
+		</div>
+	</main>
+</BaseLayout>

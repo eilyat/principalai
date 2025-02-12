@@ -3,8 +3,33 @@ import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import TeamCardDetails from "@/components/ui/TeamCardDetails.astro"
-
+import Pcard from "@/components/ui/pCard.astro"
 const { frontmatter } = Astro.props;
+
+// Fetch all publications in the collection
+import { getCollection } from "astro:content";
+const publications = await getCollection("publications");
+const articles = await getCollection("articles");
+const resources = await getCollection("resources");
+
+// Combine all collections into a single array
+const allInsights = [
+  ...publications.map(pub => ({ ...pub, type: "publications" })),
+  ...articles.map(art => ({ ...art, type: "articles" })),
+  ...resources.map(res => ({ ...res, type: "resources" }))
+];
+
+// Sort the combined array by date
+const sortedInsights = allInsights.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA; // Sort in descending order (most recent first)
+});
+
+const filteredInsights = sortedInsights.filter(insight => 
+  insight.data.author === frontmatter.name
+);
+
 ---
 
 <BaseLayout SEOTitle="Publications">
@@ -36,18 +61,40 @@ const { frontmatter } = Astro.props;
         />
       </div>
 
-      <!-- Main content -->
-      <main class="pt-16">
-        <!-- Headings for larger screens (visible on medium and up screens only) -->
-        <div class="hidden sm:block">
-          <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
-          <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
-        </div>
+     <!-- Main content -->
+     <main class="pt-16">
+      <!-- Headings for larger screens (visible on medium and up screens only) -->
+      <div class="hidden sm:block">
+        <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
+        <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
+      </div>
 
-        <section class="prose max-w-none prose-lg prose-headings:-mt-4">
-          <slot />
-        </section>
-      </main>
-    </div>
-  </main>
+      <section class="prose max-w-none prose-lg prose-headings:-mt-4">
+        <slot />
+        <div class="grid grid-cols-1 gap-8">
+          {filteredInsights.map((entry, index) => (
+            <div class="w-full">
+              <Pcard
+                title={entry.data.title}
+                date={entry.data.pubDate.toLocaleDateString(undefined, {
+                  dateStyle: "medium",
+                  timeZone: "UTC",
+                })}
+                category={entry.type.charAt(0).toUpperCase() + entry.type.slice(1)} // Dynamic category
+                imgSrc={entry.data.cardImage}
+                imgAlt={entry.data.title}
+                link={`/${entry.type}/${entry.slug}`} // Dynamic link based on type
+                class="h-full"
+              />
+              {index !== filteredInsights.length - 1 && (
+                <hr class="my-8 border-t border-gray-200" />
+              )}
+            </div>
+          ))}
+          test
+        </div>
+      </section>
+    </main>
+  </div>
+</main>
 </BaseLayout>

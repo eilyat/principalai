@@ -1,10 +1,10 @@
 ---
 # layout: '@/layouts/publications.astro'
-title: 'The Economic Impact of Accreditation'
-tagline: 'Report to the International Accreditation New Zealand (IANZ)'
+title: 'Great decisions are timely'
+tagline: 'Benefits from more efficient infrastructure investment decision-making'
 description: 'test'
 pubDate: 2023-09-01
-authors: ['Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']
+authors: ['Dr Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']
 pubType: 'report'
 downloadPdf: "https://principaleconomics.com/wp-content/uploads/2024/07/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf"
 ---

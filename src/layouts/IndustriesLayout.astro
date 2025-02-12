@@ -12,7 +12,7 @@ const { frontmatter } = Astro.props;
 	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description} />
 	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
 		<br />
-		<BreadCrumbsDefault />
+		<!-- <BreadCrumbsDefault /> -->
 		<br />
 		<div class="grid grid-cols-12 gap-16">
 			<aside class="col-span-2 pt-16"></aside>
@@ -24,7 +24,9 @@ const { frontmatter } = Astro.props;
 								{frontmatter.description}
 							</h1>
 						</div>
+						<div class="prose lg:prose-xl max-w-none">
 						<slot />
+					</div>
 					</section>
 				</main>
 			</div>
