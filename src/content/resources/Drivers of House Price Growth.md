@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Drivers of House Price Growth'
+type: 'Resource'
 tagline: 'Drivers of House Price Growth tagline'
 description: 'Drivers of House Price Growth Description'
 pubDate: 2022-07-01

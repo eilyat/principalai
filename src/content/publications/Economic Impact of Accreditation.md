@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'The Economic Impact of Accreditation'
+type: 'Publication'
 tagline: 'Report to the International Accreditation New Zealand (IANZ)'
 description: 'Accreditation is a crucial part of New Zealand’s quality infrastructure. The accreditation services provided by International Accreditation New Zealand (IANZ) increase the confidence of New Zealand and overseas consumers to purchase products that are produced or tested by accredited organisations. In this report we provide an independent assessment of the economic impact of IANZ.'
 pubDate: 2023-09-01

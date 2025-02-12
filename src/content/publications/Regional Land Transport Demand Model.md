@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Regional Land Transport Demand Model'
+type: 'Publication'
 tagline: 'Technical notes for practitioners'
 description: 'test'
 pubDate: 2024-06-01

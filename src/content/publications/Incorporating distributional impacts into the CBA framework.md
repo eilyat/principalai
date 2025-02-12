@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Incorporating distributional impacts (equity) into the CBA framework'
+type: 'Publication'
 tagline: ''
 description: 'test'
 pubDate: 2023-09-01

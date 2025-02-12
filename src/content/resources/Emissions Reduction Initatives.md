@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Emission Reduction Initiatives'
+type: 'Resource'
 tagline: 'Emission Reduction Initiatives Description'
 description: 'test'
 pubDate: 2022-07-01

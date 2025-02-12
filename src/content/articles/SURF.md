@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Synthetic Unit Record Files'
+type: 'Article'
 tagline: 'Synthetic data generation using Statistics New Zealand IDI microdata'
 description: 'test'
 pubDate: 2023-09-01

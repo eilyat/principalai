@@ -7,6 +7,7 @@ export const collections = {
 		// Type-check frontmatter using a schema
 		schema: z.object({
 			title: z.string(),
+			type: z.literal('Resource'),
 			tagline: z.string().optional(),
 			description: z.string().optional(),
 			pubDate: z.coerce.date().optional(),
@@ -21,6 +22,7 @@ export const collections = {
 		// Type-check frontmatter using a schema
 		schema: z.object({
 			title: z.string(),
+			type: z.literal('Article'),
 			tagline: z.string(),
 			description: z.string().optional(),
 			pubDate: z.coerce.date(),
@@ -35,6 +37,7 @@ export const collections = {
 		// Type-check frontmatter using a schema
 		schema: z.object({
 			title: z.string(),
+			type: z.literal('Publication'),
 			tagline: z.string(),
 			description: z.string().optional(),
 			pubDate: z.coerce.date(),

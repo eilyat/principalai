@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Uneven Roads'
+type: 'Article'
 tagline: 'Addressing the Inconsistencies in Local Road Valuation Across New Zealand'
 description: 'Methodologies for estimating the capital value of New Zealand’s local road network'
 pubDate: 2024-10-01

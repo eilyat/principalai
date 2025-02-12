@@ -27,7 +27,7 @@ const sortedInsights = allInsights.sort((a, b) => {
 });
 
 const filteredInsights = sortedInsights.filter(insight => 
-  insight.data.author === frontmatter.name
+  insight.data.authors.includes(frontmatter.name)
 );
 
 ---
@@ -71,7 +71,7 @@ const filteredInsights = sortedInsights.filter(insight =>
 
       <section class="prose max-w-none prose-lg prose-headings:-mt-4">
         <slot />
-        <div class="grid grid-cols-1 gap-8">
+        <div class="flex flex-row-1 gap-1">
           {filteredInsights.map((entry, index) => (
             <div class="w-full">
               <Pcard
@@ -80,18 +80,15 @@ const filteredInsights = sortedInsights.filter(insight =>
                   dateStyle: "medium",
                   timeZone: "UTC",
                 })}
-                category={entry.type.charAt(0).toUpperCase() + entry.type.slice(1)} // Dynamic category
+                category={String(entry.data.type)}
                 imgSrc={entry.data.cardImage}
                 imgAlt={entry.data.title}
-                link={`/${entry.type}/${entry.slug}`} // Dynamic link based on type
+                link={`/${entry.type || "default"}/${entry.slug || "default"}`}
                 class="h-full"
               />
-              {index !== filteredInsights.length - 1 && (
-                <hr class="my-8 border-t border-gray-200" />
-              )}
+
             </div>
           ))}
-          test
         </div>
       </section>
     </main>

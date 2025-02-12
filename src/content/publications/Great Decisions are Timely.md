@@ -1,6 +1,7 @@
 ---
 # layout: '@/layouts/publications.astro'
 title: 'Great decisions are timely'
+type: 'Publication'
 tagline: 'Benefits from more efficient infrastructure investment decision-making'
 description: 'test'
 pubDate: 2023-09-01
