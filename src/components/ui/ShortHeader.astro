@@ -38,9 +38,11 @@ import "astro-breadcrumbs/breadcrumbs.css";
     </div>
 
     <!-- Centered Title & Subtitle -->
-    <div class="text-white text-left flex flex-col items-start justify-center h-full">
-      <h1 class="text-6xl font-bold mb-4 leading-snug">{title}</h1>
-      <p class="text-4xl max-w-xl leading-normal">
+    <div class="text-white text-left flex flex-col items-start justify-center h-full px-4 ">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold mb-4 leading-tight sm:leading-snug">
+        {title}
+      </h1>
+      <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl max-w-xl leading-relaxed">
         {subtitle}
         <slot />
       </p>

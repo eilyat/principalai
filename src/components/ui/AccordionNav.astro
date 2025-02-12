@@ -1,0 +1,60 @@
+---
+const { class: customClass = "" } = Astro.props; // Destructure the class prop, default to an empty string
+---
+
+<div class="w-full overflow-hidden py-1">
+  <div x-data="{ isExpanded: false }">
+    <!-- Button with Custom Classes -->
+    <button
+      :id="$id('accordionItem')"
+      type="button"
+      class={`flex w-full items-center justify-start gap-2 text-2xl border-b-[1px] p-2 border-zinc-200 text-gray-700
+        ${customClass}`} 
+      :aria-controls="$id('accordionContent')"
+      @click="isExpanded = !isExpanded"
+      :aria-expanded="isExpanded ? 'true' : 'false'"
+    >
+      <slot name="title" />
+      <svg
+        x-bind:class="isExpanded ? 'hidden' : 'block'"
+        class="w-3 h-3 shrink-0"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 10"
+      >
+        <path
+          d="M5 1v8M1 5h8"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"></path>
+      </svg>
+      <svg
+        x-bind:class="isExpanded ? 'block' : 'hidden'"
+        class="w-3 h-3 shrink-0"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 10"
+      >
+        <path
+          d="M1 5h8"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"></path>
+      </svg>
+    </button>
+
+    <!-- Content (Now comes before the button) -->
+    <div
+      x-cloak
+      x-show="isExpanded"
+      :id="$id('accordionContent')"
+      role="region"
+      :aria-labelledby="$id('accordionItem')"
+      x-collapse.origin="top"
+    >
+      <slot />
+    </div>
+  </div>
+</div>

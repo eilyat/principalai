@@ -3,23 +3,48 @@ export const partial = true;
 
 import SearchWidget from "@/components/nav/SearchWidget.astro";
 import NavCluster from "@/components/nav/NavCluster.astro";
+import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
 
 ---
 
 <nav
-id = "nav"
-class="nav relative text-gray-900 w-full py-2 h-14 border-b-2 border-gray-200 box-border">
-  
+  id="nav"
+  class="nav relative text-gray-900 w-full py-2 h-14 border-b-2 border-gray-200 box-border"
+  x-data="{ mobileMenuOpen: false, activeAccordion: null }"
+>
   <div class="flex flex-row max-w-screen-2xl mx-auto h-full items-center">
     <a class="lg:px-6 lg:py-2 text-xl text-blue-600 font-bold border-r-2 h-full items-center flex pr-2 justify-start hover:bg-gray-100"
-    href="/">
+      href="/">
       Principal Economics
     </a>
-      <NavCluster/>
-      <div class="flex flex-row ml-auto justify-end items-center h-full">
-        <SearchWidget />
-      </div>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:block">
+      <NavCluster />
     </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden ml-auto mr-4">
+      <button 
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        class="p-2 hover:bg-gray-100 rounded"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu (Below Nav Bar) -->
+  <div 
+    x-show="mobileMenuOpen"
+    @click.away="mobileMenuOpen = false; activeAccordion = null"
+    class="md:hidden absolute w-full bg-white shadow-lg z-50"
+    x-cloak
+  >
+  <NavClusterMobile />
+  </div>
 </nav>
 
 <style>

@@ -1,0 +1,29 @@
+---
+import Industries from "@/components/nav/IndustriesMenu.astro";
+import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
+import Insights from "@/components/nav/InsightsMenu.astro";
+import About from "@/components/nav/AboutMenu.astro";
+import Contact from "@/components/nav/ContactMenu.astro";
+import Accordion from "@/components/ui/AccordionNav.astro";
+---
+
+<Accordion>
+  <div slot="title">Industries</div>
+  <Industries />
+</Accordion>
+<Accordion>
+  <div slot="title">Capabilities</div>
+  <Capabilities />
+</Accordion>
+<Accordion>
+  <div slot="title">Insights</div>
+  <Insights />
+</Accordion>
+<Accordion>
+  <div slot="title">About us</div>
+  <About />
+</Accordion>
+<Accordion>
+  <div slot="title">Contact us</div>
+  <Contact />
+</Accordion>
