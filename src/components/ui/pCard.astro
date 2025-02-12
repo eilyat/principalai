@@ -9,18 +9,18 @@ const { title, date, category, imgSrc, imgAlt, link } = Astro.props;
 >
   <article class="flex flex-col h-full">
     <!-- Text Content Section -->
-    <div class="flex flex-col p-4 pb-2 flex-grow max-h-[180px]">
-      <span class="bg-slate-100 text-gray-600 text-xs font-bold rounded-full px-4 py-1 w-fit mb-3">
+    <div class="flex flex-col p-4 pb-2 flex-grow max-h-[210px]">
+      <span class="bg-slate-100 text-gray-600 text-xs font-bold rounded-full px-4 py-1 w-fit mb-7">
         {category}
       </span>
-      <h2 class="text-xl font-bold leading-tight text-gray-900 transition-colors group-hover:text-blue-800 line-clamp-3">
+      <h2 class="text-xl font-bold leading-tight text-gray-900 transition-colors group-hover:text-blue-800 line-clamp-3 overflow-hidden">
         {title}
       </h2>
     </div>
 
     <!-- Fixed-height Image Section -->
     <div class="flex flex-col mt-auto">
-      <span class="text-sm text-gray-500 font-bold px-4 pb-2">{date}</span>
+      <span class="text-sm text-gray-500 font-bold px-4">{date}</span>
       <div class="relative w-full h-[204px] overflow-hidden transition-opacity group-hover:opacity-70">
         <img
           src={imgSrc}
