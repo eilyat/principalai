@@ -5,6 +5,7 @@ description: 'Enabling interactions with locations dispersed over space'
 cardSummary: ''
 cardImg: ''
 heroImage: '/blog-placeholder-4.jpg'
+tags: ['Spatial analysis and modelling', 'Forecasting and modelling', 'Economic Impact Analysis', 'Business case approach', 'Cost-benefit analysis']
 ---
 
 As the transport sector faces unprecedented challenges and opportunities, understanding the economic implications of policy decisions has never been more critical. Our team stands at the forefront of essential research and strategic initiatives that empower stakeholders to make informed choices. By examining the intersection of transport, economics, and environmental impacts, we provide insights that not only address current needs but anticipate future trends.

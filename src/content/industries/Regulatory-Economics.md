@@ -5,6 +5,7 @@ description: 'Our comprehensive services cater to the unique challenges and oppo
 cardSummary: ''
 cardImg: ''
 bannerImage: '/blog-placeholder-4.jpg'
+tags: ['Market Analysis', 'Economic Research', 'Macroeconomic consulting', 'Forecasting and modelling', 'Cost-benefit analysis']
 ---
 
 Our team have been assisting clients within regulated sectors to navigate the intricacies of economic regulation. Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors. We collaborate with regulators to craft innovative policies, scrutinise companies' business plans, and create accurate forecasts and economic models.

@@ -5,6 +5,7 @@ navDesc: 'Providing advice and forecasts in the area of energy sector investment
 cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
 cardImg: ''
 bannerImage: '/blog-placeholder-3.jpg'
+tags: ['Energy', 'Infrastructure', 'Environment', 'Transport', 'Urban Development and Housing']
 ---
 
 Making decisions in uncertain times needs precise understanding of the costs and benefits. We can assist by identifying fiscal, economic and social benefits of your investment decision or policy intervention

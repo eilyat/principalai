@@ -5,6 +5,7 @@ description: 'Addressing challenges in housing affordability and urban spatial d
 cardSummary: ''
 cardImg: ''
 bannerImage: '/blog-placeholder-4.jpg'
+tags: ['Spatial analysis and modelling', 'Economic Research', 'Cost-benefit analysis', 'Economic Impact Analysis', 'Forecasting and modelling']
 ---
 
 At Principal Economics, we recognize that urban development and housing are critical components of thriving communities. As cities evolve, the need for innovative solutions to address housing challenges becomes increasingly vital. Our team is dedicated to addressing these complexities through evidence-based analysis and strategic insights, ensuring that urban areas can adapt and grow sustainably.

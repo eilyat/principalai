@@ -5,6 +5,7 @@ navDesc: 'Data-driven insights on economic impact'
 cardSummary: 'Expert analysis of economic outcomes'  
 cardImg: ''
 bannerImage: '/blog-placeholder-3.jpg'
+tags: ['Tourism', 'Transport', 'Energy', 'Infrastructure', 'Health']
 ---
 
 Estimate the impact of your activities using our extensive economic assessment frameworks

@@ -4,27 +4,71 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 const { frontmatter } = Astro.props;
+
 ---
 
-<BaseLayout SEOTitle="Industries">
-    <ShortHeader title={frontmatter.title} subtitle={frontmatter.description} />
-    <main class="px-4 md:px-6 max-w-screen-2xl mx-auto pt-4 sm:pt-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            <div class="lg:col-span-8 xl:col-span-7">
-                <section class="prose max-w-none prose-h1:font-semibold prose-h2:font-semibold prose-h2:mt-0 prose-h2:mb-6 pt-6">
-                    <div class="pb-0">
-                        <h1 class="citation_title max-w-4xl break-words leading-tight">
-                            {frontmatter.description}
-                        </h1>
-                    </div>
-                    <div class="prose lg:prose-xl max-w-none break-words hyphens-auto">
-                        <slot />
-                    </div>
-                </section>
-            </div>
-            <aside class="lg:col-span-4 xl:col-span-3">
-                <!-- Add sidebar content here -->
-            </aside>
-        </div>
-    </main>
+<BaseLayout SEOTitle="Publications">
+	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description}>		
+	</ShortHeader>
+	<main class="px-4 md:px-6 max-w-screen-2xl mx-auto">
+			
+		<div class="py-6">
+			<!-- <BreadCrumbsDefault /> -->
+		</div>
+		
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+			<!-- Main Content -->
+			<article class="lg:col-span-8 xl:col-span-9">
+				<!-- <header class="mb-8">
+					<h1 class="text-4xl font-bold text-gray-900 mb-4">{frontmatter.title}</h1>
+					<p class="text-lg text-gray-600">Published on {formattedDate}</p>
+				</header> -->
+				
+				<div class="prose lg:prose-xl max-w-none">
+					<slot />
+				</div>
+			</article>
+
+			<!-- Publication Details Sidebar -->
+			<aside class="lg:col-span-4 xl:col-span-3 font-sans">
+				<div class="bg-gray-50 rounded-sm shadow-sm p-6 border border-gray-200">
+					<h2 class="text-2xl font-bold text-gray-900 mb-4  font-sans">Publication Details</h2>
+					<dl class="space-y-4">
+						<div>
+							<dt class="font-semibold text-gray-700">Title</dt>
+							<dd class="mt-1 text-gray-600">itsa title</dd>
+						</div>
+						<div>
+							<dt class="font-semibold text-gray-700">Author(s)</dt>
+							<dd class="mt-1 text-gray-600">
+								authorr
+							</dd>
+						</div>
+						<div>
+							<dt class="font-semibold text-gray-700">Publication date</dt>
+							<dd class="mt-1 text-gray-600">datee</dd>
+						</div>
+
+						<div>
+							<dt class="font-semibold text-gray-700">Contact</dt>
+							<dd class="mt-1 text-gray-600">
+								<a href="mailto:eilya@principaleconomics.com" class="text-blue-600 hover:underline">eilya@principaleconomics.com</a>
+							</dd>
+						</div>
+
+						<div>
+							<dt class="font-semibold text-gray-700 pb-2">Download </dt>
+							<dd class="mt-1">
+								<a href="#">
+								<button type="button" class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2"><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+								</svg>Download PDF</button>
+							</a>
+							</dd>
+						</div>
+					</dl>
+				</div>
+			</aside>
+		</div>
+	</main>
 </BaseLayout>
