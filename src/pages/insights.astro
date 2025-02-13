@@ -53,16 +53,16 @@ import Pcard from "@/components/ui/Pcard.astro";
   <script type="application/json" id="insights-data">
     {JSON.stringify(sortedInsights)}
   </script>
+<div id="search"></div>
 
+
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({ element: "#search", showSubResults: true });
+  });
+</script>
   <!-- Publications Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <template x-for="insight in filteredInsights" :key="insight.id">
-      <div>
-        <h3 x-text="insight.data.title"></h3>
-        <p x-text="insight.data.description"></p>
-      </div>
-    </template>
-  </div>
+
 
   <!-- No Results -->
   <div x-show="filteredInsights.length === 0" class="text-center text-gray-500 py-8">
