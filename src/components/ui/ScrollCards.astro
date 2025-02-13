@@ -1,0 +1,166 @@
+---
+import "@/styles/global.css";
+---
+<style>
+  /* Hide scrollbar and snap settings */
+  .scroll-container::-webkit-scrollbar { display: none; }
+  .scroll-container { 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    user-select: none;
+  }
+  
+  .scroll-container.dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  /* Content styling */
+  .scroll-item {
+    scroll-snap-align: start;
+    transition: transform 0.2s ease;
+  }
+  .scroll-item:hover { transform: translateY(-4px); }
+  .scroll-item * { user-select: text; cursor: auto; }
+
+  .gradient-overlay {
+    position: relative;
+  }
+
+  /* Combined gradient styles */
+  .gradient-overlay::before,
+  .gradient-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  /* Right fade (existing content) */
+  .gradient-overlay::after {
+    right: 0;
+    background: linear-gradient(to right, transparent 0%, var(--bg-color) 100%);
+  }
+
+  /* New left fade */
+  .gradient-overlay::before {
+    left: 0;
+    background: linear-gradient(to left, transparent 0%, var(--bg-color) 100%);
+  }
+
+  /* Show gradients when needed */
+  .gradient-overlay.has-left-shadow::before,
+  .gradient-overlay.has-right-shadow::after {
+    opacity: 1;
+  }
+  
+</style>
+
+<div class="-mx-6 relative gradient-overlay" style="--bg-color: #ffffff">
+  <div class="scroll-container overflow-x-auto px-6">
+    <div class="flex gap-6 w-max min-w-full pb-4">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.scroll-container');
+  if (!container) return;
+
+  let isDragging = false;
+  let startX, startScrollLeft, lastX, velocity;
+  const dragThreshold = 5;
+  const inertiaDeceleration = 0.92; // Controls how fast the inertia slows down
+  const minInertia = 0.5; // Minimum velocity to continue animating
+
+  let animationFrameId;
+  let hasDragged = false;
+
+  const handleStart = (clientX) => {
+    isDragging = true;
+    hasDragged = false;
+    container.classList.add('dragging');
+    startX = clientX;
+    lastX = clientX;
+    startScrollLeft = container.scrollLeft;
+    container.style.scrollBehavior = 'auto';
+    cancelAnimationFrame(animationFrameId);
+  };
+
+  const handleMove = (clientX) => {
+    if (!isDragging) return;
+    const delta = clientX - startX;
+    
+    if (Math.abs(delta) > dragThreshold) {
+      hasDragged = true;
+    }
+
+    // Calculate velocity based on last movement
+    velocity = clientX - lastX;
+    lastX = clientX;
+    
+    container.scrollLeft = startScrollLeft - delta;
+  };
+
+  const animateInertia = () => {
+    if (Math.abs(velocity) < minInertia) return;
+    
+    velocity *= inertiaDeceleration;
+    container.scrollLeft += velocity * 2; // Reduced multiplier
+    
+    animationFrameId = requestAnimationFrame(animateInertia);
+  };
+
+  const handleEnd = () => {
+    if (!isDragging) return;
+    isDragging = false;
+    container.classList.remove('dragging');
+    container.style.scrollBehavior = 'smooth';
+
+    // Apply smoother inertia
+    if (Math.abs(velocity) > 2) {
+      animateInertia();
+    }
+  };
+
+  // Mouse events
+  container.addEventListener('mousedown', (e) => {
+    handleStart(e.clientX);
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', (e) => handleMove(e.clientX));
+  document.addEventListener('mouseup', handleEnd);
+
+  // Touch events
+  container.addEventListener('touchstart', (e) => {
+    handleStart(e.touches[0].clientX);
+  }, { passive: true });
+  document.addEventListener('touchmove', (e) => {
+    handleMove(e.touches[0].clientX);
+  }, { passive: true });
+  document.addEventListener('touchend', handleEnd);
+
+  // Click prevention
+  container.addEventListener('click', (e) => {
+    if (hasDragged) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  }, true);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    const scrollAmount = container.offsetWidth * 0.8;
+    if (e.key === 'ArrowLeft') container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    if (e.key === 'ArrowRight') container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+});
+</script>

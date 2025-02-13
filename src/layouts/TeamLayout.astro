@@ -2,8 +2,11 @@
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
-import TeamCardDetails from "@/components/ui/TeamCardDetails.astro"
-import Pcard from "@/components/ui/pCard.astro"
+import TeamCardDetails from "@/components/ui/TeamCardDetails.astro";
+import Pcard from "@/components/ui/pCard.astro";
+import ScrollCards from "@/components/ui/ScrollCards.astro";
+import SectionBreakHR from "@/components/ui/SectionBreakHR.astro"
+
 const { frontmatter } = Astro.props;
 
 // Fetch all publications in the collection
@@ -14,9 +17,9 @@ const resources = await getCollection("resources");
 
 // Combine all collections into a single array
 const allInsights = [
-  ...publications.map(pub => ({ ...pub, type: "publications" })),
-  ...articles.map(art => ({ ...art, type: "articles" })),
-  ...resources.map(res => ({ ...res, type: "resources" }))
+  ...publications.map((pub) => ({ ...pub, type: "publications" })),
+  ...articles.map((art) => ({ ...art, type: "articles" })),
+  ...resources.map((res) => ({ ...res, type: "resources" })),
 ];
 
 // Sort the combined array by date
@@ -26,10 +29,9 @@ const sortedInsights = allInsights.sort((a, b) => {
   return dateB - dateA; // Sort in descending order (most recent first)
 });
 
-const filteredInsights = sortedInsights.filter(insight => 
+const filteredInsights = sortedInsights.filter((insight) =>
   insight.data.authors.includes(frontmatter.name)
 );
-
 ---
 
 <BaseLayout SEOTitle="Publications">
@@ -51,7 +53,9 @@ const filteredInsights = sortedInsights.filter(insight =>
       </div>
 
       <!-- Aside with TeamCardDetails (Image Container) -->
-      <div class="team-image-container float-left mb-8 mr-16 items-stretch w-full sm:w-auto sm:max-w-xs">
+      <div
+        class="team-image-container float-left mb-8 mr-16 items-stretch w-full sm:w-auto sm:max-w-xs"
+      >
         <TeamCardDetails
           photo={frontmatter.photo}
           alt={frontmatter.alt}
@@ -61,37 +65,40 @@ const filteredInsights = sortedInsights.filter(insight =>
         />
       </div>
 
-     <!-- Main content -->
-     <main class="pt-16">
-      <!-- Headings for larger screens (visible on medium and up screens only) -->
-      <div class="hidden sm:block">
-        <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
-        <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
-      </div>
-
-      <section class="prose max-w-none prose-lg prose-headings:-mt-4">
-        <slot />
-        <div class="flex flex-row-1 gap-1">
-          {filteredInsights.map((entry, index) => (
-            <div class="w-full">
-              <Pcard
-                title={entry.data.title}
-                date={entry.data.pubDate.toLocaleDateString(undefined, {
-                  dateStyle: "medium",
-                  timeZone: "UTC",
-                })}
-                category={String(entry.data.type)}
-                imgSrc={entry.data.cardImage}
-                imgAlt={entry.data.title}
-                link={`/${entry.type || "default"}/${entry.slug || "default"}`}
-                class="h-full"
-              />
-
-            </div>
-          ))}
+      <!-- Main content -->
+      <main class="pt-16">
+        <!-- Headings for larger screens (visible on medium and up screens only) -->
+        <div class="hidden sm:block">
+          <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
+          <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
         </div>
-      </section>
-    </main>
-  </div>
-</main>
+
+        <section class="prose max-w-none prose-lg prose-headings:-mt-4">
+          <slot />         
+        </section>
+
+        <SectionBreakHR>Recent Publications</SectionBreakHR>
+        <ScrollCards>
+          {
+            filteredInsights.map((entry, index) => (
+              <div class="w-full">
+                <Pcard
+                  title={entry.data.title}
+                  date={entry.data.pubDate.toLocaleDateString(undefined, {
+                    dateStyle: "medium",
+                    timeZone: "UTC",
+                  })}
+                  category={String(entry.data.type)}
+                  imgSrc={entry.data.cardImage}
+                  imgAlt={entry.data.title}
+                  link={`/${entry.type || "default"}/${entry.slug || "default"}`}
+                  class="h-full"
+                />
+              </div>
+            ))
+          }
+        </ScrollCards>
+      </main>
+    </div>
+  </main>
 </BaseLayout>
