@@ -8,7 +8,7 @@ const baseContentSchema = z.object({
   heroImage: z.string().optional(),
   cardImage: z.string().optional(),
   downloadPdf: z.string().optional(),
-	tags: z.string().optional(),
+	tags: z.array(z.string()).optional(),
 });
 
 const navEntrySchema = z.object({
@@ -18,6 +18,7 @@ const navEntrySchema = z.object({
   cardSummary: z.string(),
   cardImage: z.string().optional(),
   bannerImage: z.string().optional(),
+  tags: z.array(z.string()).optional(),
 });
 
 // Factory function for publication types

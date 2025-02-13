@@ -1,9 +1,16 @@
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
-import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 const { frontmatter } = Astro.props;
+
+// Fetch all publications in the collection
+import { getCollection } from "astro:content";
+const capabilities = await getCollection("capabilities");
+
+const filteredCapabilities = capabilities.filter(capability => 
+  frontmatter.tags?.some(tag => capability.data.title === tag)
+);
 
 ---
 
@@ -11,64 +18,41 @@ const { frontmatter } = Astro.props;
 	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description}>		
 	</ShortHeader>
 	<main class="px-4 md:px-6 max-w-screen-2xl mx-auto">
-			
-		<div class="py-6">
-			<!-- <BreadCrumbsDefault /> -->
-		</div>
-		
+		<div class="py-6"></div>
 		<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 			<!-- Main Content -->
-			<article class="lg:col-span-8 xl:col-span-9">
-				<!-- <header class="mb-8">
-					<h1 class="text-4xl font-bold text-gray-900 mb-4">{frontmatter.title}</h1>
-					<p class="text-lg text-gray-600">Published on {formattedDate}</p>
-				</header> -->
-				
+			<article class="lg:col-span-8 xl:col-span-9">		
 				<div class="prose lg:prose-xl max-w-none">
 					<slot />
 				</div>
 			</article>
 
-			<!-- Publication Details Sidebar -->
-			<aside class="lg:col-span-4 xl:col-span-3 font-sans">
-				<div class="bg-gray-50 rounded-sm shadow-sm p-6 border border-gray-200">
-					<h2 class="text-2xl font-bold text-gray-900 mb-4  font-sans">Publication Details</h2>
-					<dl class="space-y-4">
-						<div>
-							<dt class="font-semibold text-gray-700">Title</dt>
-							<dd class="mt-1 text-gray-600">itsa title</dd>
-						</div>
-						<div>
-							<dt class="font-semibold text-gray-700">Author(s)</dt>
-							<dd class="mt-1 text-gray-600">
-								authorr
-							</dd>
-						</div>
-						<div>
-							<dt class="font-semibold text-gray-700">Publication date</dt>
-							<dd class="mt-1 text-gray-600">datee</dd>
-						</div>
+<aside class="lg:col-span-4 xl:col-span-3 font-sans lg:px-5">
+    <h3 class="text-xl lg:text-2xl font-bold text-gray-900 border-b pb-3 mb-4">
+        Related Capabilities
+    </h3>
 
-						<div>
-							<dt class="font-semibold text-gray-700">Contact</dt>
-							<dd class="mt-1 text-gray-600">
-								<a href="mailto:eilya@principaleconomics.com" class="text-blue-600 hover:underline">eilya@principaleconomics.com</a>
-							</dd>
-						</div>
-
-						<div>
-							<dt class="font-semibold text-gray-700 pb-2">Download </dt>
-							<dd class="mt-1">
-								<a href="#">
-								<button type="button" class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-sm text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2"><svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-								</svg>Download PDF</button>
-							</a>
-							</dd>
-						</div>
-					</dl>
-				</div>
-			</aside>
+    <ul class="space-y-5">
+        {
+            filteredCapabilities.map((entry) => (
+                <li>
+                    <a class="flex items-center h-[90px] px-4 bg-gray-50 border-l-4 border-gray-200 rounded-md shadow-sm transition-all duration-200 hover:border-blue-500 hover:text-blue-700 hover:bg-gray-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200" href=`/capabilities/${entry.slug}`>
+                        <div class="flex flex-col justify-center">
+                            <span class="font-medium text-gray-900 leading-tight text-lg">
+                                {entry.data.title}
+                            </span>
+                            <span class="text-sm text-gray-500 line-clamp-2">
+                                {entry.data.navDesc}
+                            </span>
+                        </div>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</aside>
 		</div>
 	</main>
 </BaseLayout>
+
+

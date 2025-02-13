@@ -1,5 +1,5 @@
 ---
-title: 'Cost benefit analysis'
+title: 'Cost-benefit analysis'
 description: 'Do the benefits of your investment exceed the costs?'
 navDesc: 'Providing advice and forecasts in the area of energy sector investment.'
 cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
