@@ -1,6 +1,6 @@
 ---
 title: 'Regulatory Economics'
-navDesc: 'Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors.'
+navDesc: 'Expert insights on policy, markets, and compliance.'
 description: 'Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors.'
 cardSummary: ''
 cardImg: ''
