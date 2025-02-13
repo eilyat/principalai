@@ -95,7 +95,7 @@ import windmill from "@/images/windmill.jpg";
                   date={item.data.pubDate}
                   imgSrc={item.data.cardImage || windmill}
                   imgAlt={item.data.title}
-                  link={item.slug}
+                  link={`/articles/${item.slug}`}
                 />
               ))
             }
@@ -132,7 +132,7 @@ import windmill from "@/images/windmill.jpg";
                   date={item.data.pubDate}
                   imgSrc={item.data.cardImage || windmill}
                   imgAlt={item.data.title}
-                  link={item.slug}
+                  link={`/publications/${item.slug}`}
                 />
               ))
             }
@@ -168,7 +168,7 @@ import windmill from "@/images/windmill.jpg";
                   date={item.data.pubDate}
                   imgSrc={item.data.cardImage || windmill}
                   imgAlt={item.data.title}
-                  link={item.slug}
+                  link={`/resources/${item.slug}`}
                 />
               ))
             }
