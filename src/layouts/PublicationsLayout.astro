@@ -57,7 +57,7 @@ const formattedDate = pubDate.toLocaleDateString("en-US", { year: "numeric", mon
 						<div>
 							<dt class="font-semibold text-gray-700">Author(s)</dt>
 							<dd class="mt-1 text-gray-600">
-								{authors.map((author, index) => {
+								{authors.map((author: string, index: number) => {
 									const authorSlug = teamMemberMap[author.toLowerCase()];
 									return (
 										<span>

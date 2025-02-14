@@ -9,13 +9,15 @@ import { getCollection } from "astro:content";
 const publications = await getCollection("publications");
 
 // Sort each collection by the date field (without mutating the original arrays)
-const sortedPublications = [...publications].sort((a, b) => {
-  const dateA = new Date(a.data.pubDate).getTime();
-  const dateB = new Date(b.data.pubDate).getTime();
-  return dateB - dateA; // Sort in descending order (most recent first)
-});
+const sortedPublications = [...publications]
+  .filter((pub) => pub?.data?.pubDate) // Remove entries without a valid date
+  .sort((a, b) => {
+    const dateA = new Date(a.data.pubDate || 0).getTime(); // Default to 0 if missing
+    const dateB = new Date(b.data.pubDate || 0).getTime();
+    return dateB - dateA; // Sort in descending order (most recent first)
+  });
 
-import Pcard from "@/components/ui/Pcard.astro";
+import PCard from "@/components/ui/PCard.astro";
 ---
 
 <BaseLayout SEOTitle="Publications">
@@ -39,12 +41,17 @@ import Pcard from "@/components/ui/Pcard.astro";
       {/* Flex container for responsive layout */}
       <div class="flex flex-col md:flex-row gap-4 md:gap-6">  {/* Reduced from gap-6 */}        {/* Image Card - 50% width on desktop */}
         <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] pl-10 hidden md:block lg:block xl:block">
-          <Pcard
+          <PCard
             title={entry.data.title}
-            date={entry.data.pubDate.toLocaleDateString(undefined, {
-              dateStyle: "medium",
-              timeZone: "UTC",
-            })}
+            date={
+  entry.data.pubDate
+    ? new Date(entry.data.pubDate).toLocaleDateString(undefined, {
+        dateStyle: "medium",
+        timeZone: "UTC",
+      })
+    : "Unknown Date"
+}
+
             category="Publication"
             imgSrc={entry.data.cardImage}
             imgAlt={entry.data.title}
@@ -68,15 +75,18 @@ import Pcard from "@/components/ui/Pcard.astro";
                 Publication
               </span>
               <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
-                {entry.data.pubDate.toLocaleDateString(undefined, {
-                  dateStyle: "medium",
-                  timeZone: "UTC",
-                })}
+                {entry.data.pubDate
+  ? new Date(entry.data.pubDate).toLocaleDateString(undefined, {
+      dateStyle: "medium",
+      timeZone: "UTC",
+    })
+  : "Unknown Date"}
+
               </span>
             </div>
 
             <p class="text-gray-600 font-medium">
-              Authors: <span class="text-gray-800">{entry.data.authors.join(", ")}</span>
+              Authors: <span class="text-gray-800">{Array.isArray(entry.data.authors) ? entry.data.authors.join(", ") : "Unknown Author"}</span>
             </p>
           </div>
 

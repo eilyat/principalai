@@ -11,30 +11,30 @@ const resources = (await getCollection("resources")).slice(0, 2);
 
 // Sort each collection by the date field (without mutating the original arrays)
 const sortedPublications = [...publications].sort((a, b) => {
-  const dateA = new Date(a.data.date).getTime();
-  const dateB = new Date(b.data.date).getTime();
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
   return dateB - dateA; // Sort in descending order (most recent first)
 });
 
 const sortedArticles = [...articles].sort((a, b) => {
-  const dateA = new Date(a.data.date).getTime();
-  const dateB = new Date(b.data.date).getTime();
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
   return dateB - dateA;
 });
 
 const sortedResources = [...resources].sort((a, b) => {
-  const dateA = new Date(a.data.date).getTime();
-  const dateB = new Date(b.data.date).getTime();
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
   return dateB - dateA;
 });
 
-interface Props {
-  title: string;
-  pubDate: Date; // Date object type
-  imgSrc: string; // URL for the image
-  imgAlt: string;
-  link: string;
-}
+// interface Props {
+//   title: string;
+//   pubDate: Date; // Date object type
+//   imgSrc: string; // URL for the image
+//   imgAlt: string;
+//   link: string;
+// }
 
 import windmill from "@/images/windmill.jpg";
 ---

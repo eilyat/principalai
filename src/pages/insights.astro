@@ -5,27 +5,7 @@ import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 import InsightFilter from "@/components/ui/InsightFilter.astro";
 
-// Fetch all publications in the collection
-import { getCollection } from "astro:content";
-const publications = await getCollection("publications");
-const articles = await getCollection("articles");
-const resources = await getCollection("resources");
 
-// Combine all collections into a single array
-const allInsights = [
-  ...publications.map(pub => ({ ...pub, type: "publications" })),
-  ...articles.map(art => ({ ...art, type: "articles" })),
-  ...resources.map(res => ({ ...res, type: "resources" }))
-];
-
-// Sort the combined array by date
-const sortedInsights = allInsights.sort((a, b) => {
-  const dateA = new Date(a.data.pubDate).getTime();
-  const dateB = new Date(b.data.pubDate).getTime();
-  return dateB - dateA; // Sort in descending order (most recent first)
-});
-
-import Pcard from "@/components/ui/Pcard.astro";
 ---
 
 <BaseLayout SEOTitle="Insights">
@@ -83,7 +63,7 @@ import Pcard from "@/components/ui/Pcard.astro";
                 <div class="flex flex-col md:flex-row gap-4 md:gap-6">
                   {/* Image Card - 50% width on desktop */}
                   <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] hidden md:block">
-                    <Pcard
+                    <PCard
                       title={entry.data.title}
                       date={entry.data.pubDate.toLocaleDateString(undefined, {
                         dateStyle: "medium",

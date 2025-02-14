@@ -8,7 +8,7 @@ import ShortHeader from "@/components/ui/ShortHeader.astro";
 import { getCollection } from "astro:content";
 const articles = await getCollection("articles");
 
-import pCard from "@/components/ui/pCard.astro";
+import PCard from "@/components/ui/PCard.astro";
 ---
 
 <BaseLayout SEOTitle="Articles">
@@ -27,14 +27,16 @@ import pCard from "@/components/ui/pCard.astro";
               <article class="p-6">
                 <p class="text-2xl font-bold pb-2">{entry.data.title}</p>
                 <p class="text-md leading-snug">
-                  Authors: {entry.data.authors.join(", ")}
+                  Authors: <span class="text-gray-800">{Array.isArray(entry.data.authors) ? entry.data.authors.join(", ") : "Unknown Author"}</span>
                 </p>
                 <p class="text-md leading-snug pb-4">
                   Published on:{" "}
-                  {entry.data.pubDate.toLocaleDateString(undefined, {
-                    dateStyle: "medium",
-                    timeZone: "UTC",
-                  })}
+                  {entry.data.pubDate
+  ? new Date(entry.data.pubDate).toLocaleDateString(undefined, {
+      dateStyle: "medium",
+      timeZone: "UTC",
+    })
+  : "Unknown Date"}
                 </p>
                 <p>{entry.data.description}</p>
               </article>
@@ -48,13 +50,13 @@ import pCard from "@/components/ui/pCard.astro";
             <div class="grid grid-cols-[repeat(auto-fill,minmax(288px,1fr))] gap-2 place-items-center">
               {
                 articles.map((entry) => (
-                  <pCard
+                  <PCard
                     title={entry.data.title}
                     imgSrc="/blog-placeholder-3.jpg"
                     imgAlt={entry.data.title}
                     category="Articles"
                     link={`/articles/${entry.slug}`}
-                    date={entry.data.pubDate.toLocaleDateString(undefined, {
+                    date={new Date(entry.data.pubDate || "").toLocaleDateString(undefined, {
                       dateStyle: "medium",
                       timeZone: "UTC",
                     })}

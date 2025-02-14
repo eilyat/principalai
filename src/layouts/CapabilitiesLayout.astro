@@ -9,8 +9,9 @@ import { getCollection } from "astro:content";
 const industries = await getCollection("industries");
 
 const filteredIndustries = industries.filter(industry => 
-  frontmatter.tags?.some(tag => industry.data.title === tag)
+    frontmatter.tags?.some((tag: string) => industry.data.title === tag)
 );
+
 
 ---
 

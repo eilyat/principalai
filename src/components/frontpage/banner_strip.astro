@@ -1,5 +1,4 @@
 ---
-layout: "../layouts/BaseLayout.astro"; // Adjust layout if needed
 import StripBox from "../ui/banner_strip_boxes.astro";
 import { getCollection } from "astro:content";
 const articles = await getCollection("articles");
@@ -7,15 +6,12 @@ const articles = await getCollection("articles");
 const allInsights = [...articles];
 
 const sortedInsights = allInsights.sort((a, b) => {
-  const dateA = new Date(a.data.pubDate).getTime();
-  const dateB = new Date(b.data.pubDate).getTime();
-  return dateB - dateA; // Sort in descending order (most recent first)
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return dateB - dateA; // Sort in descending order
 });
 
 const latestInsights = sortedInsights.slice(0, 4);
-
-
-
 
 ---
 

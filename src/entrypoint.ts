@@ -1,10 +1,10 @@
-import type {Alpine} from 'alpinejs';
+import type { Alpine as AlpineType } from 'alpinejs';
 import collapse from '@alpinejs/collapse';
 import intersect from '@alpinejs/intersect';
 import focus from '@alpinejs/focus';
-import anchor from '@alpinejs/anchor'
+import anchor from '@alpinejs/anchor';
 
-export default (Alpine) => {
+export default (Alpine: AlpineType) => {
     // Register plugins
     Alpine.plugin(collapse);
     Alpine.plugin(intersect);
@@ -13,11 +13,14 @@ export default (Alpine) => {
 
     // Define custom data for Alpine
     Alpine.data("astro", () => ({
-        // Track whether the page has loaded
         pageLoaded: 1,
+
+        init() {
+            this.pageLoaded = 1; // Ensure it's initialized
+        },
+
         refreshOnPageLoad: {
-            // Refresh on page load event
-            ["@astro:page-load.document"]() {
+            ["@astro:page-load.document"]: function (this: { pageLoaded: number }) {
                 this.pageLoaded++;
             },
         },

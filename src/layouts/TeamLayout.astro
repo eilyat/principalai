@@ -3,9 +3,9 @@ import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import TeamCardDetails from "@/components/ui/TeamCardDetails.astro";
-import Pcard from "@/components/ui/pCard.astro";
+import PCard from "@/components/ui/PCard.astro";
 import ScrollCards from "@/components/ui/ScrollCards.astro";
-import SectionBreakHR from "@/components/ui/SectionBreakHR.astro"
+import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
 
 const { frontmatter } = Astro.props;
 
@@ -22,15 +22,20 @@ const allInsights = [
   ...resources.map((res) => ({ ...res, type: "resources" })),
 ];
 
-// Sort the combined array by date
-const sortedInsights = allInsights.sort((a, b) => {
-  const dateA = new Date(a.data.pubDate).getTime();
-  const dateB = new Date(b.data.pubDate).getTime();
-  return dateB - dateA; // Sort in descending order (most recent first)
-});
+// Ensure all insights have a valid pubDate before sorting
+const sortedInsights = allInsights
+  .filter((insight) => insight?.data?.pubDate) // Remove items without a valid date
+  .sort((a, b) => {
+    const dateA = new Date(a.data.pubDate || 0).getTime(); // Default to 0 if missing
+    const dateB = new Date(b.data.pubDate || 0).getTime();
+    return dateB - dateA; // Sort in descending order (most recent first)
+  });
 
-const filteredInsights = sortedInsights.filter((insight) =>
-  insight.data.authors.includes(frontmatter.name)
+// Ensure authors exist before filtering
+const filteredInsights = sortedInsights.filter(
+  (insight) =>
+    Array.isArray(insight?.data?.authors) &&
+    insight.data.authors.includes(frontmatter.name)
 );
 ---
 
@@ -74,7 +79,7 @@ const filteredInsights = sortedInsights.filter((insight) =>
         </div>
 
         <section class="prose max-w-none prose-lg prose-headings:-mt-4">
-          <slot />         
+          <slot />
         </section>
 
         <SectionBreakHR>Recent Publications</SectionBreakHR>
@@ -82,12 +87,19 @@ const filteredInsights = sortedInsights.filter((insight) =>
           {
             filteredInsights.map((entry, index) => (
               <div class="w-full">
-                <Pcard
+                <PCard
                   title={entry.data.title}
-                  date={entry.data.pubDate.toLocaleDateString(undefined, {
-                    dateStyle: "medium",
-                    timeZone: "UTC",
-                  })}
+                  date={
+                    entry.data.pubDate
+                      ? new Date(entry.data.pubDate).toLocaleDateString(
+                          undefined,
+                          {
+                            dateStyle: "medium",
+                            timeZone: "UTC",
+                          }
+                        )
+                      : "Unknown Date"
+                  }
                   category={String(entry.data.type)}
                   imgSrc={entry.data.cardImage}
                   imgAlt={entry.data.title}
