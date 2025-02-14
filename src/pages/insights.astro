@@ -4,6 +4,7 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 import InsightFilter from "@/components/ui/InsightFilter.astro";
+import Search from "astro-pagefind/components/Search";
 
 
 ---
@@ -36,11 +37,8 @@ import InsightFilter from "@/components/ui/InsightFilter.astro";
 <div id="search"></div>
 
 
-<script>
-  window.addEventListener("DOMContentLoaded", (event) => {
-    new PagefindUI({ element: "#search", showSubResults: true });
-  });
-</script>
+<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+
   <!-- Publications Grid -->
 
 
@@ -142,36 +140,5 @@ import InsightFilter from "@/components/ui/InsightFilter.astro";
 
     </section>
   </main>
-  <script>
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('insightsFilter', () => ({
-        insights: [], // Initialize empty array
-        filteredInsights: [], // Stores filtered results
-        filters: { types: [] },
-  
-        // Runs on component load
-        initializeInsights(el) {
-          // Fetch insights from the dataset and parse JSON
-          this.insights = JSON.parse(el.dataset.insights);
-          this.filteredInsights = [...this.insights]; // Start with all insights
-        },
-  
-        updateFilters({ types }) {
-          this.filters.types = types;
-          this.filterInsights();
-        },
-  
-        filterInsights() {
-          if (this.filters.types.length === 0) {
-            this.filteredInsights = [...this.insights]; // Reset to all
-            return;
-          }
-  
-          this.filteredInsights = this.insights.filter(insight =>
-            this.filters.types.includes(insight.type)
-          );
-        }
-      }));
-    });
-  </script>
+ 
 </BaseLayout>

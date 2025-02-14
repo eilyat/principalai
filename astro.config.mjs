@@ -10,10 +10,16 @@ import alpinejs from '@astrojs/alpinejs';
 
 import icon from 'astro-icon';
 
+import pagefind from "astro-pagefind";
+
 // https://astro.build/config
 export default defineConfig({
+    build: {
+      format: "file",
+    },
     site: 'https://example.com',
     integrations: [
+      pagefind(),
       mdx(),
       sitemap(),
       alpinejs({ entrypoint: '/src/entrypoint' }),
