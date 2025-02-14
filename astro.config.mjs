@@ -19,7 +19,12 @@ export default defineConfig({
     },
     site: 'https://example.com',
     integrations: [
-      pagefind(),
+      pagefind({
+        // Example of specifying Pagefind config:
+        indexConfig: {
+          keepIndexUrl: true,
+        },
+      }),
       mdx(),
       sitemap(),
       alpinejs({ entrypoint: '/src/entrypoint' }),

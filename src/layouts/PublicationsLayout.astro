@@ -11,11 +11,14 @@ const team = await getCollection("team");
 const authors = Array.isArray(frontmatter.authors) ? frontmatter.authors : []; 
 const teamMemberMap = Object.fromEntries(team.map(member => [member.data.name.toLowerCase(), member.slug]));
 
+const teamNames = team.map(member => member.data.name);
+const matchedAuthors = authors.filter((author: string) => teamNames.includes(author));
+
 const pubDate = new Date(frontmatter.pubDate); // Convert to Date object
 const formattedDate = pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long" });
 
 ---
-
+teamMemberMap2.
 <BaseLayout SEOTitle="Publications">
 	<Fragment slot="SEO">
 		<meta name="citation_title" content={frontmatter.title}/>
@@ -27,7 +30,27 @@ const formattedDate = pubDate.toLocaleDateString("en-US", { year: "numeric", mon
 		<p class="text-2xl text-white font-bold pt-2" >{formattedDate}</p>
 	</ShortHeader>
 	<main class="px-4 md:px-6 max-w-screen-2xl mx-auto">
-			
+
+		<div style="display: none;">
+			<p>
+				<!-- <span data-pagefind-filter="title">{frontmatter.title}</span> -->
+				<span data-pagefind-filter="date">{formattedDate}</span>
+				<span data-pagefind-filter="type">{frontmatter.type}</span>
+		
+				<!-- Loop over authors -->
+				{matchedAuthors?.map((author: string) => (
+					<span data-pagefind-filter="author">{author}</span>
+				))}
+		
+				<!-- Loop over tags -->
+				{frontmatter.tags?.map((tag: string) => (
+					<span data-pagefind-filter="tags">{tag}</span>
+				))}
+				
+				
+			</p>
+		</div>
+
 		<div class="py-6">
 			<!-- <BreadCrumbsDefault /> -->
 		</div>

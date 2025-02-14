@@ -1,0 +1,46 @@
+<div id="search" transition:persist>
+
+<body class="bg-gray-100 p-8">
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <h1 class="text-2xl font-bold mb-4">Search</h1>
+      <div id="search transition:persist" class="mb-4"></div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <select id="authorFilter" class="border p-2 rounded">
+              <option value="">Filter by Author</option>
+          </select>
+          <select id="dateFilter" class="border p-2 rounded">
+              <option value="">Filter by Date</option>
+          </select>
+          <select id="typeFilter" class="border p-2 rounded">
+              <option value="">Filter by Type</option>
+          </select>
+          <select id="tagFilter" class="border p-2 rounded">
+              <option value="">Filter by Tag</option>
+          </select>
+      </div>
+      
+      <div id="results" class="mt-6"></div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    // @ts-ignore
+    new PagefindUI({
+      element: "#search",
+      debounceTimeoutMs: 500,
+      resetStyles: false,
+      showEmptyFilters: true,
+      excerptLength: 15,
+      showImages: false,
+      showSubResults: true,
+      filters: {
+        type: "#type",
+        date: "#date",
+        tag: "#tag",
+        author: "#author",
+      },
+    });
+  });
+</script>
