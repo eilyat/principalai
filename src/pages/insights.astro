@@ -1,66 +1,146 @@
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
+import { getCollection } from "astro:content";
 
-import Search from "astro-pagefind/components/Search";
+// Fetch all publications, articles, and resources
+const publications = await getCollection("publications");
+const articles = await getCollection("articles");
+const resources = await getCollection("resources");
 
-export const prerender = false;
+// Combine all collections
+const allItems = [...publications, ...articles, ...resources];
 
-const q = "Publication Details";
+// Sort by date field (descending order)
+const sortedPublications = allItems
+  .filter((item) => item?.data?.pubDate)
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
+// Convert data to JSON for Alpine.js
+const sortedPublicationsJSON = JSON.stringify(sortedPublications);
 ---
 
-<BaseLayout SEOTitle="Insights">
-  <ShortHeader title="Insights" subtitle="Read all of our public works" />
+<BaseLayout SEOTitle="Publications">
+  <ShortHeader title="Publications" subtitle="Read all of our publications" />
   <main class="px-6 max-w-screen-2xl mx-auto">
-    <br>
-    
+    <br />
+    <BreadCrumbsDefault />
+    <br />
+
     <section class="pt-16">
       <div class="pb-8">
-        <h1 class="text-6xl pb-10">Publications</h1>
+        <div class="post-wrapper">
+          <div class="flex flex-col md:flex-row gap-6">
+            <!-- Left Column (Title) -->
+            <div class="w-full md:w-1/3 lg:w-1/4 hidden md:block">
+              <h2 class="text-5xl font-bold">Publications</h2>
+            </div>
 
-        {/* Two-column layout for aside and main content */}
-        <div class="flex flex-col md:flex-row gap-8">
-          {/* Aside (Filter) - Left Side */}
-          <!-- <aside class="w-full md:w-1/4 lg:w-1/5">
-            <span data-pagefind-filter="author"></span>
-            
-          </aside> -->
+            <!-- Right Column (Content) -->
+            <div class="w-full md:w-2/3 lg:w-3/4 space-y-6"
+                 x-data="paginationComponent()" x-init="initPublications($refs.jsonData.textContent)">
+              
+              <!-- Hidden JSON Data for Alpine.js -->
+              <div x-ref="jsonData" class="hidden">{sortedPublicationsJSON}</div>
 
-{/* Main Content - Right Side */}
-<div class="w-full md:w-3/4 lg:w-4/5">
+              <!-- Publications List -->
+              <div class="text-gray-700">
+                <template x-for="entry in paginatedPublications" :key="entry.slug">
+                  <article class="group p-4 bg-white shadow-sm rounded-xl hover:bg-gray-50 transition">
+                    <div class="space-y-3">
+                      <a :href="`/publications/${entry.slug}`"
+                         class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition">
+                        <span x-text="entry.data.title"></span>
+                      </a>
 
+                      <div class="flex flex-wrap gap-2 text-sm font-medium">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">Publication</span>
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                          <span x-text="new Date(entry.data.pubDate).toLocaleDateString(undefined, { dateStyle: 'medium', timeZone: 'UTC' })"></span>
+                        </span>
+                      </div>
 
-<Search 
-  id="search" 
-  query={q}
-  uiOptions={{
-    element: "#search",
-    filters: {
-      type: "#type",
-      author: "#author",
-      date: "#date",
-      tag: "#tags",
-    },
-    openFilters: ['type', 'author', 'date', 'tags'],
-    debounceTimeoutMs: 500,
-    resetStyles: false,
-    showEmptyFilters: true,
-    excerptLength: 15,
-    showImages: false,
-    showSubResults: true,
-  }}
-/>
-  <!-- Publications Grid -->
+                      <p class="text-gray-600 font-medium">
+                        Authors: <span class="text-gray-800" x-text="Array.isArray(entry.data.authors) ? entry.data.authors.join(', ') : 'Unknown Author'"></span>
+                      </p>
 
+                      <p class="text-gray-700 leading-relaxed line-clamp-3" x-text="entry.body"></p>
 
-  <!-- No Results -->
+                      <a :href="`/publications/${entry.slug}`"
+                         class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition">
+                        Read more
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </article>
+                </template>
+              </div>
 
-</div>
+              <!-- Pagination Controls -->
+              <div class="flex justify-center space-x-2 mt-6">
+                <button class="px-4 py-2 text-sm rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300"
+                        @click="previousPage()" :disabled="currentPage === 1">
+                  Previous
+                </button>
 
+                <template x-for="page in totalPages">
+                  <button class="px-4 py-2 text-sm rounded-lg"
+                          :class="currentPage === page ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'"
+                          @click="currentPage = page">
+                    <span x-text="page"></span>
+                  </button>
+                </template>
 
+                <button class="px-4 py-2 text-sm rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300"
+                        @click="nextPage()" :disabled="currentPage === totalPages">
+                  Next
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
- 
+
+  <!-- Alpine.js Pagination Script -->
+  <script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.data("paginationComponent", () => ({
+        publications: [],
+        currentPage: 1,
+        itemsPerPage: 3,
+        totalPages: 1,
+
+        initPublications(jsonData) {
+          this.publications = JSON.parse(jsonData);
+          this.totalPages = Math.ceil(this.publications.length / this.itemsPerPage);
+        },
+
+        get paginatedPublications() {
+          let start = (this.currentPage - 1) * this.itemsPerPage;
+          return this.publications.slice(start, start + this.itemsPerPage);
+        },
+
+        nextPage() {
+          if (this.currentPage < this.totalPages) {
+            this.currentPage++;
+          }
+        },
+
+        previousPage() {
+          if (this.currentPage > 1) {
+            this.currentPage--;
+          }
+        }
+      }));
+    });
+  </script>
+
+  <!-- Alpine.js -->
 </BaseLayout>

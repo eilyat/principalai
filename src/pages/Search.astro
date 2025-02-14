@@ -1,0 +1,66 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+
+import Search from "astro-pagefind/components/Search";
+
+export const prerender = false;
+
+const q = "Publication Details";
+
+---
+
+<BaseLayout SEOTitle="Search">
+  <ShortHeader title="Search" subtitle="Discover all of our works" />
+  <main class="px-6 max-w-screen-2xl mx-auto">
+    <br>
+    
+    <section class="pt-16">
+      <div class="pb-8">
+        <h1 class="text-6xl pb-10">Search</h1>
+
+        {/* Two-column layout for aside and main content */}
+        <div class="flex flex-col md:flex-row gap-8">
+          {/* Aside (Filter) - Left Side */}
+          <!-- <aside class="w-full md:w-1/4 lg:w-1/5">
+            <span data-pagefind-filter="author"></span>
+            
+          </aside> -->
+
+{/* Main Content - Right Side */}
+<div class="w-full md:w-3/4 lg:w-4/5">
+
+
+<Search 
+  id="search" 
+  query={q}
+  uiOptions={{
+    element: "#search",
+    filters: {
+      type: "#type",
+      author: "#author",
+      date: "#date",
+      tag: "#tags",
+    },
+    openFilters: ['type', 'author', 'date', 'tags'],
+    debounceTimeoutMs: 500,
+    resetStyles: false,
+    showEmptyFilters: true,
+    excerptLength: 15,
+    showImages: false,
+    showSubResults: true,
+  }}
+/>
+  <!-- Publications Grid -->
+
+
+  <!-- No Results -->
+
+</div>
+
+
+    </section>
+  </main>
+ 
+</BaseLayout>
