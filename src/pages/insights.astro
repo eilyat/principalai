@@ -4,6 +4,10 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 import { getCollection } from "astro:content";
+import ScrollCards from "@/components/ui/ScrollCards.astro";
+import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
+import PCard from "@/components/ui/PCard.astro";
+
 
 // Fetch all publications, articles, and resources
 const publications = await getCollection("publications");
@@ -14,12 +18,23 @@ const resources = await getCollection("resources");
 const allItems = [...publications, ...articles, ...resources];
 
 // Sort by date field (descending order)
-const sortedPublications = allItems
+const sortedPublications = publications
   .filter((item) => item?.data?.pubDate)
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+  );
 
 // Convert data to JSON for Alpine.js
 const sortedPublicationsJSON = JSON.stringify(sortedPublications);
+
+const sortedArticles = articles
+  .filter((item) => item?.data?.pubDate)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+  );
+
 ---
 
 <BaseLayout SEOTitle="Publications">
@@ -34,45 +49,80 @@ const sortedPublicationsJSON = JSON.stringify(sortedPublications);
         <div class="post-wrapper">
           <div class="flex flex-col md:flex-row gap-6">
             <!-- Left Column (Title) -->
-            <div class="w-full md:w-1/3 lg:w-1/4 hidden md:block">
+            <div class="w-full md:w-1/3 lg:w-1/4 md:block">
               <h2 class="text-5xl font-bold">Publications</h2>
             </div>
 
             <!-- Right Column (Content) -->
-            <div class="w-full md:w-2/3 lg:w-3/4 space-y-6"
-                 x-data="paginationComponent()" x-init="initPublications($refs.jsonData.textContent)">
-              
+            <div
+              class="w-full md:w-2/3 lg:w-3/4 space-y-6"
+              x-data="paginationComponent()"
+              x-init="initPublications($refs.jsonData.textContent)"
+            >
               <!-- Hidden JSON Data for Alpine.js -->
-              <div x-ref="jsonData" class="hidden">{sortedPublicationsJSON}</div>
+              <div x-ref="jsonData" class="hidden">
+                {sortedPublicationsJSON}
+              </div>
 
               <!-- Publications List -->
               <div class="text-gray-700">
-                <template x-for="entry in paginatedPublications" :key="entry.slug">
-                  <article class="group p-4 bg-white shadow-sm rounded-xl hover:bg-gray-50 transition">
+                <template
+                  x-for="entry in paginatedPublications"
+                  :key="entry.slug"
+                >
+                  <article
+                    class="group p-4 bg-white shadow-sm rounded-xl hover:bg-gray-50 transition"
+                  >
                     <div class="space-y-3">
-                      <a :href="`/publications/${entry.slug}`"
-                         class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition">
+                      <a
+                        :href="`/publications/${entry.slug}`"
+                        class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition"
+                      >
                         <span x-text="entry.data.title"></span>
                       </a>
 
                       <div class="flex flex-wrap gap-2 text-sm font-medium">
-                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">Publication</span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
-                          <span x-text="new Date(entry.data.pubDate).toLocaleDateString(undefined, { dateStyle: 'medium', timeZone: 'UTC' })"></span>
+                        <span
+                          class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full"
+                          >Publication</span
+                        >
+                        <span
+                          class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full"
+                        >
+                          <span
+                            x-text="new Date(entry.data.pubDate).toLocaleDateString(undefined, { dateStyle: 'medium', timeZone: 'UTC' })"
+                          ></span>
                         </span>
                       </div>
 
                       <p class="text-gray-600 font-medium">
-                        Authors: <span class="text-gray-800" x-text="Array.isArray(entry.data.authors) ? entry.data.authors.join(', ') : 'Unknown Author'"></span>
+                        Authors: <span
+                          class="text-gray-800"
+                          x-text="Array.isArray(entry.data.authors) ? entry.data.authors.join(', ') : 'Unknown Author'"
+                        ></span>
                       </p>
 
-                      <p class="text-gray-700 leading-relaxed line-clamp-3" x-text="entry.body"></p>
+                      <p
+                        class="text-gray-700 leading-relaxed line-clamp-3"
+                        x-text="entry.body"
+                      >
+                      </p>
 
-                      <a :href="`/publications/${entry.slug}`"
-                         class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition">
+                      <a
+                        :href="`/publications/${entry.slug}`"
+                        class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition"
+                      >
                         Read more
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 ml-1"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
                         </svg>
                       </a>
                     </div>
@@ -82,27 +132,148 @@ const sortedPublicationsJSON = JSON.stringify(sortedPublications);
 
               <!-- Pagination Controls -->
               <div class="flex justify-center space-x-2 mt-6">
-                <button class="px-4 py-2 text-sm rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300"
-                        @click="previousPage()" :disabled="currentPage === 1">
-                  Previous
+                <button
+                  class="px-4 py-2 text-sm rounded-sm text-gray-800 hover:bg-gray-300"
+                  @click="previousPage()"
+                  :disabled="currentPage === 1"
+                >
+                  <span class="flex flex-row justify-center leading-6">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      class="size-6"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                    Previous
+                  </span>
                 </button>
 
                 <template x-for="page in totalPages">
-                  <button class="px-4 py-2 text-sm rounded-lg"
-                          :class="currentPage === page ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'"
-                          @click="currentPage = page">
+                  <button
+                    class="px-4 py-2 text-sm rounded-sm"
+                    :class="currentPage === page ? 'bg-blue-600 text-white' : ' text-gray-800 hover:bg-gray-300'"
+                    @click="currentPage = page"
+                  >
                     <span x-text="page"></span>
                   </button>
                 </template>
 
-                <button class="px-4 py-2 text-sm rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300"
-                        @click="nextPage()" :disabled="currentPage === totalPages">
-                  Next
+                <button
+                  class="px-4 py-2 text-sm rounded-sm text-gray-800 hover:bg-gray-300 w-[120px]"
+                  @click="nextPage()"
+                  :disabled="currentPage === totalPages"
+                >
+                  <span class="flex flex-row justify-center leading-6"
+                    >Next
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      class="size-6"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </span>
                 </button>
               </div>
+            </div>
+          </div>
+
+<span class="flex items-center w-full overflow-hidden py-12  font-serif italic ">
+  <!-- <span class="text-4xl pr-6"></span> -->
+  <span class="h-[2px] flex-1 bg-zinc-300"></span>
+</span>
+
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
+      <div>
+        <div class="max-w-lg md:max-w-none">
+          <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </h2>
+
+          <p class="mt-4 text-gray-700">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur doloremque saepe
+            architecto maiores repudiandae amet perferendis repellendus, reprehenderit voluptas
+            sequi.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1731690415686-e68f78e2b5bd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          class="rounded"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<span class="flex items-center w-full overflow-hidden py-12  font-serif italic ">
+  <!-- <span class="text-4xl pr-6"></span> -->
+  <span class="h-[2px] flex-1 bg-zinc-300"></span>
+</span>
+
+
+
+
+          <div class="flex flex-col md:flex-row gap-6 pt-2">
+            <!-- Left Column (Title) -->
+            <div class="w-full md:w-1/3 lg:w-1/4 md:block">
+              <h2 class="text-5xl font-bold">Articles</h2>
+            </div>
+            <div class="w-full md:w-2/3 lg:w-3/4 space-y-6">
+            
+              <ScrollCards>
+                {
+                  sortedArticles.map((entry, index) => (
+                    <div class="w-full">
+                      <PCard
+                        title={entry.data.title}
+                        date={
+                          entry.data.pubDate
+                            ? new Date(entry.data.pubDate).toLocaleDateString(
+                                undefined,
+                                {
+                                  dateStyle: "medium",
+                                  timeZone: "UTC",
+                                }
+                              )
+                            : "Unknown Date"
+                        }
+                        category={String(entry.data.type)}
+                        imgSrc={entry.data.cardImage}
+                        imgAlt={entry.data.title}
+                        link={`/${entry.type || "default"}/${entry.slug || "default"}`}
+                        class="h-full"
+                      />
+                    </div>
+                  ))
+                }
+              </ScrollCards>
 
             </div>
           </div>
+          <SectionBreakHR></SectionBreakHR>
+
+
+
         </div>
       </div>
     </section>
@@ -114,12 +285,14 @@ const sortedPublicationsJSON = JSON.stringify(sortedPublications);
       Alpine.data("paginationComponent", () => ({
         publications: [],
         currentPage: 1,
-        itemsPerPage: 3,
+        itemsPerPage: 2,
         totalPages: 1,
 
         initPublications(jsonData) {
           this.publications = JSON.parse(jsonData);
-          this.totalPages = Math.ceil(this.publications.length / this.itemsPerPage);
+          this.totalPages = Math.ceil(
+            this.publications.length / this.itemsPerPage,
+          );
         },
 
         get paginatedPublications() {
@@ -137,7 +310,7 @@ const sortedPublicationsJSON = JSON.stringify(sortedPublications);
           if (this.currentPage > 1) {
             this.currentPage--;
           }
-        }
+        },
       }));
     });
   </script>
