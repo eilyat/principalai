@@ -10,6 +10,9 @@ pubType: 'resource'
 downloadPdf: "https://principaleconomics.com/housing-affordability/introduction/"
 ---
 
+
+
 <iframe
-  src="/house_price_growth/Index.html"
-  style="width: 100%; height: 90vh; border: none;"></iframe>
+  src="/house_price_growth/Index.html" class="gh-fit gh-fullwidth"
+  style="width: 100%; height: 90vh; border: none;"
+  ></iframe>
