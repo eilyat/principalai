@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="144.31592mm"
+   height="96.499863mm"
+   viewBox="0 0 144.31592 96.499863"
+   version="1.1"
+   id="svg1175"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/">
+  <defs
+     id="defs1172" />
+  <g
+     id="layer1"
+     transform="translate(-3.8552365,-30.114186)">
+    <g
+       id="SContent"
+       transform="matrix(0.35277777,0,0,0.35277777,-24.506972,-79.032479)">
+  <g
+   id="g939">
+   <g
+   transform="matrix(1,0,0,-1,0,841.8898)"
+   id="g937">
+    <g
+   transform="translate(105.64549,449.8991)"
+   v:mID="111"
+   id="g747">
+     <title
+   id="title733">Rectangle.111</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="6000" />
+
+     </userDefs>
+
+     <g
+   v:mID="111"
+   id="g737">
+      <title
+   id="title735">Rectangle.111</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="6000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#ffeeb9"
+   fill-rule="evenodd"
+   id="path739" />
+
+     <g
+   id="g745">
+      <text
+   x="39.21117"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text741"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Permissive</text>
+
+      <text
+   x="39.65453"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text743"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Prohibitive</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(234.3275,449.8991)"
+   v:mID="114"
+   id="g763">
+     <title
+   id="title749">Rectangle.114</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="8000" />
+
+     </userDefs>
+
+     <g
+   v:mID="114"
+   id="g753">
+      <title
+   id="title751">Rectangle.114</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="8000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#a0ebcb"
+   fill-rule="evenodd"
+   id="path755" />
+
+     <g
+   id="g761">
+      <text
+   x="39.21117"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text757"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Permissive</text>
+
+      <text
+   x="39.863514"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text759"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">No change</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(363.07068,449.8991)"
+   v:mID="115"
+   id="g779">
+     <title
+   id="title765">Rectangle.115</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="9000" />
+
+     </userDefs>
+
+     <g
+   v:mID="115"
+   id="g769">
+      <title
+   id="title767">Rectangle.115</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="9000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#2bc483"
+   fill-rule="evenodd"
+   id="path771" />
+
+     <g
+   id="g777">
+      <text
+   x="39.21117"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text773"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Permissive</text>
+
+      <text
+   x="39.21117"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text775"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Permissive</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(105.6149,364.44232)"
+   v:mID="119"
+   id="g795">
+     <title
+   id="title781">Rectangle.119</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="10000" />
+
+     </userDefs>
+
+     <g
+   v:mID="119"
+   id="g785">
+      <title
+   id="title783">Rectangle.119</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="10000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#fdbe00"
+   fill-rule="evenodd"
+   id="path787" />
+
+     <g
+   id="g793">
+      <text
+   x="39.863514"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text789"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">No change</text>
+
+      <text
+   x="39.21117"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text791"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Permissive</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(234.29689,364.44232)"
+   v:mID="120"
+   id="g811">
+     <title
+   id="title797">Rectangle.120</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="11000" />
+
+     </userDefs>
+
+     <g
+   v:mID="120"
+   id="g801">
+      <title
+   id="title799">Rectangle.120</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="11000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#d9d9d9"
+   fill-rule="evenodd"
+   id="path803" />
+
+     <g
+   id="g809">
+      <text
+   x="39.420155"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text805"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">No Change</text>
+
+      <text
+   x="39.863514"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text807"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">No change</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(363.04007,364.44232)"
+   v:mID="121"
+   id="g827">
+     <title
+   id="title813">Rectangle.121</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="12000" />
+
+     </userDefs>
+
+     <g
+   v:mID="121"
+   id="g817">
+      <title
+   id="title815">Rectangle.121</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="12000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#a0ebcb"
+   fill-rule="evenodd"
+   id="path819" />
+
+     <g
+   id="g825">
+      <text
+   x="39.420155"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text821"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">No Change</text>
+
+      <text
+   x="39.21117"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text823"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Permissive</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(105.64369,278.99274)"
+   v:mID="122"
+   id="g843">
+     <title
+   id="title829">Rectangle.122</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="13000" />
+
+     </userDefs>
+
+     <g
+   v:mID="122"
+   id="g833">
+      <title
+   id="title831">Rectangle.122</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="13000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#ff8f10"
+   fill-rule="evenodd"
+   id="path835" />
+
+     <g
+   id="g841">
+      <text
+   x="39.65453"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text837"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Prohibitive</text>
+
+      <text
+   x="39.65453"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text839"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Prohibitive</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(234.3257,278.99274)"
+   v:mID="123"
+   id="g859">
+     <title
+   id="title845">Rectangle.123</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="14000" />
+
+     </userDefs>
+
+     <g
+   v:mID="123"
+   id="g849">
+      <title
+   id="title847">Rectangle.123</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="14000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#fdbe00"
+   fill-rule="evenodd"
+   id="path851" />
+
+     <g
+   id="g857">
+      <text
+   x="39.65453"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text853"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Prohibitive</text>
+
+      <text
+   x="39.863514"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text855"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">No change</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(363.06888,278.99274)"
+   v:mID="124"
+   id="g875">
+     <title
+   id="title861">Rectangle.124</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="15" />
+
+      <ud
+   nameU="visNavOrder"
+   val="15000" />
+
+     </userDefs>
+
+     <g
+   v:mID="124"
+   id="g865">
+      <title
+   id="title863">Rectangle.124</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="15" />
+
+       <ud
+   nameU="visNavOrder"
+   val="15000" />
+
+      </userDefs>
+
+     </g>
+
+     <path
+   d="m 0,0 h 126.41062 v 0 82.598572 0 H 0 v 0 z"
+   stroke="none"
+   stroke-width="0"
+   fill="#ffeeb9"
+   fill-rule="evenodd"
+   id="path867" />
+
+     <g
+   id="g873">
+      <text
+   x="39.65453"
+   y="-4.8000002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text869"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Prohibitive</text>
+
+      <text
+   x="39.21117"
+   y="14.400002"
+   class="TextStyle0"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,43.699287)"
+   id="text871"
+   style="font-weight:bold;font-size:8px;font-family:'Arial Black'">Permissive</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="translate(265.46292,264.168)"
+   v:mID="127"
+   id="g893">
+     <title
+   id="title877">Straight Line.127</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="17" />
+
+      <ud
+   nameU="visNavOrder"
+   val="16000" />
+
+     </userDefs>
+
+     <g
+   v:mID="127"
+   id="g885">
+      <title
+   id="title879">Straight Line.127</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="17" />
+
+       <ud
+   nameU="visNavOrder"
+   val="16000" />
+
+      </userDefs>
+
+      <path
+   d="M 214.72945,-2.8800001 221.06546,0 214.72945,2.8800001 Z"
+   stroke="#000000"
+   stroke-width="1.5"
+   fill="#000000"
+   fill-rule="evenodd"
+   opacity="0"
+   id="path881" />
+
+      <path
+   d="M 0,0 H 214.72945"
+   stroke="#000000"
+   stroke-width="1.5"
+   stroke-linecap="round"
+   fill="none"
+   stroke-opacity="0"
+   id="path883" />
+
+     </g>
+
+     <path
+   d="M 214.72945,-2.8800001 221.06546,0 214.72945,2.8800001 Z"
+   stroke="#bfbfbf"
+   stroke-width="1.5"
+   fill="#bfbfbf"
+   fill-rule="evenodd"
+   id="path887" />
+
+     <path
+   d="M 0,0 H 214.72945"
+   stroke="#bfbfbf"
+   stroke-width="1.5"
+   stroke-linecap="round"
+   fill="none"
+   id="path889" />
+
+     <g
+   id="g891" />
+
+    </g>
+
+    <g
+   transform="translate(81.0684,254.1888)"
+   v:mID="128"
+   id="g905">
+     <title
+   id="title895" />
+
+     <userDefs>
+      <ud
+   nameU="visNavOrder"
+   val="17000" />
+
+     </userDefs>
+
+     <g
+   v:mID="128"
+   id="g899">
+      <title
+   id="title897" />
+
+      <userDefs>
+       <ud
+   nameU="visNavOrder"
+   val="17000" />
+
+      </userDefs>
+
+     </g>
+
+     <g
+   id="g903">
+      <text
+   x="27.509222"
+   y="5.4000001"
+   class="TextStyle1"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,12.059999)"
+   id="text901"
+   style="font-weight:bold;font-size:9px;font-family:'Arial Black'">National direction (RM reform)</text>
+
+     </g>
+
+    </g>
+
+    <g
+   transform="rotate(90,-166.79085,251.91643)"
+   v:mID="129"
+   id="g923">
+     <title
+   id="title907">Straight Line.129</title>
+
+     <userDefs>
+      <ud
+   nameU="visVersion"
+   val="17" />
+
+      <ud
+   nameU="visNavOrder"
+   val="18000" />
+
+     </userDefs>
+
+     <g
+   v:mID="129"
+   id="g915">
+      <title
+   id="title909">Straight Line.129</title>
+
+      <userDefs>
+       <ud
+   nameU="visVersion"
+   val="17" />
+
+       <ud
+   nameU="visNavOrder"
+   val="18000" />
+
+      </userDefs>
+
+      <path
+   d="M 102.67233,-2.8800001 109.00832,0 102.67233,2.8800001 Z"
+   stroke="#000000"
+   stroke-width="1.5"
+   fill="#000000"
+   fill-rule="evenodd"
+   opacity="0"
+   id="path911" />
+
+      <path
+   d="M 0,0 H 102.67233"
+   stroke="#000000"
+   stroke-width="1.5"
+   stroke-linecap="round"
+   fill="none"
+   stroke-opacity="0"
+   id="path913" />
+
+     </g>
+
+     <path
+   d="M 102.67233,-2.8800001 109.00832,0 102.67233,2.8800001 Z"
+   stroke="#bfbfbf"
+   stroke-width="1.5"
+   fill="#bfbfbf"
+   fill-rule="evenodd"
+   id="path917" />
+
+     <path
+   d="M 0,0 H 102.67233"
+   stroke="#bfbfbf"
+   stroke-width="1.5"
+   stroke-linecap="round"
+   fill="none"
+   id="path919" />
+
+     <g
+   transform="rotate(90,55.368164,0)"
+   id="g921" />
+
+    </g>
+
+    <g
+   transform="rotate(90,-77.610605,171.1098)"
+   v:mID="130"
+   id="g935">
+     <title
+   id="title925" />
+
+     <userDefs>
+      <ud
+   nameU="visNavOrder"
+   val="19000" />
+
+     </userDefs>
+
+     <g
+   v:mID="130"
+   id="g929">
+      <title
+   id="title927" />
+
+      <userDefs>
+       <ud
+   nameU="visNavOrder"
+   val="19000" />
+
+      </userDefs>
+
+     </g>
+
+     <g
+   id="g933">
+      <text
+   x="41.749702"
+   y="5.4000001"
+   class="TextStyle1"
+   fill="#000000"
+   opacity="1"
+   transform="matrix(1,0,0,-1,0,12.059999)"
+   id="text931"
+   style="font-weight:bold;font-size:9px;font-family:'Arial Black'">Local government policy</text>
+
+     </g>
+
+    </g>
+
+   </g>
+
+  </g>
+
+ </g>
+  </g>
+</svg>

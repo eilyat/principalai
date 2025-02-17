@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='648.72pt' height='433.44pt' viewBox='0 0 648.72 433.44'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw2NDguNzJ8MC4wMHw0MzMuNDQ='>
+    <rect x='0.00' y='0.00' width='648.72' height='433.44' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw2NDguNzJ8MC4wMHw0MzMuNDQ=)'>
+<rect x='0.00' y='0.00' width='648.72' height='433.44' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNTMuNTR8NjI2LjAxfDE1LjE3fDM0Ni4yNQ=='>
+    <rect x='53.54' y='15.17' width='572.48' height='331.08' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTMuNTR8NjI2LjAxfDE1LjE3fDM0Ni4yNQ==)'>
+<rect x='53.54' y='15.17' width='572.48' height='331.08' style='stroke-width: 1.07; fill: #FFFFFF;' />
+<line x1='53.54' y1='244.02' x2='626.01' y2='244.02' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='79.56,264.22 82.13,266.34 84.73,264.71 87.35,252.18 89.98,246.14 92.58,233.44 95.17,222.66 97.80,211.94 100.43,208.97 103.00,221.90 105.59,229.49 108.22,236.38 110.85,234.83 113.41,224.58 116.01,222.39 118.64,214.99 121.26,210.35 123.83,219.59 126.43,233.33 129.06,251.92 131.68,280.35 134.28,288.29 136.88,282.76 139.51,279.78 142.13,261.38 144.70,264.94 147.30,267.73 149.92,266.24 152.55,266.30 155.12,259.95 157.72,258.40 160.34,261.67 162.97,263.97 165.54,273.97 168.14,288.07 170.76,285.87 173.39,291.44 175.99,282.41 178.58,267.79 181.21,263.55 183.84,248.81 186.40,241.06 189.00,230.52 191.63,218.57 194.25,208.49 196.82,196.97 199.42,186.13 202.05,180.35 204.67,183.52 207.24,193.58 209.84,206.12 212.47,227.46 215.09,232.20 217.69,232.38 220.29,241.86 222.91,238.88 225.54,248.39 228.11,244.86 230.71,227.23 233.33,210.22 235.96,200.21 238.53,205.55 241.13,227.08 243.75,260.22 246.38,252.22 248.95,249.44 251.54,228.22 254.17,191.78 256.80,195.43 259.39,194.94 261.99,206.10 264.62,249.00 267.24,261.49 269.81,265.21 272.41,274.89 275.04,249.11 277.66,245.48 280.23,237.99 282.83,229.46 285.46,232.44 288.08,235.19 290.65,243.99 293.25,250.19 295.87,248.56 298.50,254.00 301.10,254.04 303.70,253.17 306.32,248.99 308.95,241.34 311.52,232.70 314.11,219.91 316.74,215.28 319.37,209.45 321.94,207.19 324.53,206.56 327.16,211.78 329.79,216.68 332.36,227.91 334.95,229.49 337.58,227.43 340.21,224.36 342.80,219.28 345.40,229.59 348.03,234.44 350.65,236.06 353.22,235.37 355.82,228.41 358.45,222.90 361.07,225.60 363.64,229.56 366.24,242.91 368.86,248.25 371.49,253.14 374.06,252.12 376.66,249.69 379.28,250.55 381.91,248.56 384.51,253.77 387.10,264.73 389.73,271.80 392.36,329.45 394.93,331.20 397.52,325.01 400.15,318.45 402.78,256.79 405.34,253.23 407.94,244.76 410.57,243.09 413.19,242.69 415.76,233.05 418.36,230.49 420.99,232.50 423.61,229.63 426.21,238.54 428.81,240.98 431.43,242.34 434.06,247.25 436.63,247.73 439.23,248.32 441.85,248.37 444.48,252.51 447.05,253.54 449.65,254.72 452.27,245.47 454.90,240.69 457.47,239.91 460.07,235.06 462.69,246.16 465.32,246.21 467.92,250.12 470.51,257.00 473.14,246.75 475.77,249.84 478.33,245.42 480.93,247.74 483.56,250.37 486.18,249.68 488.75,246.00 491.35,242.63 493.98,260.34 496.60,262.20 499.17,266.85 501.77,262.45 504.40,242.86 507.02,239.37 509.62,234.95 512.22,232.67 514.84,233.94 517.47,234.67 520.04,234.08 522.64,239.49 525.26,240.98 527.89,240.81 530.46,240.35 533.06,235.57 535.68,234.59 538.31,229.84 540.88,231.14 543.47,231.05 546.10,227.27 548.73,230.73 551.32,231.00 553.92,231.99 556.55,239.26 559.17,243.25 561.74,241.70 564.34,241.59 566.97,239.13 569.59,237.02 572.16,237.37 574.76,241.06 577.39,240.59 580.01,238.10 582.58,238.21 585.18,234.11 587.80,235.33 590.43,235.95 593.03,230.49 595.63,232.53 598.25,233.77 ' style='stroke-width: 2.13; stroke: #00B000; stroke-linecap: butt;' />
+<polyline points='79.56,240.98 82.13,240.12 84.73,242.41 87.35,232.41 89.98,223.69 92.58,208.87 95.17,194.24 97.80,172.97 100.43,160.01 103.00,148.16 105.59,124.06 108.22,94.25 110.85,53.58 113.41,30.22 116.01,53.69 118.64,114.13 121.26,198.99 123.83,275.41 126.43,305.43 129.06,313.88 131.68,311.05 134.28,301.77 136.88,301.02 139.51,296.10 142.13,284.26 144.70,284.64 147.30,289.99 149.92,306.59 152.55,315.93 155.12,312.87 157.72,303.97 160.34,289.62 162.97,280.16 165.54,287.44 168.14,302.15 170.76,308.90 173.39,316.81 175.99,302.99 178.58,280.11 181.21,266.55 183.84,248.63 186.40,211.11 189.00,183.34 191.63,148.48 194.25,115.79 196.82,125.54 199.42,163.35 202.05,197.57 204.67,230.08 207.24,246.20 209.84,225.62 212.47,205.70 215.09,189.34 217.69,187.60 220.29,201.33 222.91,220.81 225.54,246.35 228.11,262.07 230.71,253.19 233.33,244.62 235.96,240.56 238.53,241.32 241.13,256.27 243.75,304.82 246.38,282.20 248.95,262.60 251.54,233.23 254.17,167.00 256.80,183.42 259.39,180.23 261.99,205.72 264.62,227.53 267.24,225.13 269.81,241.62 272.41,250.89 275.04,243.31 277.66,244.87 280.23,247.96 282.83,242.59 285.46,257.65 288.08,281.81 290.65,284.58 293.25,276.03 295.87,267.92 298.50,257.96 301.10,241.91 303.70,243.34 306.32,241.28 308.95,227.90 311.52,234.02 314.11,226.26 316.74,210.25 319.37,176.42 321.94,156.54 324.53,153.44 327.16,164.24 329.79,200.04 332.36,215.52 334.95,209.74 337.58,203.57 340.21,178.65 342.80,178.57 345.40,201.14 348.03,206.44 350.65,209.57 353.22,209.00 355.82,206.94 358.45,216.18 361.07,251.39 363.64,272.41 366.24,273.91 368.86,262.39 371.49,240.19 374.06,220.44 376.66,221.64 379.28,231.68 381.91,248.66 384.51,259.18 387.10,269.98 389.73,278.40 392.36,264.51 394.93,261.11 397.52,244.31 400.15,226.39 402.78,213.62 405.34,200.10 407.94,182.63 410.57,167.81 413.19,154.91 415.76,138.67 418.36,110.77 420.99,87.55 423.61,95.97 426.21,116.38 428.81,153.77 431.43,178.16 434.06,177.47 436.63,170.28 439.23,165.83 441.85,162.41 444.48,183.76 447.05,202.64 449.65,205.44 452.27,201.33 454.90,184.31 457.47,165.89 460.07,178.97 462.69,213.84 465.32,248.28 467.92,300.78 470.51,321.86 473.14,326.93 475.77,325.01 478.33,278.09 480.93,248.26 483.56,220.56 486.18,215.66 488.75,233.73 491.35,252.18 493.98,281.78 496.60,283.50 499.17,278.12 501.77,260.67 504.40,241.06 507.02,233.47 509.62,224.22 512.22,218.51 514.84,206.13 517.47,196.48 520.04,188.16 522.64,184.82 525.26,193.71 527.89,202.19 530.46,211.06 533.06,217.79 535.68,199.77 538.31,180.46 540.88,163.26 543.47,139.56 546.10,156.73 548.73,155.60 551.32,141.62 553.92,149.30 556.55,155.09 559.17,176.27 561.74,210.22 564.34,232.07 566.97,227.14 569.59,226.91 572.16,229.51 574.76,230.61 577.39,234.26 580.01,236.43 582.58,241.78 585.18,232.83 587.80,224.03 590.43,209.90 593.03,207.26 595.63,185.35 598.25,153.42 ' style='stroke-width: 2.13; stroke: #377EB8; stroke-dasharray: 11.38,11.38; stroke-linecap: butt;' />
+<rect x='110.85' y='15.17' width='40.82' height='331.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.15;' />
+<rect x='162.97' y='15.17' width='40.82' height='331.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.15;' />
+<rect x='288.08' y='15.17' width='19.98' height='331.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.15;' />
+<rect x='350.65' y='15.17' width='30.37' height='331.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.15;' />
+<rect x='454.90' y='15.17' width='30.40' height='331.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.15;' />
+<rect x='590.43' y='15.17' width='9.56' height='331.08' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #595959; fill-opacity: 0.15;' />
+</g>
+<g clip-path='url(#cpMC4wMHw2NDguNzJ8MC4wMHw0MzMuNDQ=)'>
+<polyline points='53.54,346.25 53.54,15.17 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<text transform='translate(44.76,313.69) rotate(-90)' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='15.78px' lengthAdjust='spacingAndGlyphs'>-10</text>
+<text transform='translate(44.76,244.02) rotate(-90)' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='6.07px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text transform='translate(44.76,174.36) rotate(-90)' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='12.14px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text transform='translate(44.76,104.69) rotate(-90)' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='12.14px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text transform='translate(44.76,35.02) rotate(-90)' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='12.14px' lengthAdjust='spacingAndGlyphs'>30</text>
+<polyline points='48.30,313.69 53.54,313.69 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='48.30,244.02 53.54,244.02 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='48.30,174.36 53.54,174.36 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='48.30,104.69 53.54,104.69 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='48.30,35.02 53.54,35.02 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='53.54,346.25 626.01,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='79.56,351.48 79.56,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='110.85,351.48 110.85,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='142.13,351.48 142.13,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='173.39,351.48 173.39,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='204.67,351.48 204.67,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='235.96,351.48 235.96,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='267.24,351.48 267.24,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='298.50,351.48 298.50,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='329.79,351.48 329.79,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='361.07,351.48 361.07,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='392.36,351.48 392.36,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='423.61,351.48 423.61,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='454.90,351.48 454.90,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='486.18,351.48 486.18,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='517.47,351.48 517.47,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='548.73,351.48 548.73,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='580.01,351.48 580.01,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='611.30,351.48 611.30,346.25 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<text x='79.56' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1971</text>
+<text x='110.85' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1974</text>
+<text x='142.13' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1977</text>
+<text x='173.39' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1980</text>
+<text x='204.67' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1983</text>
+<text x='235.96' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1986</text>
+<text x='267.24' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1989</text>
+<text x='298.50' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1992</text>
+<text x='329.79' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1995</text>
+<text x='361.07' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>1998</text>
+<text x='392.36' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2001</text>
+<text x='423.61' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2004</text>
+<text x='454.90' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2007</text>
+<text x='486.18' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2010</text>
+<text x='517.47' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2013</text>
+<text x='548.73' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2016</text>
+<text x='580.01' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2019</text>
+<text x='611.30' y='361.68' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='24.28px' lengthAdjust='spacingAndGlyphs'>2022</text>
+<text x='339.78' y='374.78' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='23.05px' lengthAdjust='spacingAndGlyphs'>Date</text>
+<text transform='translate(32.81,180.71) rotate(-90)' text-anchor='middle' style='font-size: 10.91px; font-family: Arial;' textLength='92.82px' lengthAdjust='spacingAndGlyphs'>Annual change (%)</text>
+<rect x='200.00' y='389.03' width='279.55' height='29.24' style='stroke-width: 0.71; fill: #FFFFFF;' />
+<rect x='213.58' y='395.01' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<line x1='215.31' y1='403.65' x2='229.14' y2='403.65' style='stroke-width: 2.13; stroke: #377EB8; stroke-dasharray: 11.38,11.38; stroke-linecap: butt;' />
+<line x1='215.31' y1='403.65' x2='229.14' y2='403.65' style='stroke-width: 2.13; stroke: #377EB8; stroke-dasharray: 11.38,11.38; stroke-linecap: butt;' />
+<rect x='348.60' y='395.01' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<line x1='350.33' y1='403.65' x2='364.15' y2='403.65' style='stroke-width: 2.13; stroke: #00B000; stroke-linecap: butt;' />
+<line x1='350.33' y1='403.65' x2='364.15' y2='403.65' style='stroke-width: 2.13; stroke: #00B000; stroke-linecap: butt;' />
+<text x='238.47' y='407.56' style='font-size: 10.91px; font-family: Arial;' textLength='102.52px' lengthAdjust='spacingAndGlyphs'>Real house price s.a.</text>
+<text x='373.49' y='407.56' style='font-size: 10.91px; font-family: Arial;' textLength='100.09px' lengthAdjust='spacingAndGlyphs'>Real rental price s.a.</text>
+</g>
+</svg>

@@ -1,0 +1,39 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+const { frontmatter } = Astro.props;
+
+import { getCollection } from "astro:content";
+const team = await getCollection("team");
+
+const authors = Array.isArray(frontmatter.authors) ? frontmatter.authors : []; 
+const teamMemberMap = Object.fromEntries(team.map(member => [member.data.name.toLowerCase(), member.slug]));
+
+const teamNames = team.map(member => member.data.name);
+const matchedAuthors = authors.filter((author: string) => teamNames.includes(author));
+
+const pubDate = new Date(frontmatter.pubDate); // Convert to Date object
+const formattedDate = pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long" });
+
+---
+<BaseLayout SEOTitle="Publications">
+	<Fragment slot="SEO">
+		<meta name="citation_title" content={frontmatter.title}/>
+		<meta name="citation_author" content={frontmatter.authors}/>
+		<meta name="citation_publication" content={frontmatter.PubDate}/>
+		<meta name="citation_pdf_url" content={frontmatter.downloadPdf} />
+	</Fragment>
+	<ShortHeader title={frontmatter.title} subtitle={frontmatter.tagline}>
+		<p class="text-2xl text-white font-bold pt-2" >{formattedDate}</p>
+	</ShortHeader>
+	<main>
+		<div>
+				<div class="flex-grow">
+					<slot />
+				</div>
+			</article>
+		</div>
+	</main>
+</BaseLayout>
