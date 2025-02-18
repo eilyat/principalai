@@ -37,8 +37,8 @@ import ResList from "@/components/ResList.astro";
 //   );
 ---
 
-<BaseLayout SEOTitle="Publications">
-  <ShortHeader title="Publications" subtitle="Read all of our publications" />
+<BaseLayout SEOTitle="Publications, articles and resources">
+  <ShortHeader title="All insights" subtitle="Publications, analysis, and resources for a deeper understanding of economic and policy issues." />
   <main class="px-6 max-w-screen-2xl mx-auto">
     <br />
     <BreadCrumbsDefault />
@@ -109,41 +109,4 @@ import ResList from "@/components/ResList.astro";
     </section>
   </main>
 
-  <!-- Alpine.js Pagination Script -->
-  <script>
-    document.addEventListener("alpine:init", () => {
-      Alpine.data("paginationComponent", () => ({
-        publications: [],
-        currentPage: 1,
-        itemsPerPage: 2,
-        totalPages: 1,
-
-        initPublications(jsonData) {
-          this.publications = JSON.parse(jsonData);
-          this.totalPages = Math.ceil(
-            this.publications.length / this.itemsPerPage
-          );
-        },
-
-        get paginatedPublications() {
-          let start = (this.currentPage - 1) * this.itemsPerPage;
-          return this.publications.slice(start, start + this.itemsPerPage);
-        },
-
-        nextPage() {
-          if (this.currentPage < this.totalPages) {
-            this.currentPage++;
-          }
-        },
-
-        previousPage() {
-          if (this.currentPage > 1) {
-            this.currentPage--;
-          }
-        },
-      }));
-    });
-  </script>
-
-  <!-- Alpine.js -->
 </BaseLayout>

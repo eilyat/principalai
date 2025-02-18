@@ -20,29 +20,6 @@ const latestInsights = sortedInsights.slice(0, 4);
     <div class="flex items-center border-l-0 border-r-2 border-accent p-2 pr-8 pl-6">
       <h2 class="text-xl font-bold text-accent">Trending Insights</h2>
     </div>
-
-    <!-- <div class="flex flex-wrap w-full md:w-3/4 flex-grow">
-      <StripBox
-        number="1"
-        description="Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae tenetur."
-        class = "border-l-1 border-r-2 border-accent"
-      />
-      <StripBox
-        number="2"
-        description="Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae tenetur.",
-        class = "border-l-1 border-r-2 border-accent"
-      />
-      <StripBox
-        number="3"
-        description="Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae tenetur.",
-        class = "border-l-1 border-r-2 border-accent"
-      />
-      <StripBox
-        number="4"
-        description="Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae tenetur.",
-        class = "border-l-1 border-r-0 border-accent pr-2"
-        />
-    </div> -->
     <div class="flex flex-wrap w-full md:w-3/4 flex-grow">
       {latestInsights.map((entry, index) => (
         <StripBox
