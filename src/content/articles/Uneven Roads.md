@@ -5,7 +5,7 @@ type: 'Article'
 tagline: 'Addressing the Inconsistencies in Local Road Valuation Across New Zealand'
 description: 'Methodologies for estimating the capital value of New Zealand’s local road network'
 pubDate: 2024-10-01
-authors: ['Ruyi Jia', 'Eilya Torshizian']
+authors: ['Ruyi Jia', 'Dr Eilya Torshizian']
 pubType: 'article'
 downloadPdf: "https://principaleconomics.com/wp-content/uploads/2024/10/Moving-towards-value-based-local-road-valuation-approaches-Principal-Economics-Insight-Article-2410.pdf"
 ---

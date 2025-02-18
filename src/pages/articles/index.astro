@@ -2,17 +2,18 @@
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
-import ShortHeader from "@/components/ui/ShortHeader.astro";
 import PCard from "@/components/ui/PCard.astro";
 import { getCollection } from "astro:content";
-import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+
+
 
 // Fetch and process data
 const articles = await getCollection("articles");
 const team = await getCollection("team");
 
 // Sort publications
-const sortedPublications = [...articles]
+const sortedArtices = [...articles]
   .filter((pub) => pub?.data?.pubDate)
   .sort(
     (a, b) =>
@@ -29,15 +30,16 @@ const teamMemberMap = Object.fromEntries(
 ---
 
 <BaseLayout SEOTitle="Articles">
+     <ShortHeader 
+      title="Articles" 
+      subtitle="Expert commentary, in-depth analysis, and fresh perspectives on key economic and policy issues." />
   <!-- <ShortHeader title="Publications" subtitle="Research papers, reports, and whitepapers" /> -->
   <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <br />
-    <BreadCrumbsDefault />
-    <br />
     <section class="">
       <div class="max-w-screen-xl prose">
-        <h1 class="text-6xl pt-10">About Our Articles</h1>
-        <p class="text-xl mb-8">
+        <!-- <h1 class="text-6xl pt-10">About Our Articles</h1> -->
+        <!-- <p class="text-xl mb-8">
           At Principal Economics we produce high-quality research, reports, and
           whitepapers that provide data-driven insights into economic trends,
           policy developments, and industry challenges. We apply rigorous
@@ -46,24 +48,24 @@ const teamMemberMap = Object.fromEntries(
           publications accessible, we aim to support better strategies,
           policies, and business outcomes in an ever-evolving economic
           landscape.
-        </p>
+        </p> -->
       </div>
 
       <div class="max-w-screen-xl">
         {
-          sortedPublications.map((entry, index) => (
-          <hr class="my-8 border-t border-gray-200" />
+          sortedArtices.map((entry, index) => (
+          <hr class="border-t border-gray-200" />
 
             <article
-              class="group m-6 hover:bg-gray-50/50 transition-colors rounded-xl"
+              class="p-8 group hover:bg-gray-50/50 transition-colors rounded-xl"
               id={`publication-${index}`}
             >
               <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
                 {/* Content */}
-                <div class="w-full md:w-1/2 lg:w-[60%] xl:w-[75%] space-y-3">
+                <div class="w-full md:w-1/2 lg:w-[50%] xl:w-[50%] space-y-3">
                   <div class="space-y-3">
                     <a
-                      href={`/publications/${entry.slug}`}
+                      href={`/articles/${entry.slug}`}
                       class="text-3xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
                     >
                       {entry.data.title}
@@ -71,7 +73,7 @@ const teamMemberMap = Object.fromEntries(
 
                     <div class="flex flex-wrap gap-2 text-sm font-medium">
                       <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-                        Publication
+                        {entry.data.type}
                       </span>
                       <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
                         {entry.data.pubDate?.toLocaleDateString(undefined, {
@@ -113,7 +115,7 @@ const teamMemberMap = Object.fromEntries(
                   </p>
 
                   <a
-                    href={`/publications/${entry.slug}`}
+                    href={`/articles/${entry.slug}`}
                     class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
                   >
                     Read more
@@ -132,8 +134,8 @@ const teamMemberMap = Object.fromEntries(
                   </a>
                 </div>
                 {/* Image Card */}
-                <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] pl-10 hidden md:block lg:block xl:block ">
-                  <PCard
+                <div class="w-full md:w-1/2 lg:w-[50%] xl:w-[50%] pl-10 hidden md:block lg:block xl:block ">
+                  {/* <PCard
                     title={entry.data.title}
                     date={
                       entry.data.pubDate?.toLocaleDateString(undefined, {
@@ -144,19 +146,25 @@ const teamMemberMap = Object.fromEntries(
                     category="Publication"
                     imgSrc={entry.data.cardImage}
                     imgAlt={entry.data.title}
-                    link={`/publications/${entry.slug}`}
+                    link={`/articles/${entry.slug}`}
                     class="h-full"
-                  />
+                  /> */}
+
+                <a href={`/articles/${entry.slug}`}>
+                <img src={entry.data.cardImage} alt={entry.data.title} class="w-full h-full object-cover">
+                </a>
+
                 </div>
               </div>
 
-              {/* {index < sortedPublications.length - 1 && (
+              {/* {index < sortedArtices.length - 1 && (
                 <hr class="my-8 border-t border-gray-200" />
               )} */}
             </article>
           ))
         }
       </div>
+      <br>
     </section>
     <br />
   </main>
