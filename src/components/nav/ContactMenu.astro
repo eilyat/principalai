@@ -4,10 +4,11 @@ import { Icon } from "astro-icon/components";
 
 const about = [
   {
-    slug: "Contact",
+    slug: "contact",
     data: {
       title: "Contact",
       navDesc: "Message us directly.",
+      href:"contact",
     },
   },
   {
@@ -16,16 +17,18 @@ const about = [
       title: "Newsletter",
       navDesc:
         "Subscribe to updates",
+      href:"Newsletter",
     },
   },
-  {
-    slug: "Meet our team",
-    data: {
-      title: "Meet our team",
-      navDesc:
-        "Diverse expertise and sharp insight",
-    },
-  },
+  // {
+  //   slug: "team",
+  //   data: {
+  //     title: "Meet our team",
+  //     navDesc:
+  //       "Diverse expertise and sharp insight",
+  //     href:"about/team",
+  //   },
+  // },
 ];
 ---
 
@@ -65,8 +68,8 @@ const about = [
             <li class="text-gray-800">
               <a
                 class="h-[80px] pl-2 bg-white text-gray-600 text-left py-1 border-l-2 border-gray-300 block text-md w-full hover:border-blue-500 hover:text-blue-700 hover:border-l-4 hover:bg-gray-100 hover:shadow-sm focus:border-l-4 focus:border-blue-500 focus:text-blue-700 focus:bg-gray-100"
-                href={`/about/${entry.slug}`}
-              >
+                href={entry.data.href.startsWith("/") ? entry.data.href : `/${entry.data.href}`}
+                >
                 <div class="h-full flex flex-col justify-center pl-2">
                   <span class="font-semibold leading-8 text-lg">
                     {entry.data.title}
