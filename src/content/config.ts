@@ -7,6 +7,7 @@ const baseContentSchema = z.object({
   authors: z.array(z.string()).optional(),
   heroImage: z.string().optional(),
   cardImage: z.string().optional(),
+  iframe: z.string().optional(),
   downloadPdf: z.string().optional(),
 	tags: z.array(z.string()).optional(),
 });
