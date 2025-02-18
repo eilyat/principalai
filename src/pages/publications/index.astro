@@ -3,137 +3,160 @@ import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
-
-// Fetch all publications in the collection
-import { getCollection } from "astro:content";
-const publications = await getCollection("publications");
-
-// Sort each collection by the date field (without mutating the original arrays)
-const sortedPublications = [...publications]
-  .filter((pub) => pub?.data?.pubDate) // Remove entries without a valid date
-  .sort((a, b) => {
-    const dateA = new Date(a.data.pubDate || 0).getTime(); // Default to 0 if missing
-    const dateB = new Date(b.data.pubDate || 0).getTime();
-    return dateB - dateA; // Sort in descending order (most recent first)
-  });
-
 import PCard from "@/components/ui/PCard.astro";
+import { getCollection } from "astro:content";
+import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
+
+// Fetch and process data
+const publications = await getCollection("publications");
+const team = await getCollection("team");
+
+// Sort publications
+const sortedPublications = [...publications]
+  .filter((pub) => pub?.data?.pubDate)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+
+const teamMap = new Map(
+  team.map((member) => [member.data.name.toLowerCase(), member.slug])
+);
+// Create team member lookup map
+const teamMemberMap = Object.fromEntries(
+  team.map((member) => [member.data.name.toLowerCase(), member.slug])
+);
 ---
 
 <BaseLayout SEOTitle="Publications">
-  <ShortHeader title="Publications" subtitle="Read all of our publications" />
+  <!-- <ShortHeader title="Publications" subtitle="Research papers, reports, and whitepapers" /> -->
   <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <br />
     <BreadCrumbsDefault />
     <br />
-    <section class="pt-16">
-      <div class="pb-8">
-        <div class="post-wrapper">
-          <h1 class="text-6xl pb-10">Publications</h1>
-
-          {
-            sortedPublications.map((entry, index) => (
-              <article
-                class="group p-6 hover:bg-gray-50/50 transition-colors rounded-xl"
-                id={`publication-${index}`}
-              >
-                {/* Flex container for responsive layout */}
-                <div class="flex flex-col md:flex-row gap-4 md:gap-6">
-                  {" "}
-                  {/* Reduced from gap-6 */}{" "}
-                  {/* Image Card - 50% width on desktop */}
-                  <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] pl-10 hidden md:block lg:block xl:block">
-                    <PCard
-                      title={entry.data.title}
-                      date={
-                        entry.data.pubDate
-                          ? new Date(entry.data.pubDate).toLocaleDateString(
-                              undefined,
-                              {
-                                dateStyle: "medium",
-                                timeZone: "UTC",
-                              }
-                            )
-                          : "Unknown Date"
-                      }
-                      category="Publication"
-                      imgSrc={entry.data.cardImage}
-                      imgAlt={entry.data.title}
-                      link={`/publications/${entry.slug}`}
-                      class="h-full"
-                    />
-                  </div>
-                  {/* Content - 50% width on desktop */}
-                  <div class="w-full md:w-1/2 lg:w-[52%] xl:w-[55%] space-y-3">
-                    {" "}
-                    {/* Reduced space-y-4 to space-y-3 */}
-                    <div class="space-y-3">
-                      <a
-                        href={`/publications/${entry.slug}`}
-                        class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
-                      >
-                        {entry.data.title}
-                      </a>
-
-                      <div class="flex flex-wrap gap-2 text-sm font-medium">
-                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-                          Publication
-                        </span>
-                        <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
-                          {entry.data.pubDate
-                            ? new Date(entry.data.pubDate).toLocaleDateString(
-                                undefined,
-                                {
-                                  dateStyle: "medium",
-                                  timeZone: "UTC",
-                                }
-                              )
-                            : "Unknown Date"}
-                        </span>
-                      </div>
-
-                      <p class="text-gray-600 font-medium">
-                        Authors:{" "}
-                        <span class="text-gray-800">
-                          {Array.isArray(entry.data.authors)
-                            ? entry.data.authors.join(", ")
-                            : "Unknown Author"}
-                        </span>
-                      </p>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed line-clamp-3">
-                      {entry.body}
-                    </p>
-                    <a
-                      href={`/publications/${entry.slug}`}
-                      class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
-                    >
-                      Read more
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5 ml-1"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </a>
-                  </div>
+    <section class="">
+      <div class="max-w-screen-xl prose">
+        <h1 class="text-6xl pt-10">About Our Publications</h1>
+        <p class="text-xl mb-8">
+          At Principal Economics we produce high-quality research, reports, and
+          whitepapers that provide data-driven insights into economic trends,
+          policy developments, and industry challenges. We apply rigorous
+          analysis and collaborate with experts to deliver research that informs
+          decision-making and drives meaningful impact. By making our
+          publications accessible, we aim to support better strategies,
+          policies, and business outcomes in an ever-evolving economic
+          landscape.
+        </p>
+      </div>
+      <hr />
+      <div class="">
+        {
+          sortedPublications.map((entry, index) => (
+            <article
+              class="group p-6 hover:bg-gray-50/50 transition-colors rounded-xl"
+              id={`publication-${index}`}
+            >
+              <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+                {/* Image Card */}
+                <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] pl-10 hidden md:block lg:block xl:block">
+                  <PCard
+                    title={entry.data.title}
+                    date={
+                      entry.data.pubDate?.toLocaleDateString(undefined, {
+                        dateStyle: "medium",
+                        timeZone: "UTC",
+                      }) || "Unknown Date"
+                    }
+                    category="Publication"
+                    imgSrc={entry.data.cardImage}
+                    imgAlt={entry.data.title}
+                    link={`/publications/${entry.slug}`}
+                    class="h-full"
+                  />
                 </div>
 
-                {/* Divider - only between items */}
-                {index < sortedPublications.length - 1 && (
-                  <hr class="my-8 border-t border-gray-200" />
-                )}
-              </article>
-            ))
-          }
-        </div>
+                {/* Content */}
+                <div class="w-full md:w-1/2 lg:w-[52%] xl:w-[55%] space-y-3">
+                  <div class="space-y-3">
+                    <a
+                      href={`/publications/${entry.slug}`}
+                      class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
+                    >
+                      {entry.data.title}
+                    </a>
+
+                    <div class="flex flex-wrap gap-2 text-sm font-medium">
+                      <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+                        Publication
+                      </span>
+                      <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
+                        {entry.data.pubDate?.toLocaleDateString(undefined, {
+                          dateStyle: "medium",
+                          timeZone: "UTC",
+                        }) || "Unknown Date"}
+                      </span>
+                    </div>
+
+                    <p class="text-gray-600 font-medium">
+                      Authors:{" "}
+                      {entry.data.authors?.map((author, authorIndex) => {
+                        const normalizedName = author.trim().toLowerCase();
+                        const isTeamMember = teamMap.has(normalizedName);
+                        const isLast =
+                          authorIndex === entry.data.authors.length - 1;
+
+                        return (
+                          <span>
+                            {isTeamMember ? (
+                              <a
+                                href={`/team/${teamMap.get(normalizedName)}`}
+                                class="text-blue-600 hover:underline"
+                              >
+                                {author}
+                              </a>
+                            ) : (
+                              <span class="text-gray-700">{author}</span>
+                            )}
+                            {!isLast && ", "}
+                          </span>
+                        );
+                      }) ?? <span>No authors listed</span>}
+                    </p>
+                  </div>
+
+                  <p class="text-gray-700 leading-relaxed line-clamp-3">
+                    {entry.body}
+                  </p>
+
+                  <a
+                    href={`/publications/${entry.slug}`}
+                    class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                  >
+                    Read more
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 ml-1"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {index < sortedPublications.length - 1 && (
+                <hr class="my-8 border-t border-gray-200" />
+              )}
+            </article>
+          ))
+        }
       </div>
     </section>
+    <br />
   </main>
 </BaseLayout>
