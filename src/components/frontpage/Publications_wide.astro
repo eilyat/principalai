@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import ScrollCards from "@/components/ui/ScrollCards.astro";
+import PCard from "@/components/ui/PCard.astro";
+
+
+// Fetch and process data
+const publications = await getCollection("publications");
+const team = await getCollection("team");
+
+// Sort publications
+const sortedPublications = [...publications]
+  .filter((pub) => pub?.data?.pubDate)
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  )
+  .slice(0, 6);
+
+const teamMap = new Map(
+  team.map((member) => [member.data.name.toLowerCase(), member.slug])
+);
+---
+<div class="overflow-hidden">
+<ScrollCards>
+  {
+    sortedPublications.map((entry, index) => (
+      <div class="w-full">
+        <PCard
+          title={entry.data.title}
+          date={
+            entry.data.pubDate
+              ? new Date(entry.data.pubDate).toLocaleDateString(
+                  undefined,
+                  {
+                    dateStyle: "medium",
+                    timeZone: "UTC",
+                  }
+                )
+              : "Unknown Date"
+          }
+          category={String(entry.data.type)}
+          imgSrc={entry.data.cardImage}
+          imgAlt={entry.data.title}
+          link={`/${entry.type || "default"}/${entry.slug || "default"}`}
+          class="h-full"
+        />
+      </div>
+    ))
+  }
+</ScrollCards>
+</div>

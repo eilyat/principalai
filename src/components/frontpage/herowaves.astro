@@ -1,0 +1,115 @@
+<div class="relative bg-gradient-to-r z-0 from-blue-500 to-blue-100 h-[730px] px-8 flex items-center overflow-clip">
+  <!-- SVG Background Animation -->
+  <svg class="absolute top-0 left-0 z-0 opacity-30 overflow-clip pointer-events-none" width="4000" height="5000"
+  id="animated-lines" viewBox="100 -20 460 830"></svg>  
+
+  <!-- Content Wrapper (Vertically Centered) -->
+  <div class="relative z-10 text-gray-800 text-right sm-mr-12 flex-1 flex items-center justify-end sm-px-8 h-full">
+    <!-- Right Column -->
+    <div class="text-gray-800 text-left sm:mr-36">
+      <h1 class="text-6xl font-bold mb-4 max-w-lg">
+        Principal Economics
+      </h1>
+      <p class="text-lg md:text-xl">Building your dreams with code.</p>
+      <a
+        href="#"
+        class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition"
+        >Get Started</a
+      >
+    </div>
+  </div>
+</div>
+
+    <script>
+      var svgEl = document.getElementById('animated-lines');
+
+      var randomRange = function(min, max) {
+        return ~~(Math.random() * (max - min + 1)) + min;
+      };
+
+      var numberOfLines = 50,
+        lineDataArr = [];
+
+      var createPathString = function() {
+        var completedPath = '',
+          comma = ',',
+          ampl = 50; // pixel range from 0, aka how deeply they bend
+
+        for (var i = 0; i < numberOfLines; i++) {
+          var path = lineDataArr[i];
+
+          var current = {
+            x: ampl * Math.sin(path.counter / path.sin),
+            y: ampl * Math.cos(path.counter / path.cos),
+          };
+
+          var newPathSection =
+            'M' +
+            // starting point
+            path.startX +
+            comma +
+            path.startY +
+            // quadratic control point
+            ' Q' +
+            path.pointX +
+            comma +
+            (current.y * 1.5).toFixed(10) + // 1.5 to amp up the bend a little
+            // center point intersection
+            ' ' +
+            ((current.x) / 10 + path.centerX).toFixed(3) +
+            comma +
+            ((current.y) / 5 + path.centerY).toFixed(3) +
+            // end point with quadratic reflection (T) (so the bottom right mirrors the top left)
+            ' T' +
+            path.endX +
+            comma +
+            path.endY;
+          path.counter++;
+
+          completedPath += newPathSection;
+        }
+
+        return completedPath;
+      };
+
+      var createLines = function() {
+        var newPathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path'),
+          // higher is slower
+          minSpeed = 300,
+          maxSpeed = 350;
+
+        // create an arr which contains objects for all lines
+        // createPathString() will use this array
+        for (var i = 0; i < numberOfLines; i++) {
+          var lineDataObj = {
+            counter: randomRange(1, 500), // a broad counter range ensures lines start at different cycles (will look more random)
+            startX: randomRange(-5, -30),
+            startY: randomRange(5, 40), // Ensure that the lines start within visible range
+            endX: randomRange(200, 220), // viewbox = 200
+            endY: randomRange(120, 140), // viewbox = 120
+            sin: randomRange(minSpeed, maxSpeed),
+            cos: randomRange(minSpeed, maxSpeed),
+            pointX: randomRange(30, 55),
+            centerX: randomRange(90, 120),
+            centerY: randomRange(60, 70),
+          };
+
+          lineDataArr.push(lineDataObj);
+        }
+
+        var animLoop = function() {
+          newPathEl.setAttribute('d', createPathString());
+          requestAnimationFrame(animLoop);
+        };
+
+        // once the path elements are created, start the animation loop
+        newPathEl.setAttribute('fill', 'none');
+        newPathEl.setAttribute('stroke', 'white');
+        newPathEl.setAttribute('stroke-width', '1.4');
+        newPathEl.setAttribute('vector-effect', 'non-scaling-stroke');
+        svgEl.appendChild(newPathEl);
+        animLoop();
+      };
+
+      createLines();
+    </script>
