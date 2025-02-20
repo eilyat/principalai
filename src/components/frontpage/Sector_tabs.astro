@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+const industries = await getCollection("industries");
+import Image from "astro/components/Image.astro";
+import lighthouse from '@/images/lighthouse.png';
+
+// Transform the collection into a JSON-compatible format
+const industriesData = industries.map((industry) => ({
+  title: industry.data.title,
+  description: industry.data.description,
+  slug: industry.slug,
+}));
+---
+
+<div
+  x-data="{ hoveredIndex: null, industries: JSON.parse($el.dataset.industries) }"
+  data-industries={JSON.stringify(industriesData)}
+  class="container max-w-full bg-gray-100 flex flex-col lg:flex-row"
+>
+  <!-- Image and hover text on the left-hand side -->
+  <div class="w-full lg:w-3/4 relative">
+    <!-- Image Container -->
+    <div class="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden">
+      <!-- Image -->
+      <Image
+        src={lighthouse}
+        alt="lighthouse"
+        decoding="async"
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Hover text overlay -->
+    <div
+      x-show="hoveredIndex !== null"
+      x-cloak
+      class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 transition-opacity duration-300"
+    >
+      <template x-for="(industry, index) in industries" :key="index">
+        <div x-show="hoveredIndex === index" class="text-white text-center">
+          <p x-text="industry.description"></p>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <!-- Vertical tabs on the right-hand side -->
+  <div class="w-full lg:w-1/4 flex flex-col space-y-2 border-l-0 lg:border-l-2 border-gray-200 pl-0 lg:pl-4 mt-4 lg:mt-0">
+    <template x-for="(industry, index) in industries" :key="index">
+      <a
+        :href="`/${industry.slug}`"
+        @mouseover="hoveredIndex = index"
+        @mouseleave="hoveredIndex = null"
+        class="px-4 py-3 sm:py-4 text-base sm:text-lg font-semibold hover:bg-gray-200 rounded-lg transition-colors text-left"
+        x-text="industry.title"
+      ></a>
+    </template>
+  </div>
+</div>

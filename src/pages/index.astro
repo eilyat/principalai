@@ -7,7 +7,7 @@ import Herowaves from '@/components/frontpage/herowaves.astro';
 import Resource_wide from '@/components/frontpage/resources_wide.astro';
 import Publications_wide from '@/components/frontpage/Publications_wide.astro';
 import Articles_wide from '@/components/frontpage/Articles_wide.astro';
-import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
+import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
 ---
 
 <BaseLayout SEOTitle="Main page">
@@ -23,8 +23,9 @@ import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
 				<div class="px-6">
 					<Articles_wide /> 
 			</div></div>
-				
-
+			<div class="w-full">
+			<SectorTabs />
+			</div>
 				<div class="p-2 bg-gray-50 py-6">
 					<span class="flex items-center w-full overflow-hidden pt-6 pb-8 font-serif italic ">
 						<span class="text-4xl px-6">See our latest publications</span>
