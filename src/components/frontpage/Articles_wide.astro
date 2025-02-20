@@ -57,29 +57,30 @@ const teamMap = new Map(
               </div>
 
               <p class="text-gray-600 font-medium">
-                Authors:{" "}
-                {entry.data.authors?.map((author, authorIndex) => {
-                  const normalizedName = author.trim().toLowerCase();
-                  const isTeamMember = teamMap.has(normalizedName);
-                  const isLast = authorIndex === entry.data.authors.length - 1;
+  Authors:{" "}
+  {entry.data.authors?.map((author, authorIndex) => {
+    const normalizedName = author.trim().toLowerCase();
+    const isTeamMember = teamMap.has(normalizedName);
+    const isLast = authorIndex === entry.data.authors.length - 1;
 
-                  return (
-                    <span key={authorIndex}>
-                      {isTeamMember ? (
-                        <a
-                          href={`/team/${teamMap.get(normalizedName)}`}
-                          class="text-blue-600 hover:underline"
-                        >
-                          {author}
-                        </a>
-                      ) : (
-                        <span class="text-gray-700">{author}</span>
-                      )}
-                      {!isLast && ", "}
-                    </span>
-                  );
-                }) ?? <span>No authors listed</span>}
-              </p>
+    return (
+      <>
+        {isTeamMember ? (
+          <a
+            href={`about/team/${teamMap.get(normalizedName)}`}
+            class="text-blue-600 hover:underline"
+          >
+            {author}
+          </a>
+        ) : (
+          <span class="text-gray-700">{author}</span>
+        )}
+        {!isLast && ", "}
+      </>
+    );
+  }) ?? <span>No authors listed</span>}
+</p>
+
             </div>
 
             <p class="text-xl text-gray-700 leading-relaxed line-clamp-6">
