@@ -1,7 +1,6 @@
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
-import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import IndustryCards from "@/components/ui/IndustryCards.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 import { getCollection } from "astro:content";
@@ -14,14 +13,13 @@ const industries = await getCollection("industries");
 		subtitle=" Collaborative expertise across diverse industries " />
 	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
 		<br />
-			<BreadCrumbsDefault />
 			<br />
 			<section class="pt-16">
 				<div class="pb-8">
-					<h1 class="text-4xl max-w-4xl leading-snug">
+					<!-- <h1 class="text-4xl max-w-4xl leading-snug">
 						Collaborative expertise across diverse industries
-					</h1>
-					<br />
+					</h1> -->
+
 					<p class="text-xl leading-relaxed overflow-hidden flex">
 						At Principal Economics, we unite multidisciplinary teams of experts
 						and academics to address complex challenges across a wide range of
@@ -54,5 +52,6 @@ const industries = await getCollection("industries");
 
 
 			</section>
+			<br><br>
 		</main>
 </BaseLayout>

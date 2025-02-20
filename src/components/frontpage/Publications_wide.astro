@@ -42,7 +42,7 @@ const teamMap = new Map(
           category={String(entry.data.type)}
           imgSrc={entry.data.cardImage}
           imgAlt={entry.data.title}
-          link={`/${entry.type || "default"}/${entry.slug || "default"}`}
+          link={`/publications/${entry.slug || "default"}`}
           class="h-full"
         />
       </div>
