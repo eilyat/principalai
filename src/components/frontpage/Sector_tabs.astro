@@ -1,0 +1,99 @@
+---
+import { getCollection } from "astro:content";
+const industries = await getCollection("industries");
+import Image from "astro/components/Image.astro";
+import lighthouse from '@/images/lighthouse.png';
+
+// Transform the collection into a JSON-compatible format
+const industriesData = industries.map((industry) => ({
+  title: industry.data.title,
+  description: industry.data.description,
+  slug: industry.slug,
+}));
+---
+
+<div
+  x-data="{ 
+    hoveredIndex: null, 
+    industries: JSON.parse($el.dataset.industries), 
+    defaultIndustry: { 
+      title: 'Industries', 
+      description: 'At Principal Economics, we unite multidisciplinary teams of experts and academics to address complex challenges across a wide range of industries.',
+      slug: '/industries' // Default link (can be changed)
+    } 
+  }"
+  data-industries={JSON.stringify(industriesData)}
+  class="container max-w-full flex flex-col lg:flex-row"
+>
+  <!-- Image and hover text on the left-hand side -->
+  <div class="w-full lg:w-3/4 relative">
+    <!-- Image Container -->
+    <div class="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden">
+      <!-- Image -->
+      <Image
+        src={lighthouse}
+        alt="lighthouse"
+        decoding="async"
+        loading="lazy"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Hover text overlay -->
+    <div
+  x-show="hoveredIndex !== null || defaultIndustry"
+  x-cloak
+  class="absolute inset-0 px-4 flex items-center justify-center transition-opacity duration-300"
+>
+  <!-- Show Default Industry if Nothing is Hovered -->
+  <div x-show="hoveredIndex === null" class="text-white text-left max-w-xl">
+    <p class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif prose pb-2" x-text="defaultIndustry.title"></p>
+    <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl pb-5" x-text="defaultIndustry.description"></p>
+    <a :href="/industries"
+      <button 
+        type="button" 
+        class="font-serif text-gray-900 bg-white hover:bg-gray-100 border focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-sm text-sm px-5 py-3 text-center inline-flex items-center whitespace-nowrap dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">
+        SEE MORE
+      </button>
+    </a>
+  </div>
+
+  <!-- Show Hovered Industry -->
+  <template x-for="(industry, index) in industries" :key="index">
+    <div x-show="hoveredIndex === index" class="text-white text-left max-w-2xl">
+      <p class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif prose pb-2" x-text="industry.title"></p>
+      <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl pb-5" x-text="industry.description"></p>
+      <a :href="`/industries/${industry.slug}`"
+        <button 
+          type="button" 
+          class="font-serif text-gray-900 bg-white hover:bg-gray-100 border focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-sm text-sm px-5 py-3 text-center inline-flex items-center whitespace-nowrap dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">
+          SEE MORE
+        </button>
+      </a>
+    </div>
+  </template>
+</div>
+
+  </div>
+
+  <!-- Vertical tabs on the right-hand side -->
+  <div class="w-full lg:w-1/4 flex flex-col space-y-2 border-l-0 lg:border-l-2 border-gray-200 px-0 lg:mt-0">
+    <ul class="space-y-3 px-3">
+        <template x-for="(industry, index) in industries" :key="index">
+            <li>
+                <a
+                    :href="`/industries/${industry.slug}`"
+                    @mouseover="hoveredIndex = index"
+                    class="flex items-center h-[56px] px-4  border-l-4 border-gray-200 rounded-sm  transition-all duration-200 hover:border-blue-500 hover:text-blue-700 hover:bg-gray-100 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                >
+                    <div class="flex flex-col justify-center">
+                        <span class="font-medium text-gray-900 leading-tight text-lg" x-text="industry.title"></span>
+                        <span class="text-sm text-gray-500 line-clamp-2" x-text="industry.navDesc"></span>
+                    </div>
+                </a>
+                <hr>
+            </li>
+        </template>
+    </ul>
+</div>
+</div>
