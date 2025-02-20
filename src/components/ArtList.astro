@@ -6,11 +6,17 @@ const articles = await getCollection("articles");
 
 // Sort by date field (descending order)
 const sortedArticles = articles
-  .filter((item) => item?.data?.pubDate)
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  );
+  .filter((item) => item?.data?.pubDate) // Ensure pubDate exists
+  .sort((a, b) => {
+    const dateA = new Date(a.data.pubDate);
+    const dateB = new Date(b.data.pubDate);
+
+    // Ensure valid dates by checking getTime() for NaN
+    const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
+    const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
+
+    return timeB - timeA; // Sort in descending order
+  });
 
 // Convert data to JSON for Alpine.js
 const sortedArticlesJSON = JSON.stringify(sortedArticles);
