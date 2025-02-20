@@ -5,11 +5,12 @@ const publications = await getCollection("publications");
 
 // Sort by date field (descending order)
 const sortedPublications = publications
-  .filter((item) => item?.data?.pubDate)
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  );
+.filter((item) => item?.data?.pubDate)
+  .sort((a, b) => {
+  const dateA = new Date(a.data.pubDate || 0).getTime();
+  const dateB = new Date(b.data.pubDate || 0).getTime();
+  return dateB - dateA;
+});
 
 // Convert data to JSON for Alpine.js
 const sortedPublicationsJSON = JSON.stringify(sortedPublications);

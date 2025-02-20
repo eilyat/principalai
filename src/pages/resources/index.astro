@@ -14,19 +14,17 @@ const team = await getCollection("team");
 
 // Sort publications
 const sortedResources = [...resources]
-  .filter((pub) => pub?.data?.pubDate)
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  );
+  .filter((item) => item?.data?.pubDate)
+  .sort((a, b) => {
+  const dateA = new Date(a.data.pubDate || 0).getTime();
+  const dateB = new Date(b.data.pubDate || 0).getTime();
+  return dateB - dateA;
+});
 
 const teamMap = new Map(
   team.map((member) => [member.data.name.toLowerCase(), member.slug])
 );
-// Create team member lookup map
-const teamMemberMap = Object.fromEntries(
-  team.map((member) => [member.data.name.toLowerCase(), member.slug])
-);
+
 ---
 
 <BaseLayout SEOTitle="Resources">

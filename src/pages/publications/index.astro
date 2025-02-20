@@ -2,10 +2,8 @@
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
-import ShortHeader from "@/components/ui/ShortHeader.astro";
 import PCard from "@/components/ui/PCard.astro";
 import { getCollection } from "astro:content";
-import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
 
 // Fetch and process data
 const publications = await getCollection("publications");
@@ -13,11 +11,12 @@ const team = await getCollection("team");
 
 // Sort publications
 const sortedPublications = [...publications]
-  .filter((pub) => pub?.data?.pubDate)
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  );
+.filter((item) => item?.data?.pubDate)
+  .sort((a, b) => {
+  const dateA = new Date(a.data.pubDate || 0).getTime();
+  const dateB = new Date(b.data.pubDate || 0).getTime();
+  return dateB - dateA;
+});
 
 const teamMap = new Map(
   team.map((member) => [member.data.name.toLowerCase(), member.slug])
