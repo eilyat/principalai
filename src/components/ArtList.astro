@@ -60,7 +60,7 @@ const sortedArticlesJSON = JSON.stringify(sortedArticles);
                 class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full"
               >
                 <span
-                  x-text="new Date(entry.data.pubDate).toLocaleDateString(undefined, { dateStyle: 'medium', timeZone: 'UTC' })"
+                  x-text="new Date(entry.data.pubDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', timeZone: 'UTC' })"
                 ></span>
               </span>
             </div>

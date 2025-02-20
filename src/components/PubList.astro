@@ -59,7 +59,7 @@ const sortedPublicationsJSON = JSON.stringify(sortedPublications);
                 class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full"
               >
                 <span
-                  x-text="new Date(entry.data.pubDate).toLocaleDateString(undefined, { dateStyle: 'medium', timeZone: 'UTC' })"
+                  x-text="new Date(entry.data.pubDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', timeZone: 'UTC' })"
                 ></span>
               </span>
             </div>
@@ -165,13 +165,12 @@ const sortedPublicationsJSON = JSON.stringify(sortedPublications);
       currentPage: 1,
       itemsPerPage: 2,
       totalPages: 1,
-
-      initPublications(jsonData) {
-        this.publications = JSON.parse(jsonData);
-        this.totalPages = Math.ceil(
-          this.publications.length / this.itemsPerPage
-        );
-      },
+      initPublications() {
+  setTimeout(() => {
+    this.publications = JSON.parse(this.$refs.jsonData.textContent || "[]");
+    this.totalPages = Math.ceil(this.publications.length / this.itemsPerPage);
+  }, 0);
+},
 
       get paginatedPublications() {
         let start = (this.currentPage - 1) * this.itemsPerPage;

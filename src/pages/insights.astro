@@ -10,31 +10,6 @@ import PubList from "@/components/PubList.astro";
 import ArtList from "@/components/ArtList.astro";
 import ResList from "@/components/ResList.astro";
 
-// Fetch all publications, articles, and resources
-// const publications = await getCollection("publications");
-// const articles = await getCollection("articles");
-// const resources = await getCollection("resources");
-
-// // Combine all collections
-// const allItems = [...publications, ...articles, ...resources];
-
-// // Sort by date field (descending order)
-// const sortedPublications = publications
-//   .filter((item) => item?.data?.pubDate)
-//   .sort(
-//     (a, b) =>
-//       new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-//   );
-
-// // Convert data to JSON for Alpine.js
-// const sortedPublicationsJSON = JSON.stringify(sortedPublications);
-
-// const sortedArticles = articles
-//   .filter((item) => item?.data?.pubDate)
-//   .sort(
-//     (a, b) =>
-//       new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-//   );
 ---
 
 <BaseLayout SEOTitle="Publications, articles and resources">

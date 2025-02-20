@@ -29,16 +29,14 @@ const teamMap = new Map(
         <PCard
           title={entry.data.title}
           date={
-            entry.data.pubDate
-              ? new Date(entry.data.pubDate).toLocaleDateString(
-                  undefined,
-                  {
-                    dateStyle: "medium",
-                    timeZone: "UTC",
-                  }
-                )
-              : "Unknown Date"
-          }
+  entry.data.pubDate
+    ? new Date(entry.data.pubDate).toLocaleDateString(undefined, {
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      })
+    : "Unknown Date"
+}
           category={String(entry.data.type)}
           imgSrc={entry.data.cardImage}
           imgAlt={entry.data.title}
