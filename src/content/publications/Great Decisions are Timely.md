@@ -7,7 +7,7 @@ description: 'test'
 pubDate: 2023-09-01
 authors: ['Dr Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']
 pubType: 'report'
-downloadPdf: "/public/assets/Cost-of-delay-in-infrastructure-decisions-Principal-Economics-report-Oct-2022.pdf"
+downloadPdf: "/resources/Great Decisions are Timely"
 cardImage: '../../images/pocketwatch.avif'
 
 ---
