@@ -5,7 +5,8 @@ import BaseLayout from "@/components/BaseLayout.astro";
 // import PCard from "@/components/ui/PCard.astro";
 import { getCollection } from "astro:content";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
-
+import { Image } from "astro:assets";
+import Lighthouse from "@/images/lighthouse.png";
 
 
 // Fetch and process data
@@ -149,7 +150,11 @@ const teamMap = new Map(
                   /> */}
 
                 <a href={`/articles/${entry.slug}`}>
-                <img src={entry.data.cardImage} alt={entry.data.title} class="w-full h-full object-cover">
+                  <Image
+                src={entry.data.cardImage || Lighthouse}
+                alt={entry.data.title}
+                class="w-full h-[441px] object-cover"
+                  />
                 </a>
 
                 </div>

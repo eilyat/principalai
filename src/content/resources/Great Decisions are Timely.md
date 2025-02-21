@@ -7,8 +7,10 @@ description: 'Aotearoa New Zealand suffers from an infrastructure deficit. Witho
 pubDate: 2022-07-01
 authors: ['Principal Economics']
 pubType: 'resource'
-downloadPdf: "https://principaleconomics.com/housing-affordability/introduction/"
+downloadPdf: "/public/assets/Cost-of-delay-in-infrastructure-decisions-Principal-Economics-report-Oct-2022.pdf"
 iframe: "/cost_of_delay/index.html"
+cardImage: '../../images/pocketwatch.avif'
+
 ---
 
 <div class="hidden">

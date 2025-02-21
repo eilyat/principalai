@@ -7,8 +7,9 @@ description: 'The following is a summary of 27 potential policy areas suitable f
 pubDate: 2022-07-01
 authors: ['Principal Economics']
 pubType: 'resource'
-downloadPdf: "https://principaleconomics.com/emission-reduction-prefance"
+# downloadPdf: "https://principaleconomics.com/emission-reduction-prefance"
 iframe: "/emission_reduction_initiatives/index.html"
+cardImage: "../../images/wellington_tram.avif"
 ---
 
 <div class="hidden">

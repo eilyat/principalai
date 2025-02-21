@@ -1,8 +1,7 @@
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
-// import Banner from '@/components/frontpage/banner.astro';
-import BannerStrip from "@/components/frontpage/banner_strip.astro";
+import BannerStrip from '@/components/frontpage/banner_strip.astro';
 import Herowaves from "@/components/frontpage/herowaves.astro";
 // import Resource_wide from "@/components/frontpage/resources_wide.astro";
 import Resource_wide from "@/components/ResList_frontpage.astro";
@@ -15,14 +14,14 @@ import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
 	<Herowaves />
 	<BannerStrip />
 	<main>
-		<div class="bg-gray-100 py-6">
+		<div class="bg-gray-100 py-0">
 			<!-- <span class="flex items-center w-full overflow-hidden pt-6 pb-8 font-serif italic ">
 						<span class="text-4xl px-6">Read our latest articles</span>
 						<span class="h-[2px] flex-1 bg-zinc-300"></span>
 					</span> -->
-			<div class="px-6">
+			<!-- <div class="p-0"> -->
 				<Articles_wide />
-			</div>
+			<!-- </div> -->
 		</div>
 
 		<div class="py-4"></div>
