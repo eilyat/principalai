@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 const { title, date, category, imgSrc, imgAlt, link } = Astro.props;
 ---
 
@@ -22,10 +23,12 @@ const { title, date, category, imgSrc, imgAlt, link } = Astro.props;
     <div class="flex flex-col mt-auto bg-white">
       <span class="text-sm text-gray-500 font-bold px-4">{date}</span>
       <div class="relative w-full h-[204px] overflow-hidden transition-opacity group-hover:opacity-70">
-        <img
+        <Image
           src={imgSrc}
           alt={imgAlt}
           class="w-full h-full object-cover"
+          width=286
+          height=204
           loading="lazy"
           decoding="async"
         />

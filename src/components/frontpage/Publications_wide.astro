@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import ScrollCards from "@/components/ui/ScrollCards.astro";
 import PCard from "@/components/ui/PCard.astro";
+import {Image}  from "astro:assets";
 
 // Fetch and process data
 const publications = await getCollection("publications");
@@ -38,7 +39,7 @@ const teamMap = new Map(
                 : "Unknown Date"
             }
             category={String(entry.data.type)}
-            imgSrc={entry.data.cardImage}
+            imgSrc={entry.data.cardImage || "/images/lighthouse.png"}
             imgAlt={entry.data.title}
             link={`/publications/${entry.slug || "default"}`}
             class="h-full"
