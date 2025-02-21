@@ -4,6 +4,9 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import PCard from "@/components/ui/PCard.astro";
 import { getCollection } from "astro:content";
+import Lighthouse from "@/images/lighthouse.png"
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+
 
 // Fetch and process data
 const publications = await getCollection("publications");
@@ -28,14 +31,14 @@ const teamMemberMap = Object.fromEntries(
 ---
 
 <BaseLayout SEOTitle="Publications">
-  <!-- <ShortHeader title="Publications" subtitle="Research papers, reports, and whitepapers" /> -->
+  <ShortHeader title="Publications" subtitle="Research papers, reports, and whitepapers" />
   <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <br />
     <BreadCrumbsDefault />
     <br />
     <section class="">
       <div class="max-w-screen-xl prose">
-        <h1 class="text-6xl pt-10">About our publications</h1>
+        <h3 class="text-5xl pt-10">About our publications</h1>
         <p class="text-xl mb-8">
           At Principal Economics we produce high-quality research, reports, and
           whitepapers that provide data-driven insights into economic trends,
@@ -141,7 +144,7 @@ const teamMemberMap = Object.fromEntries(
                       }) || "Unknown Date"
                     }
                     category="Publication"
-                    imgSrc={entry.data.cardImage}
+                    imgSrc={entry.data.cardImage || Lighthouse }
                     imgAlt={entry.data.title}
                     link={`/publications/${entry.slug}`}
                     class="h-full"

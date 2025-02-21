@@ -6,6 +6,7 @@ export const collections = {
     type: 'content',
     schema: ({ image }) => z.object({
       title: z.string(),
+      type: z.literal('Resource'),
       description: z.string().optional(),
       authors: z.array(z.string()).optional(),
       heroImage: image().optional(),
@@ -13,6 +14,7 @@ export const collections = {
       iframe: z.string().optional(),
       downloadPdf: z.string().optional(),
       tags: z.array(z.string()).optional(),
+      pubDate: z.coerce.date(),
     }),
   }),
 
