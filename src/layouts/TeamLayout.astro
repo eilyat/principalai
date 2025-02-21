@@ -35,7 +35,7 @@ const sortedInsights = allInsights
 const filteredInsights = sortedInsights.filter(
   (insight) =>
     Array.isArray(insight?.data?.authors) &&
-    insight.data.authors.includes(frontmatter.name)
+    insight.data.authors.includes(frontmatter.name),
 );
 ---
 
@@ -90,14 +90,17 @@ const filteredInsights = sortedInsights.filter(
                 <PCard
                   title={entry.data.title}
                   date={
-  entry.data.pubDate
-    ? new Date(entry.data.pubDate).toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "long",
-        timeZone: "UTC",
-      })
-    : "Unknown Date"
-}
+                    entry.data.pubDate
+                      ? new Date(entry.data.pubDate).toLocaleDateString(
+                          undefined,
+                          {
+                            year: "numeric",
+                            month: "long",
+                            timeZone: "UTC",
+                          },
+                        )
+                      : "Unknown Date"
+                  }
                   category={String(entry.data.type)}
                   imgSrc={entry.data.cardImage}
                   imgAlt={entry.data.title}

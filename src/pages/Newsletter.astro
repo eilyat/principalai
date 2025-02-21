@@ -1,0 +1,84 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+---
+
+<BaseLayout SEOTitle="Contact Principal Economics">
+  <ShortHeader
+    title="Newsletter"
+    subtitle="Insights and analysis direct to your inbox"
+  />
+
+  <main
+    class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto prose"
+  >
+    <section class="text-gray-600 body-font py-12">
+      <div class="container px-5 mx-auto flex flex-wrap items-center my-12">
+        <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-2 pr-2">
+          <h1 class="title-font font-medium text-3xl text-gray-900">
+            Perspectives on economic trends, policy shifts, and market dynamics
+            with multidisciplinary insight.
+          </h1>
+          <p class="leading-relaxed mt-4">
+            Subscribe to receive timely updates, in-depth analysis on complex
+            policy challenges at the frontier of economic research. From
+            emerging evaluation techniques to structural policy shifts, our work
+            provides nuanced, actionable insights for decision-makers navigating
+            uncertainty.
+          </p>
+        </div>
+        <div
+          class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0"
+        >
+          <h2 class="text-gray-900 text-lg font-medium title-font mb-5 mt-2">
+            Sign Up
+          </h2>
+          <div>
+          <form action="https://api.web3forms.com/submit" method="POST" id="form">
+            <input type="hidden" name="access_key" value="e853e9ac-8aa0-4d98-bfbf-6608b0c887ea" />
+            <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+            <input type="checkbox" name="botcheck" style="display: none;" />
+
+          <div class="relative mb-4">
+            <label for="full-name" class="leading-7 text-sm text-gray-600"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="full-name"
+              placeholder="John Doe"
+              required
+              name="full-name"
+              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@company.com"
+              required
+              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full px-3 py-4 text-white bg-black rounded-sm focus:bg-blue-600 focus:outline-none"
+          >
+            Subscribe
+          </button>
+        </form>
+        </div>
+          <p class="text-xs text-gray-500 mt-3">
+            We value your time, and will only deliver valuable insights to your inbox.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

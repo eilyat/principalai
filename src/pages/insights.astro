@@ -3,17 +3,17 @@ import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
-import { getCollection } from "astro:content";
-import ScrollCards from "@/components/ui/ScrollCards.astro";
 import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
 import PubList from "@/components/PubList.astro";
 import ArtList from "@/components/ArtList.astro";
 import ResList from "@/components/ResList.astro";
-
 ---
 
 <BaseLayout SEOTitle="Publications, articles and resources">
-  <ShortHeader title="All insights" subtitle="Publications, analysis, and resources for a deeper understanding of economic and policy issues." />
+  <ShortHeader
+    title="All insights"
+    subtitle="Publications, analysis, and resources for a deeper understanding of economic and policy issues."
+  />
   <main class="px-6 max-w-screen-2xl mx-auto">
     <br />
     <BreadCrumbsDefault />
@@ -21,7 +21,6 @@ import ResList from "@/components/ResList.astro";
     <section class="pt-16">
       <div class="pb-8">
         <div class="post-wrapper">
-        
           <PubList />
 
           <span
@@ -32,56 +31,15 @@ import ResList from "@/components/ResList.astro";
           </span>
           <ArtList />
           <span
-          class="flex items-center w-full overflow-hidden py-12 font-serif italic"
-        >
-          <!-- <span class="text-4xl pr-6"></span> -->
-          <span class="h-[2px] flex-1 bg-zinc-300"></span>
-        </span>
-        <ResList />
-          <!-- <div class="flex flex-col md:flex-row gap-6 pt-2">
-            <div class="w-full md:w-1/3 lg:w-1/4 md:block">
-              <h2 class="text-5xl font-bold">Articles</h2>
-            </div>
-            <div class="w-full md:w-2/3 lg:w-3/4 space-y-6">
-              <ScrollCards>
-                {
-                  sortedArticles.map((entry, index) => (
-                    <div class="w-full">
-                      <PCard
-                        title={entry.data.title}
-                        date={
-                          entry.data.pubDate
-                            ? new Date(entry.data.pubDate).toLocaleDateString(
-                                undefined,
-                                {
-                                  dateStyle: "medium",
-                                  timeZone: "UTC",
-                                }
-                              )
-                            : "Unknown Date"
-                        }
-                        category={String(entry.data.type)}
-                        imgSrc={entry.data.cardImage}
-                        imgAlt={entry.data.title}
-                        link={`/${entry.type || "default"}/${entry.slug || "default"}`}
-                        class="h-full"
-                      />
-                    </div>
-                  ))
-                }
-              </ScrollCards>
-            </div>
-          </div> -->
-
-          
-
-
-
-          
+            class="flex items-center w-full overflow-hidden py-12 font-serif italic"
+          >
+            <!-- <span class="text-4xl pr-6"></span> -->
+            <span class="h-[2px] flex-1 bg-zinc-300"></span>
+          </span>
+          <ResList />
           <SectionBreakHR />
         </div>
       </div>
     </section>
   </main>
-
 </BaseLayout>

@@ -39,19 +39,7 @@ const teamMemberMap = Object.fromEntries(
     <br />
     <section class="">
       <div class="max-w-screen-xl prose">
-        <!-- <h1 class="text-6xl pt-10">About Our Articles</h1> -->
-        <!-- <p class="text-xl mb-8">
-          At Principal Economics we produce high-quality research, reports, and
-          whitepapers that provide data-driven insights into economic trends,
-          policy developments, and industry challenges. We apply rigorous
-          analysis and collaborate with experts to deliver research that informs
-          decision-making and drives meaningful impact. By making our
-          publications accessible, we aim to support better strategies,
-          policies, and business outcomes in an ever-evolving economic
-          landscape.
-        </p> -->
       </div>
-
       <div class="max-w-screen-2xl">
         {
           sortedArtices.map((entry, index) => (
@@ -136,21 +124,6 @@ const teamMemberMap = Object.fromEntries(
                 </div>
                 {/* Image Card */}
                 <div class="w-full md:w-1/2 lg:w-[40%] xl:w-[40%] pl-10 hidden md:block lg:block xl:block ">
-                  {/* <PCard
-                    title={entry.data.title}
-                    date={
-                      entry.data.pubDate?.toLocaleDateString(undefined, {
-                        dateStyle: "medium",
-                        timeZone: "UTC",
-                      }) || "Unknown Date"
-                    }
-                    category="Publication"
-                    imgSrc={entry.data.cardImage}
-                    imgAlt={entry.data.title}
-                    link={`/articles/${entry.slug}`}
-                    class="h-full"
-                  /> */}
-
                   <a href={`/articles/${entry.slug}`}>
                   <Image
                     src={entry.data.cardImage || Lighthouse}
@@ -158,13 +131,8 @@ const teamMemberMap = Object.fromEntries(
                     class="w-full h-[441px] object-cover"
                   />
                 </a>
-
                 </div>
               </div>
-
-              {/* {index < sortedArtices.length - 1 && (
-                <hr class="my-8 border-t border-gray-200" />
-              )} */}
             </article>
           ))
         }
