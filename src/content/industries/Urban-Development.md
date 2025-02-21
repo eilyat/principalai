@@ -2,9 +2,9 @@
 title: 'Urban Development and Housing'
 navDesc: 'New ways of planning in times of uncertainty'
 description: 'Addressing challenges in housing affordability and urban spatial development.'
-cardSummary: ''
-cardImg: ''
-bannerImage: '/blog-placeholder-4.jpg'
+cardSummary: 'Addressing challenges in housing affordability and urban spatial development.'
+# cardImage: ''
+# bannerImage: ''
 tags: ['Spatial analysis and modelling', 'Economic Research', 'Cost-benefit analysis', 'Economic Impact Analysis', 'Forecasting and modelling']
 ---
 

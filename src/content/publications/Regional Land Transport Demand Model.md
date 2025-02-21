@@ -7,7 +7,8 @@ description: 'test'
 pubDate: 2024-06-01
 authors: ['Dr Eilya Torshizian', 'Alina Fehling']
 pubType: 'report'
-downloadPdf: "https://principaleconomics.com/wp-content/uploads/2024/07/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf"
+downloadPdf: "/public/assets/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf"
+cardImage: "../../images/auckland_spagetti.avif"
 ---
 
 ## Abstract

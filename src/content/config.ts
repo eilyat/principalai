@@ -1,73 +1,80 @@
-import { defineCollection, z, reference } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 
-// Shared schemas
-const baseContentSchema = z.object({
-  title: z.string(),
-  description: z.string().optional(),
-  authors: z.array(z.string()).optional(),
-  heroImage: z.string().optional(),
-  cardImage: z.string().optional(),
-  iframe: z.string().optional(),
-  downloadPdf: z.string().optional(),
-	tags: z.array(z.string()).optional(),
-});
-
-const navEntrySchema = z.object({
-  title: z.string(),
-  navDesc: z.string(),
-  description: z.string(),
-  cardSummary: z.string(),
-  cardImage: z.string().optional(),
-  bannerImage: z.string().optional(),
-  tags: z.array(z.string()).optional(),
-});
-
-// Factory function for publication types
-const createPublicationSchema = (options: {
-  type: z.ZodLiteral<string>;
-  requirePubDate?: boolean;
-  requireTagline?: boolean;
-}) => {
-  return baseContentSchema.extend({
-    type: options.type,
-    tagline: options.requireTagline ? z.string() : z.string().optional(),
-    pubDate: options.requirePubDate ? z.coerce.date() : z.coerce.date().optional(),
-  });
-};
-
+// Function-based schema to access `image()`
 export const collections = {
   resources: defineCollection({
     type: 'content',
-    schema: createPublicationSchema({
+    schema: ({ image }) => z.object({
+      title: z.string(),
       type: z.literal('Resource'),
-      requirePubDate: false,
-      requireTagline: false,
+      description: z.string().optional(),
+      authors: z.array(z.string()).optional(),
+      heroImage: image().optional(),
+      cardImage: image().optional(),
+      iframe: z.string().optional(),
+      downloadPdf: z.string().optional(),
+      tags: z.array(z.string()).optional(),
+      pubDate: z.coerce.date(),
     }),
   }),
+
   articles: defineCollection({
     type: 'content',
-    schema: createPublicationSchema({
+    schema: ({ image }) => z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      authors: z.array(z.string()).optional(),
+      heroImage: image().optional(),
+      cardImage: image().optional(),
+      downloadPdf: z.string().optional(),
+      tags: z.array(z.string()).optional(),
       type: z.literal('Article'),
-      requirePubDate: true,
-      requireTagline: true,
+      tagline: z.string(),
+      pubDate: z.coerce.date(),
     }),
   }),
+
   publications: defineCollection({
     type: 'content',
-    schema: createPublicationSchema({
+    schema: ({ image }) => z.object({
+      title: z.string(),
       type: z.literal('Publication'),
-      requirePubDate: true,
-      requireTagline: true,
+      tagline: z.string(),
+      description: z.string().optional(),
+      pubDate: z.coerce.date(),
+      authors: z.array(z.string()).optional(),
+      heroImage: image().optional(),
+      cardImage: image().optional(),
+      downloadPdf: z.string().optional(),
     }),
   }),
+
   industries: defineCollection({
     type: 'content',
-    schema: navEntrySchema,
+    schema: ({ image }) => z.object({
+      title: z.string(),
+      navDesc: z.string(),
+      description: z.string(),
+      cardSummary: z.string(),
+      cardImage: image().optional(),
+      bannerImage: image().optional(),
+      tags: z.array(z.string()).optional(),
+    }),
   }),
+
   capabilities: defineCollection({
     type: 'content',
-    schema: navEntrySchema,
+    schema: ({ image }) => z.object({
+      title: z.string(),
+      navDesc: z.string(),
+      description: z.string(),
+      cardSummary: z.string().optional(),
+      cardImage: image().optional(),
+      bannerImage: image().optional(),
+      tags: z.array(z.string()).optional(),
+    }),
   }),
+
   team: defineCollection({
     type: 'content',
     schema: ({ image }) => z.object({

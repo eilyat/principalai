@@ -7,8 +7,9 @@ description: 'In this report we assess the extent to which the Resource Manageme
 pubDate: 2022-07-01
 authors: ['Principal Economics']
 pubType: 'resource'
-downloadPdf: "https://principaleconomics.com/housing-affordability/introduction/"
+# downloadPdf: "https://principaleconomics.com/housing-affordability/introduction/"
 iframe: "/house_price_growth/Index.html"
+cardImage: "../../images/wellington_housing.avif"
 ---
 
 <div class="hidden">

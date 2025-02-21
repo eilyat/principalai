@@ -1,7 +1,8 @@
 ---
 import "@/styles/global.css";
 import { getCollection } from "astro:content";
-
+import { Image } from "astro:assets";
+import Lighthouse from "@/images/lighthouse.png";
 // Fetch and process data
 const articles = await getCollection("articles");
 const team = await getCollection("team");
@@ -11,12 +12,12 @@ const sortedArticles = [...articles]
   .filter((pub) => pub?.data?.pubDate)
   .sort(
     (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
   )
   .slice(0, 2);
 
 const teamMap = new Map(
-  team.map((member) => [member.data.name.toLowerCase(), member.slug]),
+  team.map((member) => [member.data.name.toLowerCase(), member.slug])
 );
 ---
 
@@ -24,12 +25,14 @@ const teamMap = new Map(
   sortedArticles.map((entry, index) => {
     const isEven = index % 2 === 0;
     return (
-      <article class="px-8 group rounded-xl" id={`/articles/${index}`}>
+      <article class="group" id={`/articles/${index}`}>
         <div
-          class={`flex flex-col md:flex-row gap-4 md:gap-6 items-center ${isEven ? "" : "md:flex-row-reverse"}`}
+          class={`flex flex-col md:flex-row items-center ${isEven ? "" : "md:flex-row-reverse"}`}
         >
           {/* Content */}
-          <div class="w-full md:w-1/2 lg:w-[50%] xl:w-[50%] space-y-3">
+          <div class="w-full md:w-1/2 p-8 lg:p-12 space-y-1">
+            {" "}
+            {/* Added padding here */}
             <div class="space-y-3">
               <a
                 href={`/articles/${entry.slug}`}
@@ -37,7 +40,6 @@ const teamMap = new Map(
               >
                 {entry.data.title}
               </a>
-
               <div class="flex flex-wrap gap-2 text-sm font-medium">
                 <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
                   {entry.data.type}
@@ -50,46 +52,43 @@ const teamMap = new Map(
                           month: "long",
                           year: "numeric",
                           timeZone: "UTC",
-                        },
+                        }
                       )
                     : "Unknown Date"}
                 </span>
               </div>
 
-              <p class="text-gray-600 font-medium">
-  Authors:{" "}
-  {entry.data.authors?.map((author, authorIndex) => {
-    const normalizedName = author.trim().toLowerCase();
-    const isTeamMember = teamMap.has(normalizedName);
-    const isLast = authorIndex === entry.data.authors.length - 1;
+              <p class="text-gray-600 font-medium space-y-2">
+                Authors:{" "}
+                {entry.data.authors?.map((author, authorIndex) => {
+                  const normalizedName = author.trim().toLowerCase();
+                  const isTeamMember = teamMap.has(normalizedName);
+                  const isLast = authorIndex === entry.data.authors.length - 1;
 
-    return (
-      <>
-        {isTeamMember ? (
-          <a
-            href={`about/team/${teamMap.get(normalizedName)}`}
-            class="text-blue-600 hover:underline"
-          >
-            {author}
-          </a>
-        ) : (
-          <span class="text-gray-700">{author}</span>
-        )}
-        {!isLast && ", "}
-      </>
-    );
-  }) ?? <span>No authors listed</span>}
-</p>
-
+                  return (
+                    <>
+                      {isTeamMember ? (
+                        <a
+                          href={`about/team/${teamMap.get(normalizedName)}`}
+                          class="text-blue-600 hover:underline"
+                        >
+                          {author}
+                        </a>
+                      ) : (
+                        <span class="text-gray-700">{author}</span>
+                      )}
+                      {!isLast && ", "}
+                    </>
+                  );
+                }) ?? <span>No authors listed</span>}
+              </p>
             </div>
-
             <p class="text-xl text-gray-700 leading-relaxed line-clamp-6">
               {entry.body}
             </p>
-
             <a
               href={`/articles/${entry.slug}`}
-              class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors"
+              class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors space-y-2"
             >
               Read more
               <svg
@@ -108,12 +107,12 @@ const teamMap = new Map(
           </div>
 
           {/* Image Card */}
-          <div class="w-full md:w-1/2 lg:w-[50%] xl:w-[50%] hidden md:block">
+          <div class="w-full md:w-1/2">
             <a href={`/articles/${entry.slug}`}>
-              <img
-                src={entry.data.cardImage}
+              <Image
+                src={entry.data.cardImage || Lighthouse}
                 alt={entry.data.title}
-                class="w-full h-full object-cover"
+                class="w-full h-[441px] object-cover"
               />
             </a>
           </div>

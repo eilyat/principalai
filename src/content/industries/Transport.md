@@ -2,9 +2,9 @@
 title: 'Transport'
 navDesc: 'Enabling interactions with locations dispersed over space'
 description: 'Enabling interactions with locations dispersed over space'
-cardSummary: ''
-cardImg: ''
-heroImage: '/blog-placeholder-4.jpg'
+cardSummary: 'Enabling interactions with locations dispersed over space'
+# cardImage: ''
+# bannerImage: ''
 tags: ['Spatial analysis and modelling', 'Forecasting and modelling', 'Economic Impact Analysis', 'Business case approach', 'Cost-benefit analysis']
 ---
 

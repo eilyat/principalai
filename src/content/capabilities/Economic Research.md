@@ -3,8 +3,8 @@ title: 'Economic Research'
 description: 'Applied econometrics and hypotheses testing'
 navDesc: 'Providing advice and forecasts in the area of energy sector investment.'
 cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
-cardImg: ''
-bannerImage: '/blog-placeholder-3.jpg'
+# cardImg: ''
+# bannerImage: '/blog-placeholder-3.jpg'
 tags: ['Environment', 'Health', 'Regulatory Economics', 'Urban Development and Housing', 'Tourism']
 ---
 

@@ -5,9 +5,10 @@ type: 'Article'
 tagline: 'Synthetic data generation using Statistics New Zealand IDI microdata'
 description: 'test'
 pubDate: 2023-09-01
-authors: ['Dr Eilya Torshizian', 'Ruyi Jia', 'Alina Fehling']
+authors: ['Eugene Isack']
 pubType: 'report'
 downloadPdf: "https://principaleconomics.com/wp-content/uploads/2024/07/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf"
+cardImage: '../../images/img1_synthetic_data.webp'
 ---
 
 Synthetic data generation using Statistics NZ IDI microdata

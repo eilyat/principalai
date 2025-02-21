@@ -18,7 +18,7 @@ import { Image } from "astro:assets";
   <div class="flex flex-col justify-start h-full w-full p-2 pt-4">
     <!-- Tagline -->
     <div class="text-xs text-gray-500 mb-1">
-      <p>{date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+      <p>{date ? date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : 'No Date Available'}</p>
     </div>
 
     <!-- Title/Link -->

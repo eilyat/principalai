@@ -7,8 +7,9 @@ description: 'This knowledge base provides technical discussions of the availabl
 pubDate: 2022-07-01
 authors: ['Principal Economics']
 pubType: 'resource'
-downloadPdf: "https://principaleconomics.com/housing-affordability/introduction/"
+# downloadPdf: "https://principaleconomics.com/housing-affordability/introduction/"
 iframe: "/Road_transport_pricing_elasticities/_Road-transport-pricing-elasticities.html"
+cardImage: "../../images/queenstreet.png"
 ---
 
 <div class="hidden">
