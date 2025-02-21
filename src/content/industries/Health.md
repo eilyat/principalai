@@ -2,9 +2,9 @@
 title: 'Health'
 navDesc: 'System resilience in healthcare'
 description: 'Evaluating adaptation and long-term system sustainability in healthcare strategies'
-cardSummary: ''
-cardImg: ''
-bannerImage: '/blog-placeholder-4.jpg'
+cardSummary: 'Evaluating adaptation and long-term system sustainability in healthcare strategies'
+# cardImage: ''
+# bannerImage: ''
 tags: ['Economic Research', 'Cost-benefit analysis', 'Macroeconomic consulting', 'Economic Impact Analysis', 'Forecasting and modelling']
 ---
 

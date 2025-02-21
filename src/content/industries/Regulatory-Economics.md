@@ -2,9 +2,9 @@
 title: 'Regulatory Economics'
 navDesc: 'Expert insights on policy, markets, and compliance.'
 description: 'Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors.'
-cardSummary: ''
-cardImg: ''
-bannerImage: '/blog-placeholder-4.jpg'
+cardSummary: 'Our comprehensive services cater to the unique challenges and opportunities that arise in these sectors.'
+# cardImage: ''
+# bannerImage: ''
 tags: ['Market Analysis', 'Economic Research', 'Macroeconomic consulting', 'Forecasting and modelling', 'Cost-benefit analysis']
 ---
 

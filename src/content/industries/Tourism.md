@@ -2,9 +2,9 @@
 title: 'Tourism'
 navDesc: 'Valuing the direct and indirect benefits and costs of tourism.'
 description: 'Sustainable strategies for vibrant destinations'
-cardSummary: ''
-cardImg: ''
-bannerImage: '/blog-placeholder-4.jpg'
+cardSummary: 'Sustainable strategies for vibrant destinations'
+# cardImage: ''
+# bannerImage: ''
 tags: ['Economic Impact Analysis', 'Market Analysis', 'Business case approach', 'Cost-benefit analysis', 'Economic Research']
 ---
 

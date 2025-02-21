@@ -3,8 +3,8 @@ title: 'Economic Impact Analysis'
 description: 'Assessing the economic effects of policies, projects, and market changes'  
 navDesc: 'Data-driven insights on economic impact'  
 cardSummary: 'Expert analysis of economic outcomes'  
-cardImg: ''
-bannerImage: '/blog-placeholder-3.jpg'
+# cardImg: ''
+# bannerImage: '/blog-placeholder-3.jpg'
 tags: ['Tourism', 'Transport', 'Energy', 'Infrastructure', 'Health']
 ---
 

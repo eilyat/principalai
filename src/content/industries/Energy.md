@@ -1,10 +1,10 @@
 ---
 title: 'Energy'
-description: 'Economy-wide analysis, forecasting, mitigation and abatement'
 navDesc: 'Providing advice and forecasts in the areas of energy sector investment.'
+description: 'Economy-wide analysis, forecasting, mitigation and abatement'
 cardSummary: 'We provide expert advice on energy. Principal economics are experts in the field of energy economics with experience in developing and adopting economic models assessing energy issues in New Zealand.'
-cardImg: ''
-bannerImage: '/blog-placeholder-3.jpg'
+# cardImage: ''
+# bannerImage: ''
 tags: ['Forecasting and modelling', 'Cost-benefit analysis', 'Market Analysis', 'Economic Impact Analysis', 'Macroeconomic consulting']
 ---
 
