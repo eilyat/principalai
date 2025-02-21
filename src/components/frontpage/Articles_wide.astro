@@ -25,7 +25,7 @@ const teamMap = new Map(
   sortedArticles.map((entry, index) => {
     const isEven = index % 2 === 0;
     return (
-      <article class="group" id={`/articles/${index}`} key={index}>
+      <article class="group" id={`/articles/${index}`}>
         <div
           class={`flex flex-col md:flex-row items-center ${isEven ? "" : "md:flex-row-reverse"}`}
         >
