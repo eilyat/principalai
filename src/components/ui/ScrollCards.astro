@@ -60,6 +60,30 @@ import "@/styles/global.css";
     opacity: 1;
   }
   
+  /* Add indicator styling */
+  .carousel-indicators {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+  }
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .indicator.active {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.2);
+  }
+
 </style>
 
 <div class="-mx-6 relative gradient-overlay" style="--bg-color: #ffffff">
@@ -68,99 +92,101 @@ import "@/styles/global.css";
       <slot />
     </div>
   </div>
+  <div class="carousel-indicators"></div>
+
 </div>
 
 <script is:inline>
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.querySelector('.scroll-container');
-  if (!container) return;
-
-  let isDragging = false;
-  let startX, startScrollLeft, lastX, velocity;
-  const dragThreshold = 5;
-  const inertiaDeceleration = 0.92; // Controls how fast the inertia slows down
-  const minInertia = 0.5; // Minimum velocity to continue animating
-
-  let animationFrameId;
-  let hasDragged = false;
-
-  const handleStart = (clientX) => {
-    isDragging = true;
-    hasDragged = false;
-    container.classList.add('dragging');
-    startX = clientX;
-    lastX = clientX;
-    startScrollLeft = container.scrollLeft;
-    container.style.scrollBehavior = 'auto';
-    cancelAnimationFrame(animationFrameId);
-  };
-
-  const handleMove = (clientX) => {
-    if (!isDragging) return;
-    const delta = clientX - startX;
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.scroll-container');
+    const gradientOverlay = document.querySelector('.gradient-overlay');
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    if (!container) return;
+  
+    // Initialize carousel state
+    let items = Array.from(container.children[0].children);
+    let isDragging = false;
+    let startX, startScrollLeft, lastX, velocity;
+    let rafId;
     
-    if (Math.abs(delta) > dragThreshold) {
-      hasDragged = true;
+    // Create indicators
+    function createIndicators() {
+      indicatorsContainer.innerHTML = items
+        .map((_, i) => `<div class="indicator ${i === 0 ? 'active' : ''}"></div>`)
+        .join('');
     }
-
-    // Calculate velocity based on last movement
-    velocity = clientX - lastX;
-    lastX = clientX;
     
-    container.scrollLeft = startScrollLeft - delta;
-  };
-
-  const animateInertia = () => {
-    if (Math.abs(velocity) < minInertia) return;
-    
-    velocity *= inertiaDeceleration;
-    container.scrollLeft += velocity * 2; // Reduced multiplier
-    
-    animationFrameId = requestAnimationFrame(animateInertia);
-  };
-
-  const handleEnd = () => {
-    if (!isDragging) return;
-    isDragging = false;
-    container.classList.remove('dragging');
-    container.style.scrollBehavior = 'smooth';
-
-    // Apply smoother inertia
-    if (Math.abs(velocity) > 2) {
-      animateInertia();
+    // Update indicators and gradients
+    function updateUI() {
+      const scrollLeft = container.scrollLeft;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      
+      // Update gradients
+      gradientOverlay.classList.toggle('has-left-shadow', scrollLeft > 0);
+      gradientOverlay.classList.toggle('has-right-shadow', scrollLeft < maxScroll);
+      
+      // Update indicators
+      const itemWidth = items[0].offsetWidth;
+      const activeIndex = Math.round(scrollLeft / itemWidth);
+      indicatorsContainer.querySelectorAll('.indicator').forEach((indicator, i) => {
+        indicatory.classList.toggle('active', i === activeIndex);
+      });
     }
-  };
-
-  // Mouse events
-  container.addEventListener('mousedown', (e) => {
-    handleStart(e.clientX);
-    e.preventDefault();
+  
+    // Improved drag handling
+    function handleStart(clientX) {
+      isDragging = true;
+      container.classList.add('dragging');
+      startX = clientX;
+      startScrollLeft = container.scrollLeft;
+      velocity = 0;
+      lastX = clientX;
+      container.style.scrollBehavior = 'auto';
+    }
+  
+    function handleMove(clientX) {
+      if (!isDragging) return;
+      const delta = clientX - startX;
+      container.scrollLeft = startScrollLeft - delta;
+      velocity = clientX - lastX;
+      lastX = clientX;
+      updateUI();
+    }
+  
+    function handleEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      container.classList.remove('dragging');
+      container.style.scrollBehavior = 'smooth';
+      
+      // Snap to nearest item after inertia
+      const itemWidth = items[0].offsetWidth;
+      const targetScroll = container.scrollLeft + velocity * 10;
+      const activeIndex = Math.round(targetScroll / itemWidth);
+      container.scrollTo({
+        left: activeIndex * itemWidth,
+        behavior: 'smooth'
+      });
+    }
+  
+    // Event listeners
+    container.addEventListener('scroll', () => updateUI());
+    container.addEventListener('mousedown', e => handleStart(e.clientX));
+    document.addEventListener('mousemove', e => handleMove(e.clientX));
+    document.addEventListener('mouseup', handleEnd);
+    container.addEventListener('touchstart', e => handleStart(e.touches[0].clientX), { passive: true });
+    document.addEventListener('touchmove', e => handleMove(e.touches[0].clientX), { passive: true });
+    document.addEventListener('touchend', handleEnd);
+  
+    // Initial setup
+    createIndicators();
+    updateUI();
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateUI, 100);
+    });
   });
-  document.addEventListener('mousemove', (e) => handleMove(e.clientX));
-  document.addEventListener('mouseup', handleEnd);
-
-  // Touch events
-  container.addEventListener('touchstart', (e) => {
-    handleStart(e.touches[0].clientX);
-  }, { passive: true });
-  document.addEventListener('touchmove', (e) => {
-    handleMove(e.touches[0].clientX);
-  }, { passive: true });
-  document.addEventListener('touchend', handleEnd);
-
-  // Click prevention
-  container.addEventListener('click', (e) => {
-    if (hasDragged) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-    }
-  }, true);
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    const scrollAmount = container.offsetWidth * 0.8;
-    if (e.key === 'ArrowLeft') container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    if (e.key === 'ArrowRight') container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-});
-</script>
+  </script>
