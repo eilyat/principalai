@@ -17,7 +17,7 @@ Effective analysis aims to generate actionable insights and guide informed decis
 
 This article discusses the creation of a Synthetic Unit Record File (SURF) for disseminating publicly assessable microdata that emulates the real world while maintaining confidentiality. Our team recently applied this methodology to a large dataset of Motor Vehicle Registration, with a sample population of over 10 million, to extract anonymised data for broader organisational and research use. This article describes the purpose of adopting this approach and the methodology involved.
 
-![](//img1_synthetic_data.webp)
+![](//img1_synthetic_data.webp)![](//img1_synthetic_data.webp)
 
 At Principal Economics, we rely heavily on data to conduct our analysis, drawing together data from disparate sources across government departments, open data providers, spatial data, generated data, simulated data, and we’ve used it. In our field, there’s always a balance to maintain. We’re tasked with addressing broad questions, yet answers are always layered with nuance. This is not too dissimilar to the type of data we work with. A relatively simple question posed to us may entail;
 
