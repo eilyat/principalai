@@ -37,6 +37,7 @@ content:
       - { name: tags, label: Tags, type: string, list: true }
       - { name: tagline, label: Tagline, type: string, required: true }
       - { name: pubDate, label: Pub Date, type: date, required: true }
+      - { name: body, label: Body, type: rich-text }
 
   - name: publications
     label: Publications
@@ -54,6 +55,7 @@ content:
       - { name: heroImage, label: Hero Image, type: string }
       - { name: cardImage, label: Card Image, type: string }
       - { name: downloadPdf, label: Download PDF, type: string }
+      - { name: body, label: Body, type: rich-text }
 
   - name: industries
     label: Industries
@@ -69,6 +71,7 @@ content:
       - { name: cardImage, label: Card Image, type: string }
       - { name: bannerImage, label: Banner Image, type: string }
       - { name: tags, label: Tags, type: string, list: true }
+      - { name: body, label: Body, type: rich-text }
 
   - name: capabilities
     label: Capabilities
@@ -84,6 +87,7 @@ content:
       - { name: cardImage, label: Card Image, type: string }
       - { name: bannerImage, label: Banner Image, type: string }
       - { name: tags, label: Tags, type: string, list: true }
+      - { name: body, label: Body, type: rich-text }
 
   - name: team
     label: Team
@@ -104,3 +108,4 @@ content:
       - { name: linkedIn, label: LinkedIn, type: string }
       - { name: orcid, label: ORCID, type: string }
       - { name: ssrn, label: SSRN, type: string }
+      - { name: body, label: Body, type: rich-text }
