@@ -21,7 +21,7 @@ export default defineConfig({
     build: {
       format: "file",
     },
-    site: 'https://example.com',
+    site: 'https://principaleconomics.co.nz',
     integrations: [
       pagefind({
         // Example of specifying Pagefind config:
@@ -36,7 +36,7 @@ export default defineConfig({
       icon({
         include: {
           // Include only three `mdi` icons in the bundle
-          carbon: ['email', 'phone', 'location', 'information', 'arrow-right', 'logo-linkedin'],
+          carbon: ['email', 'phone', 'location', 'information', 'arrow-right', 'logo-linkedin', 'pin'],
           academicons: ['orcid', 'ssrn']
         }
       })
