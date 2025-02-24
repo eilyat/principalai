@@ -10,6 +10,7 @@ const { SEOTitle } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta
@@ -18,7 +19,7 @@ const { SEOTitle } = Astro.props;
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="https://principaleconomics.com/" />
+    <link rel="canonical" href="https://principaleconomics.co.nz/" />
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-ui.js" is:inline></script>
     <!-- Open Graph Meta Tags -->
@@ -32,7 +33,7 @@ const { SEOTitle } = Astro.props;
       property="og:description"
       content="Expert consultancy on transport, housing, climate, and energy solutions."
     />
-    <meta property="og:url" content="https://principaleconomics.com/" />
+    <meta property="og:url" content="https://principaleconomics.co.nz/" />
     <!-- <meta property="og:image" content="https://principaleconomics.com/image.jpg">  -->
 
     <!-- Twitter Card Meta Tags -->
@@ -58,12 +59,6 @@ const { SEOTitle } = Astro.props;
 
     <title>{SEOTitle} | Principal Economics</title>
     <ViewTransitions />
-
-
-
-
-
-
      
   </head>
   <body>
