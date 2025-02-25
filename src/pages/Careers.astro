@@ -20,37 +20,50 @@ const { frontmatter } = Astro.props;
     <section class="pt-16">
       <div class="pb-8">
         <div class="post-wrapper">
-
           <LeftTitleBlock>
-            <div slot="title">About you</div>
+            <div slot="title" id="about-you-title">About you</div>
             <div slot="content">
               <p class="text-gray-700 mb-4">
-                Preferably you have a first-class honours degree or higher qualification in Economics, Statistics, or related studies. We prioritise experienced candidates, with a minimum of five years relevant experience working in local or central government or consulting firms.
-              </p>              
-            </div>
-          </LeftTitleBlock>
-          <hr class="my-8 border-t border-gray-200" />
-
-
-          <LeftTitleBlock>
-            <div slot="title">About us</div>
-            <div slot="content">
-              <p class="text-gray-700 mb-4">
-                Principal Economics is multi-disciplinary consultancy providing evidence-based decision support for public and private clients. We pride ourselves in, using principles of Economics to provide advice on a wide range of topical issues and working in an adhocracy and transparent organisational culture with supportive colleagues. We have been working on a range of important topics around infrastructure, housing, social policy, climate change, and disruptive technologies (amongst other topics). We have a flat organisation chart. Each project is led by our Directors and is supported by our economists.
-                </p>
+                Preferably you have a first-class honours degree or higher
+                qualification in Economics, Statistics, or related studies. We
+                prioritise experienced candidates, with a minimum of five years
+                relevant experience working in local or central government or
+                consulting firms.
+              </p>
             </div>
           </LeftTitleBlock>
           <hr class="my-8 border-t border-gray-200" />
 
           <LeftTitleBlock>
-            <div slot="title">Contact us today</div>
+            <div slot="title" id="about-us-title">About us</div>
             <div slot="content">
               <p class="text-gray-700 mb-4">
-                For more information please send your CV to careers@principaleconomics.co.nz</p>
-              </p>  
+                Principal Economics is multi-disciplinary consultancy providing
+                evidence-based decision support for public and private clients.
+                We pride ourselves in, using principles of Economics to provide
+                advice on a wide range of topical issues and working in an
+                adhocracy and transparent organisational culture with supportive
+                colleagues. We have been working on a range of important topics
+                around infrastructure, housing, social policy, climate change,
+                and disruptive technologies (amongst other topics). We have a
+                flat organisation chart. Each project is led by our Directors
+                and is supported by our economists.
+              </p>
             </div>
           </LeftTitleBlock>
           <hr class="my-8 border-t border-gray-200" />
+
+          <LeftTitleBlock>
+            <div slot="title" id="contact-title">Contact us today</div>
+            <div slot="content">
+              <p class="text-gray-700 mb-4">
+                For more information, please send your CV to <a href="mailto:careers@principaleconomics.co.nz" class="text-blue-600 underline">careers@principaleconomics.co.nz</a>
+              </p>
+            </div>
+          </LeftTitleBlock>
+        </div>
+        <hr class="my-8 border-t border-gray-200" />
+      </div>
     </section>
   </main>
 </BaseLayout>
