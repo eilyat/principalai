@@ -3,7 +3,7 @@ media:
     input: /public
     output: /
 
-  - name: media
+  - name: images
     input: src/images
     output: @/images
 
