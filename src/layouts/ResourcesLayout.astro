@@ -39,7 +39,7 @@ const formattedPubDate = `${pubDate.getFullYear()}/${(pubDate.getMonth()+1)
     />
     <meta
       property="og:description"
-      content={`Explore our resource: ${frontmatter.name} | Principal Economics.`}
+      content={`Explore our resource: ${frontmatter.title} | Principal Economics.`}
       />
     <meta 
       name="twitter:title" 
@@ -47,7 +47,7 @@ const formattedPubDate = `${pubDate.getFullYear()}/${(pubDate.getMonth()+1)
       />
     <meta
       name="twitter:description"
-      content={`Explore our resource: ${frontmatter.name} | Principal Economics.`}
+      content={`Explore our resource: ${frontmatter.title} | Principal Economics.`}
     />
     <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />
     <meta name="citation_title" content={frontmatter.title} />

@@ -25,7 +25,7 @@ const filteredIndustries = industries.filter(industry =>
         />
         <meta
           property="og:description"
-          content={`Principal Economics: Your trusted experts in ${frontmatter.name}.`}
+          content={`Principal Economics: Your trusted experts in ${frontmatter.title}.`}
           />
         <meta 
           name="twitter:title" 
@@ -33,7 +33,7 @@ const filteredIndustries = industries.filter(industry =>
           />
         <meta
           name="twitter:description"
-          content={`Principal Economics: Your trusted experts in ${frontmatter.name}.`}
+          content={`Principal Economics: Your trusted experts in ${frontmatter.title}.`}
           />
         <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />    
       </Fragment>
