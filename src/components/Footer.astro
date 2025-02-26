@@ -37,19 +37,19 @@ const capabilities = await getCollection("capabilities");
             
               <label for="UserEmail" class="sr-only">Email</label>
             
-              <div class="border bg-white border-gray-100 p-2 focus-within:ring-5 sm:flex sm:items-center sm:gap-4">
+              <div class="border bg-white border-gray-200 p-2 rounded-sm focus-within:ring-2 focus-within:ring-gray-500 w-full flex items-center gap-2">
                 <input
                   type="email"
                   id="UserEmail"
                   name="email"
                   placeholder="you@company.com"
                   required
-                  class="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
+                  class="w-full border-none outline-none focus:ring-0 focus:border-transparent text-sm p-2"
                 />
-            
+              
                 <button 
                   type="submit"
-                  class="font-sans text-md px-8 py-2.5 text-center inline-flex items-center whitespace-nowrap focus:ring-gray-600 bg-gray-800 border-gray-700 text-white hover:bg-gray-700 me-2">
+                  class="font-sans text-md px-6 py-2 text-center inline-flex items-center whitespace-nowrap focus:ring-2 focus:ring-gray-600 bg-gray-800 border border-gray-700 text-white hover:bg-gray-700 rounded-sm">
                   Subscribe
                 </button>
               </div>
