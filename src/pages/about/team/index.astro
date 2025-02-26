@@ -1,7 +1,6 @@
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
-import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 
 // Fetch all publications in the collection
@@ -9,11 +8,27 @@ import { getCollection } from "astro:content";
 const team = await getCollection("team");
 
 import TeamCard from "@/components/ui/TeamCard.astro";
-import SectionBreakHR from "@/components/ui/SectionBreakHR.astro"
 
 ---
 
 <BaseLayout SEOTitle="Team">
+  <Fragment slot="SEO">
+    <meta property="og:title" content="Meet our team | Principal Economics" />
+    <meta
+      property="og:url"
+      content="https://principaleconomics.co.nz/about/team"
+    />
+    <meta
+      property="og:description"
+      content="Bringing together diverse expertise and sharp economic insight."
+    />
+    <meta name="twitter:title" content="Meet our team | Principal Economics" />
+    <meta
+    name="twitter:description"
+    content="Bringing together diverse expertise and sharp economic insight."
+    />
+    <link rel="canonical" href="https://principaleconomics.co.nz/about/team" />
+  </Fragment>
   <ShortHeader title="Meet our team" subtitle="Bringing together diverse expertise and sharp economic insight" />
   <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <section class="pt-16">

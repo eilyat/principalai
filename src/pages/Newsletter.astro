@@ -4,7 +4,24 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 ---
 
-<BaseLayout SEOTitle="Contact Principal Economics">
+<BaseLayout>
+  <Fragment slot="SEO">
+    <meta property="og:title" content="Newsletter | Principal Economics" />
+    <meta
+      property="og:url"
+      content="https://principaleconomics.co.nz/Newsletter"
+    />
+    <meta
+      property="og:description"
+      content="Insights and analysis direct to your inbox."
+    />
+    <meta name="twitter:title" content="Newsletter | Principal Economics" />
+    <meta
+    name="twitter:description"
+    content="Insights and analysis direct to your inbox."
+    />
+    <link rel="canonical" href="https://principaleconomics.co.nz/Newsletter" />
+  </Fragment>
   <ShortHeader
     title="Newsletter"
     subtitle="Insights and analysis direct to your inbox"

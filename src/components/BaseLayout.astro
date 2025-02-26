@@ -13,55 +13,24 @@ const { SEOTitle } = Astro.props;
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Principal Economics is a leading consultancy providing expert advice on transport, infrastructure, climate, housing, and energy."
-    />
-    <link rel="canonical" href="https://principaleconomics.co.nz/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Principal Economics" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    
+    <slot name="SEO"/>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/pagefind/pagefind-ui.js" is:inline></script>
     <!-- Open Graph Meta Tags -->
-    <meta property="og:site_name" content="Principal Economics" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Principal Economics - World-class, Client-driven Research and Strategy"
-    />
-    <meta
-      property="og:description"
-      content="Expert consultancy on transport, housing, climate, and energy solutions."
-    />
-    <meta property="og:url" content="https://principaleconomics.co.nz/" />
-    <!-- <meta property="og:image" content="https://principaleconomics.com/image.jpg">  -->
-
-    <!-- Twitter Card Meta Tags -->
-    <!-- <meta name="twitter:card" content="summary_large_image">  -->
-    <meta
-      name="twitter:title"
-      content="Principal Economics - World-class, Client-driven Research and Strategy"
-    />
-    <meta
-      name="twitter:description"
-      content="Expert consultancy on transport, housing, climate, and energy solutions."
-    />
-    <!-- <meta name="twitter:image" content="https://principaleconomics.com/image.jpg">  -->
-    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet"/>
-
-    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
     
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-ui.js" is:inline></script>
-
+    
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
-    <!-- <link rel="stylesheet" href="styles.css">  -->
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
-    <slot name="SEO"/>
+    <script src="/pagefind/pagefind-ui.js" is:inline></script>
 
-    <title>{SEOTitle} | Principal Economics</title>
     <ViewTransitions />
      
   </head>

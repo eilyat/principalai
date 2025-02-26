@@ -15,6 +15,27 @@ const filteredCapabilities = capabilities.filter(capability =>
 ---
 
 <BaseLayout SEOTitle="Publications">
+    <Fragment slot="SEO">
+        <meta property="type" content="website"/>
+        <meta property="og:title" content={`${frontmatter.title} | Principal Economics`} />
+        <meta
+          property="og:url"
+          content={`https://principaleconomics.co.nz${Astro.url.pathname}`}
+        />
+        <meta
+          property="og:description"
+          content={`Principal Economics: Your trusted experts in ${frontmatter.name}.`}
+          />
+        <meta 
+          name="twitter:title" 
+          content={`${frontmatter.title} | Principal Economics`}
+          />
+        <meta
+          name="twitter:description"
+          content={`Principal Economics: Your trusted experts in ${frontmatter.name}.`}
+          />
+        <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />    
+      </Fragment>
 	<ShortHeader title={frontmatter.title} subtitle={frontmatter.description}>		
 	</ShortHeader>
 	<main class="px-4 md:px-6 max-w-screen-2xl mx-auto">

@@ -31,6 +31,27 @@ const teamMemberMap = Object.fromEntries(
 ---
 
 <BaseLayout SEOTitle="Publications">
+  <Fragment slot="SEO">
+    <meta property="type" content="website"/>
+    <meta property="og:title" content="Publications | Principal Economics" />
+    <meta
+      property="og:url"
+      content={`https://principaleconomics.co.nz${Astro.url.pathname}`}
+    />
+    <meta
+      property="og:description"
+      content="Read our research papers, reports, and whitepapers."
+      />
+    <meta 
+      name="twitter:title" 
+      content= "Publications | Principal Economics"
+      />
+    <meta
+      name="twitter:description"
+      content="Read our research papers, reports, and whitepapers."
+      />
+    <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />    
+  </Fragment>
   <ShortHeader title="Publications" subtitle="Research papers, reports, and whitepapers" />
   <main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto">
     <br />

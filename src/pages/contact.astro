@@ -6,11 +6,24 @@ import { Icon } from "astro-icon/components";
 import ContactForm from "@/components/ui/ContactForm.astro";
 ---
 
-<BaseLayout SEOTitle="Contact">
-	<!-- <ShortHeader
-		title="About us"
-		subtitle="Expert economic consulting for sustainable growth and lasting impact"
-	/> -->
+<BaseLayout>
+  <Fragment slot="SEO">
+    <meta property="og:title" content="Contact | Principal Economics" />
+    <meta
+      property="og:url"
+      content="https://principaleconomics.co.nz/contact"
+    />
+    <meta
+      property="og:description"
+      content="Contact Details, reach out through the usual channels."
+    />
+    <meta name="twitter:title" content="Contact | Principal Economics" />
+    <meta
+    name="twitter:description"
+    content="Contact Details, reach out through the usual channels."
+    />
+    <link rel="canonical" href="https://principaleconomics.co.nz/contact" />
+  </Fragment>
 	<main class="px-6 max-w-screen-2xl items-center justify-start pl-4 mx-auto prose">
 		<br />
     <div class="font-bold">

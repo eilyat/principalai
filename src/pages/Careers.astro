@@ -4,11 +4,26 @@ import BaseLayout from "@/components/BaseLayout.astro";
 import BreadCrumbsDefault from "@/components/ui/BreadCrumbsDefault.astro";
 import ShortHeader from "@/components/ui/ShortHeader.astro";
 import LeftTitleBlock from "@/components/ui/LeftTitleBlock.astro";
-
-const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout SEOTitle="Careers">
+<BaseLayout>
+  <Fragment slot="SEO">
+    <meta property="og:title" content="Careers | Principal Economics" />
+    <meta
+      property="og:url"
+      content="https://principaleconomics.co.nz/Careers"
+    />
+    <meta
+      property="og:description"
+      content="Join us in doing purposeful, sustainable work that helps shape our communities and the future."
+    />
+    <meta name="twitter:title" content="Careers | Principal Economics" />
+    <meta
+    name="twitter:description"
+    content="Join us in doing purposeful, sustainable work that helps shape our communities and the future."
+    />
+    <link rel="canonical" href="https://principaleconomics.co.nz/Careers" />
+  </Fragment>
   <ShortHeader
     title="Careers"
     subtitle="Join us in doing purposeful, sustainable work that helps shape our communities and the future."
@@ -57,7 +72,11 @@ const { frontmatter } = Astro.props;
             <div slot="title" id="contact-title">Contact us today</div>
             <div slot="content">
               <p class="text-gray-700 mb-4">
-                For more information, please send your CV to <a href="mailto:careers@principaleconomics.co.nz" class="text-blue-600 underline">careers@principaleconomics.co.nz</a>
+                For more information, please send your CV to <a
+                  href="mailto:careers@principaleconomics.co.nz"
+                  class="text-blue-600 underline"
+                  >careers@principaleconomics.co.nz</a
+                >
               </p>
             </div>
           </LeftTitleBlock>

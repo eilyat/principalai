@@ -23,17 +23,39 @@ const formattedDate = pubDate.toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
 });
+
+const formattedPubDate = `${pubDate.getFullYear()}/${(pubDate.getMonth()+1)
+  .toString()
+  .padStart(2, '0')}/${pubDate.getDate().toString().padStart(2, '0')}`;
 ---
 
 <BaseLayout SEOTitle="Publications">
   <Fragment slot="SEO">
+    <meta property="type" content="website"/>
+    <meta property="og:title" content={`${frontmatter.title} | Resources | Principal Economics`} />
+    <meta
+      property="og:url"
+      content={`https://principaleconomics.co.nz${Astro.url.pathname}`}
+    />
+    <meta
+      property="og:description"
+      content={`Explore our resource: ${frontmatter.name} | Principal Economics.`}
+      />
+    <meta 
+      name="twitter:title" 
+      content={`${frontmatter.title} | Resources | Principal Economics`}
+      />
+    <meta
+      name="twitter:description"
+      content={`Explore our resource: ${frontmatter.name} | Principal Economics.`}
+    />
+    <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />
     <meta name="citation_title" content={frontmatter.title} />
-    <meta name="citation_author" content={frontmatter.authors} />
-    <meta name="citation_publication" content={frontmatter.PubDate} />
-    <meta name="citation_pdf_url" content={frontmatter.downloadPdf} />
+    <meta name="citation_publication_date" content={formattedPubDate} />
+    
   </Fragment>
   <ShortHeader title={frontmatter.title} subtitle={frontmatter.tagline}>
-    <p class="text-2xl text-white font-bold pt-2">{formattedDate}</p>
+    <p class="text-2xl text-white font-bold pt-2">{formattedPubDate}</p>
   </ShortHeader>
   <main>
     <div>

@@ -29,6 +29,27 @@ const teamMap = new Map(
 ---
 
 <BaseLayout SEOTitle="Resources">
+  <Fragment slot="SEO">
+    <meta property="type" content="website"/>
+    <meta property="og:title" content="Resources | Principal Economics" />
+    <meta
+      property="og:url"
+      content={`https://principaleconomics.co.nz${Astro.url.pathname}`}
+    />
+    <meta
+      property="og:description"
+      content="Expert commentary, in-depth analysis, and fresh perspectives on key economic and policy issues."
+      />
+    <meta 
+      name="twitter:title" 
+      content= "Resources | Principal Economics"
+      />
+    <meta
+      name="twitter:description"
+      content="Expert commentary, in-depth analysis, and fresh perspectives on key economic and policy issues."
+      />
+    <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />    
+  </Fragment>
      <ShortHeader 
       title="Resources" 
       subtitle="Expert commentary, in-depth analysis, and fresh perspectives on key economic and policy issues." />

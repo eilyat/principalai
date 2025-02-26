@@ -9,7 +9,25 @@ import ArtList from "@/components/ArtList.astro";
 import ResList from "@/components/ResList.astro";
 ---
 
-<BaseLayout SEOTitle="Publications, articles and resources">
+<BaseLayout>
+  <Fragment slot="SEO">
+    <meta property="og:title" content="Insights | Principal Economics" />
+    <meta
+      property="og:url"
+      content="https://principaleconomics.co.nz/insights"
+    />
+    <meta
+      property="og:description"
+      content="Publications, analysis, and resources for a deeper understanding of economic and policy issues."
+    />
+    <meta name="twitter:title" content="Insights | Principal Economics" />
+    <meta
+    name="twitter:description"
+    content="Publications, analysis, and resources for a deeper understanding of economic and policy issues."
+    />
+    <link rel="canonical" href="https://principaleconomics.co.nz/insights" />
+  </Fragment>
+
   <ShortHeader
     title="All insights"
     subtitle="Publications, analysis, and resources for a deeper understanding of economic and policy issues."

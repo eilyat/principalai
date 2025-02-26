@@ -41,9 +41,23 @@ const filteredInsights = sortedInsights.filter(
 
 <BaseLayout SEOTitle="Publications">
   <Fragment slot="SEO">
-    <meta name="title" content={frontmatter.name} />
+    <meta property="type" content="website"/>
+    <meta property="og:title" content={`${frontmatter.name} | Principal Economics`} />
+    <meta
+    property="og:url"
+    content={`https://principaleconomics.co.nz${Astro.url.pathname}`}
+  />
+    <meta
+      property="og:description"
+      content={`Learn more about ${frontmatter.name}, ${frontmatter.role} at Principal Economics.`}
+      />
+    <meta name="twitter:title" content={`${frontmatter.name} | Principal Economics`} />
+    <meta
+    name="twitter:description"
+    content={`Learn more about ${frontmatter.name}, ${frontmatter.role} at Principal Economics.`}
+    />
+    <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />
   </Fragment>
-
   <main class="px-6 max-w-screen-2xl mx-auto">
     <br />
     <BreadCrumbsDefault />
