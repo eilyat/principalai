@@ -1,6 +1,6 @@
 media:
   - name: documents
-    input: /public
+    input: public
     output: /
 
   - name: images
