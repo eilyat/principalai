@@ -8,12 +8,12 @@ authors:
   - Dr Eilya Torshizian
   - Eugene Isack
   - Alina Fehling
+downloadPdf: /Business-Demand-and-Capacity-Assessment-Principal-Economics-report-to-Dunedin-City-Council-Final-report-1.pdf
 ---
 Dunedin City Council appointed Principal Economics to provide a comprehensive assessment of the sufficiency in development capacity of business land within Dunedin to fulfills requirements of the the National Policy Statement on Urban Development (NPS-UD 2020), including an investigation of:
 
 *   the locational requirements of business including shape, size, access, reverse sensitivities, and other market factors;
     
-
 *   the external pressures businesses are facing (such as the uncertainty of the COVID-19 pandemic, and the impact of coastal hazards);
     
 *   impacts on business activities from reverse sensitivities; Locational accessibility to labour markets and customers; Changes in demand from population growth; changes in residential distribution;
