@@ -1,192 +1,69 @@
 ---
 import "@/styles/global.css";
 ---
-<style>
-  /* Hide scrollbar and snap settings */
-  .scroll-container::-webkit-scrollbar { display: none; }
-  .scroll-container { 
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
-    cursor: grab;
-    user-select: none;
-  }
-  
-  .scroll-container.dragging {
-    cursor: grabbing;
-    scroll-snap-type: none;
-  }
 
-  /* Content styling */
-  .scroll-item {
-    scroll-snap-align: start;
-    transition: transform 0.2s ease;
-  }
-  .scroll-item:hover { transform: translateY(-4px); }
-  .scroll-item * { user-select: text; cursor: auto; }
-
-  .gradient-overlay {
-    position: relative;
-  }
-
-  /* Combined gradient styles */
-  .gradient-overlay::before,
-  .gradient-overlay::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  /* Right fade (existing content) */
-  .gradient-overlay::after {
-    right: 0;
-    background: linear-gradient(to right, transparent 0%, var(--bg-color) 100%);
-  }
-
-  /* New left fade */
-  .gradient-overlay::before {
-    left: 0;
-    background: linear-gradient(to left, transparent 0%, var(--bg-color) 100%);
-  }
-
-  /* Show gradients when needed */
-  .gradient-overlay.has-left-shadow::before,
-  .gradient-overlay.has-right-shadow::after {
-    opacity: 1;
-  }
-  
-  /* Add indicator styling */
-  .carousel-indicators {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 6px;
-    z-index: 10;
-  }
-
-  .indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background 0.2s ease;
-  }
-
-  .indicator.active {
-    background: rgba(0, 0, 0, 0.8);
-    transform: scale(1.2);
-  }
-
-</style>
-
-<div class="-mx-6 relative gradient-overlay" style="--bg-color: #ffffff">
-  <div class="scroll-container overflow-x-auto px-6">
+<div class="relative">
+  <button class="absolute top-1/2 -translate-y-1/2 left-0 bg-white bg-opacity-5 text-gray-800 p-2 text-2xl z-10 hover:bg-opacity-20 h-full" id="scrollLeft"
+  style="text-shadow: 2px 2px 4px white;" >&#10094;</button>
+  <div class="scroll-container overflow-x-scroll snap-x snap-mandatory cursor-grab select-none px-6">
     <div class="flex gap-6 w-max min-w-full pb-4">
       <slot />
     </div>
   </div>
-  <div class="carousel-indicators"></div>
-
+  <button class="absolute top-1/2 -translate-y-1/2 right-0 bg-white bg-opacity-5 text-gray-800 p-2 text-2xl z-10 hover:bg-opacity-20 h-full" id="scrollRight"
+  style="text-shadow: 1px 1px 2px white;" >&#10095;</button>
 </div>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.scroll-container');
-    const gradientOverlay = document.querySelector('.gradient-overlay');
-    const indicatorsContainer = document.querySelector('.carousel-indicators');
-    if (!container) return;
-  
-    // Initialize carousel state
-    let items = Array.from(container.children[0].children);
+    const scrollLeftButton = document.getElementById('scrollLeft');
+    const scrollRightButton = document.getElementById('scrollRight');
+    const items = Array.from(container.children[0].children);
+    if (!container || items.length === 0) return;
+
     let isDragging = false;
-    let startX, startScrollLeft, lastX, velocity;
-    let rafId;
+    let startX, startScrollLeft;
+    let itemWidth = items[0].offsetWidth + 28;
     
-    // Create indicators
-    function createIndicators() {
-      indicatorsContainer.innerHTML = items
-        .map((_, i) => `<div class="indicator ${i === 0 ? 'active' : ''}"></div>`)
-        .join('');
-    }
-    
-    // Update indicators and gradients
-    function updateUI() {
-      const scrollLeft = container.scrollLeft;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      
-      // Update gradients
-      gradientOverlay.classList.toggle('has-left-shadow', scrollLeft > 0);
-      gradientOverlay.classList.toggle('has-right-shadow', scrollLeft < maxScroll);
-      
-      // Update indicators
-      const itemWidth = items[0].offsetWidth;
-      const activeIndex = Math.round(scrollLeft / itemWidth);
-      indicatorsContainer.querySelectorAll('.indicator').forEach((indicator, i) => {
-        indicatory.classList.toggle('active', i === activeIndex);
-      });
-    }
-  
-    // Improved drag handling
     function handleStart(clientX) {
       isDragging = true;
       container.classList.add('dragging');
       startX = clientX;
       startScrollLeft = container.scrollLeft;
-      velocity = 0;
-      lastX = clientX;
-      container.style.scrollBehavior = 'auto';
     }
   
     function handleMove(clientX) {
       if (!isDragging) return;
       const delta = clientX - startX;
       container.scrollLeft = startScrollLeft - delta;
-      velocity = clientX - lastX;
-      lastX = clientX;
-      updateUI();
     }
   
     function handleEnd() {
-      if (!isDragging) return;
       isDragging = false;
       container.classList.remove('dragging');
-      container.style.scrollBehavior = 'smooth';
-      
-      // Snap to nearest item after inertia
-      const itemWidth = items[0].offsetWidth;
-      const targetScroll = container.scrollLeft + velocity * 10;
-      const activeIndex = Math.round(targetScroll / itemWidth);
-      container.scrollTo({
-        left: activeIndex * itemWidth,
-        behavior: 'smooth'
-      });
     }
   
-    // Event listeners
-    container.addEventListener('scroll', () => updateUI());
+    function scrollLeft() {
+      let currentIndex = Math.round(container.scrollLeft / itemWidth);
+      let newScrollLeft = Math.max((currentIndex - 1) * itemWidth, 0);
+      container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+    }
+    
+    function scrollRight() {
+      let currentIndex = Math.round(container.scrollLeft / itemWidth);
+      let newScrollLeft = Math.min((currentIndex + 1) * itemWidth, container.scrollWidth - container.clientWidth);
+      container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+    }
+
+    scrollLeftButton.addEventListener('click', scrollLeft);
+    scrollRightButton.addEventListener('click', scrollRight);
+
     container.addEventListener('mousedown', e => handleStart(e.clientX));
     document.addEventListener('mousemove', e => handleMove(e.clientX));
     document.addEventListener('mouseup', handleEnd);
     container.addEventListener('touchstart', e => handleStart(e.touches[0].clientX), { passive: true });
     document.addEventListener('touchmove', e => handleMove(e.touches[0].clientX), { passive: true });
     document.addEventListener('touchend', handleEnd);
-  
-    // Initial setup
-    createIndicators();
-    updateUI();
-    
-    // Handle window resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(updateUI, 100);
-    });
   });
-  </script>
+</script>
