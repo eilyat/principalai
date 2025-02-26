@@ -4,66 +4,56 @@ import "@/styles/global.css";
 
 <div class="relative">
   <button class="absolute top-1/2 -translate-y-1/2 left-0 bg-white bg-opacity-5 text-gray-800 p-2 text-2xl z-10 hover:bg-opacity-20 h-full" id="scrollLeft"
-  style="text-shadow: 2px 2px 4px white;" >&#10094;</button>
-  <div class="scroll-container overflow-x-scroll snap-x snap-mandatory cursor-grab select-none px-6">
+  style="text-shadow: 2px 2px 4px white;">&#10094;</button>
+  <div class="scroll-container overflow-x-scroll cursor-grab select-none px-6 whitespace-nowrap">
     <div class="flex gap-6 w-max min-w-full pb-4">
       <slot />
     </div>
   </div>
   <button class="absolute top-1/2 -translate-y-1/2 right-0 bg-white bg-opacity-5 text-gray-800 p-2 text-2xl z-10 hover:bg-opacity-20 h-full" id="scrollRight"
-  style="text-shadow: 1px 1px 2px white;" >&#10095;</button>
+  style="text-shadow: 1px 1px 2px white;">&#10095;</button>
 </div>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.scroll-container');
-    const scrollLeftButton = document.getElementById('scrollLeft');
-    const scrollRightButton = document.getElementById('scrollRight');
-    const items = Array.from(container.children[0].children);
-    if (!container || items.length === 0) return;
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.scroll-container');
+  const scrollLeftButton = document.getElementById('scrollLeft');
+  const scrollRightButton = document.getElementById('scrollRight');
+  if (!container || !scrollLeftButton || !scrollRightButton) return;
 
-    let isDragging = false;
-    let startX, startScrollLeft;
-    let itemWidth = items[0].offsetWidth + 28;
-    
-    function handleStart(clientX) {
-      isDragging = true;
-      container.classList.add('dragging');
-      startX = clientX;
-      startScrollLeft = container.scrollLeft;
-    }
-  
-    function handleMove(clientX) {
-      if (!isDragging) return;
-      const delta = clientX - startX;
-      container.scrollLeft = startScrollLeft - delta;
-    }
-  
-    function handleEnd() {
-      isDragging = false;
-      container.classList.remove('dragging');
-    }
-  
-    function scrollLeft() {
-      let currentIndex = Math.round(container.scrollLeft / itemWidth);
-      let newScrollLeft = Math.max((currentIndex - 1) * itemWidth, 0);
-      container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
-    }
-    
-    function scrollRight() {
-      let currentIndex = Math.round(container.scrollLeft / itemWidth);
-      let newScrollLeft = Math.min((currentIndex + 1) * itemWidth, container.scrollWidth - container.clientWidth);
-      container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
-    }
+  function scrollContainerBy(amount) {
+    container.scrollBy({ left: amount, behavior: 'smooth' });
+  }
 
-    scrollLeftButton.addEventListener('click', scrollLeft);
-    scrollRightButton.addEventListener('click', scrollRight);
+  scrollLeftButton.addEventListener('click', () => scrollContainerBy(-200));
+  scrollRightButton.addEventListener('click', () => scrollContainerBy(200));
 
-    container.addEventListener('mousedown', e => handleStart(e.clientX));
-    document.addEventListener('mousemove', e => handleMove(e.clientX));
-    document.addEventListener('mouseup', handleEnd);
-    container.addEventListener('touchstart', e => handleStart(e.touches[0].clientX), { passive: true });
-    document.addEventListener('touchmove', e => handleMove(e.touches[0].clientX), { passive: true });
-    document.addEventListener('touchend', handleEnd);
-  });
+  let isDragging = false;
+  let startX, startScrollLeft;
+
+  function handleStart(clientX) {
+    isDragging = true;
+    container.classList.add('dragging');
+    startX = clientX;
+    startScrollLeft = container.scrollLeft;
+  }
+
+  function handleMove(clientX) {
+    if (!isDragging) return;
+    const delta = clientX - startX;
+    container.scrollLeft = startScrollLeft - delta;
+  }
+
+  function handleEnd() {
+    isDragging = false;
+    container.classList.remove('dragging');
+  }
+
+  container.addEventListener('mousedown', e => handleStart(e.clientX));
+  document.addEventListener('mousemove', e => handleMove(e.clientX));
+  document.addEventListener('mouseup', handleEnd);
+  container.addEventListener('touchstart', e => handleStart(e.touches[0].clientX), { passive: true });
+  document.addEventListener('touchmove', e => handleMove(e.touches[0].clientX), { passive: true });
+  document.addEventListener('touchend', handleEnd);
+});
 </script>
