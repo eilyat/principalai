@@ -8,7 +8,24 @@ import LeftTitleBlock from "@/components/ui/LeftTitleBlock.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout SEOTitle="How we work">
+<BaseLayout>
+  <Fragment slot="SEO">
+    <meta property="og:title" content="How we work | Principal Economics" />
+    <meta
+      property="og:url"
+      content={`https://principaleconomics.co.nz${Astro.url.pathname}`}
+    />
+    <meta
+      property="og:description"
+      content="Prioritising excellence, collaboration, and client success"
+    />
+    <meta name="twitter:title" content="How we work | Principal Economics" />
+    <meta
+    name="twitter:description"
+    content="Prioritising excellence, collaboration, and client success"
+    />
+    <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />
+  </Fragment>
   <ShortHeader
     title="How we work"
     subtitle="Prioritising excellence, collaboration, and client success"

@@ -9,6 +9,23 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout SEOTitle="About us">
+  <Fragment slot="SEO">
+    <meta property="og:title" content="About us | Principal Economics" />
+    <meta
+      property="og:url"
+      content={`https://principaleconomics.co.nz${Astro.url.pathname}`}
+    />
+    <meta
+      property="og:description"
+      content="Expert economic consulting for sustainable growth and lasting impact"
+    />
+    <meta name="twitter:title" content="About us | Principal Economics" />
+    <meta
+    name="twitter:description"
+    content="Expert economic consulting for sustainable growth and lasting impact."
+    />
+    <link rel="canonical" href={`https://principaleconomics.co.nz${Astro.url.pathname}`} />
+  </Fragment>
   <ShortHeader
     title="About us"
     subtitle="Expert economic consulting for sustainable growth and lasting impact"
