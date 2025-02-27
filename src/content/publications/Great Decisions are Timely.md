@@ -4,10 +4,10 @@ title: 'Great decisions are timely'
 type: 'Publication'
 tagline: 'Benefits from more efficient infrastructure investment decision-making'
 description: 'test'
-pubDate: 2023-09-01
+pubDate: 2022-10-01
 authors: ['Dr Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']
 pubType: 'report'
-downloadPdf: "/resources/Great Decisions are Timely"
+downloadPdf: "/resources/great-decisions-are-timely"
 cardImage: '../../images/pocketwatch.avif'
 
 ---

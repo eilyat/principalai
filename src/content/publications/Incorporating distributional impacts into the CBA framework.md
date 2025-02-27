@@ -1,14 +1,16 @@
 ---
-# layout: '@/layouts/publications.astro'
-title: 'Incorporating distributional impacts (equity) into the CBA framework'
-type: 'Publication'
-tagline: ''
-description: 'test'
+title: Incorporating distributional impacts into the CBA framework
+type: Publication
+tagline: ""
+description: Transport equity discussions focus on social justice
 pubDate: 2023-09-01
-authors: ['Dr Eilya Torshizian', 'Eugene Isack', 'Alina Fehling']
-pubType: 'report'
-# downloadPdf: "https://principaleconomics.com/wp-content/uploads/2024/07/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf"
-cardImage: '../../images/transport_equity.webp'
+authors:
+  - Dr Eilya Torshizian
+  - Eugene Isack
+  - Alina Fehling
+pubType: report
+downloadPdf: https://www.nzta.govt.nz/resources/research/reports/700/
+cardImage: ../../images/transport_equity.webp
 ---
 
 Transportation decisions can have large and varied impacts on travellers and their communities. It’s important to measure these effects and consider their impact on various groups when planning projects.

@@ -5,7 +5,7 @@ description: test
 authors:
   - Eugene Isack
 cardImage: ../../images/img1_synthetic_data.webp
-downloadPdf: https://principaleconomics.com/wp-content/uploads/2024/07/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf
+# downloadPdf: https://principaleconomics.com/wp-content/uploads/2024/07/012-regional-land-transport-demand-model-technical-notes-for-practitioners.pdf
 tagline: Synthetic data generation using Statistics New Zealand IDI microdata
 pubDate: 2023-09-01
 ---
