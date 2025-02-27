@@ -1,6 +1,6 @@
 ---
 name: 'Phil Donovan'
-photo: './PhilDonovan.webp'
+photo: '@/images/PhilDonovan.webp'
 shortName: 'Donovan P'
 joinDate: 2024-05-06
 role: 'Associate'

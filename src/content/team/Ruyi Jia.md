@@ -1,6 +1,6 @@
 ---
 name: 'Ruyi Jia'
-photo: './RuyiJia.webp'
+photo: '@/images/RuyiJia.webp'
 shortName: 'Jia R'
 joinDate: 2024-01-01
 role: 'Economist'

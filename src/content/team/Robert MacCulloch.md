@@ -1,6 +1,6 @@
 ---
 name: 'Prof. Robert MacCulloch'
-photo: './RobertMacCulloch.webp'
+photo: '@/images/RobertMacCulloch.webp'
 shortName: 'MacCulloch R'
 joinDate: 2024-04-06
 role: 'Macroeconomics Advisor '

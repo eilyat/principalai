@@ -1,6 +1,6 @@
 ---
 name: 'Dr Eilya Torshizian'
-photo: './EliyaTorshzian.webp'
+photo: '@/images/EliyaTorshzian.webp'
 shortName: 'Torshizian E'
 joinDate: 2022-01-01
 role: 'Chief Executive Officer'

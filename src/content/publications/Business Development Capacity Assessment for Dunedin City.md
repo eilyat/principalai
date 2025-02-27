@@ -1,5 +1,5 @@
 ---
-title: " Business Development Capacity Assessment for Dunedin City"
+title: "Business Development Capacity Assessment for Dunedin City"
 type: Publication
 tagline: An assessment of demand, supply and sufficiency of business land in Dunedin
 description: An assessment of demand, supply and sufficiency of business land in Dunedin
@@ -9,7 +9,9 @@ authors:
   - Eugene Isack
   - Alina Fehling
 downloadPdf: /Business-Demand-and-Capacity-Assessment-Principal-Economics-report-to-Dunedin-City-Council-Final-report-1.pdf
+cardImage: '../../images/dunedin.jpg'
 ---
+
 Dunedin City Council appointed Principal Economics to provide a comprehensive assessment of the sufficiency in development capacity of business land within Dunedin to fulfills requirements of the the National Policy Statement on Urban Development (NPS-UD 2020), including an investigation of:
 
 *   the locational requirements of business including shape, size, access, reverse sensitivities, and other market factors;

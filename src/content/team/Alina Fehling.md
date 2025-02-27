@@ -1,6 +1,6 @@
 ---
 name: 'Alina Fehling'
-photo: './AlineFehling.webp'
+photo: '@/images/AlinaFehling.webp'
 shortName: 'Fehling A'
 joinDate: 2022-01-02
 role: 'Economist'
