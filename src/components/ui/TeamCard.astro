@@ -31,7 +31,7 @@ import { Picture } from 'astro:assets';
           </a>
           )}
         {email && (
-          <a href={email} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+          <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
             <Icon name="carbon:email" size={35} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
           </a>
           )}
