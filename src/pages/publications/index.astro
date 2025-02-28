@@ -97,11 +97,7 @@ const teamMemberMap = Object.fromEntries(
                         Publication
                       </span>
                       <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
-                        {entry.data.pubDate?.toLocaleDateString(undefined, {
-  year: "numeric",
-  month: "long",
-  timeZone: "UTC",
-}) || "Unknown Date"}
+                        {entry.data.pubDate?.toLocaleDateString(undefined, {  year: "numeric",  month: "long",  timeZone: "UTC",}) || "Unknown Date"}
                       </span>
                     </div>
 
@@ -159,12 +155,7 @@ const teamMemberMap = Object.fromEntries(
                 <div class="w-full md:w-1/2 lg:w-[30%] xl:w-[25%] pl-10 hidden md:block lg:block xl:block ">
                   <PCard
                     title={entry.data.title}
-                    date={
-                      entry.data.pubDate?.toLocaleDateString(undefined, {
-                        dateStyle: "medium",
-                        timeZone: "UTC",
-                      }) || "Unknown Date"
-                    }
+                    date={entry.data.pubDate?.toLocaleDateString(undefined, {  year: "numeric",  month: "long",  timeZone: "UTC",}) || "Unknown Date"}
                     category="Publication"
                     imgSrc={entry.data.cardImage || Lighthouse }
                     imgAlt={entry.data.title}
