@@ -11,7 +11,20 @@ const sortedInsights = allInsights.sort((a, b) => {
   return dateB - dateA; // Sort in descending order
 });
 
-const latestInsights = sortedInsights.slice(0, 4);
+// Get resources, sort them similarly, and take the top 2
+const resources = await getCollection("resources");
+const sortedResources = [...resources].sort((a, b) => {
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return dateB - dateA;
+});
+
+const topResources = sortedResources.slice(0, 2);
+
+const latestInsights = sortedInsights.slice(0, 2);
+
+const combinedList = [...latestInsights, ...topResources];
+
 
 ---
 
@@ -21,13 +34,13 @@ const latestInsights = sortedInsights.slice(0, 4);
       <h2 class="text-xl font-bold text-accent">Trending Insights</h2>
     </div>
     <div class="flex flex-wrap w-full md:w-3/4 flex-grow">
-      {latestInsights.map((entry, index) => (
+      {combinedList.map((entry, index) => (
         <StripBox
           number={index + 1}
           description={entry.data.tagline}
           class="border-l-1 border-r-2 border-accent"
-          href={`/articles/${entry.slug}`}
-        />
+          href={`/${entry.collection}/${entry.slug}`}
+         />
       ))}
     </div>
 

@@ -8,6 +8,7 @@ export const collections = {
       title: z.string(),
       type: z.literal('Resource'),
       description: z.string().optional(),
+      tagline: z.string().optional(),
       authors: z.array(z.string()).optional(),
       heroImage: image().optional(),
       cardImage: image().optional(),

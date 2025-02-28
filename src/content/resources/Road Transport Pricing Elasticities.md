@@ -2,8 +2,8 @@
 layout: '@/layouts/ResourcesLayout.astro'
 title: 'Road transport pricing elasticities'
 type: 'Resource'
-tagline: 'Road transport pricing elasticities'
-description: 'This knowledge base provides technical discussions of the available estimates of elasticities. In developing carbon and GHG reduction polices, it is important to bear in mind that for any given journey an individual will take account of a range of factors other than price in deciding which mode of transport to use.'
+tagline: 'How road pricing elasticities shape transport demand and emissions policy'
+description: 'A technical overview of road pricing elasticities, exploring key estimates and their role in transport decisions.'
 pubDate: 2024-10-01
 authors: ['Principal Economics']
 pubType: 'resource'
