@@ -86,11 +86,7 @@ const teamMemberMap = Object.fromEntries(
                         {entry.data.type}
                       </span>
                       <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
-                        {entry.data.pubDate?.toLocaleDateString(undefined, {
-  year: "numeric",
-  month: "long",
-  timeZone: "UTC",
-}) || "Unknown Date"}
+                        {entry.data.pubDate?.toLocaleDateString(undefined, {  year: "numeric",  month: "long",  timeZone: "UTC",}) || "Unknown Date"}
                       </span>
                     </div>
 
