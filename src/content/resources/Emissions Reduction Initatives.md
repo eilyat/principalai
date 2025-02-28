@@ -8,7 +8,7 @@ authors:
   - Principal Economics
 cardImage: ../../images/wellington_tram.avif
 iframe: /emission_reduction_initiatives/index.html
-pubDate: 2022-07-01
+pubDate: 2022-07-02
 ---
 
 <div class="hidden">
