@@ -18,8 +18,9 @@ export default defineConfig({
     // adapter: cloudflare({
     //   imageService: 'compile'
     // }),
+    trailingSlash: "never",
     build: {
-      format: "file",
+      format: "directory",
     },
     site: 'https://principaleconomics.co.nz',
     integrations: [
