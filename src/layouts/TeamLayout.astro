@@ -6,6 +6,8 @@ import TeamCardDetails from "@/components/ui/TeamCardDetails.astro";
 import PCard from "@/components/ui/PCard.astro";
 import ScrollCards from "@/components/ui/ScrollCards.astro";
 import SectionBreakHR from "@/components/ui/SectionBreakHR.astro";
+import { Icon } from "astro-icon/components";
+
 
 const { frontmatter } = Astro.props;
 
@@ -89,7 +91,37 @@ const filteredInsights = sortedInsights.filter(
         <!-- Headings for larger screens (visible on medium and up screens only) -->
         <div class="hidden sm:block">
           <h1 class="text-6xl font-medium pb-4">{frontmatter.name}</h1>
-          <h2 class="text-4xl font-medium pb-6">{frontmatter.role}</h2>
+          <h2 class="text-4xl font-medium pb-4">{frontmatter.role}</h2>
+
+          <div class="mt-0 pb-6 inline-flex justify-start items-center transition-colors group-hover:text-blue-600 duration-500">
+            {frontmatter.phone && (
+              <a href={`tel:${frontmatter.phone}`} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+                <Icon name="carbon:phone" size={32} class="block p-0 text-gray-700 transition hover:opacity-75" />
+              </a>
+              )}
+            {frontmatter.email && (
+              <a href={`mailto:${frontmatter.email}`} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+                <Icon name="carbon:email" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
+              </a>
+              )}
+            {frontmatter.linkedin && (
+            <a href={frontmatter.linkedin} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+              <Icon name="carbon:logo-linkedin" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
+            </a>
+            )}
+            {frontmatter.orcid && (
+              <a href={frontmatter.orcid} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+                <Icon name="academicons:orcid" size={26} class="block p-0 text-gray-700 transition hover:opacity-75" />
+              </a>
+              )}
+            {frontmatter.ssrn && (
+              <a href={frontmatter.ssrn} target="_blank" rel="noopener noreferrer" class="flex-shrink-0">
+                <Icon name="academicons:ssrn" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
+              </a>
+              )}
+          </div>
+
+
         </div>
 
         <section class="prose max-w-none prose-lg prose-headings:-mt-4">

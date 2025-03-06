@@ -26,28 +26,28 @@ import { Picture } from 'astro:assets';
     
       <div class="mt-6 inline-flex justify-start items-center transition-colors group-hover:text-blue-600 duration-500">
         {phone && (
-          <a href={phone} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-            <Icon name="carbon:phone" size={35} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+          <a href={`tel:${phone}`} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
+            <Icon name="carbon:phone" size={32} class="block p-0 text-gray-700 transition hover:opacity-75" />
           </a>
           )}
         {email && (
           <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-            <Icon name="carbon:email" size={35} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+            <Icon name="carbon:email" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
           </a>
           )}
         {linkedin && (
         <a href={linkedin} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-          <Icon name="carbon:logo-linkedin" size={35} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+          <Icon name="carbon:logo-linkedin" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
         </a>
         )}
         {orcid && (
           <a href={orcid} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-            <Icon name="academicons:orcid" size={27} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+            <Icon name="academicons:orcid" size={26} class="block p-0 text-gray-700 transition hover:opacity-75" />
           </a>
           )}
         {ssrn && (
           <a href={ssrn} target="_blank" rel="noopener noreferrer" class="flex-shrink-0">
-            <Icon name="academicons:ssrn" size={35} class="block p-0 hover:text-blue-600 duration-400 ease-in-out" />
+            <Icon name="academicons:ssrn" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
           </a>
           )}
       </div>
