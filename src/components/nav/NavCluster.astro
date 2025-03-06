@@ -42,9 +42,24 @@ import Contact from "@/components/nav/ContactMenu.astro";
             @keydown.down.prevent="toggleMenu(item.name)"
             :aria-label="item.label + '-menu'"
             class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
-              
           >
             <span x-text="item.label" class=" whitespace-nowrap"></span>
+            <span class="relative w-4 h-4 ml-2 shrink-0">
+              <svg
+                class="absolute w-full h-full transition-transform duration-300"
+                :class="navigationMenu === item.name ? 'rotate-180' : 'rotate-0'"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+              >
+                <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="sr-only">
+                <span x-text="navigationMenu === item.name ? 'Collapse' : 'Expand'"></span> menu
+              </span>
+            </span>
         </button>
         </li>
       </template>
