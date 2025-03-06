@@ -2,12 +2,15 @@
 const { class: customClass = "" } = Astro.props;
 ---
 
-<div class="block h-full w-full overflow-hidden" x-data="{ isExpanded: false }">
+<div class="block font-light font-sans  h-full w-full overflow-hidden" x-data="{ isExpanded: false }">
   <!-- Button Section -->
   <button
     :id="$id('accordionItem')"
     type="button"
     class={`flex w-full items-center justify-between px-4 py-3 text-lg font-medium transition-colors
+h-[60px] pl-2 bg-white text-gray-600 text-left py-1 border-l-2 text-md hover:border-blue-600 hover:text-blue-600 hover:border-l-4  hover:shadow-sm focus:border-l-4 focus:border-blue-600 focus:text-blue-700 focus:bg-gray-100
+
+
       hover:bg-gray-50 border-t border-zinc-200
       ${customClass}`}
     :aria-controls="$id('accordionContent')"
