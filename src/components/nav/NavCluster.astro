@@ -42,7 +42,6 @@ import Contact from "@/components/nav/ContactMenu.astro";
             @keydown.down.prevent="toggleMenu(item.name)"
             :aria-label="item.label + '-menu'"
             class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
-              
           >
             <span x-text="item.label" class=" whitespace-nowrap"></span>
             <span class="relative w-4 h-4 ml-2 shrink-0">
