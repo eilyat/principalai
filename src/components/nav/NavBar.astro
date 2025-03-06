@@ -10,37 +10,85 @@ import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
   x-data="{ mobileMenuOpen: false, activeAccordion: null }"
 >
   <div class="flex flex-row max-w-screen-2xl mx-auto h-full items-center">
-    <a class="lg:px-6 lg:py-2 pl-2 text-xl text-blue-600 font-bold border-r-2 h-full items-center flex pr-2 justify-start hover:bg-gray-100"
-    href="/">
+    <a
+      class="lg:px-6 lg:py-2 pl-2 text-xl text-blue-600 font-bold border-r-2 h-full items-center flex pr-2 justify-start hover:bg-gray-100"
+      href="/"
+    >
       Principal Economics
     </a>
-    
+
     <!-- Desktop Navigation -->
     <div class="hidden md:block">
       <NavCluster />
     </div>
 
+    <!-- Search Button (Desktop) -->
+    <div class="hidden md:block ml-auto pr-4">
+      <canary-root framework="astro">
+        <canary-provider-pagefind>
+          <canary-modal>
+            <!-- Connect the search button to trigger the modal -->
+            <button
+              slot="trigger"
+              class="p-2 hover:bg-gray-100 rounded"
+              aria-label="Search"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+
+            <!-- Modal content -->
+            <canary-content slot="content">
+              <canary-input slot="input"></canary-input>
+              <canary-search slot="mode">
+                <canary-search-results slot="body"></canary-search-results>
+              </canary-search>
+            </canary-content>
+          </canary-modal>
+        </canary-provider-pagefind>
+      </canary-root>
+    </div>
+
     <!-- Mobile Hamburger -->
     <div class="md:hidden ml-auto mr-4">
-      <button 
+      <button
         @click="mobileMenuOpen = !mobileMenuOpen"
         class="p-2 hover:bg-gray-100 rounded"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
   </div>
 
   <!-- Mobile Menu (Below Nav Bar) -->
-  <div 
+  <div
     x-show="mobileMenuOpen"
     @click.away="mobileMenuOpen = false; activeAccordion = null"
     class="md:hidden absolute w-full bg-white shadow-lg z-50"
     x-cloak
   >
-  <NavClusterMobile />
+    <NavClusterMobile />
   </div>
 </nav>
 
@@ -56,6 +104,15 @@ import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
   .toggle-input {
     display: none;
   }
-
 </style>
 
+<script>
+  import "@getcanary/web/components/canary-root.js";
+  import "@getcanary/web/components/canary-provider-pagefind.js";
+  import "@getcanary/web/components/canary-modal.js";
+  import "@getcanary/web/components/canary-trigger-searchbar.js";
+  import "@getcanary/web/components/canary-content.js";
+  import "@getcanary/web/components/canary-input.js";
+  import "@getcanary/web/components/canary-search.js";
+  import "@getcanary/web/components/canary-search-results.js";
+</script>
