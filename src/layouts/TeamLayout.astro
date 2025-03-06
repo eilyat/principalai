@@ -96,36 +96,39 @@ const filteredInsights = sortedInsights.filter(
           <slot />
         </section>
 
-        <SectionBreakHR>Recent Publications</SectionBreakHR>
-        <ScrollCards>
-          {
-            filteredInsights.map((entry, index) => (
-              <div class="w-full">
-                <PCard
-                  title={entry.data.title}
-                  date={
-                    entry.data.pubDate
-                      ? new Date(entry.data.pubDate).toLocaleDateString(
-                          undefined,
-                          {
-                            year: "numeric",
-                            month: "long",
-                            timeZone: "UTC",
-                          },
-                        )
-                      : "Unknown Date"
-                  }
-                  category={String(entry.data.type)}
-                  imgSrc={entry.data.cardImage}
-                  imgAlt={entry.data.title}
-                  link={`/${entry.type || "default"}/${entry.slug || "default"}`}
-                  class="h-full"
-                />
-              </div>
-            ))
-          }
-        </ScrollCards>
+        {filteredInsights.length > 0 && (
+          <>
+            <SectionBreakHR>Recent Publications</SectionBreakHR>
+            <ScrollCards>
+              {filteredInsights.map((entry, index) => (
+                <div class="w-full">
+                  <PCard
+                    title={entry.data.title}
+                    date={
+                      entry.data.pubDate
+                        ? new Date(entry.data.pubDate).toLocaleDateString(
+                            undefined,
+                            {
+                              year: "numeric",
+                              month: "long",
+                              timeZone: "UTC",
+                            }
+                          )
+                        : "Unknown Date"
+                    }
+                    category={String(entry.data.type)}
+                    imgSrc={entry.data.cardImage}
+                    imgAlt={entry.data.title}
+                    link={`/${entry.type || "default"}/${entry.slug || "default"}`}
+                    class="h-full"
+                  />
+                </div>
+              ))}
+            </ScrollCards>
+          </>
+        )}
       </main>
     </div>
   </main>
+  <br>
 </BaseLayout>
