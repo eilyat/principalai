@@ -20,7 +20,7 @@ export default defineConfig({
     // }),
     trailingSlash: "never",
     build: {
-      format: "directory",
+      format: "file",
     },
     site: 'https://principaleconomics.co.nz',
     integrations: [

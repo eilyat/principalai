@@ -30,7 +30,14 @@ const { SEOTitle } = Astro.props;
     
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
     <script src="/pagefind/pagefind-ui.js" is:inline></script>
-
+    <script>
+      (window as any).pagefindOptions = {
+        processResult: (result) => {
+          result.url = result.url.replace(/\/#/, '#');
+          return result;
+        }
+      };
+    </script>
     <ViewTransitions />
      
   </head>

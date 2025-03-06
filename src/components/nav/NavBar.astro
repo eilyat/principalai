@@ -3,6 +3,7 @@ export const partial = true;
 import NavCluster from "@/components/nav/NavCluster.astro";
 import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
 ---
+<script src="/pagefind-canary-fix.js" defer></script>
 
 <nav
   id="nav"
@@ -18,12 +19,12 @@ import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
     </a>
 
     <!-- Desktop Navigation -->
-    <div class="hidden md:block">
+    <div class="hidden lg:block">
       <NavCluster />
     </div>
 
     <!-- Search Button (Desktop) -->
-    <div class="hidden md:block ml-auto pr-4">
+    <div class="hidden lg:block ml-auto pr-4">
       <canary-root framework="astro">
         <canary-provider-pagefind>
           <canary-modal>
@@ -60,7 +61,7 @@ import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
     </div>
 
     <!-- Mobile Hamburger -->
-    <div class="md:hidden ml-auto mr-4">
+    <div class="lg:hidden ml-auto mr-4">
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
         class="p-2 hover:bg-gray-100 rounded"
@@ -78,6 +79,40 @@ import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
             d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
+
+      <canary-root framework="astro">
+        <canary-provider-pagefind>
+          <canary-modal>
+            <!-- Connect the search button to trigger the modal -->
+            <button
+              slot="trigger"
+              class="p-2 hover:bg-gray-100 rounded"
+              aria-label="Search"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+
+            <!-- Modal content -->
+            <canary-content slot="content">
+              <canary-input slot="input"></canary-input>
+              <canary-search slot="mode">
+                <canary-search-results slot="body"></canary-search-results>
+              </canary-search>
+            </canary-content>
+          </canary-modal>
+        </canary-provider-pagefind>
+      </canary-root>
     </div>
   </div>
 
@@ -85,7 +120,7 @@ import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
   <div
     x-show="mobileMenuOpen"
     @click.away="mobileMenuOpen = false; activeAccordion = null"
-    class="md:hidden absolute w-full bg-white shadow-lg z-50"
+    class="lg:hidden absolute w-full bg-white shadow-lg z-50"
     x-cloak
   >
     <NavClusterMobile />
@@ -116,3 +151,4 @@ import NavClusterMobile from "@/components/nav/NavClusterMobile.astro";
   import "@getcanary/web/components/canary-search.js";
   import "@getcanary/web/components/canary-search-results.js";
 </script>
+
