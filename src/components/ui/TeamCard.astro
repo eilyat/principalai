@@ -8,13 +8,13 @@ import { Picture } from 'astro:assets';
 
   <div class="flex items-center gap-4 overflow-hidden w-full border-zinc-100 border-2 rounded-lg">
   
-    <div class="h-full w-[200px]">
+    <div class="flex-shrink-0 w-[120px] sm:w-[200px] aspect-[200/260] bg-white pt-2">
       <a href={link}><Picture
         src={photo}
         alt={name || "No name provided"}
         width={280}
         height={280}
-        class="w-full h-full object-cover object-top bg-[#2e3034] pt-2"
+        class="w-full h-full object-cover object-top"
       /></a>
     </div>
 
@@ -24,33 +24,52 @@ import { Picture } from 'astro:assets';
         <h5 class="font-sans text-gray-500 text-xl sm:text-2xl mt-1 transition-colors group-hover:text-blue-600  duration-500">{role}</h5>
       </a>
     
-      <div class="mt-6 inline-flex justify-start items-center transition-colors group-hover:text-blue-600 duration-500">
+      <div class="mt-4 flex justify-start sm:justify-start gap-3">
         {phone && (
-          <a href={`tel:${phone}`} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-            <Icon name="carbon:phone" size={32} class="block p-0 text-gray-700 transition hover:opacity-75" />
+          <a href={`tel:${phone}`} target="_blank" rel="noopener noreferrer">
+            <Icon
+              name="carbon:phone"
+              size={24}
+              class="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 transition hover:opacity-75"
+            />
           </a>
-          )}
+        )}
         {email && (
-          <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-            <Icon name="carbon:email" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
+          <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
+            <Icon
+              name="carbon:email"
+              size={24}
+              class="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 transition hover:opacity-75"
+            />
           </a>
-          )}
+        )}
         {linkedin && (
-        <a href={linkedin} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-          <Icon name="carbon:logo-linkedin" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
-        </a>
+          <a href={linkedin} target="_blank" rel="noopener noreferrer">
+            <Icon
+              name="carbon:logo-linkedin"
+              size={24}
+              class="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 transition hover:opacity-75"
+            />
+          </a>
         )}
         {orcid && (
-          <a href={orcid} target="_blank" rel="noopener noreferrer" class="flex-shrink-0 pr-1">
-            <Icon name="academicons:orcid" size={26} class="block p-0 text-gray-700 transition hover:opacity-75" />
+          <a href={orcid} target="_blank" rel="noopener noreferrer">
+            <Icon
+              name="academicons:orcid"
+              size={20}
+              class="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 transition hover:opacity-75"
+            />
           </a>
-          )}
+        )}
         {ssrn && (
-          <a href={ssrn} target="_blank" rel="noopener noreferrer" class="flex-shrink-0">
-            <Icon name="academicons:ssrn" size={33} class="block p-0 text-gray-700 transition hover:opacity-75" />
+          <a href={ssrn} target="_blank" rel="noopener noreferrer">
+            <Icon
+              name="academicons:ssrn"
+              size={24}
+              class="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 transition hover:opacity-75"
+            />
           </a>
-          )}
+        )}
       </div>
-    </div>
 
 </div>
