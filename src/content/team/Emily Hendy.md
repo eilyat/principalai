@@ -3,7 +3,7 @@ name: 'Emily Hendy'
 photo: '@/images/emily.jpg'
 shortName: 'Hendy E'
 joinDate: 2025-03-11
-role: 'Economist'
+role: 'Senior Economist'
 location: 'Auckland, New Zealand'
 email: emily@principaleconomics.com
 qualification: 'BSc in Statistics'
