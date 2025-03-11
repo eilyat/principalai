@@ -1,0 +1,133 @@
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import ShortHeader from "@/components/ui/ShortHeader.astro";
+const { frontmatter } = Astro.props;
+
+---
+
+<BaseLayout SEOTitle="Publications">
+	<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.33.1/plotly.min.js" charset="utf-8"></script>
+
+	<ShortHeader title="Testing" subtitle="Elements">		
+	</ShortHeader>
+	<main class="px-4 md:px-6 max-w-screen-2xl mx-auto">
+		<div class="py-6"></div>
+			<!-- Main Content -->
+
+			<!-- <article class="lg:col-span-8 xl:col-span-9">
+				<div class="prose lg:prose-xl max-w-none">
+					
+					<h1>Plotly Graph with JavaScript Fetch</h1>
+					
+					
+					<button id="load-plotly">
+						Load Plotly Graph
+					</button>
+
+					
+					<div id="plotly-container">
+						<p>Click the button to load the chart.</p>
+					</div>
+					
+				</div>
+			</article> -->
+
+			<article class="lg:col-span-8 xl:col-span-9">
+        <div class="prose lg:prose-xl max-w-none">
+          <h1>Dynamic Plotly Graph with Seed</h1>
+          
+          <!-- Input for the seed value -->
+          <input type="number" id="seedInput" placeholder="Enter seed value" class="border p-2 mb-4" />
+
+          <!-- Button to update the chart -->
+          <button id="update-plotly" class="bg-blue-500 text-white p-2 rounded">
+            Update Chart Data
+          </button>
+
+          <!-- Chart container -->
+          <div id="plotly-container">
+            <p>Chart will render here.</p>
+          </div>
+        </div>
+      </article>
+
+
+
+		</div>
+        <br><br>
+	</main>
+	
+	<!-- <script>
+		// Define fetchAndRenderPlotly in the global scope
+		window.fetchAndRenderPlotly = async function() {
+			console.log("Fetching Plotly JSON...");
+			try {
+				// Fetch JSON from Plumber API
+				const response = await fetch("http://localhost:8000/plotly");
+				const jsonData = await response.json();
+				console.log("Plotly JSON:", jsonData);
+
+				// Ensure the div is present
+				let container = document.getElementById("plotly-container");
+				container.innerHTML = "<div id='plotly-chart'></div>"; // Reset with new div
+
+				// Render Plotly chart
+				Plotly.newPlot("plotly-chart", jsonData.data, jsonData.layout);
+				console.log("Plotly chart initialized.");
+			} catch (error) {
+				console.error("Error loading Plotly chart:", error);
+			}
+		};
+
+		// Ensure script runs after DOM is fully loaded
+		document.addEventListener("DOMContentLoaded", function () {
+			console.log("Page Loaded - JavaScript Ready");
+
+			// Attach event listener to button
+			document.getElementById("load-plotly").addEventListener("click", fetchAndRenderPlotly);
+
+			// Optional: Auto-load the graph when the page loads
+			fetchAndRenderPlotly();
+		});
+	</script> -->
+
+	<script>
+    async function fetchAndRenderPlotly() {
+      try {
+        // Get the seed value from the input field
+        const seedValue = document.getElementById("seedInput").value;
+        // Construct the API URL with the seed query parameter (if provided)
+        const apiUrl = seedValue 
+          ? `http://localhost:8000/randomPlot?seed=${seedValue}` 
+          : "http://localhost:8000/randomPlot";
+        
+        console.log("Fetching Plotly JSON from:", apiUrl);
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        console.log("Received Plotly JSON:", data);
+
+        // Update the chart container
+        const container = document.getElementById("plotly-container");
+        container.innerHTML = "<div id='plotly-chart'></div>";
+
+        // Render the Plotly chart with the new data
+        Plotly.newPlot("plotly-chart", data.data, data.layout);
+        console.log("Chart updated successfully.");
+      } catch (error) {
+        console.error("Error fetching or rendering Plotly chart:", error);
+      }
+    }
+
+    // Attach event listener to the button
+    document.getElementById("update-plotly").addEventListener("click", fetchAndRenderPlotly);
+
+    // Optionally, load the chart automatically on page load
+    window.addEventListener("DOMContentLoaded", fetchAndRenderPlotly);
+  </script>
+
+
+</BaseLayout>
+
+
