@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="relative bg-gradient-to-r z-0 from-blue-500 to-blue-100 h-[730px] px-8 flex items-center overflow-clip">
   <!-- SVG Background Animation -->
@@ -127,3 +128,109 @@ initAnimatedLines();
 
 
     </script>
+=======
+
+---
+---
+
+<section class="relative z-0 h-[730px] overflow-hidden bg-gradient-to-r from-[#06376f] via-[#2f6fe8] to-[#dbe8ff] px-8 flex items-center">
+  <!-- AI wave background -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <svg
+      class="absolute right-[-4%] bottom-[-4%] h-[72%] w-[78%] opacity-90"
+      viewBox="0 0 1400 520"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="principalAiWaveStroke" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.08)" />
+          <stop offset="45%" stop-color="rgba(120,180,255,0.55)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0.90)" />
+        </linearGradient>
+
+        <filter id="principalAiWaveGlow">
+          <feGaussianBlur stdDeviation="2.2" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <g
+        fill="none"
+        stroke="url(#principalAiWaveStroke)"
+        stroke-width="1.35"
+        filter="url(#principalAiWaveGlow)"
+        vector-effect="non-scaling-stroke"
+      >
+        <path d="M0 335 C170 250 300 410 475 320 C650 230 780 105 970 170 C1120 220 1245 290 1400 230" />
+        <path d="M0 360 C185 270 320 430 500 340 C690 245 800 125 990 190 C1145 245 1260 315 1400 260" />
+        <path d="M0 385 C205 295 355 450 535 365 C715 275 840 150 1030 220 C1180 275 1290 340 1400 295" />
+        <path d="M0 410 C225 320 380 470 560 390 C750 305 880 180 1065 250 C1210 305 1315 365 1400 330" />
+        <path d="M0 435 C245 350 420 485 600 420 C780 350 920 220 1105 285 C1245 335 1340 395 1400 365" />
+        <path d="M0 315 C160 225 285 380 455 295 C640 205 770 80 940 145 C1110 205 1240 265 1400 205" />
+        <path d="M0 455 C270 370 455 505 635 445 C805 390 955 255 1135 320 C1260 365 1355 420 1400 395" />
+      </g>
+
+      <g fill="rgba(255,255,255,0.82)">
+        <circle cx="475" cy="320" r="3" />
+        <circle cx="650" cy="230" r="2.5" />
+        <circle cx="970" cy="170" r="3" />
+        <circle cx="1120" cy="220" r="2.5" />
+        <circle cx="535" cy="365" r="2.5" />
+        <circle cx="840" cy="150" r="2.5" />
+        <circle cx="1030" cy="220" r="3" />
+        <circle cx="780" cy="350" r="2" />
+        <circle cx="1105" cy="285" r="3" />
+        <circle cx="600" cy="420" r="2.2" />
+        <circle cx="1245" cy="335" r="2.5" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- dark overlay for legibility -->
+  <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#071b35]/85 via-[#123d78]/60 to-transparent"></div>
+
+  <!-- Content Wrapper -->
+  <div class="relative z-10 flex h-full w-full items-center">
+    <div class="max-w-3xl px-4 sm:px-8 lg:ml-10 text-white">
+      <p class="mb-4 text-sm font-semibold tracking-[0.18em] uppercase text-blue-100">
+        A Principal Economics AI Company
+      </p>
+
+      <h1 class="mb-6 max-w-4xl font-serif text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+        Artificial intelligence for complex decisions.
+      </h1>
+
+      <p class="max-w-2xl text-lg sm:text-xl leading-relaxed text-blue-50">
+        PrincipalAI builds sovereign AI systems that turn data, models and expertise into better outcomes for governments, infrastructure providers and organisations.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href="/solutions"
+          class="inline-block rounded-md bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+        >
+          Explore our solutions
+        </a>
+
+        <a
+          href="/contact"
+          class="inline-block rounded-md border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-blue-900"
+        >
+          Request a demonstration
+        </a>
+      </div>
+
+      <div class="mt-10 grid max-w-3xl grid-cols-2 gap-5 text-sm text-blue-50 sm:grid-cols-4">
+        <div>Sovereign and secure AI deployment</div>
+        <div>Domain expertise that matters</div>
+        <div>Advanced modelling and simulation</div>
+        <div>Your data, your control</div>
+      </div>
+    </div>
+  </div>
+</section>
+>>>>>>> f32be55 (Update PrincipalAI website)

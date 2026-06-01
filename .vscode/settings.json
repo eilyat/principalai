@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "cSpell.words": [
         "alpinejs",
@@ -18,4 +19,24 @@
     },
     "[markdown]": {
     }
+=======
+{
+    "cSpell.words": [
+        "alpinejs",
+        "astro",
+        "Eilya",
+        "getcanary",
+        "orcid",
+        "pagefind",
+        "ssrn",
+        "tailwindcss",
+        "Torshizian",
+        "Toshizian"
+    ],
+    "files.associations": {
+        "*.yaml": "home-assistant"
+    },
+    "[markdown]": {
+    }
+>>>>>>> f32be55 (Update PrincipalAI website)
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
@@ -78,3 +79,84 @@ import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
     </div>
   </main>
 </BaseLayout>
+=======
+---
+import "@/styles/global.css";
+import BaseLayout from "@/components/BaseLayout.astro";
+import BannerStrip from "@/components/frontpage/banner_strip.astro";
+import Herowaves from "@/components/frontpage/herowaves.astro";
+// import Resource_wide from "@/components/frontpage/resources_wide.astro";
+import Resource_wide from "@/components/ResList_frontpage.astro";
+import Publications_wide from "@/components/frontpage/Publications_wide.astro";
+import Articles_wide from "@/components/frontpage/Articles_wide.astro";
+import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
+---
+
+<BaseLayout>
+  <Fragment slot="SEO">
+    <meta
+      property="og:title"
+      content="Principal Economics - World-class, Client-driven Research and Strategy"
+    />
+    <meta
+      property="og:description"
+      content="Expert consultancy on transport, housing, climate, and energy solutions."
+    />
+    <meta property="og:url" content="https://principaleconomics.co.nz/" />
+  </Fragment>
+
+  <Herowaves />
+  <BannerStrip />
+  <main>
+    <div class="bg-gray-100 py-0">
+      <!-- <span class="flex items-center w-full overflow-hidden pt-6 pb-8 font-serif italic ">
+						<span class="text-4xl px-6">Read our latest articles</span>
+						<span class="h-[2px] flex-1 bg-zinc-300"></span>
+					</span> -->
+      <!-- <div class="p-0"> -->
+      <Articles_wide />
+      <!-- </div> -->
+    </div>
+
+    <div class="py-4"></div>
+
+    <span
+      class="flex items-center w-full overflow-hidden font-serif italic py-4"
+    >
+      <span class="text-4xl px-6">
+        Collaborative expertise across diverse industries</span
+      >
+      <span class="h-[2px] flex-1 bg-zinc-300"></span>
+    </span>
+    <div class="w-full my-6">
+      <SectorTabs />
+    </div>
+
+    <div class="py-4"></div>
+
+    <div class="p-2 bg-gray-100">
+      <span
+        class="flex items-center w-full overflow-hidden font-serif italic py-4"
+      >
+        <span class="text-4xl px-6">See our latest publications</span>
+        <span class="h-[2px] flex-1 bg-zinc-300"></span>
+      </span>
+      <div class="px-6 pb-6">
+        <Publications_wide />
+      </div>
+    </div>
+
+    <div class="py-4"></div>
+
+    <div class="p-2 bg-white">
+      <span
+        class="flex items-center w-full overflow-hidden font-serif italic py-4"
+      >
+        <span class="text-4xl px-6">Browse our resources</span>
+        <span class="h-[2px] flex-1 bg-zinc-300"></span>
+      </span>
+      <Resource_wide />
+    </div>
+  </main>
+</BaseLayout>
+>>>>>>> f32be55 (Update PrincipalAI website)
