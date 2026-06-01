@@ -1,156 +1,25 @@
-<<<<<<< HEAD
-
-<div class="relative bg-gradient-to-r z-0 from-blue-500 to-blue-100 h-[730px] px-8 flex items-center overflow-clip">
-  <!-- SVG Background Animation -->
-  <svg class="absolute top-0 left-0 z-0 opacity-30 overflow-clip pointer-events-none" width="4000" height="5000"
-  id="animated-lines" viewBox="100 -20 460 830"></svg>  
-
-  <!-- Content Wrapper (Vertically Centered) -->
-  <div class="relative z-10 text-gray-800 flex-1 flex items-center justify-center sm:justify-end sm:px-8 h-full w-full">
-    <!-- Right Column -->
-    <div class="text-gray-800 text-left sm:text-left max-w-lg w-full px-4 sm:px-0 sm:mr-12 lg:mr-36 drop-shadow-lg drop-shadow-white">
-      <h1 class="text-4xl xs:text-5xl sm:text-6xl font-bold mb-4 break-words">
-        Principal Economics
-      </h1>
-      <p class="text-lg sm:text-xl leading-relaxed">
-        World Class, Client-driven Research and Strategy.
-      </p>
-      <br>
-      <p class="text-md sm:text-lg leading-relaxed">
-        Our consultancy services are driven by the questions of our clients, informed by evidence, shaped in collaboration with stakeholders, and rooted in principles of Economics.
-      </p>
-      <a
-        href="/contact"
-        class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out"
-      >
-        Contact us today
-      </a>
-    </div>
-  </div>
-</div>
-
-    <script>
-      document.addEventListener("astro:after-swap", () => {
-  console.log("Reinitializing animated lines script...");
-  initAnimatedLines();
-});
-
-function initAnimatedLines() {
-      const svgEl = document.getElementById('animated-lines') as SVGSVGElement | null;
-
-const randomRange = (min: number, max: number): number => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-const numberOfLines = 50;
-const lineDataArr: Array<{
-  counter: number;
-  startX: number;
-  startY: number;
-  endX: number;
-  endY: number;
-  sin: number;
-  cos: number;
-  pointX: number;
-  centerX: number;
-  centerY: number;
-}> = [];
-
-const createPathString = (): string => {
-  let completedPath = '';
-  const comma = ',';
-  const ampl = 50; // pixel range from 0, aka how deeply they bend
-
-  for (let i = 0; i < numberOfLines; i++) {
-    const path = lineDataArr[i];
-    if (!path) continue;
-
-    const current = {
-      x: ampl * Math.sin(path.counter / path.sin),
-      y: ampl * Math.cos(path.counter / path.cos),
-    };
-
-    const newPathSection =
-      `M${path.startX}${comma}${path.startY} ` +
-      `Q${path.pointX}${comma}${(current.y * 1.5).toFixed(10)} ` +
-      `${((current.x) / 10 + path.centerX).toFixed(3)}${comma}` +
-      `${((current.y) / 5 + path.centerY).toFixed(3)} ` +
-      `T${path.endX}${comma}${path.endY}`;
-    
-    path.counter++;
-    completedPath += newPathSection;
-  }
-
-  return completedPath;
-};
-
-const createLines = (): void => {
-  if (!svgEl) return;
-
-  const newPathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  const minSpeed = 300;
-  const maxSpeed = 350;
-
-  for (let i = 0; i < numberOfLines; i++) {
-    const lineDataObj = {
-      counter: randomRange(1, 500),
-      startX: randomRange(-5, -30),
-      startY: randomRange(5, 40),
-      endX: randomRange(200, 220),
-      endY: randomRange(120, 140),
-      sin: randomRange(minSpeed, maxSpeed),
-      cos: randomRange(minSpeed, maxSpeed),
-      pointX: randomRange(30, 55),
-      centerX: randomRange(90, 120),
-      centerY: randomRange(60, 70),
-    };
-
-    lineDataArr.push(lineDataObj);
-  }
-
-  const animLoop = (): void => {
-    newPathEl.setAttribute('d', createPathString());
-    requestAnimationFrame(animLoop);
-  };
-
-  newPathEl.setAttribute('fill', 'none');
-  newPathEl.setAttribute('stroke', 'white');
-  newPathEl.setAttribute('stroke-width', '1.4');
-  newPathEl.setAttribute('vector-effect', 'non-scaling-stroke');
-  svgEl.appendChild(newPathEl);
-  animLoop();
-};
-
-createLines();}
-
-// Run script on initial page load
-initAnimatedLines();
-
-
-    </script>
-=======
-
 ---
 ---
 
-<section class="relative z-0 h-[730px] overflow-hidden bg-gradient-to-r from-[#06376f] via-[#2f6fe8] to-[#dbe8ff] px-8 flex items-center">
-  <!-- AI wave background -->
+<section class="relative z-0 h-[730px] overflow-hidden bg-gradient-to-r from-[#06172f] via-[#123f86] to-[#dbe8ff] px-8 flex items-center">
+  <!-- Flowing AI data fabric -->
   <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
     <svg
-      class="absolute right-[-4%] bottom-[-4%] h-[72%] w-[78%] opacity-90"
-      viewBox="0 0 1400 520"
+      class="ai-fabric absolute right-[-10%] top-[7%] h-[92%] w-[92%] opacity-85"
+      viewBox="0 0 1400 680"
       preserveAspectRatio="none"
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="principalAiWaveStroke" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stop-color="rgba(255,255,255,0.08)" />
-          <stop offset="45%" stop-color="rgba(120,180,255,0.55)" />
+        <linearGradient id="fabricStroke" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.02)" />
+          <stop offset="38%" stop-color="rgba(125,180,255,0.28)" />
+          <stop offset="72%" stop-color="rgba(155,205,255,0.62)" />
           <stop offset="100%" stop-color="rgba(255,255,255,0.90)" />
         </linearGradient>
 
-        <filter id="principalAiWaveGlow">
-          <feGaussianBlur stdDeviation="2.2" result="blur" />
+        <filter id="fabricGlow">
+          <feGaussianBlur stdDeviation="1.8" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
@@ -158,42 +27,45 @@ initAnimatedLines();
         </filter>
       </defs>
 
-      <g
-        fill="none"
-        stroke="url(#principalAiWaveStroke)"
-        stroke-width="1.35"
-        filter="url(#principalAiWaveGlow)"
-        vector-effect="non-scaling-stroke"
-      >
-        <path d="M0 335 C170 250 300 410 475 320 C650 230 780 105 970 170 C1120 220 1245 290 1400 230" />
-        <path d="M0 360 C185 270 320 430 500 340 C690 245 800 125 990 190 C1145 245 1260 315 1400 260" />
-        <path d="M0 385 C205 295 355 450 535 365 C715 275 840 150 1030 220 C1180 275 1290 340 1400 295" />
-        <path d="M0 410 C225 320 380 470 560 390 C750 305 880 180 1065 250 C1210 305 1315 365 1400 330" />
-        <path d="M0 435 C245 350 420 485 600 420 C780 350 920 220 1105 285 C1245 335 1340 395 1400 365" />
-        <path d="M0 315 C160 225 285 380 455 295 C640 205 770 80 940 145 C1110 205 1240 265 1400 205" />
-        <path d="M0 455 C270 370 455 505 635 445 C805 390 955 255 1135 320 C1260 365 1355 420 1400 395" />
+      <g class="fabric-lines" fill="none" stroke="url(#fabricStroke)" stroke-width="1.15" vector-effect="non-scaling-stroke" filter="url(#fabricGlow)">
+        <path d="M-80 170 C160 120 260 250 430 230 C620 205 690 95 850 120 C1010 145 1135 250 1500 150" />
+        <path d="M-80 190 C155 135 280 265 450 245 C640 220 705 112 870 138 C1030 165 1150 268 1500 175" />
+        <path d="M-80 210 C160 150 300 282 470 260 C660 238 725 130 890 158 C1055 188 1170 288 1500 205" />
+        <path d="M-80 230 C170 168 320 300 500 278 C690 255 745 150 910 180 C1080 212 1195 312 1500 235" />
+        <path d="M-80 250 C180 188 345 320 530 300 C720 278 770 172 940 205 C1110 238 1225 338 1500 270" />
+        <path d="M-80 270 C195 210 375 345 560 325 C755 305 800 198 970 235 C1140 270 1260 372 1500 310" />
+        <path d="M-80 290 C210 235 410 375 595 355 C790 335 835 230 1005 270 C1175 310 1295 410 1500 350" />
+        <path d="M-80 310 C230 262 450 405 635 388 C830 370 875 265 1048 308 C1220 350 1335 452 1500 395" />
+        <path d="M-80 330 C255 292 495 438 680 425 C875 410 925 305 1095 350 C1265 395 1370 498 1500 445" />
+        <path d="M-80 350 C285 325 540 475 730 468 C925 460 980 350 1148 395 C1315 440 1410 545 1500 500" />
       </g>
 
-      <g fill="rgba(255,255,255,0.82)">
-        <circle cx="475" cy="320" r="3" />
-        <circle cx="650" cy="230" r="2.5" />
-        <circle cx="970" cy="170" r="3" />
-        <circle cx="1120" cy="220" r="2.5" />
-        <circle cx="535" cy="365" r="2.5" />
-        <circle cx="840" cy="150" r="2.5" />
-        <circle cx="1030" cy="220" r="3" />
-        <circle cx="780" cy="350" r="2" />
-        <circle cx="1105" cy="285" r="3" />
-        <circle cx="600" cy="420" r="2.2" />
-        <circle cx="1245" cy="335" r="2.5" />
+      <g class="fabric-lines-2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.85" vector-effect="non-scaling-stroke">
+        <path d="M-100 240 C140 300 240 355 430 330 C620 305 710 245 900 280 C1090 315 1210 405 1510 365" />
+        <path d="M-100 265 C150 325 275 382 460 360 C650 338 750 275 930 310 C1120 345 1240 438 1510 405" />
+        <path d="M-100 295 C165 355 315 415 500 395 C690 375 800 310 975 345 C1160 382 1280 480 1510 450" />
+        <path d="M-100 325 C185 390 360 455 545 438 C735 420 855 350 1030 390 C1210 430 1325 532 1510 505" />
+        <path d="M-100 360 C215 430 420 502 605 490 C795 478 925 400 1098 440 C1275 482 1378 585 1510 565" />
+      </g>
+
+      <g class="fabric-nodes" fill="rgba(255,255,255,0.84)">
+        <circle cx="850" cy="120" r="3.2" />
+        <circle cx="870" cy="138" r="2.4" />
+        <circle cx="940" cy="205" r="2.8" />
+        <circle cx="1005" cy="270" r="3.1" />
+        <circle cx="1095" cy="350" r="3.5" />
+        <circle cx="1148" cy="395" r="2.7" />
+        <circle cx="975" cy="345" r="2.6" />
+        <circle cx="730" cy="468" r="2.2" />
+        <circle cx="1315" cy="440" r="3.2" />
       </g>
     </svg>
   </div>
 
-  <!-- dark overlay for legibility -->
-  <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#071b35]/85 via-[#123d78]/60 to-transparent"></div>
+  <!-- Left legibility overlay -->
+  <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#06172f]/95 via-[#0d2f67]/78 to-transparent"></div>
 
-  <!-- Content Wrapper -->
+  <!-- Hero content -->
   <div class="relative z-10 flex h-full w-full items-center">
     <div class="max-w-3xl px-4 sm:px-8 lg:ml-10 text-white">
       <p class="mb-4 text-sm font-semibold tracking-[0.18em] uppercase text-blue-100">
@@ -201,11 +73,11 @@ initAnimatedLines();
       </p>
 
       <h1 class="mb-6 max-w-4xl font-serif text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
-        Artificial intelligence for complex decisions.
+        Where Expertise Meets Intelligence.
       </h1>
 
       <p class="max-w-2xl text-lg sm:text-xl leading-relaxed text-blue-50">
-        PrincipalAI builds sovereign AI systems that turn data, models and expertise into better outcomes for governments, infrastructure providers and organisations.
+        PrincipalAI builds secure AI systems that turn data, models and expertise into practical decision intelligence for governments, infrastructure providers and complex organisations.
       </p>
 
       <div class="mt-8 flex flex-wrap gap-4">
@@ -223,14 +95,123 @@ initAnimatedLines();
           Request a demonstration
         </a>
       </div>
+<div class="mt-10 grid max-w-5xl grid-cols-2 gap-6 text-blue-50 sm:grid-cols-4">
+  <div class="flex items-start gap-3">
+    <svg class="mt-1 h-6 w-6 flex-none text-blue-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+      <path d="M12 3l7 3v6c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6l7-3Z" />
+      <path d="M9 12l2 2 4-5" />
+    </svg>
+    <div class="font-serif text-base font-bold leading-tight">
+      Sovereign and secure AI deployment
+    </div>
+  </div>
 
-      <div class="mt-10 grid max-w-3xl grid-cols-2 gap-5 text-sm text-blue-50 sm:grid-cols-4">
-        <div>Sovereign and secure AI deployment</div>
-        <div>Domain expertise that matters</div>
-        <div>Advanced modelling and simulation</div>
-        <div>Your data, your control</div>
-      </div>
+  <div class="flex items-start gap-3">
+    <svg class="mt-1 h-6 w-6 flex-none text-blue-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 2v3M22 12h-3M12 22v-3M2 12h3" />
+    </svg>
+    <div class="font-serif text-base font-bold leading-tight">
+      Domain expertise that matters
+    </div>
+  </div>
+
+  <div class="flex items-start gap-3">
+    <svg class="mt-1 h-6 w-6 flex-none text-blue-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+      <path d="M4 19h16" />
+      <path d="M6 16v-4M11 16V8M16 16V5" />
+      <path d="M18 5l2 2-2 2" />
+    </svg>
+    <div class="font-serif text-base font-bold leading-tight">
+      Advanced modelling and simulation
+    </div>
+  </div>
+
+  <div class="flex items-start gap-3">
+    <svg class="mt-1 h-6 w-6 flex-none text-blue-200" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+      <rect x="5" y="10" width="14" height="10" rx="2" />
+      <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+      <path d="M12 14v2" />
+    </svg>
+    <div class="font-serif text-base font-bold leading-tight">
+      Your data, your control
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </section>
->>>>>>> f32be55 (Update PrincipalAI website)
+
+<style>
+  .ai-fabric {
+    animation: fabricDrift 8s ease-in-out infinite alternate;
+  }
+
+  .fabric-lines {
+    animation: fabricPulse 2.8s ease-in-out infinite alternate;
+  }
+
+  .fabric-lines-2 {
+    animation: fabricSecondaryPulse 2.2s ease-in-out infinite alternate;
+  }
+
+  .fabric-nodes circle {
+    animation: nodePulse 1.6s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+
+  .fabric-nodes circle:nth-child(2n) {
+    animation-delay: 0.35s;
+  }
+
+  .fabric-nodes circle:nth-child(3n) {
+    animation-delay: 0.7s;
+  }
+
+  @keyframes fabricDrift {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(-26px, 10px, 0) scale(1.025);
+    }
+  }
+
+  @keyframes fabricPulse {
+    from {
+      opacity: 0.55;
+    }
+    to {
+      opacity: 0.95;
+    }
+  }
+
+  @keyframes fabricSecondaryPulse {
+    from {
+      opacity: 0.18;
+    }
+    to {
+      opacity: 0.42;
+    }
+  }
+
+  @keyframes nodePulse {
+    from {
+      opacity: 0.35;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .ai-fabric {
+      right: -35%;
+      width: 135%;
+      opacity: 0.55;
+    }
+  }
+</style>
