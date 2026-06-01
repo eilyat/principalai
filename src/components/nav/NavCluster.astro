@@ -1,38 +1,39 @@
 ---
+import Solutions from "@/components/nav/SolutionsMenu.astro";
 import Industries from "@/components/nav/IndustriesMenu.astro";
-import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
+import Technology from "@/components/nav/TechnologyMenu.astro";
 import Insights from "@/components/nav/InsightsMenu.astro";
 import About from "@/components/nav/AboutMenu.astro";
 import Contact from "@/components/nav/ContactMenu.astro";
-
 ---
 
 <div
   x-data="{
-  open: false, 
-  navigationMenu: '',
-  menuItems: [
-      { name: 'industries',   label: 'Industries'},
-      { name: 'capabilities', label: 'Capabilities'},
-      { name: 'insights',     label: 'Insights'},
-      { name: 'about-us',     label: 'About us'},
-      { name: 'contact-us',   label: 'Contact us'}
-  ],
-  toggleMenu(menu) { this.navigationMenu = this.navigationMenu === menu ? '' : 
-    menu; this.open = this.navigationMenu ? true : false; 
-    }, 
-  navigationMenuClose() { 
-        this.navigationMenu = ''; 
-        this.open = false; 
-      }
-    }"
+    open: false,
+    navigationMenu: '',
+    menuItems: [
+      { name: 'solutions',  label: 'Solutions' },
+      { name: 'industries', label: 'Industries' },
+      { name: 'technology', label: 'Technology' },
+      { name: 'insights',   label: 'Insights' },
+      { name: 'about',      label: 'About' },
+      { name: 'contact',    label: 'Contact' }
+    ],
+    toggleMenu(menu) {
+      this.navigationMenu = this.navigationMenu === menu ? '' : menu;
+      this.open = this.navigationMenu ? true : false;
+    },
+    navigationMenuClose() {
+      this.navigationMenu = '';
+      this.open = false;
+    }
+  }"
   @keydown.esc.window="open = false"
   @click.outside="open = false"
   x-ref="nav"
 >
   <div class="place-items-start items-center h-full">
     <ul class="flex flex-row h-full">
-      <!-- Iterate over menu items to create buttons dynamically -->
       <template x-for="item in menuItems" :key="item.name">
         <li class="toggleable hover:bg-slate-100 hover:text-black h-full py-2">
           <button
@@ -43,7 +44,7 @@ import Contact from "@/components/nav/ContactMenu.astro";
             :aria-label="item.label + '-menu'"
             class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
           >
-            <span x-text="item.label" class=" whitespace-nowrap"></span>
+            <span x-text="item.label" class="whitespace-nowrap"></span>
             <span class="relative w-4 h-4 ml-2 shrink-0">
               <svg
                 class="absolute w-full h-full transition-transform duration-300"
@@ -60,13 +61,12 @@ import Contact from "@/components/nav/ContactMenu.astro";
                 <span x-text="navigationMenu === item.name ? 'Collapse' : 'Expand'"></span> menu
               </span>
             </span>
-        </button>
+          </button>
         </li>
       </template>
     </ul>
   </div>
 
-  <!-- Menu panel control -->
   <div
     x-show="open"
     x-collapse
@@ -74,31 +74,32 @@ import Contact from "@/components/nav/ContactMenu.astro";
     x-cloak
     x-anchor.no-style="$refs.nav"
     x-bind:style="{ position: 'absolute', top: $anchor.y, left: '0px' }"
-    @click.outside="isOpened = false, openedWithKeyboard = false"
     @keydown.down.prevent="$focus.wrap().next()"
     @keydown.up.prevent="$focus.wrap().previous()"
     class="absolute shadow-md max-w-full w-full z-50 left-0"
   >
     <div>
-      <!-- Menu panel components start -->
-      <!-- Industries menu -->
+      <template x-if="navigationMenu === 'solutions'">
+        <Solutions />
+      </template>
+
       <template x-if="navigationMenu === 'industries'">
         <Industries />
       </template>
-      <!-- Capabilities menu -->
-      <template x-if="navigationMenu === 'capabilities'">
-        <Capabilities />
+
+      <template x-if="navigationMenu === 'technology'">
+        <Technology />
       </template>
-      <!-- Insights menu -->
+
       <template x-if="navigationMenu === 'insights'">
         <Insights />
       </template>
-      <!-- About us menu -->
-      <template x-if="navigationMenu === 'about-us'">
+
+      <template x-if="navigationMenu === 'about'">
         <About />
       </template>
-      <!-- Contact us menu -->
-      <template x-if="navigationMenu === 'contact-us'">
+
+      <template x-if="navigationMenu === 'contact'">
         <Contact />
       </template>
     </div>
