@@ -9,11 +9,20 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@alpinejs/anchor": "^3.15.12",
+    "@alpinejs/collapse": "^3.15.12",
+    "@alpinejs/focus": "^3.15.12",
+    "@alpinejs/intersect": "^3.15.12",
     "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/mdx": "^3.1.9",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
+    "@getcanary/web": "^1.0.12",
+    "@iconify-json/academicons": "^1.2.4",
+    "@iconify-json/carbon": "^1.2.22",
+    "@tailwindcss/typography": "^0.5.19",
     "astro": "^4.16.18",
+    "astro-breadcrumbs": "^3.4.0",
     "astro-icon": "^1.1.0",
     "astro-pagefind": "^1.8.3",
     "tailwindcss": "^3.4.17"

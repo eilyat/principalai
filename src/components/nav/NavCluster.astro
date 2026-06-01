@@ -1,10 +1,9 @@
 ---
-import Solutions from "@/components/nav/SolutionsMenu.astro";
-import Industries from "@/components/nav/IndustriesMenu.astro";
-import Technology from "@/components/nav/TechnologyMenu.astro";
-import Insights from "@/components/nav/InsightsMenu.astro";
-import About from "@/components/nav/AboutMenu.astro";
-import Contact from "@/components/nav/ContactMenu.astro";
+import Solutions from "./SolutionsMenu.astro";
+import Industries from "./IndustriesMenu.astro";
+import Technology from "./TechnologyMenu.astro";
+import About from "./AboutMenu.astro";
+import Contact from "./ContactMenu.astro";
 ---
 
 <div
@@ -12,20 +11,15 @@ import Contact from "@/components/nav/ContactMenu.astro";
     open: false,
     navigationMenu: '',
     menuItems: [
-      { name: 'solutions',  label: 'Solutions' },
+      { name: 'solutions', label: 'Solutions' },
       { name: 'industries', label: 'Industries' },
       { name: 'technology', label: 'Technology' },
-      { name: 'insights',   label: 'Insights' },
-      { name: 'about',      label: 'About' },
-      { name: 'contact',    label: 'Contact' }
+      { name: 'about', label: 'About' },
+      { name: 'contact', label: 'Contact' }
     ],
     toggleMenu(menu) {
       this.navigationMenu = this.navigationMenu === menu ? '' : menu;
       this.open = this.navigationMenu ? true : false;
-    },
-    navigationMenuClose() {
-      this.navigationMenu = '';
-      this.open = false;
     }
   }"
   @keydown.esc.window="open = false"
@@ -38,10 +32,6 @@ import Contact from "@/components/nav/ContactMenu.astro";
         <li class="toggleable hover:bg-slate-100 hover:text-black h-full py-2">
           <button
             @click="toggleMenu(item.name)"
-            @keydown.space.prevent="toggleMenu(item.name)"
-            @keydown.enter.prevent="toggleMenu(item.name)"
-            @keydown.down.prevent="toggleMenu(item.name)"
-            :aria-label="item.label + '-menu'"
             class="button flex flex-row cursor-pointer px-5 text-lg items-center h-full"
           >
             <span x-text="item.label" class="whitespace-nowrap"></span>
@@ -57,9 +47,6 @@ import Contact from "@/components/nav/ContactMenu.astro";
               >
                 <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <span class="sr-only">
-                <span x-text="navigationMenu === item.name ? 'Collapse' : 'Expand'"></span> menu
-              </span>
             </span>
           </button>
         </li>
@@ -74,35 +61,27 @@ import Contact from "@/components/nav/ContactMenu.astro";
     x-cloak
     x-anchor.no-style="$refs.nav"
     x-bind:style="{ position: 'absolute', top: $anchor.y, left: '0px' }"
-    @keydown.down.prevent="$focus.wrap().next()"
-    @keydown.up.prevent="$focus.wrap().previous()"
     class="absolute shadow-md max-w-full w-full z-50 left-0"
   >
-    <div>
-      <template x-if="navigationMenu === 'solutions'">
-        <Solutions />
-      </template>
+    <template x-if="navigationMenu === 'solutions'">
+      <Solutions />
+    </template>
 
-      <template x-if="navigationMenu === 'industries'">
-        <Industries />
-      </template>
+    <template x-if="navigationMenu === 'industries'">
+      <Industries />
+    </template>
 
-      <template x-if="navigationMenu === 'technology'">
-        <Technology />
-      </template>
+    <template x-if="navigationMenu === 'technology'">
+      <Technology />
+    </template>
 
-      <template x-if="navigationMenu === 'insights'">
-        <Insights />
-      </template>
+    <template x-if="navigationMenu === 'about'">
+      <About />
+    </template>
 
-      <template x-if="navigationMenu === 'about'">
-        <About />
-      </template>
-
-      <template x-if="navigationMenu === 'contact'">
-        <Contact />
-      </template>
-    </div>
+    <template x-if="navigationMenu === 'contact'">
+      <Contact />
+    </template>
   </div>
 </div>
 

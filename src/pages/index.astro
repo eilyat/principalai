@@ -1,29 +1,19 @@
-<<<<<<< HEAD
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
-import BannerStrip from "@/components/frontpage/banner_strip.astro";
-import Herowaves from "@/components/frontpage/herowaves.astro";
-// import Resource_wide from "@/components/frontpage/resources_wide.astro";
 import Resource_wide from "@/components/ResList_frontpage.astro";
 import Publications_wide from "@/components/frontpage/Publications_wide.astro";
 import Articles_wide from "@/components/frontpage/Articles_wide.astro";
 import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
+import Herowaves from "@/components/frontpage/herowaves.astro";
 ---
 
 <BaseLayout>
   <Fragment slot="SEO">
-    <meta
-      property="og:title"
-      content="Principal AI - Intelligence built for decisions"
-    />
-    <meta
-      property="og:description"
-      content="Expert consultancy on transport, housing, climate, and energy solutions."
-    />
-    <meta property="og:url" content="https://principaleconomics.co.nz/" />
+    <meta property="og:title" content="Principal AI - Intelligence built for decisions" />
+    <meta property="og:description" content="AI systems for evidence, modelling, and decision intelligence." />
+    <meta property="og:url" content="https://precai.com/" />
   </Fragment>
-
   <Herowaves />
 <main>
   <!-- Capability strip -->
@@ -228,12 +218,10 @@ import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
     </div>
   </main>
 </BaseLayout>
-=======
 ---
 import "@/styles/global.css";
 import BaseLayout from "@/components/BaseLayout.astro";
 import BannerStrip from "@/components/frontpage/banner_strip.astro";
-import Herowaves from "@/components/frontpage/herowaves.astro";
 // import Resource_wide from "@/components/frontpage/resources_wide.astro";
 import Resource_wide from "@/components/ResList_frontpage.astro";
 import Publications_wide from "@/components/frontpage/Publications_wide.astro";
@@ -254,8 +242,6 @@ import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
     <meta property="og:url" content="https://principaleconomics.co.nz/" />
   </Fragment>
 
-  <Herowaves />
-  <BannerStrip />
   <main>
     <div class="bg-gray-100 py-0">
       <!-- <span class="flex items-center w-full overflow-hidden pt-6 pb-8 font-serif italic ">
@@ -308,4 +294,3 @@ import SectorTabs from "@/components/frontpage/Sector_tabs.astro";
     </div>
   </main>
 </BaseLayout>
->>>>>>> f32be55 (Update PrincipalAI website)

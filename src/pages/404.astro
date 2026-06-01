@@ -3,41 +3,31 @@ import '@/styles/global.css';
 import BaseLayout from '@/components/BaseLayout.astro';
 ---
 
-<BaseLayout SEOTitle="404">
-			<section class="">
-				<div class="container flex items-center justify-center min-h-screen px-6 py-12 mx-auto">
-						<div class="w-full">
-								<div class="flex flex-col items-center max-w-lg mx-auto text-center">
-										<p class="text-8xl font-medium text-blue-500 dark:text-blue-400">404 error</p>
-										<h1 class="mt-3 text-2xl font-semibold text-gray-800 md:text-4xl font-sans">Sorry this page isn't available.</h1>
-										<p class="mt-4 text-gray-500">We could not find what you were looking for, lets find you a better place for you to go.</p>
-		
-										<div class="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
-											<div class="flex gap-3 font-sans">
-												<button
-													type="button"
-													onclick="history.back()"
-													class="font-sans text-md px-6 py-2 text-center inline-flex items-center whitespace-nowrap focus:ring-2 focus:ring-gray-600 bg-gray-800 border border-gray-700 text-white hover:bg-gray-700 rounded-sm" 
-												>
-													Go back
-												</button>
-												<a href="/"><button
-													class="font-sans text-md px-6 py-2 text-center inline-flex items-center whitespace-nowrap focus:ring-2 focus:ring-gray-600 bg-gray-800 border border-gray-700 text-white hover:bg-gray-700 rounded-sm" 
-												>
-													Home
-												</button>
-											</a>
-											</div>
-											
-											
-										</div>
-								</div>
-		
-								
-						</div>
-				</div>
-		</section>
-		
-						
-			
-		</BaseLayout>
+<BaseLayout SEOTitle="Page not found" SEODescription="The page you are looking for could not be found.">
+  <section>
+    <div class="container mx-auto flex min-h-screen items-center justify-center px-6 py-12">
+      <div class="text-center">
+        <p class="text-8xl font-medium text-blue-600">404</p>
+        <h1 class="mt-3 text-2xl font-semibold text-gray-900">Page not found</h1>
+        <p class="mt-4 text-gray-500">We could not find the page you were looking for.</p>
+
+        <div class="mt-6 flex justify-center gap-3">
+          <button
+            type="button"
+            onclick="history.back()"
+            class="rounded-md border border-gray-300 px-5 py-2 font-sans text-gray-700 hover:bg-gray-100"
+          >
+            Go back
+          </button>
+
+          <a
+            href="/"
+            class="rounded-md bg-blue-600 px-5 py-2 font-sans text-white hover:bg-blue-700"
+          >
+            Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

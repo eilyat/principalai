@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 // import cloudflare from '@astrojs/cloudflare';
-import sitemap from '@astrojs/sitemap';
+// import sitemap from '@astrojs/sitemap';
 
 import tailwind from '@astrojs/tailwind';
 
@@ -31,7 +31,7 @@ export default defineConfig({
         },
       }),
       mdx(),
-      sitemap(),
+//      sitemap(),
       alpinejs({ entrypoint: '/src/entrypoint' }),
       tailwind({nesting: true, applyBaseStyles: false,}),
       icon({

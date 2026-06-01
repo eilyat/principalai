@@ -1,61 +1,33 @@
-<<<<<<< HEAD
 ---
-import Industries from "@/components/nav/IndustriesMenu.astro";
-import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
-import Insights from "@/components/nav/InsightsMenu.astro";
-import About from "@/components/nav/AboutMenu.astro";
-import Contact from "@/components/nav/ContactMenu.astro";
-import Accordion from "@/components/nav/AccordionNav.astro";
+import Solutions from "./SolutionsMenu.astro";
+import Industries from "./IndustriesMenu.astro";
+import Technology from "./TechnologyMenu.astro";
+import About from "./AboutMenu.astro";
+import Contact from "./ContactMenu.astro";
+import Accordion from "./AccordionNav.astro";
 ---
+
+<Accordion>
+  <div slot="title">Solutions</div>
+  <Solutions />
+</Accordion>
 
 <Accordion>
   <div slot="title">Industries</div>
   <Industries />
 </Accordion>
-<Accordion>
-  <div slot="title">Capabilities</div>
-  <Capabilities />
-</Accordion>
-<Accordion>
-  <div slot="title">Insights</div>
-  <Insights />
-</Accordion>
-<Accordion>
-  <div slot="title">About us</div>
-  <About />
-</Accordion>
-<Accordion>
-  <div slot="title">Contact us</div>
-  <Contact />
-</Accordion>
-=======
----
-import Industries from "@/components/nav/IndustriesMenu.astro";
-import Capabilities from "@/components/nav/CapabilitiesMenu.astro";
-import Insights from "@/components/nav/InsightsMenu.astro";
-import About from "@/components/nav/AboutMenu.astro";
-import Contact from "@/components/nav/ContactMenu.astro";
-import Accordion from "@/components/ui/AccordionNav.astro";
----
 
 <Accordion>
-  <div slot="title">Industries</div>
-  <Industries />
+  <div slot="title">Technology</div>
+  <Technology />
 </Accordion>
+
 <Accordion>
-  <div slot="title">Capabilities</div>
-  <Capabilities />
-</Accordion>
-<Accordion>
-  <div slot="title">Insights</div>
-  <Insights />
-</Accordion>
-<Accordion>
-  <div slot="title">About us</div>
+  <div slot="title">About</div>
   <About />
 </Accordion>
+
 <Accordion>
-  <div slot="title">Contact us</div>
+  <div slot="title">Contact</div>
   <Contact />
 </Accordion>
->>>>>>> f32be55 (Update PrincipalAI website)
