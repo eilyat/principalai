@@ -1,99 +1,45 @@
-<<<<<<< HEAD
 ---
 import StripBox from "@/components/frontpage/banner_strip_boxes.astro";
 import { getCollection } from "astro:content";
+
 const articles = await getCollection("articles");
+const resources = await getCollection("resources");
 
-const allInsights = [...articles];
-
-const sortedInsights = allInsights.sort((a, b) => {
+const sortedInsights = [...articles].sort((a, b) => {
   const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
   const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-  return dateB - dateA; // Sort in descending order
+  return dateB - dateA;
 });
 
-// Get resources, sort them similarly, and take the top 2
-const resources = await getCollection("resources");
 const sortedResources = [...resources].sort((a, b) => {
   const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
   const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
   return dateB - dateA;
 });
 
-const topResources = sortedResources.slice(0, 2);
-
-const latestInsights = sortedInsights.slice(0, 2);
-
-const combinedList = [...latestInsights, ...topResources];
-
-
+const combinedList = [
+  ...sortedInsights.slice(0, 2),
+  ...sortedResources.slice(0, 2),
+];
 ---
 
-<div class="w-full pt-3 pb-3 border-t-2 border-b-2 border-accent">
+<div class="w-full border-t-2 border-b-2 border-accent py-3">
   <div class="flex flex-wrap justify-between gap-0">
-    <div class="flex items-center border-l-0 border-r-2 border-accent p-2 pr-8 pl-6">
+    <div class="flex items-center border-r-2 border-accent p-2 pl-6 pr-8">
       <h2 class="text-xl font-bold text-accent">Trending Insights</h2>
     </div>
-    <div class="flex flex-wrap w-full md:w-3/4 flex-grow">
-      {combinedList.map((entry, index) => (
-        <StripBox
-          number={index + 1}
-          description={entry.data.tagline}
-          class="border-l-1 border-r-2 border-accent"
-          href={`/${entry.collection}/${entry.slug}`}
-         />
-      ))}
-    </div>
 
+    <div class="flex w-full flex-grow flex-wrap md:w-3/4">
+      {
+        combinedList.map((entry, index) => (
+          <StripBox
+            number={index + 1}
+            description={entry.data.tagline}
+            class="border-l-1 border-r-2 border-accent"
+            href={`/${entry.collection}/${entry.slug}`}
+          />
+        ))
+      }
+    </div>
   </div>
 </div>
-=======
----
-import StripBox from "../ui/banner_strip_boxes.astro";
-import { getCollection } from "astro:content";
-const articles = await getCollection("articles");
-
-const allInsights = [...articles];
-
-const sortedInsights = allInsights.sort((a, b) => {
-  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
-  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-  return dateB - dateA; // Sort in descending order
-});
-
-// Get resources, sort them similarly, and take the top 2
-const resources = await getCollection("resources");
-const sortedResources = [...resources].sort((a, b) => {
-  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
-  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-  return dateB - dateA;
-});
-
-const topResources = sortedResources.slice(0, 2);
-
-const latestInsights = sortedInsights.slice(0, 2);
-
-const combinedList = [...latestInsights, ...topResources];
-
-
----
-
-<div class="w-full pt-3 pb-3 border-t-2 border-b-2 border-accent">
-  <div class="flex flex-wrap justify-between gap-0">
-    <div class="flex items-center border-l-0 border-r-2 border-accent p-2 pr-8 pl-6">
-      <h2 class="text-xl font-bold text-accent">Trending Insights</h2>
-    </div>
-    <div class="flex flex-wrap w-full md:w-3/4 flex-grow">
-      {combinedList.map((entry, index) => (
-        <StripBox
-          number={index + 1}
-          description={entry.data.tagline}
-          class="border-l-1 border-r-2 border-accent"
-          href={`/${entry.collection}/${entry.slug}`}
-         />
-      ))}
-    </div>
-
-  </div>
-</div>
->>>>>>> f32be55 (Update PrincipalAI website)

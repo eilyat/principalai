@@ -1,0 +1,138 @@
+---
+---
+
+<div class="w-full overflow-hidden border-t border-gray-200 bg-white">
+<div class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-8 px-6 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:px-10 lg:py-10">
+    <!-- Column 1 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Decision intelligence
+      </p>
+      <h3 class="break-words font-serif text-2xl font-bold leading-tight text-gray-900">
+        Turn evidence into decisions
+      </h3>
+      <p class="mt-3 text-base leading-relaxed text-gray-600">
+        AI systems that help organisations understand evidence, assess options, and support high-value decisions.
+      </p>
+
+      <div class="mt-6 space-y-5">
+        <a href="/solutions/econai" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            EconAI
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Research, policy analysis, evidence synthesis, and knowledge discovery.
+          </p>
+        </a>
+
+        <a href="/solutions/health-vulnerability" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            Health Adaptation Advisor
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Climate-health intelligence for adaptation planning and resilience decisions.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Intelligence platforms
+      </p>
+      <h3 class="break-words font-serif text-2xl font-bold leading-tight text-gray-900">
+          Transform information into insight
+      </h3>
+      <p class="mt-3 text-base leading-relaxed text-gray-600">
+        Platforms that combine data, models, and AI to support planning, forecasting, and investment decisions.
+      </p>
+
+      <div class="mt-6 space-y-5">
+        <a href="/solutions/cost-intelligence" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            Cost Intelligence Platform
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Market intelligence, forecasting support, and investment decision tools.
+          </p>
+        </a>
+
+        <a href="/solutions/decision-intelligence" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            Decision Intelligence Platform
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Modelling, scenario analysis, and decision support for complex policy questions.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 3 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Forecasting and simulation
+      </p>
+      <h3 class="break-words font-serif text-2xl font-bold leading-tight text-gray-900">
+        Explore futures before they happen
+      </h3>
+      <p class="mt-3 text-base leading-relaxed text-gray-600">
+        Advanced modelling and simulation tools for policy, infrastructure, climate, energy, and economic decisions.
+      </p>
+
+      <div class="mt-6 space-y-5">
+        <a href="/technology/simulation-forecasting" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            Scenario Intelligence
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Explore alternative futures, policy interventions, and strategic risks.
+          </p>
+        </a>
+
+        <a href="/technology/geospatial-intelligence" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            Digital Decision Support
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Interactive dashboards and analytical environments for operational insight.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 4 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Secure AI operations
+      </p>
+      <h3 class="break-words font-serif text-2xl font-bold leading-tight text-gray-900">
+        Deploy AI with confidence
+      </h3>
+      <p class="mt-3 text-base leading-relaxed text-gray-600">
+        Private AI infrastructure, governance, and operational workflows designed for professional environments.
+      </p>
+
+      <div class="mt-6 space-y-5">
+        <a href="/solutions/ai-operations" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            AI Operations Platform
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Private deployment, workflow orchestration, governance, and enterprise AI operations.
+          </p>
+        </a>
+
+        <a href="/technology/sovereign-ai" class="block group">
+          <div class="font-semibold text-gray-900 group-hover:text-blue-600">
+            Sovereign AI
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Keep control over data, infrastructure, models, and sensitive workflows.
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

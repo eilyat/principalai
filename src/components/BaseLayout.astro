@@ -15,10 +15,29 @@ const {
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>{SEOTitle}</title>
     <meta name="description" content={SEODescription} />
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="PrincipalAI" />
+    <meta property="og:title" content={SEOTitle} />
+    <meta property="og:description" content={SEODescription} />
+    <meta property="og:url" content="https://precai.com/" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32-v4.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16-v4.png" />
+<link rel="shortcut icon" href="/favicon-v4.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4" />
+
+<meta property="og:image" content="https://precai.com/og-image.png?v=4" />
+<meta property="og:image:secure_url" content="https://precai.com/og-image.png?v=4" />
+<meta name="twitter:image" content="https://precai.com/og-image.png?v=4" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={SEOTitle} />
+    <meta name="twitter:description" content={SEODescription} />
 
     <slot name="SEO" />
 

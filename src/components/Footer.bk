@@ -1,0 +1,235 @@
+---
+const today = new Date().getFullYear();
+import { getCollection } from "astro:content";
+const industries = await getCollection("industries");
+const capabilities = await getCollection("capabilities");
+---
+
+<footer class="bg-gray-50">
+  <div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="lg:flex lg:items-start lg:gap-8">
+      <div
+        class="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16 w-full"
+      >
+        <div class="col-span-2">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900">
+              Subscribe to our newsletter
+            </h2>
+
+            <p class="mt-4 text-gray-500">
+              Get update about our latest reports and events on your email
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-2 lg:col-span-3 lg:flex lg:items-end">
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="w-full"
+          >
+            <!-- Web3Forms Access Key -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="e853e9ac-8aa0-4d98-bfbf-6608b0c887ea"
+            />
+
+            <!-- Set Subject to "Newsletter Subscription" -->
+            <input
+              type="hidden"
+              name="subject"
+              value="Newsletter Subscription"
+            />
+
+            <!-- Bot Protection -->
+            <input type="checkbox" name="botcheck" style="display: none;" />
+
+            <label for="UserEmail" class="sr-only">Email</label>
+
+            <div
+              class="border bg-white border-gray-200 p-2 rounded-sm focus-within:ring-2 focus-within:ring-gray-500 w-full flex items-center gap-2"
+            >
+              <input
+                type="email"
+                id="UserEmail"
+                name="email"
+                placeholder="you@company.com"
+                required
+                class="w-full border-none outline-none focus:ring-0 focus:border-transparent text-sm p-2"
+              />
+
+              <button
+                type="submit"
+                class="font-sans text-md px-6 py-2 text-center inline-flex items-center whitespace-nowrap focus:ring-2 focus:ring-gray-600 bg-gray-800 border border-gray-700 text-white hover:bg-gray-700 rounded-sm"
+              >
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1">
+          <a href="/industries">
+            <p class="font-medium text-gray-900">Industries</p>
+          </a>
+          <ul class="mt-6 space-y-4 text-sm">
+            {
+              industries.map((entry) => (
+                <li>
+                  <a
+                    href={`/industries/${entry.slug}`}
+                    class="text-gray-700 transition hover:opacity-75"
+                  >
+                    {entry.data.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1">
+          <a href="/capabilities">
+            <p class="font-medium text-gray-900">Capabilities</p>
+          </a>
+          <ul class="mt-6 space-y-4 text-sm">
+            {
+              capabilities.map((entry) => (
+                <li>
+                  <a
+                    href={`/capabilities/${entry.slug}`}
+                    class="text-gray-700 transition hover:opacity-75"
+                  >
+                    {entry.data.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1">
+          <a href="/insights">
+            <p class="font-medium text-gray-900">Insights</p>
+          </a>
+          <ul class="mt-6 space-y-4 text-sm">
+            <li>
+              <a
+                href={`/articles`}
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Articles
+              </a>
+            </li>
+            <li>
+              <a
+                href={`/publications`}
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Publications
+              </a>
+            </li>
+            <li>
+              <a
+                href={`/resources`}
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Resources
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1">
+          <a href="/about">
+            <p class="font-medium text-gray-900">About us</p>
+          </a>
+          <ul class="mt-6 space-y-4 text-sm">
+            <li>
+              <a
+                href="/about/Purpose"
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Purpose
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/about/How we work"
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                How we work
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/about/Corporate Commitments"
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Corporate commitments
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about/team"
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Meet our team
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1">
+          <a href="/contact">
+            <p class="font-medium text-gray-900">Contact us</p>
+          </a>
+          <ul class="mt-6 space-y-4 text-sm">
+            <li>
+              <a
+                href="/contact"
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Our contact details
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/Newsletter"
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Newsletter
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/Careers"
+                class="text-gray-700 transition hover:opacity-75"
+              >
+                Careers
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul
+          class="col-span-2 flex justify-start gap-6 lg:col-span-5 lg:justify-end"
+        >
+          <div class="mt-0 border-t border-gray-100 pt-0">
+            <div class="sm:flex sm:justify-between">
+              <p class="text-xs text-gray-500">
+                &copy; {today} Principal Economics Limited. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,46 +1,77 @@
 ---
+import { Icon } from "astro-icon/components";
+
+const solutions = [
+  {
+    title: "EconAI",
+    desc: "Research, policy analysis, evidence synthesis, and knowledge discovery.",
+    href: "/solutions/econai",
+  },
+  {
+    title: "Cost Intelligence Platform",
+    desc: "Market intelligence, forecasting support, and investment decision tools.",
+    href: "/solutions/cost-intelligence",
+  },
+  {
+    title: "Health Adaptation Advisor",
+    desc: "Climate-health intelligence for adaptation planning and resilience decisions.",
+    href: "/solutions/health-vulnerability",
+  },
+  {
+    title: "AI Operations Platform",
+    desc: "Private deployment, workflow orchestration, governance, and enterprise AI operations.",
+    href: "/solutions/ai-operations",
+  },
+  {
+    title: "Decision Intelligence Platform",
+    desc: "Modelling, scenario analysis, and decision support for complex policy questions.",
+    href: "/solutions/decision-intelligence",
+  },
+];
 ---
 
-<div class="w-full bg-white border-t border-gray-200">
-  <div class="mx-auto grid max-w-screen-2xl grid-cols-4 gap-8 px-10 py-10">
-    <div>
-      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">Decision intelligence</p>
-      <a href="/solutions/decision-intelligence" class="block font-serif text-2xl font-bold text-gray-900 hover:text-blue-600">
-        Better decisions from complex information
-      </a>
-      <p class="mt-3 text-gray-600">
-        Use AI to retrieve evidence, test options, and support high-value strategic decisions.
-      </p>
+<div class="w-full bg-white px-7">
+  <div class="mx-auto grid max-w-screen-2xl grid-cols-12 gap-0">
+    <div class="hidden bg-white p-6 sm:block lg:col-span-2">
+      <div class="text-3xl font-bold">
+        Solutions
+        <a href="/solutions">
+          <div class="group flex place-items-center gap-2 pt-1 text-base font-semibold text-blue-600 hover:underline hover:underline-offset-8">
+            See more details
+            <Icon name="carbon:arrow-right" class="size-6 transition-transform duration-200 group-hover:translate-x-2" />
+          </div>
+        </a>
+      </div>
     </div>
 
-    <div>
-      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">Knowledge systems</p>
-      <a href="/solutions/knowledge-intelligence" class="block font-serif text-2xl font-bold text-gray-900 hover:text-blue-600">
-        Turn institutional knowledge into intelligence
-      </a>
-      <p class="mt-3 text-gray-600">
-        Search, summarise, compare, and apply knowledge across reports, datasets, and models.
-      </p>
-    </div>
+    <div class="col-span-12 bg-white p-4 lg:col-span-10">
+      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        {
+          solutions.map((item) => (
+            <li class="text-gray-800">
+              <a
+                class="block min-h-[90px] w-full border-l-2 border-gray-300 bg-white py-2 pl-4 text-left text-gray-600 hover:border-l-4 hover:border-blue-500 hover:bg-gray-100 hover:text-blue-700 hover:shadow-sm"
+                href={item.href}
+              >
+                <div class="flex h-full flex-col justify-center">
+                  <span class="text-lg font-semibold leading-tight">{item.title}</span>
+                  <span class="mt-1 text-sm text-gray-500">{item.desc}</span>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
 
-    <div>
-      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">Forecasting and simulation</p>
-      <a href="/solutions/simulation-forecasting" class="block font-serif text-2xl font-bold text-gray-900 hover:text-blue-600">
-        Explore scenarios and future risks
-      </a>
-      <p class="mt-3 text-gray-600">
-        Combine AI with economic, transport, energy, climate, and geospatial models.
-      </p>
-    </div>
-
-    <div>
-      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">Secure AI operations</p>
-      <a href="/solutions/ai-operations" class="block font-serif text-2xl font-bold text-gray-900 hover:text-blue-600">
-        Deploy AI in controlled environments
-      </a>
-      <p class="mt-3 text-gray-600">
-        Build private AI workflows that protect sensitive data and support traceable analysis.
-      </p>
+      <div class="block sm:hidden">
+        <br />
+        <a href="/solutions">
+          <div class="group flex place-items-center gap-2 pt-1 text-base font-semibold text-blue-600 hover:underline hover:underline-offset-8">
+            See more details
+            <Icon name="carbon:arrow-right" class="size-6 transition-transform duration-200 group-hover:translate-x-2" />
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

@@ -20,9 +20,9 @@ export default defineConfig({
     // }),
     trailingSlash: "never",
     build: {
-      format: "file",
+      format: "directory",
     },
-    site: 'https://principaleconomics.co.nz',
+    site: 'https://precai.com',
     integrations: [
       pagefind({
         // Example of specifying Pagefind config:

@@ -1,0 +1,177 @@
+---
+---
+
+<div class="w-full overflow-hidden border-t border-gray-200 bg-white">
+<div class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-8 px-6 py-8 sm:grid-cols-2 lg:grid-cols-5 lg:px-10 lg:py-10">
+    <!-- Column 1 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        AI architecture
+      </p>
+
+      <div class="space-y-5">
+        <a href="/technology/sovereign-ai" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Sovereign AI deployment
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Private AI systems that keep sensitive data, models, and workflows under organisational control.
+          </p>
+        </a>
+
+        <a href="/technology/private-model-hosting" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Local and private model hosting
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Deploy language models and AI services in controlled cloud, server, or on-premise environments.
+          </p>
+        </a>
+
+        <a href="/technology/knowledge-systems" class="block group">
+           <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Knowledge systems
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Connect AI to reports, documents, datasets, and institutional knowledge.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Models and analytics
+      </p>
+
+      <div class="space-y-5">
+        <a href="/technology/large-language-models" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Large language models
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Apply LLMs to evidence retrieval, summarisation, analysis, reporting, and decision support.
+          </p>
+        </a>
+
+        <a href="/technology/economic-modelling" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Economic modelling
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Combine AI with economic models, appraisal frameworks, and policy analysis.
+          </p>
+        </a>
+
+        <a href="/technology/simulation-forecasting" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Simulation and forecasting
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Explore future scenarios, test assumptions, and interpret modelled outcomes.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 3 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Spatial intelligence
+      </p>
+
+      <div class="space-y-5">
+        <a href="/technology/geospatial-intelligence" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Geospatial intelligence
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Use spatial data and AI-assisted interpretation for place-based decisions.
+          </p>
+        </a>
+
+        <a href="/technology/digital-twins" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Digital twins
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Build interactive decision environments that represent systems, assets, places, and scenarios.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 4 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Security and control
+      </p>
+
+      <div class="space-y-5">
+        <a href="/technology/data-sovereignty" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Data sovereignty
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Keep sensitive information inside approved systems and controlled environments.
+          </p>
+        </a>
+
+        <a href="/technology/secure-workflows" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Secure workflows
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Design AI-enabled workflows with appropriate access, review, and governance.
+          </p>
+        </a>
+
+        <a href="/technology/audit-trails" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Audit trails
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Support traceable outputs, review points, and clear provenance for AI-assisted work.
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Column 5 -->
+    <div>
+      <p class="mb-3 text-sm font-bold uppercase tracking-wide text-blue-600">
+        Responsible AI
+      </p>
+
+      <div class="space-y-5">
+        <a href="/technology/responsible-ai" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Responsible AI
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Apply AI in ways that support transparency, assurance, privacy, and professional judgement.
+          </p>
+        </a>
+
+        <a href="/technology/human-review" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Human-in-the-loop review
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Keep expert judgement central to workflows where consequences and quality matter.
+          </p>
+        </a>
+
+        <a href="/technology/decision-assurance" class="block group">
+          <div class="break-words font-serif text-xl font-bold text-gray-900 group-hover:text-blue-600">
+            Decision assurance
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-gray-600">
+            Strengthen confidence in AI-supported decisions through review, evidence, and structured reporting.
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
